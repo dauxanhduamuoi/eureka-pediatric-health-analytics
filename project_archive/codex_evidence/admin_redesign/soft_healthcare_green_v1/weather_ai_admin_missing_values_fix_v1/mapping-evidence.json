@@ -1,0 +1,35 @@
+{
+  "fixture": "weather_disease_ai_v3/shap_explanation_fix_v1/backend_after.json",
+  "anchor_date": "2026-08-07",
+  "values": [
+    {
+      "old_ui_key": "temp_mean_today",
+      "old_ui_value": null,
+      "correct_v3_key": "temperature_mean_current",
+      "backend_value": 26.875,
+      "unit": "degC"
+    },
+    {
+      "old_ui_key": "humidity_mean_today",
+      "old_ui_value": null,
+      "correct_v3_key": "humidity_mean_current",
+      "backend_value": 68.833333,
+      "unit": "percent"
+    },
+    {
+      "old_ui_key": "rain_sum_today",
+      "old_ui_value": null,
+      "correct_v3_key": "rain_sum_current",
+      "backend_value": 12.0,
+      "unit": "mm"
+    },
+    {
+      "old_ui_key": "wind_speed_max_today",
+      "old_ui_value": null,
+      "correct_v3_key": "wind_speed_max_current",
+      "backend_value": 9.0,
+      "unit": "km/h"
+    }
+  ],
+  "pre_compact_source_has_same_wrong_keys": true
+}

@@ -1,0 +1,127 @@
+--- source_before/Frontend/src/app/components/admin/AdminLayout.test.tsx
++++ Frontend/src/app/components/admin/AdminLayout.test.tsx
+@@ -4,6 +4,12 @@
+ import { getMainNavItems } from '../../navigation';
+ import AdminLayout from './AdminLayout';
+ import viStrings from '@/i18n/locales/vi';
++import { StrictMode } from 'react';
++
++// Vitest stubs stylesheet imports, including ?raw, unless CSS processing is enabled.
++// Load the Node builtin through Vitest; the browser project has no Node typings.
++const { readFileSync } = await vi.importActual<{ readFileSync: (path: string, encoding: 'utf8') => string }>('node:fs');
++const adminStyles = readFileSync('src/app/components/admin/admin.css', 'utf8');
+ 
+ const t = (key: string) => viStrings[key as keyof typeof viStrings] ?? key;
+ const navigate = vi.fn();
+@@ -15,6 +21,63 @@
+   </AdminLayout></I18nProvider>);
+ }
+ beforeEach(() => { vi.clearAllMocks(); window.innerWidth = 1440; });
++
++describe('Admin document scroll ownership (JSDOM lifecycle, not layout measurements)', () => {
++  function installStyles() {
++    const style = document.createElement('style');
++    // Exercise the real rules without resolving CSS imports in JSDOM.
++    style.textContent = adminStyles.replace(/^@import[^;]*;/gm, '');
++    document.head.appendChild(style);
++    const rule = style.sheet!.cssRules[0] as CSSStyleRule;
++    expect(rule.style.overflow).toBe('hidden');
++    // Check the real rule/DOM lifecycle here; Chrome verifies viewport geometry,
++    // wheel events and actual scroll reachability separately.
++    return { remove: () => style.remove(), locks: () => [document.documentElement, document.body].map(element => element.matches(rule.selectorText) && getComputedStyle(element).overflow === 'hidden') };
++  }
++
++  it('locks only while the authenticated workspace exists and resets an incoming document offset', () => {
++    const scrollTo = vi.spyOn(window, 'scrollTo').mockImplementation(() => {});
++    const style = installStyles();
++    const scrollY = Object.getOwnPropertyDescriptor(window, 'scrollY')!;
++    const before = style.locks();
++    try {
++      Object.defineProperty(window, 'scrollY', { configurable: true, value: 500 });
++      const view = mount();
++      expect(style.locks()).toEqual([true, true]);
++      expect(scrollTo).toHaveBeenCalledWith({ top: 0, left: 0, behavior: 'instant' });
++      view.unmount();
++      expect(style.locks()).toEqual(before);
++    } finally { Object.defineProperty(window, 'scrollY', scrollY); style.remove(); scrollTo.mockRestore(); }
++  });
++
++  it('does not lock Login/AuthGate or Parent, including after repeated Admin mounts', () => {
++    const scrollTo = vi.spyOn(window, 'scrollTo').mockImplementation(() => {});
++    const style = installStyles();
++    try {
++      const view = render(<StrictMode><I18nProvider><AdminLayout user={{ id: 1, username: 'fixture', full_name: 'Fixture User', role: 'admin', is_active: true, permissions: [] }} items={getMainNavItems(t)} activeTab="dashboard" pageTitle="Fixture" unreadCount={0} onNavigate={navigate} onLogout={logout}><p>Fixture content</p></AdminLayout></I18nProvider></StrictMode>);
++      expect(style.locks()).toEqual([true, true]);
++      for (const className of ['eureka-admin admin-auth', 'parent-portal']) {
++        view.rerender(<div className={className}>Public content</div>);
++        expect(style.locks()).toEqual([false, false]);
++        const admin = mount();
++        expect(style.locks()).toEqual([true, true]);
++        admin.unmount();
++        expect(style.locks()).toEqual([false, false]);
++      }
++    } finally { style.remove(); scrollTo.mockRestore(); }
++  });
++
++  it('moves skip-link focus into main without scrolling the document', () => {
++    mount();
++    const main = screen.getByRole('main');
++    const focus = vi.spyOn(main, 'focus');
++    try {
++      fireEvent.click(screen.getByRole('link', { name: t('admin.skipContent') }));
++      expect(main).toHaveFocus();
++      expect(focus).toHaveBeenCalledWith({ preventScroll: true });
++    } finally { focus.mockRestore(); }
++  });
++});
+ 
+ describe('Admin shell interaction and responsive state (JSDOM, not visual QA)', () => {
+   it.each([1440, 1280, 1024])('keeps every route reachable in desktop rail at %s', (width) => {
+--- source_before/Frontend/src/app/components/admin/AdminLayout.tsx
++++ Frontend/src/app/components/admin/AdminLayout.tsx
+@@ -1,4 +1,4 @@
+-import { useEffect, useRef, useState, type ReactNode } from 'react';
++import { useEffect, useLayoutEffect, useRef, useState, type ReactNode } from 'react';
+ import { Activity, Bell, ChevronLeft, ChevronDown, LogOut, Menu, Settings, User, X } from 'lucide-react';
+ import type { CurrentUser } from '@/lib/api';
+ import { useT } from '@/lib/i18n';
+@@ -39,6 +39,12 @@
+   const name = user.full_name || user.username;
+   const role = user.role === 'admin' ? t('user.adminRole') : t('user.staffRole');
+   const PageIcon = getAdminPageIcon(activeTab, t);
++
++  useLayoutEffect(() => {
++    // Hidden document overflow retains a public page's previous scroll offset.
++    // Enter the fullscreen workspace at the viewport origin before painting.
++    if (window.scrollX || window.scrollY) window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
++  }, []);
+ 
+   useEffect(() => {
+     const resize = () => {
+@@ -97,7 +103,10 @@
+ 
+   return (
+     <div className="eureka-admin" data-sidebar={showLabels ? 'expanded' : 'collapsed'}>
+-      <a className="admin-skip-link" href="#admin-content">{t('admin.skipContent')}</a>
++      <a className="admin-skip-link" href="#admin-content" onClick={(event) => {
++        event.preventDefault();
++        contentRef.current?.querySelector<HTMLElement>('#admin-content')?.focus({ preventScroll: true });
++      }}>{t('admin.skipContent')}</a>
+       {mobile && drawerOpen && <div className="admin-drawer-backdrop" onClick={() => setDrawerOpen(false)} aria-hidden="true" />}
+       <aside id="admin-sidebar" ref={sidebarRef} className="admin-sidebar" hidden={mobile && !drawerOpen}
+         role={mobile ? 'dialog' : undefined} aria-modal={mobile && drawerOpen ? true : undefined} aria-label={t('admin.navigation')}>
+--- source_before/Frontend/src/app/components/admin/admin.css
++++ Frontend/src/app/components/admin/admin.css
+@@ -1,4 +1,12 @@
+ @import './typography-controls.css';
++
++/* Only the fullscreen Admin workspace owns an inner page scroller. AuthGate
++   also uses .eureka-admin, but has no workspace; Login/Parent keep document scroll.
++   Removing AdminLayout from the DOM automatically releases this lock. */
++html:has(.eureka-admin > .admin-workspace),
++body:has(.eureka-admin > .admin-workspace) {
++  overflow: hidden;
++}
+ 
+ /* Eureka Admin only. Legacy utility adapters keep existing forms and dialogs intact.
+    Parent never mounts .eureka-admin, including shared Weather AI explanation views. */

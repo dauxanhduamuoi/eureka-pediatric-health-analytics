@@ -1,0 +1,44 @@
+[
+  {
+    "template": "overview",
+    "chart_payload_equal": true,
+    "chart_vector_dimensions_equal": true,
+    "drawing_items": 5
+  },
+  {
+    "template": "seasonal",
+    "chart_payload_equal": true,
+    "chart_vector_dimensions_equal": true,
+    "drawing_items": 3
+  },
+  {
+    "template": "disease",
+    "chart_payload_equal": true,
+    "chart_vector_dimensions_equal": true,
+    "drawing_items": 5
+  },
+  {
+    "template": "forecast",
+    "chart_payload_equal": true,
+    "chart_vector_dimensions_equal": true,
+    "drawing_items": 10
+  },
+  {
+    "template": "age_months",
+    "chart_payload_equal": true,
+    "chart_vector_dimensions_equal": true,
+    "drawing_items": 7
+  },
+  {
+    "template": "month_year",
+    "chart_payload_equal": true,
+    "chart_vector_dimensions_equal": true,
+    "drawing_items": 13
+  },
+  {
+    "template": "custom",
+    "chart_payload_equal": true,
+    "chart_vector_dimensions_equal": true,
+    "drawing_items": 5
+  }
+]

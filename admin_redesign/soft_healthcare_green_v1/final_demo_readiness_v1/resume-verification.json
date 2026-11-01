@@ -1,0 +1,47 @@
+{
+  "verification": "saved evidence only, no suite rerun, no database connection",
+  "source_matches_saved_final_patch": true,
+  "sources": {
+    "Frontend/src/app/components/Forecast.tsx": {
+      "sha256": "f09b249620d4858d3b71d5f157ab6562e03d864e78f13a2b81d6de48c27f60cd",
+      "modified_before_final_test_log": true
+    },
+    "Frontend/src/app/components/Forecast.test.tsx": {
+      "sha256": "52cc8adf5f409d4371f0c81944d5c3aed1cf0ea5d10b77924d827ce9a1a0611d",
+      "modified_before_final_test_log": true
+    }
+  },
+  "test_logs": {
+    "frontend-final.log": {
+      "expected_evidence_found": true,
+      "sha256": "a29348e1136619f0c722435db2433058c101ee10e8dbdc9659809e384e85a2df"
+    },
+    "backend-regression.log": {
+      "expected_evidence_found": true,
+      "sha256": "16342a89bcc3d05c380bb2546c0f3355be0e1a66f86babe3657abd59a4cab9b4"
+    },
+    "forecast-after.log": {
+      "expected_evidence_found": true,
+      "sha256": "c468e1464e26af1ba040a6e8a688ce8c7a60c2c04a1e822c658524cdf33314b6"
+    },
+    "typecheck.log": {
+      "expected_evidence_found": true,
+      "sha256": "cc1958e542360cc40898b9adb996794682c621bd47d15044038a776ec8598438"
+    },
+    "build.log": {
+      "expected_evidence_found": true,
+      "sha256": "6b649b16e3e86dc7b0f1ccaee44de41d781e4211eae36e7db6bff241534505bc"
+    }
+  },
+  "isolated_api_checks": 26,
+  "pdf_pages": 8,
+  "csv_exports_with_matching_hash": 7,
+  "rendered_pages": 8,
+  "working_tree_expected_delta": "Forecast.tsx + new Forecast.test.tsx",
+  "backend_reload_pids_still_present": [
+    27640,
+    48008
+  ],
+  "database_hash_finding": "Retained; cause not fully established; no repair/restore",
+  "classification": "PASS_WITH_FINDINGS, browser/E2E NOT VERIFIED, not unconditional DEMO READY"
+}

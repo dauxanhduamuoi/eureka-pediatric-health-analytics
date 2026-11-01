@@ -1,0 +1,449 @@
+{
+  "origin": "Captured before SHAP fix from unchanged selector function + immutable audit predictions",
+  "selectors": [
+    {
+      "disease_group_id": "169",
+      "factor_type": "AGE",
+      "factor_key": "age_group",
+      "factor_value": "1-5 tuổi",
+      "weather_factor": null
+    },
+    {
+      "disease_group_id": "169",
+      "factor_type": "SEASONALITY",
+      "factor_key": "time_of_year",
+      "factor_value": null,
+      "weather_factor": null
+    },
+    {
+      "disease_group_id": "169",
+      "factor_type": "WEATHER",
+      "factor_key": "humidity",
+      "factor_value": null,
+      "weather_factor": "humidity"
+    },
+    {
+      "disease_group_id": "169",
+      "factor_type": "WEATHER",
+      "factor_key": "wind",
+      "factor_value": null,
+      "weather_factor": "wind"
+    },
+    {
+      "disease_group_id": "6",
+      "factor_type": "AGE",
+      "factor_key": "age_group",
+      "factor_value": "1-5 tuổi",
+      "weather_factor": null
+    },
+    {
+      "disease_group_id": "6",
+      "factor_type": "WEATHER",
+      "factor_key": "wind",
+      "factor_value": null,
+      "weather_factor": "wind"
+    },
+    {
+      "disease_group_id": "6",
+      "factor_type": "WEATHER",
+      "factor_key": "temperature",
+      "factor_value": null,
+      "weather_factor": "temperature"
+    },
+    {
+      "disease_group_id": "6",
+      "factor_type": "SEASONALITY",
+      "factor_key": "time_of_year",
+      "factor_value": null,
+      "weather_factor": null
+    },
+    {
+      "disease_group_id": "6",
+      "factor_type": "SEX",
+      "factor_key": "gender",
+      "factor_value": "Nam",
+      "weather_factor": null
+    },
+    {
+      "disease_group_id": "32",
+      "factor_type": "AGE",
+      "factor_key": "age_group",
+      "factor_value": "1-5 tuổi",
+      "weather_factor": null
+    },
+    {
+      "disease_group_id": "32",
+      "factor_type": "SEASONALITY",
+      "factor_key": "time_of_year",
+      "factor_value": null,
+      "weather_factor": null
+    },
+    {
+      "disease_group_id": "32",
+      "factor_type": "WEATHER",
+      "factor_key": "temperature",
+      "factor_value": null,
+      "weather_factor": "temperature"
+    },
+    {
+      "disease_group_id": "32",
+      "factor_type": "WEATHER",
+      "factor_key": "wind",
+      "factor_value": null,
+      "weather_factor": "wind"
+    },
+    {
+      "disease_group_id": "41",
+      "factor_type": "AGE",
+      "factor_key": "age_group",
+      "factor_value": "1-5 tuổi",
+      "weather_factor": null
+    },
+    {
+      "disease_group_id": "41",
+      "factor_type": "WEATHER",
+      "factor_key": "wind",
+      "factor_value": null,
+      "weather_factor": "wind"
+    },
+    {
+      "disease_group_id": "41",
+      "factor_type": "WEATHER",
+      "factor_key": "humidity",
+      "factor_value": null,
+      "weather_factor": "humidity"
+    },
+    {
+      "disease_group_id": "41",
+      "factor_type": "SEASONALITY",
+      "factor_key": "time_of_year",
+      "factor_value": null,
+      "weather_factor": null
+    },
+    {
+      "disease_group_id": "41",
+      "factor_type": "WEATHER",
+      "factor_key": "temperature",
+      "factor_value": null,
+      "weather_factor": "temperature"
+    },
+    {
+      "disease_group_id": "190",
+      "factor_type": "AGE",
+      "factor_key": "age_group",
+      "factor_value": "1-5 tuổi",
+      "weather_factor": null
+    },
+    {
+      "disease_group_id": "190",
+      "factor_type": "SEX",
+      "factor_key": "gender",
+      "factor_value": "Nam",
+      "weather_factor": null
+    },
+    {
+      "disease_group_id": "190",
+      "factor_type": "WEATHER",
+      "factor_key": "temperature",
+      "factor_value": null,
+      "weather_factor": "temperature"
+    },
+    {
+      "disease_group_id": "190",
+      "factor_type": "SEASONALITY",
+      "factor_key": "time_of_year",
+      "factor_value": null,
+      "weather_factor": null
+    },
+    {
+      "disease_group_id": "165",
+      "factor_type": "AGE",
+      "factor_key": "age_group",
+      "factor_value": "1-5 tuổi",
+      "weather_factor": null
+    },
+    {
+      "disease_group_id": "165",
+      "factor_type": "SEASONALITY",
+      "factor_key": "time_of_year",
+      "factor_value": null,
+      "weather_factor": null
+    },
+    {
+      "disease_group_id": "165",
+      "factor_type": "WEATHER",
+      "factor_key": "temperature",
+      "factor_value": null,
+      "weather_factor": "temperature"
+    },
+    {
+      "disease_group_id": "165",
+      "factor_type": "SEX",
+      "factor_key": "gender",
+      "factor_value": "Nam",
+      "weather_factor": null
+    },
+    {
+      "disease_group_id": "80",
+      "factor_type": "AGE",
+      "factor_key": "age_group",
+      "factor_value": "1-5 tuổi",
+      "weather_factor": null
+    },
+    {
+      "disease_group_id": "80",
+      "factor_type": "SEASONALITY",
+      "factor_key": "time_of_year",
+      "factor_value": null,
+      "weather_factor": null
+    },
+    {
+      "disease_group_id": "80",
+      "factor_type": "WEATHER",
+      "factor_key": "wind",
+      "factor_value": null,
+      "weather_factor": "wind"
+    },
+    {
+      "disease_group_id": "80",
+      "factor_type": "SEX",
+      "factor_key": "gender",
+      "factor_value": "Nam",
+      "weather_factor": null
+    },
+    {
+      "disease_group_id": "170",
+      "factor_type": "AGE",
+      "factor_key": "age_group",
+      "factor_value": "1-5 tuổi",
+      "weather_factor": null
+    },
+    {
+      "disease_group_id": "170",
+      "factor_type": "WEATHER",
+      "factor_key": "temperature",
+      "factor_value": null,
+      "weather_factor": "temperature"
+    },
+    {
+      "disease_group_id": "170",
+      "factor_type": "SEX",
+      "factor_key": "gender",
+      "factor_value": "Nam",
+      "weather_factor": null
+    },
+    {
+      "disease_group_id": "170",
+      "factor_type": "WEATHER",
+      "factor_key": "wind",
+      "factor_value": null,
+      "weather_factor": "wind"
+    },
+    {
+      "disease_group_id": "170",
+      "factor_type": "WEATHER",
+      "factor_key": "precipitation",
+      "factor_value": null,
+      "weather_factor": "precipitation"
+    },
+    {
+      "disease_group_id": "87",
+      "factor_type": "AGE",
+      "factor_key": "age_group",
+      "factor_value": "1-5 tuổi",
+      "weather_factor": null
+    },
+    {
+      "disease_group_id": "87",
+      "factor_type": "SEASONALITY",
+      "factor_key": "time_of_year",
+      "factor_value": null,
+      "weather_factor": null
+    },
+    {
+      "disease_group_id": "87",
+      "factor_type": "WEATHER",
+      "factor_key": "wind",
+      "factor_value": null,
+      "weather_factor": "wind"
+    },
+    {
+      "disease_group_id": "87",
+      "factor_type": "WEATHER",
+      "factor_key": "temperature",
+      "factor_value": null,
+      "weather_factor": "temperature"
+    },
+    {
+      "disease_group_id": "187",
+      "factor_type": "AGE",
+      "factor_key": "age_group",
+      "factor_value": "1-5 tuổi",
+      "weather_factor": null
+    },
+    {
+      "disease_group_id": "187",
+      "factor_type": "SEX",
+      "factor_key": "gender",
+      "factor_value": "Nam",
+      "weather_factor": null
+    },
+    {
+      "disease_group_id": "187",
+      "factor_type": "WEATHER",
+      "factor_key": "wind",
+      "factor_value": null,
+      "weather_factor": "wind"
+    },
+    {
+      "disease_group_id": "187",
+      "factor_type": "WEATHER",
+      "factor_key": "temperature",
+      "factor_value": null,
+      "weather_factor": "temperature"
+    },
+    {
+      "disease_group_id": "187",
+      "factor_type": "SEASONALITY",
+      "factor_key": "time_of_year",
+      "factor_value": null,
+      "weather_factor": null
+    }
+  ],
+  "positive_count_cases": [
+    {
+      "positive_count": 0,
+      "selectors": []
+    },
+    {
+      "positive_count": 1,
+      "selectors": [
+        {
+          "disease_group_id": "6",
+          "factor_type": "AGE",
+          "factor_key": "age_group",
+          "factor_value": "1-5 tuổi",
+          "weather_factor": null
+        }
+      ]
+    },
+    {
+      "positive_count": 2,
+      "selectors": [
+        {
+          "disease_group_id": "6",
+          "factor_type": "AGE",
+          "factor_key": "age_group",
+          "factor_value": "1-5 tuổi",
+          "weather_factor": null
+        },
+        {
+          "disease_group_id": "6",
+          "factor_type": "WEATHER",
+          "factor_key": "wind",
+          "factor_value": null,
+          "weather_factor": "wind"
+        }
+      ]
+    },
+    {
+      "positive_count": 3,
+      "selectors": [
+        {
+          "disease_group_id": "6",
+          "factor_type": "AGE",
+          "factor_key": "age_group",
+          "factor_value": "1-5 tuổi",
+          "weather_factor": null
+        },
+        {
+          "disease_group_id": "6",
+          "factor_type": "WEATHER",
+          "factor_key": "wind",
+          "factor_value": null,
+          "weather_factor": "wind"
+        },
+        {
+          "disease_group_id": "6",
+          "factor_type": "WEATHER",
+          "factor_key": "temperature",
+          "factor_value": null,
+          "weather_factor": "temperature"
+        }
+      ]
+    },
+    {
+      "positive_count": 4,
+      "selectors": [
+        {
+          "disease_group_id": "6",
+          "factor_type": "AGE",
+          "factor_key": "age_group",
+          "factor_value": "1-5 tuổi",
+          "weather_factor": null
+        },
+        {
+          "disease_group_id": "6",
+          "factor_type": "WEATHER",
+          "factor_key": "wind",
+          "factor_value": null,
+          "weather_factor": "wind"
+        },
+        {
+          "disease_group_id": "6",
+          "factor_type": "WEATHER",
+          "factor_key": "temperature",
+          "factor_value": null,
+          "weather_factor": "temperature"
+        },
+        {
+          "disease_group_id": "6",
+          "factor_type": "SEASONALITY",
+          "factor_key": "time_of_year",
+          "factor_value": null,
+          "weather_factor": null
+        }
+      ]
+    },
+    {
+      "positive_count": 5,
+      "selectors": [
+        {
+          "disease_group_id": "6",
+          "factor_type": "AGE",
+          "factor_key": "age_group",
+          "factor_value": "1-5 tuổi",
+          "weather_factor": null
+        },
+        {
+          "disease_group_id": "6",
+          "factor_type": "WEATHER",
+          "factor_key": "wind",
+          "factor_value": null,
+          "weather_factor": "wind"
+        },
+        {
+          "disease_group_id": "6",
+          "factor_type": "WEATHER",
+          "factor_key": "temperature",
+          "factor_value": null,
+          "weather_factor": "temperature"
+        },
+        {
+          "disease_group_id": "6",
+          "factor_type": "SEASONALITY",
+          "factor_key": "time_of_year",
+          "factor_value": null,
+          "weather_factor": null
+        },
+        {
+          "disease_group_id": "6",
+          "factor_type": "SEX",
+          "factor_key": "gender",
+          "factor_value": "Nam",
+          "weather_factor": null
+        }
+      ]
+    }
+  ]
+}

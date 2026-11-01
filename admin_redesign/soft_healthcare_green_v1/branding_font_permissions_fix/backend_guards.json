@@ -1,0 +1,57 @@
+{
+  "passed": 8,
+  "failed": 0,
+  "cases": [
+    {
+      "id": 1,
+      "action": "read",
+      "expected": 403,
+      "actual": 403
+    },
+    {
+      "id": 1,
+      "action": "write_guard_unknown_target",
+      "expected": 403,
+      "actual": 403
+    },
+    {
+      "id": 2,
+      "action": "read",
+      "expected": 200,
+      "actual": 200
+    },
+    {
+      "id": 2,
+      "action": "write_guard_unknown_target",
+      "expected": 403,
+      "actual": 403
+    },
+    {
+      "id": 3,
+      "action": "read",
+      "expected": 200,
+      "actual": 200
+    },
+    {
+      "id": 3,
+      "action": "write_guard_unknown_target",
+      "expected": 404,
+      "actual": 404
+    },
+    {
+      "id": 4,
+      "action": "read",
+      "expected": 200,
+      "actual": 200
+    },
+    {
+      "id": 4,
+      "action": "write_guard_unknown_target",
+      "expected": 404,
+      "actual": 404
+    }
+  ],
+  "real_db_connections": 0,
+  "database": "sqlite:// (RAM)",
+  "actual_authentication": "overridden test identity; real role/action dependencies exercised"
+}

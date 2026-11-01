@@ -1,0 +1,88 @@
+{
+  "checks": {
+    "case_count_preserved": true,
+    "no_date_overlap": true
+  },
+  "files": {
+    "test": {
+      "path": "data/splits/test.csv.gz",
+      "sha256": "097c424f8cc11c70af6f82ca2d039bdd42dbc2790c78b975b78bb14ee151a8b5"
+    },
+    "train": {
+      "path": "data/splits/train.csv.gz",
+      "sha256": "14dee747676aee76245ed1aced4d0d9d15c9b597d115f1a353d5b3278ec5c9f5"
+    },
+    "validation": {
+      "path": "data/splits/validation.csv.gz",
+      "sha256": "8483033235bb72534319d781ea25c923b4f318ca56c458390c206cdce785332b"
+    }
+  },
+  "method": "chronological_unique_dates_70_15_15",
+  "test": {
+    "date_from": "2024-09-07",
+    "date_to": "2025-04-26",
+    "disease_groups": 207,
+    "rows": 27566,
+    "total_case_count": 47349,
+    "unique_dates": 232
+  },
+  "total_unique_dates": 1537,
+  "train": {
+    "date_from": "2021-01-01",
+    "date_to": "2024-01-20",
+    "disease_groups": 221,
+    "rows": 92742,
+    "total_case_count": 162247,
+    "unique_dates": 1075
+  },
+  "unseen_disease_groups": {
+    "test_not_in_train": [
+      "15",
+      "16",
+      "2",
+      "219",
+      "294",
+      "295",
+      "35",
+      "40",
+      "61"
+    ],
+    "validation_not_in_train": [
+      "114",
+      "15",
+      "158",
+      "16",
+      "2",
+      "280",
+      "295",
+      "298",
+      "35",
+      "61",
+      "67"
+    ],
+    "validation_or_test_not_in_train": [
+      "114",
+      "15",
+      "158",
+      "16",
+      "2",
+      "219",
+      "280",
+      "294",
+      "295",
+      "298",
+      "35",
+      "40",
+      "61",
+      "67"
+    ]
+  },
+  "validation": {
+    "date_from": "2024-01-21",
+    "date_to": "2024-09-06",
+    "disease_groups": 205,
+    "rows": 28452,
+    "total_case_count": 48173,
+    "unique_dates": 230
+  }
+}

@@ -1,0 +1,34 @@
+{
+  "protectedFiles": 601,
+  "changedExistingFiles": [
+    "Frontend/src/app/components/Account.tsx",
+    "Frontend/src/app/components/Forecast.tsx"
+  ],
+  "missingBaselineFiles": [],
+  "outsideAllowedChanges": [],
+  "forecastControllerStatementsUnchanged": true,
+  "forecastControllerStatementCount": 49,
+  "forecastApiCallsUnchanged": true,
+  "forecastCacheAndNotificationCallsUnchanged": true,
+  "accountCoreExceptLogoutFeedbackUnchanged": true,
+  "accountHelpersUnchanged": true,
+  "accountApiCallsUnchanged": true,
+  "accountClipboardCallUnchanged": true,
+  "documentedExceptions": [
+    "Forecast empty banner requires a successful read; error-first empty presentation is not confirmed empty data",
+    "Account catches synchronous logout exceptions for local feedback; auth implementation unchanged"
+  ],
+  "css": [
+    {
+      "file": "forecast-workspace/forecast.css",
+      "rules": 50,
+      "scoped": true
+    },
+    {
+      "file": "account-workspace/account.css",
+      "rules": 56,
+      "scoped": true
+    }
+  ],
+  "realDatabaseIncludedInInventory": false
+}

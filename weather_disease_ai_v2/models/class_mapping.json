@@ -1,0 +1,2109 @@
+{
+  "catalog_class_count": 235,
+  "classes": [
+    {
+      "disease_group_id": "1",
+      "disease_group_name": "Tả - Cholera",
+      "model_class_index": 0,
+      "model_supported": true,
+      "report_group_code": "A00",
+      "support_level": "insufficient"
+    },
+    {
+      "disease_group_id": "100",
+      "disease_group_name": "Một số rối loạn hệ miễn dịch - Certain disorders involving the immune mechanism",
+      "model_class_index": 61,
+      "model_supported": true,
+      "report_group_code": "D80-D89",
+      "support_level": "medium"
+    },
+    {
+      "disease_group_id": "101",
+      "disease_group_name": "Tổn thương tuyến giáp liên quan đến thiếu iod - Iodine deficiency- related thyroid disorders",
+      "model_class_index": 62,
+      "model_supported": true,
+      "report_group_code": "E00-E02",
+      "support_level": "insufficient"
+    },
+    {
+      "disease_group_id": "102",
+      "disease_group_name": "Nhiễm độc do tuyến giáp (cường giáp) - Thyrotoxicosis",
+      "model_class_index": 63,
+      "model_supported": true,
+      "report_group_code": "E05",
+      "support_level": "low"
+    },
+    {
+      "disease_group_id": "103",
+      "disease_group_name": "Tổn thương khác của tuyến giáp - Other disorders of thyroid.",
+      "model_class_index": 64,
+      "model_supported": true,
+      "report_group_code": "E03-E04,E06-E07",
+      "support_level": "low"
+    },
+    {
+      "disease_group_id": "104",
+      "disease_group_name": "Đái tháo đường - Diabetes mellitus.",
+      "model_class_index": 65,
+      "model_supported": true,
+      "report_group_code": "E10-E14",
+      "support_level": "medium"
+    },
+    {
+      "disease_group_id": "105",
+      "disease_group_name": "Suy dinh dưỡng - Malnutrition",
+      "model_class_index": 66,
+      "model_supported": true,
+      "report_group_code": "E40-E46",
+      "support_level": "low"
+    },
+    {
+      "disease_group_id": "107",
+      "disease_group_name": "Thiếu vitamin khác - Other vitamin deficiencies.",
+      "model_class_index": 67,
+      "model_supported": true,
+      "report_group_code": "E51-E56",
+      "support_level": "insufficient"
+    },
+    {
+      "disease_group_id": "109",
+      "disease_group_name": "Béo phì - Obesity",
+      "model_class_index": 68,
+      "model_supported": true,
+      "report_group_code": "E66",
+      "support_level": "low"
+    },
+    {
+      "disease_group_id": "111",
+      "disease_group_name": "Bệnh khác về nội tiết, dinh dưỡng và chuyển hoá - Other endocrine, nutritional and metabolic disorders",
+      "model_class_index": 69,
+      "model_supported": true,
+      "report_group_code": "E15-E35,E58-E63,E65,E67-E84,E85,E87,E88-E89,E90",
+      "support_level": "high"
+    },
+    {
+      "disease_group_id": "114",
+      "disease_group_name": "Rối loạn tâm thần và ứng xử liên quan dùng các chất kích thích tâm lí khác - Mental and behavioural disorders due to other psychoactive substances use",
+      "model_class_index": null,
+      "model_supported": false,
+      "report_group_code": "F11-F19",
+      "support_level": "insufficient"
+    },
+    {
+      "disease_group_id": "115",
+      "disease_group_name": "Tâm thần phân liệt, rối loạn dạng phân liệt và hoang tưởng - Schizophrenia, schiztypal and delusional disorders",
+      "model_class_index": 70,
+      "model_supported": true,
+      "report_group_code": "F20-F29",
+      "support_level": "insufficient"
+    },
+    {
+      "disease_group_id": "116",
+      "disease_group_name": "Rối loạn khí sắc - Mood ( affective) disorders.",
+      "model_class_index": 71,
+      "model_supported": true,
+      "report_group_code": "F30-F39",
+      "support_level": "insufficient"
+    },
+    {
+      "disease_group_id": "117",
+      "disease_group_name": "Loạn thần kinh, rối loạn gắn liền với các yếu tố stress và các rối loạn thuộc thân thể - Neurotic, sterss - related and somatoform disorders",
+      "model_class_index": 72,
+      "model_supported": true,
+      "report_group_code": "F40-F48",
+      "support_level": "low"
+    },
+    {
+      "disease_group_id": "118",
+      "disease_group_name": "Chậm phát triển tâm thần - Mental retardation",
+      "model_class_index": 73,
+      "model_supported": true,
+      "report_group_code": "F70-F79",
+      "support_level": "low"
+    },
+    {
+      "disease_group_id": "119",
+      "disease_group_name": "Rối loạn tâm thần và nhân cách khác - Other mental and behavioural disorders",
+      "model_class_index": 74,
+      "model_supported": true,
+      "report_group_code": "F04-F09,F50-F69,F80-F99",
+      "support_level": "low"
+    },
+    {
+      "disease_group_id": "120",
+      "disease_group_name": "Viêm hệ thần kinh trung ương - Inflamatory diseases of the central nervous system",
+      "model_class_index": 75,
+      "model_supported": true,
+      "report_group_code": "G00-G09",
+      "support_level": "high"
+    },
+    {
+      "disease_group_id": "123",
+      "disease_group_name": "Xơ cứng nhiều nơi - Multiple sclerosis",
+      "model_class_index": 76,
+      "model_supported": true,
+      "report_group_code": "G35",
+      "support_level": "insufficient"
+    },
+    {
+      "disease_group_id": "124",
+      "disease_group_name": "Động kinh - Epilepsy",
+      "model_class_index": 77,
+      "model_supported": true,
+      "report_group_code": "G40-G41",
+      "support_level": "high"
+    },
+    {
+      "disease_group_id": "125",
+      "disease_group_name": "Đau nửa đầu và các hội chứng đau đầu khác - Migraine and other headache syndromes.",
+      "model_class_index": 78,
+      "model_supported": true,
+      "report_group_code": "G43-G44",
+      "support_level": "low"
+    },
+    {
+      "disease_group_id": "126",
+      "disease_group_name": "Cơn thiếu máu não thoáng qua và các hội chứng tương tự - Transient cerebral ischaemic attacks and related syndromes",
+      "model_class_index": 79,
+      "model_supported": true,
+      "report_group_code": "G45",
+      "support_level": "insufficient"
+    },
+    {
+      "disease_group_id": "127",
+      "disease_group_name": "Tổn thương thần kinh, rễ và đám rối thần kinh - Nerve, nerve root and plexus disorders",
+      "model_class_index": 80,
+      "model_supported": true,
+      "report_group_code": "G50-G59",
+      "support_level": "low"
+    },
+    {
+      "disease_group_id": "128",
+      "disease_group_name": "Liệt não, hội chứng liệt khác - Cerebral palsy and other paralytic syndromes",
+      "model_class_index": 81,
+      "model_supported": true,
+      "report_group_code": "G80-G83",
+      "support_level": "low"
+    },
+    {
+      "disease_group_id": "129",
+      "disease_group_name": "Bệnh khác của hệ thần kinh - Other diseases of the nervous system",
+      "model_class_index": 82,
+      "model_supported": true,
+      "report_group_code": "G10-G14,G21-G26,G31-G32,G36-G37,G46-G47,G60-G73,G90-G99",
+      "support_level": "medium"
+    },
+    {
+      "disease_group_id": "13",
+      "disease_group_name": "Các dạng uốn ván khác - Other tetanus",
+      "model_class_index": 7,
+      "model_supported": true,
+      "report_group_code": "A34-A35",
+      "support_level": "insufficient"
+    },
+    {
+      "disease_group_id": "130",
+      "disease_group_name": "Viêm mi mắt - Inflammation of eyelid",
+      "model_class_index": 83,
+      "model_supported": true,
+      "report_group_code": "H00-H01",
+      "support_level": "insufficient"
+    },
+    {
+      "disease_group_id": "131",
+      "disease_group_name": "Viêm kết mạc, tổn thương khác của kết mạc - Conjunctivitis and other disoders of conjunctiva",
+      "model_class_index": 84,
+      "model_supported": true,
+      "report_group_code": "H10-H13",
+      "support_level": "low"
+    },
+    {
+      "disease_group_id": "132",
+      "disease_group_name": "Viêm giác mạc, tổn thương khác của củng mạc và giác mạc - Keratitis and other disorders of sclera and cornea.",
+      "model_class_index": 85,
+      "model_supported": true,
+      "report_group_code": "H15-H22",
+      "support_level": "insufficient"
+    },
+    {
+      "disease_group_id": "135",
+      "disease_group_name": "Glôcôm - Glaucoma",
+      "model_class_index": 86,
+      "model_supported": true,
+      "report_group_code": "H40-H42",
+      "support_level": "insufficient"
+    },
+    {
+      "disease_group_id": "136",
+      "disease_group_name": "Lác mắt - Strabismus",
+      "model_class_index": 87,
+      "model_supported": true,
+      "report_group_code": "H49-H50",
+      "support_level": "low"
+    },
+    {
+      "disease_group_id": "137",
+      "disease_group_name": "Tật khúc xạ, các rối loạn điều tiết - Disorders of refraction and accomodation",
+      "model_class_index": 88,
+      "model_supported": true,
+      "report_group_code": "H52",
+      "support_level": "insufficient"
+    },
+    {
+      "disease_group_id": "139",
+      "disease_group_name": "Các bệnh khác của mắt và phần phụ mắt - Other diseases of the eye and adnexa",
+      "model_class_index": 89,
+      "model_supported": true,
+      "report_group_code": "H30-H32,H34-H36,H43-H48,H51,H53-H55,H57-H59",
+      "support_level": "low"
+    },
+    {
+      "disease_group_id": "140",
+      "disease_group_name": "Viêm tai giữa, bệnh khác của tai giữa và xương chũm - Otitis media and other disorders of middle ear and mastoid",
+      "model_class_index": 90,
+      "model_supported": true,
+      "report_group_code": "H65-H75",
+      "support_level": "low"
+    },
+    {
+      "disease_group_id": "141",
+      "disease_group_name": "Mất thính giác - Hearing loss",
+      "model_class_index": 91,
+      "model_supported": true,
+      "report_group_code": "H90-H91",
+      "support_level": "insufficient"
+    },
+    {
+      "disease_group_id": "142",
+      "disease_group_name": "Bệnh khác của tai và xương chũm - Other diseases of the ear and mastoid process",
+      "model_class_index": 92,
+      "model_supported": true,
+      "report_group_code": "H60-H62,H80-H83,H92-H95",
+      "support_level": "low"
+    },
+    {
+      "disease_group_id": "143",
+      "disease_group_name": "Thấp khớp cấp - Acute rheumatic heart disease",
+      "model_class_index": 93,
+      "model_supported": true,
+      "report_group_code": "I00-I02",
+      "support_level": "insufficient"
+    },
+    {
+      "disease_group_id": "144",
+      "disease_group_name": "Bệnh thấp tim mãn - Chronic rheumatic disease",
+      "model_class_index": 94,
+      "model_supported": true,
+      "report_group_code": "I05-I09",
+      "support_level": "low"
+    },
+    {
+      "disease_group_id": "145",
+      "disease_group_name": "Tăng huyết áp nguyên phát - Essential (primary) hypertension",
+      "model_class_index": 95,
+      "model_supported": true,
+      "report_group_code": "I10",
+      "support_level": "medium"
+    },
+    {
+      "disease_group_id": "146",
+      "disease_group_name": "Bệnh tăng huyết áp khác - Other hypertensive diseases",
+      "model_class_index": 96,
+      "model_supported": true,
+      "report_group_code": "I11-I15",
+      "support_level": "insufficient"
+    },
+    {
+      "disease_group_id": "148",
+      "disease_group_name": "Bệnh tim thiếu máu cục bộ khác - Other ischaemic heart diseases",
+      "model_class_index": 97,
+      "model_supported": true,
+      "report_group_code": "I20,I23-I25",
+      "support_level": "insufficient"
+    },
+    {
+      "disease_group_id": "15",
+      "disease_group_name": "Ho gà - Whooping cough",
+      "model_class_index": null,
+      "model_supported": false,
+      "report_group_code": "A37",
+      "support_level": "low"
+    },
+    {
+      "disease_group_id": "150",
+      "disease_group_name": "Rối loạn dẫn truyền và loạn nhịp tim - Conduction disorders and cardiac arrhythymias",
+      "model_class_index": 98,
+      "model_supported": true,
+      "report_group_code": "I44-I49",
+      "support_level": "medium"
+    },
+    {
+      "disease_group_id": "151",
+      "disease_group_name": "Suy tim - Heart failure",
+      "model_class_index": 99,
+      "model_supported": true,
+      "report_group_code": "I50",
+      "support_level": "low"
+    },
+    {
+      "disease_group_id": "152",
+      "disease_group_name": "Bệnh tim khác - Other heart diseases",
+      "model_class_index": 100,
+      "model_supported": true,
+      "report_group_code": "I27-I43,I51-I52",
+      "support_level": "low"
+    },
+    {
+      "disease_group_id": "153",
+      "disease_group_name": "Chảy máu não - Intracerebral haemorrhage",
+      "model_class_index": 101,
+      "model_supported": true,
+      "report_group_code": "I60-I62",
+      "support_level": "low"
+    },
+    {
+      "disease_group_id": "154",
+      "disease_group_name": "Nhồi máu não - Cerebral infarction",
+      "model_class_index": 102,
+      "model_supported": true,
+      "report_group_code": "I63",
+      "support_level": "low"
+    },
+    {
+      "disease_group_id": "155",
+      "disease_group_name": "Tai biến mạch máu não, không xác định rõ chảy máu hoặc do nhồi máu - Stroke, not specified as haemorrhage or infarction",
+      "model_class_index": 103,
+      "model_supported": true,
+      "report_group_code": "I64",
+      "support_level": "insufficient"
+    },
+    {
+      "disease_group_id": "156",
+      "disease_group_name": "Bệnh mạch máu não khác - Other cerebrovascular diseases",
+      "model_class_index": 104,
+      "model_supported": true,
+      "report_group_code": "I65-I69",
+      "support_level": "low"
+    },
+    {
+      "disease_group_id": "158",
+      "disease_group_name": "Bệnh mạch máu ngoại vi khác - Other peripheral vascular disease",
+      "model_class_index": null,
+      "model_supported": false,
+      "report_group_code": "I73",
+      "support_level": "insufficient"
+    },
+    {
+      "disease_group_id": "159",
+      "disease_group_name": "Nghẽn và huyết khối động mạch - Arterial embolism and thrombosis",
+      "model_class_index": 105,
+      "model_supported": true,
+      "report_group_code": "I74",
+      "support_level": "insufficient"
+    },
+    {
+      "disease_group_id": "16",
+      "disease_group_name": "Nhiễm khuẩn não mô cầu - Meningococcal infection",
+      "model_class_index": null,
+      "model_supported": false,
+      "report_group_code": "A39",
+      "support_level": "insufficient"
+    },
+    {
+      "disease_group_id": "160",
+      "disease_group_name": "Bệnh khác của động mạch, tiểu động mạch và mao mạch - Other diseases of arteries, arterioles and capillaries",
+      "model_class_index": 106,
+      "model_supported": true,
+      "report_group_code": "I71-I72",
+      "support_level": "insufficient"
+    },
+    {
+      "disease_group_id": "161",
+      "disease_group_name": "Viêm tĩnh mạch, viêm tĩnh mạch huyết khối, nghẽn mạch và huyết khối tĩnh mạch - Phlebitis, thrombophlebitis,venous embolism and thrombosis",
+      "model_class_index": 107,
+      "model_supported": true,
+      "report_group_code": "I80-I82",
+      "support_level": "low"
+    },
+    {
+      "disease_group_id": "164",
+      "disease_group_name": "Các bệnh khác của bộ máy tuần hoàn - Other diseases of the circulatory system",
+      "model_class_index": 108,
+      "model_supported": true,
+      "report_group_code": "I85-I99, I77-I79,I95-I99",
+      "support_level": "medium"
+    },
+    {
+      "disease_group_id": "165",
+      "disease_group_name": "Viêm họng và viêm amidan cấp - Acute pharyngitis and acute tonsillitis",
+      "model_class_index": 109,
+      "model_supported": true,
+      "report_group_code": "J02-J03",
+      "support_level": "high"
+    },
+    {
+      "disease_group_id": "166",
+      "disease_group_name": "Viêm thanh, khí quản cấp - Acute laryngitis and tracheitis",
+      "model_class_index": 110,
+      "model_supported": true,
+      "report_group_code": "J04",
+      "support_level": "high"
+    },
+    {
+      "disease_group_id": "167",
+      "disease_group_name": "Viêm cấp đường hô hấp trên khác - Other acute upper respiratory infections",
+      "model_class_index": 111,
+      "model_supported": true,
+      "report_group_code": "J00-J01,J05-J06",
+      "support_level": "high"
+    },
+    {
+      "disease_group_id": "168",
+      "disease_group_name": "Cúm - Influenza",
+      "model_class_index": 112,
+      "model_supported": true,
+      "report_group_code": "J09-J11",
+      "support_level": "insufficient"
+    },
+    {
+      "disease_group_id": "169",
+      "disease_group_name": "Các bệnh viêm phổi - Pneumonia",
+      "model_class_index": 113,
+      "model_supported": true,
+      "report_group_code": "J12-J18",
+      "support_level": "high"
+    },
+    {
+      "disease_group_id": "17",
+      "disease_group_name": "Nhiễm khuẩn huyết - Septicemia",
+      "model_class_index": 8,
+      "model_supported": true,
+      "report_group_code": "A40-A41",
+      "support_level": "medium"
+    },
+    {
+      "disease_group_id": "170",
+      "disease_group_name": "Viêm phế quản và viêm tiểu phế quản cấp - Acute bronchitis and acute bronchiolitis",
+      "model_class_index": 114,
+      "model_supported": true,
+      "report_group_code": "J20-J21",
+      "support_level": "high"
+    },
+    {
+      "disease_group_id": "171",
+      "disease_group_name": "Viêm xoang mạn tính - Chronic sinusitis",
+      "model_class_index": 115,
+      "model_supported": true,
+      "report_group_code": "J32",
+      "support_level": "insufficient"
+    },
+    {
+      "disease_group_id": "172",
+      "disease_group_name": "Bệnh của mũi và các xoang phụ của mũi - Other diseases of nose and nasal sinuses",
+      "model_class_index": 116,
+      "model_supported": true,
+      "report_group_code": "J30-J31,J33-J34",
+      "support_level": "low"
+    },
+    {
+      "disease_group_id": "173",
+      "disease_group_name": "Bệnh mạn tính của amidan và của VA - Chronic diseases of tonsils and adenoids",
+      "model_class_index": 117,
+      "model_supported": true,
+      "report_group_code": "J35",
+      "support_level": "high"
+    },
+    {
+      "disease_group_id": "174",
+      "disease_group_name": "Bệnh khác đường hô hấp trên - Other diseases of upper respiratory tract",
+      "model_class_index": 118,
+      "model_supported": true,
+      "report_group_code": "J36-J39",
+      "support_level": "low"
+    },
+    {
+      "disease_group_id": "175",
+      "disease_group_name": "Viêm phế quản tràn khí và các bệnh phổi tắc nghẽn mạn tính - Bronchitis, emphysema and other chronic obstructive diseases",
+      "model_class_index": 119,
+      "model_supported": true,
+      "report_group_code": "J40-J44",
+      "support_level": "low"
+    },
+    {
+      "disease_group_id": "176",
+      "disease_group_name": "Hen - Asthma",
+      "model_class_index": 120,
+      "model_supported": true,
+      "report_group_code": "J45-J46",
+      "support_level": "high"
+    },
+    {
+      "disease_group_id": "179",
+      "disease_group_name": "Bệnh khác của bộ máy hô hấp - Other diseases of respiratory system.",
+      "model_class_index": 121,
+      "model_supported": true,
+      "report_group_code": "J22,J61-J99",
+      "support_level": "medium"
+    },
+    {
+      "disease_group_id": "18",
+      "disease_group_name": "Các bệnh do vi khuẩn khác - Other bacterial diseases",
+      "model_class_index": 9,
+      "model_supported": true,
+      "report_group_code": "A21-A22,A24-A28,A31-A32,A38,A42-A49",
+      "support_level": "insufficient"
+    },
+    {
+      "disease_group_id": "180",
+      "disease_group_name": "Sâu răng - Dental caries",
+      "model_class_index": 122,
+      "model_supported": true,
+      "report_group_code": "K02",
+      "support_level": "insufficient"
+    },
+    {
+      "disease_group_id": "181",
+      "disease_group_name": "Tổn thương khác liên quan đến răng và mô quanh răng - Other disorders of teeth and supporting structures",
+      "model_class_index": 123,
+      "model_supported": true,
+      "report_group_code": "K03-K08,K00-K01",
+      "support_level": "low"
+    },
+    {
+      "disease_group_id": "182",
+      "disease_group_name": "Bệnh khác của khoang miệng, tuyến nước bọt và hàm - Other diseases of the oral cavity, salivary glands and jaws",
+      "model_class_index": 124,
+      "model_supported": true,
+      "report_group_code": "K09-K14",
+      "support_level": "high"
+    },
+    {
+      "disease_group_id": "183",
+      "disease_group_name": "Loét dạ dày và tá tràng - Gastric and duodenal ulcer",
+      "model_class_index": 125,
+      "model_supported": true,
+      "report_group_code": "K25-K27",
+      "support_level": "medium"
+    },
+    {
+      "disease_group_id": "184",
+      "disease_group_name": "Viêm dạ dày và tá tràng - Gastritis and duodenitis",
+      "model_class_index": 126,
+      "model_supported": true,
+      "report_group_code": "K29",
+      "support_level": "high"
+    },
+    {
+      "disease_group_id": "185",
+      "disease_group_name": "Bệnh khác của thực quản, dạ dày và tá tràng - Other diseases of oesophagus, stomach, duodenum",
+      "model_class_index": 127,
+      "model_supported": true,
+      "report_group_code": "K20-K23,K28,K30-K31",
+      "support_level": "high"
+    },
+    {
+      "disease_group_id": "186",
+      "disease_group_name": "Bệnh của ruột thừa - Diseases of appendix",
+      "model_class_index": 128,
+      "model_supported": true,
+      "report_group_code": "K35-K38",
+      "support_level": "high"
+    },
+    {
+      "disease_group_id": "187",
+      "disease_group_name": "Thoát vị bẹn - Inguinal hernia",
+      "model_class_index": 129,
+      "model_supported": true,
+      "report_group_code": "K40",
+      "support_level": "high"
+    },
+    {
+      "disease_group_id": "188",
+      "disease_group_name": "Các thoát vị khác - Other hernia",
+      "model_class_index": 130,
+      "model_supported": true,
+      "report_group_code": "K41-K46",
+      "support_level": "low"
+    },
+    {
+      "disease_group_id": "189",
+      "disease_group_name": "Bệnh Crohn (viêm ruột non từng vùng) và viêm loét đại tràng - Crohn’s disease and ulcerative colitis",
+      "model_class_index": 131,
+      "model_supported": true,
+      "report_group_code": "K50-K51",
+      "support_level": "medium"
+    },
+    {
+      "disease_group_id": "19",
+      "disease_group_name": "Giang mai bẩm sinh - Congenital syphilis",
+      "model_class_index": 10,
+      "model_supported": true,
+      "report_group_code": "A49",
+      "support_level": "insufficient"
+    },
+    {
+      "disease_group_id": "190",
+      "disease_group_name": "Tắc liệt ruột và tắc ruột không do thoát vị - Paralytic ileus, intestinal obstruction without hernia",
+      "model_class_index": 132,
+      "model_supported": true,
+      "report_group_code": "K56",
+      "support_level": "high"
+    },
+    {
+      "disease_group_id": "191",
+      "disease_group_name": "Bệnh túi thừa của ruột non - Diverticular disease of intestine",
+      "model_class_index": 133,
+      "model_supported": true,
+      "report_group_code": "K57",
+      "support_level": "insufficient"
+    },
+    {
+      "disease_group_id": "192",
+      "disease_group_name": "Bệnh khác của ruột non và màng bụng - Other diseases of intestine peritoneum",
+      "model_class_index": 134,
+      "model_supported": true,
+      "report_group_code": "K52-K55,K58-K67",
+      "support_level": "high"
+    },
+    {
+      "disease_group_id": "194",
+      "disease_group_name": "Các bệnh khác của gan - Other diseases of liver",
+      "model_class_index": 135,
+      "model_supported": true,
+      "report_group_code": "K71-K77",
+      "support_level": "high"
+    },
+    {
+      "disease_group_id": "195",
+      "disease_group_name": "Sỏi mật và viêm túi mật - Cholelithiasis and cholecystitis",
+      "model_class_index": 136,
+      "model_supported": true,
+      "report_group_code": "K80-K81",
+      "support_level": "low"
+    },
+    {
+      "disease_group_id": "196",
+      "disease_group_name": "Viêm tuỵ cấp và bệnh khác của tuỵ - Acute pancreatitis and other diseases of pancreas",
+      "model_class_index": 137,
+      "model_supported": true,
+      "report_group_code": "K85-K86",
+      "support_level": "medium"
+    },
+    {
+      "disease_group_id": "197",
+      "disease_group_name": "Bệnh khác của bộ máy tiêu hoá - Other diseases of the digestive system",
+      "model_class_index": 138,
+      "model_supported": true,
+      "report_group_code": "K87-K93,K82-K83",
+      "support_level": "medium"
+    },
+    {
+      "disease_group_id": "198",
+      "disease_group_name": "Bệnh nhiễm khuẩn da và mô tế bào dưới da - Infections of skin and subcutaneous tissue",
+      "model_class_index": 139,
+      "model_supported": true,
+      "report_group_code": "L00-L08",
+      "support_level": "high"
+    },
+    {
+      "disease_group_id": "199",
+      "disease_group_name": "Bệnh khác của da và mô tế bào dưới da - Other diseases of skin and subcutaneous tissue",
+      "model_class_index": 140,
+      "model_supported": true,
+      "report_group_code": "L10-L99",
+      "support_level": "high"
+    },
+    {
+      "disease_group_id": "2",
+      "disease_group_name": "Thương hàn, phó thương hàn - Typhoid and paratyphoid fevers",
+      "model_class_index": null,
+      "model_supported": false,
+      "report_group_code": "A01",
+      "support_level": "insufficient"
+    },
+    {
+      "disease_group_id": "20",
+      "disease_group_name": "Giang mai sớm (Giang mai I, II và kín) - Early syphilis",
+      "model_class_index": 11,
+      "model_supported": true,
+      "report_group_code": "A50",
+      "support_level": "low"
+    },
+    {
+      "disease_group_id": "200",
+      "disease_group_name": "Viêm khớp dạng thấp và viêm khớp khác - Rheumatoid arthritis, other inflamatory polyarthropaties",
+      "model_class_index": 141,
+      "model_supported": true,
+      "report_group_code": "M05-M14",
+      "support_level": "high"
+    },
+    {
+      "disease_group_id": "201",
+      "disease_group_name": "Bệnh thoái hoá khớp - Arthrosis",
+      "model_class_index": 142,
+      "model_supported": true,
+      "report_group_code": "M15-M19",
+      "support_level": "insufficient"
+    },
+    {
+      "disease_group_id": "202",
+      "disease_group_name": "Biến dạng các chi mắc phải - Accquired deformities of limbs",
+      "model_class_index": 143,
+      "model_supported": true,
+      "report_group_code": "M20-M21",
+      "support_level": "low"
+    },
+    {
+      "disease_group_id": "203",
+      "disease_group_name": "Bệnh khác của khớp - Other joint disorders",
+      "model_class_index": 144,
+      "model_supported": true,
+      "report_group_code": "M00-M03,M22-M25",
+      "support_level": "medium"
+    },
+    {
+      "disease_group_id": "204",
+      "disease_group_name": "Bệnh của hệ thống tổ chức liên kết - Systematic connective tissue disorders",
+      "model_class_index": 145,
+      "model_supported": true,
+      "report_group_code": "M30-M36",
+      "support_level": "high"
+    },
+    {
+      "disease_group_id": "205",
+      "disease_group_name": "Trật đốt sống cổ và các đốt sống khác - Cervical and other interverbral disc disorders",
+      "model_class_index": 146,
+      "model_supported": true,
+      "report_group_code": "M50-M51",
+      "support_level": "insufficient"
+    },
+    {
+      "disease_group_id": "206",
+      "disease_group_name": "Bệnh khác của cột sống - Other dorsopathies",
+      "model_class_index": 147,
+      "model_supported": true,
+      "report_group_code": "M40-M49,M53-M54",
+      "support_level": "medium"
+    },
+    {
+      "disease_group_id": "207",
+      "disease_group_name": "Tổn thương các mô mềm - Soft tissue disorders",
+      "model_class_index": 148,
+      "model_supported": true,
+      "report_group_code": "M60-M79",
+      "support_level": "medium"
+    },
+    {
+      "disease_group_id": "208",
+      "disease_group_name": "Di tật về mật độ và cấu trúc của xương - Disorders of bone density and structure",
+      "model_class_index": 149,
+      "model_supported": true,
+      "report_group_code": "M80-M85",
+      "support_level": "low"
+    },
+    {
+      "disease_group_id": "209",
+      "disease_group_name": "Viêm xương tuỷ - Osteomyelitis",
+      "model_class_index": 150,
+      "model_supported": true,
+      "report_group_code": "M86",
+      "support_level": "medium"
+    },
+    {
+      "disease_group_id": "210",
+      "disease_group_name": "Bệnh khác của hệ xương khớp, cơ và mô liên kết - Other diseases of the musculo-skeletal system and connective tissue",
+      "model_class_index": 151,
+      "model_supported": true,
+      "report_group_code": "M87-M99",
+      "support_level": "low"
+    },
+    {
+      "disease_group_id": "211",
+      "disease_group_name": "Hội chứng viêm thận cấp và tiến triển nhanh - Acute and rapidly prograssive nephritis syndromes",
+      "model_class_index": 152,
+      "model_supported": true,
+      "report_group_code": "N00-N01",
+      "support_level": "low"
+    },
+    {
+      "disease_group_id": "212",
+      "disease_group_name": "Bệnh cầu thận khác - Other glomerular diseases",
+      "model_class_index": 153,
+      "model_supported": true,
+      "report_group_code": "N02-N08",
+      "support_level": "high"
+    },
+    {
+      "disease_group_id": "213",
+      "disease_group_name": "Bệnh ống thận kẽ - Renal tubulo-interstitial diseases",
+      "model_class_index": 154,
+      "model_supported": true,
+      "report_group_code": "N10-N16",
+      "support_level": "low"
+    },
+    {
+      "disease_group_id": "214",
+      "disease_group_name": "Suy thận - Renal failure",
+      "model_class_index": 155,
+      "model_supported": true,
+      "report_group_code": "N17-N19",
+      "support_level": "medium"
+    },
+    {
+      "disease_group_id": "215",
+      "disease_group_name": "Sỏi tiết niệu - Urolithiasis",
+      "model_class_index": 156,
+      "model_supported": true,
+      "report_group_code": "N20-N23",
+      "support_level": "medium"
+    },
+    {
+      "disease_group_id": "216",
+      "disease_group_name": "Viêm bàng quang - Cystitis",
+      "model_class_index": 157,
+      "model_supported": true,
+      "report_group_code": "N30",
+      "support_level": "low"
+    },
+    {
+      "disease_group_id": "217",
+      "disease_group_name": "Bệnh khác của bộ máy tiết niệu - Other diseases of the urnary system",
+      "model_class_index": 158,
+      "model_supported": true,
+      "report_group_code": "N25-N29,N31-N39",
+      "support_level": "high"
+    },
+    {
+      "disease_group_id": "218",
+      "disease_group_name": "Quá sản tuyến tiền liệt - Hyperplasia of prostate",
+      "model_class_index": 159,
+      "model_supported": true,
+      "report_group_code": "N40",
+      "support_level": "insufficient"
+    },
+    {
+      "disease_group_id": "219",
+      "disease_group_name": "Tổn thương khác của tuyến tiền liệt - Other disorders of prostate",
+      "model_class_index": null,
+      "model_supported": false,
+      "report_group_code": "N41-N42",
+      "support_level": "insufficient"
+    },
+    {
+      "disease_group_id": "220",
+      "disease_group_name": "Tràn dịch tinh mạc, u nang tinh dịch - Hydrocele and spermatocele",
+      "model_class_index": 160,
+      "model_supported": true,
+      "report_group_code": "N43",
+      "support_level": "medium"
+    },
+    {
+      "disease_group_id": "221",
+      "disease_group_name": "Thừa bao qui đầu, hẹp và nghẹt bao qui đầu - Redundant prepuce, phimosis and paraphimosis",
+      "model_class_index": 161,
+      "model_supported": true,
+      "report_group_code": "N47",
+      "support_level": "high"
+    },
+    {
+      "disease_group_id": "222",
+      "disease_group_name": "Bệnh khác của cơ quan sinh dục nam - Other diseases of male genital organs",
+      "model_class_index": 162,
+      "model_supported": true,
+      "report_group_code": "N44-N46,N48,N49-N51",
+      "support_level": "medium"
+    },
+    {
+      "disease_group_id": "223",
+      "disease_group_name": "Tổn thương của vú - Disorders of breast",
+      "model_class_index": 163,
+      "model_supported": true,
+      "report_group_code": "N60-N64",
+      "support_level": "low"
+    },
+    {
+      "disease_group_id": "224",
+      "disease_group_name": "Viêm vòi trứng và viêm buồng trứng - Salpingitis and oophoritis",
+      "model_class_index": 164,
+      "model_supported": true,
+      "report_group_code": "N70",
+      "support_level": "insufficient"
+    },
+    {
+      "disease_group_id": "226",
+      "disease_group_name": "Tổn thương viêm khác của các cơ quan khung chậu nữ - Other inflamatory diseases of female pelvic organs",
+      "model_class_index": 165,
+      "model_supported": true,
+      "report_group_code": "N71,N73-N77",
+      "support_level": "low"
+    },
+    {
+      "disease_group_id": "229",
+      "disease_group_name": "Tổn thương không viêm của buồng trứng, vòi fallope và dây chằng rộng - Noinflammatory disorders of ovary, fallopian tube and broad ligament",
+      "model_class_index": 166,
+      "model_supported": true,
+      "report_group_code": "N83",
+      "support_level": "medium"
+    },
+    {
+      "disease_group_id": "230",
+      "disease_group_name": "Rối loạn kinh nguyệt - Disorders of menstruation",
+      "model_class_index": 167,
+      "model_supported": true,
+      "report_group_code": "N91-N92",
+      "support_level": "insufficient"
+    },
+    {
+      "disease_group_id": "233",
+      "disease_group_name": "Bệnh khác của bộ máy sinh dục tiết niệu - Other disorders of genitourinary tract",
+      "model_class_index": 168,
+      "model_supported": true,
+      "report_group_code": "N82,N84-N90,N93-N94,N96,N98-N99",
+      "support_level": "low"
+    },
+    {
+      "disease_group_id": "24",
+      "disease_group_name": "Nhiễm khuẩn khác lây truyền qua đường tình dục - Other infection with a predominantly sexual mode of transmission",
+      "model_class_index": 12,
+      "model_supported": true,
+      "report_group_code": "A57-A64",
+      "support_level": "insufficient"
+    },
+    {
+      "disease_group_id": "242",
+      "disease_group_name": "Các biến chứng khác của chửa đẻ - Other complications pregnancy and delivery",
+      "model_class_index": 169,
+      "model_supported": true,
+      "report_group_code": "O20-O29,O60-O63,O67-O71,O73-O75,O81-O84",
+      "support_level": "insufficient"
+    },
+    {
+      "disease_group_id": "245",
+      "disease_group_name": "Bệnh lí thai nhi và sơ sinh do biến chứng thai nghén, chửa, đẻ - Fetus and newborn affected by maternal factors and by complications of pregnancy, labour and delivery",
+      "model_class_index": 170,
+      "model_supported": true,
+      "report_group_code": "P00-P04",
+      "support_level": "insufficient"
+    },
+    {
+      "disease_group_id": "246",
+      "disease_group_name": "Thai chậm phát triển, suy dinh dưỡng, rối loạn gắn liền với thai nghén và cân nặng không đủ khi sinh - Slow fetal growth, fetal malnutrition and disorders related to short gestation and low birth weight",
+      "model_class_index": 171,
+      "model_supported": true,
+      "report_group_code": "P05-P07",
+      "support_level": "medium"
+    },
+    {
+      "disease_group_id": "247",
+      "disease_group_name": "Các chấn thương sản khoa - Birth trauma",
+      "model_class_index": 172,
+      "model_supported": true,
+      "report_group_code": "P10-P15",
+      "support_level": "insufficient"
+    },
+    {
+      "disease_group_id": "249",
+      "disease_group_name": "Các tổn thương hô hấp đặc hiệu khác của thời kỳ chu sinh - Other respiratory disorders originating in the perinatal period",
+      "model_class_index": 173,
+      "model_supported": true,
+      "report_group_code": "P22-P28",
+      "support_level": "low"
+    },
+    {
+      "disease_group_id": "250",
+      "disease_group_name": "Nhiễm khuẩn và kí sinh vật bẩm sinh - Congenital infectious and parasitic diseases",
+      "model_class_index": 174,
+      "model_supported": true,
+      "report_group_code": "P35-P37",
+      "support_level": "medium"
+    },
+    {
+      "disease_group_id": "251",
+      "disease_group_name": "Nhiễm khuẩn đặc hiệu khác thời kỳ chu sinh - Other infectious specific to the perinatal period",
+      "model_class_index": 175,
+      "model_supported": true,
+      "report_group_code": "P38-P39",
+      "support_level": "low"
+    },
+    {
+      "disease_group_id": "253",
+      "disease_group_name": "Tổn thương khác có nguồn gốc trong thời kỳ chu sinh - Other conditions originating in the perinatal period",
+      "model_class_index": 176,
+      "model_supported": true,
+      "report_group_code": "P08,P29,P50-P54,P56-P96",
+      "support_level": "high"
+    },
+    {
+      "disease_group_id": "254",
+      "disease_group_name": "Gai đôi cột sống - Spina bifida",
+      "model_class_index": 177,
+      "model_supported": true,
+      "report_group_code": "Q05",
+      "support_level": "low"
+    },
+    {
+      "disease_group_id": "255",
+      "disease_group_name": "Dị tật bẩm sinh khác của hệ thần kinh - Other congenital malforma",
+      "model_class_index": 178,
+      "model_supported": true,
+      "report_group_code": "Q00-Q04,Q06-Q07",
+      "support_level": "low"
+    },
+    {
+      "disease_group_id": "256",
+      "disease_group_name": "Dị tật bẩm sinh khác của bộ máy tuần hoàn - Congenital malfor-mation of the circulatory system",
+      "model_class_index": 179,
+      "model_supported": true,
+      "report_group_code": "Q20-Q28",
+      "support_level": "high"
+    },
+    {
+      "disease_group_id": "257",
+      "disease_group_name": "Sứt môi và hở hàm ếch - Cleft lip and cleft palate",
+      "model_class_index": 180,
+      "model_supported": true,
+      "report_group_code": "Q35-Q37",
+      "support_level": "medium"
+    },
+    {
+      "disease_group_id": "258",
+      "disease_group_name": "Không có, tịt hoặc hẹp ruột non - Absence, atresia and stenosis of small intestine",
+      "model_class_index": 181,
+      "model_supported": true,
+      "report_group_code": "Q41",
+      "support_level": "insufficient"
+    },
+    {
+      "disease_group_id": "259",
+      "disease_group_name": "Dị tật bẩm sinh khác của bộ máy sinh dục tiết niệu - Other malformations of the genitourinary system",
+      "model_class_index": 182,
+      "model_supported": true,
+      "report_group_code": "Q38-Q40,Q42-Q45",
+      "support_level": "high"
+    },
+    {
+      "disease_group_id": "260",
+      "disease_group_name": "Tinh hoàn lạc chỗ - Undescended testicle",
+      "model_class_index": 183,
+      "model_supported": true,
+      "report_group_code": "Q53",
+      "support_level": "high"
+    },
+    {
+      "disease_group_id": "261",
+      "disease_group_name": "Dị dạng bẩm sinh của bộ máy sinh dục tiết niệu - Congenital malformations of genital organs",
+      "model_class_index": 184,
+      "model_supported": true,
+      "report_group_code": "Q50-Q52,Q54-Q64",
+      "support_level": "high"
+    },
+    {
+      "disease_group_id": "262",
+      "disease_group_name": "Dị dạng bẩm sinh hông - Congenital deformities of hip",
+      "model_class_index": 185,
+      "model_supported": true,
+      "report_group_code": "Q65",
+      "support_level": "low"
+    },
+    {
+      "disease_group_id": "263",
+      "disease_group_name": "Dị dạng bẩm sinh bàn chân - Congenital deformities of feet",
+      "model_class_index": 186,
+      "model_supported": true,
+      "report_group_code": "Q66",
+      "support_level": "low"
+    },
+    {
+      "disease_group_id": "264",
+      "disease_group_name": "Dị dạng bẩm sinh khác của hệ xương và cơ - Other congenital malformations and deformations of the musculo skeletal system",
+      "model_class_index": 187,
+      "model_supported": true,
+      "report_group_code": "Q67-Q79",
+      "support_level": "medium"
+    },
+    {
+      "disease_group_id": "265",
+      "disease_group_name": "Dị dạng bẩm sinh khác - Other congenital malformations",
+      "model_class_index": 188,
+      "model_supported": true,
+      "report_group_code": "Q10-Q18,Q30-Q34,Q80-Q89",
+      "support_level": "high"
+    },
+    {
+      "disease_group_id": "266",
+      "disease_group_name": "Dị thường nhiễm sắc thể, chưa xếp ở chỗ khác - Chromosomal abnormalities, not elsewhere sclassified",
+      "model_class_index": 189,
+      "model_supported": true,
+      "report_group_code": "Q90-Q99",
+      "support_level": "low"
+    },
+    {
+      "disease_group_id": "267",
+      "disease_group_name": "Đau bụng và khung chậu - Abdominal and pelvic pain",
+      "model_class_index": 190,
+      "model_supported": true,
+      "report_group_code": "R10",
+      "support_level": "medium"
+    },
+    {
+      "disease_group_id": "268",
+      "disease_group_name": "Sốt không rõ nguyên nhân - Fever of unknown origin",
+      "model_class_index": 191,
+      "model_supported": true,
+      "report_group_code": "R50",
+      "support_level": "low"
+    },
+    {
+      "disease_group_id": "27",
+      "disease_group_name": "Sốt Rickettsia - Typhus fever",
+      "model_class_index": 13,
+      "model_supported": true,
+      "report_group_code": "A75",
+      "support_level": "low"
+    },
+    {
+      "disease_group_id": "270",
+      "disease_group_name": "Các triệu chứng, dấu hiệu và kết quả bất thường về khám lâm sàng và xét nghiệm khác, chưa xếp ở chỗ khác - Other symptoms, signs and abnormal clinical and laboratory findings, not elsewhere classified",
+      "model_class_index": 192,
+      "model_supported": true,
+      "report_group_code": "R00-R09,R11-R49,R51-R53,R55-R99",
+      "support_level": "high"
+    },
+    {
+      "disease_group_id": "271",
+      "disease_group_name": "Vỡ xương sọ và các xương mặt - Fracture of skull and facial bones",
+      "model_class_index": 193,
+      "model_supported": true,
+      "report_group_code": "S02",
+      "support_level": "medium"
+    },
+    {
+      "disease_group_id": "272",
+      "disease_group_name": "Gãy xương cổ, ngực, khung chậu - Fracture of neck, thorax or pelvis.",
+      "model_class_index": 194,
+      "model_supported": true,
+      "report_group_code": "S12,S22,S32,T08",
+      "support_level": "insufficient"
+    },
+    {
+      "disease_group_id": "273",
+      "disease_group_name": "Gãy xương đùi - Fracture of femur",
+      "model_class_index": 195,
+      "model_supported": true,
+      "report_group_code": "S72",
+      "support_level": "medium"
+    },
+    {
+      "disease_group_id": "274",
+      "disease_group_name": "Gãy các phần khác của chi do lao động và giao thông - Fracture of other lim bones",
+      "model_class_index": 196,
+      "model_supported": true,
+      "report_group_code": "S42,S52,S62,S82,S92,T10,T12",
+      "support_level": "high"
+    },
+    {
+      "disease_group_id": "276",
+      "disease_group_name": "Sai khớp, bong gân, tổn thương khu trú và ở nhiều vùng cơ thể - Dislocations, sprains and strains of specified and multiple body regions",
+      "model_class_index": 197,
+      "model_supported": true,
+      "report_group_code": "S03,S13,S23,S33,S43,S53,S63,S73,S83,S93,T03",
+      "support_level": "low"
+    },
+    {
+      "disease_group_id": "277",
+      "disease_group_name": "Thương tổn do chấn thương ở mắt và hốc mắt - Injury of eye and orbit",
+      "model_class_index": 198,
+      "model_supported": true,
+      "report_group_code": "S05",
+      "support_level": "insufficient"
+    },
+    {
+      "disease_group_id": "278",
+      "disease_group_name": "Thương tổn do chấn thương trong sọ - Intracranial injury",
+      "model_class_index": 199,
+      "model_supported": true,
+      "report_group_code": "S06",
+      "support_level": "high"
+    },
+    {
+      "disease_group_id": "279",
+      "disease_group_name": "Thương tổn do chấn thương các nội tạng khác - Injury of other internal organs",
+      "model_class_index": 200,
+      "model_supported": true,
+      "report_group_code": "S26-S27,S36-S37",
+      "support_level": "low"
+    },
+    {
+      "disease_group_id": "280",
+      "disease_group_name": "Chấn thương dập nát và cắt cụt đã xác định và nhiều vùng trong cơ thể - Fracture of other lim bones",
+      "model_class_index": null,
+      "model_supported": false,
+      "report_group_code": "S07-S08,S17-S18,S28,S38,S47-S48,S57-S58,S67-S68,S77-S78,S87-S88,S97-S98,T04-T05",
+      "support_level": "insufficient"
+    },
+    {
+      "disease_group_id": "281",
+      "disease_group_name": "Các tổn thương khác do chấn thương xác định và ở nhiều nơi - Other injuries of specified, unspecified and multiple body regions",
+      "model_class_index": 201,
+      "model_supported": true,
+      "report_group_code": "S00-S01,S04,S09-S11,S14-S16,S19-S21,S24-S25,S29-S31,S34-S35,S39-S41,S44-S46,S49-S51,S54-S56,S59-S61,S64-S66,S69-S71,S74-S76,S79-S81,S84-S86,S89-S91,S94-S96,S99-T01,T06-T07,T09,T13-T14",
+      "support_level": "high"
+    },
+    {
+      "disease_group_id": "282",
+      "disease_group_name": "Hậu quả do dị vật vào hốc tự nhiên - Effects of foreign body entert hrough natural orifice",
+      "model_class_index": 202,
+      "model_supported": true,
+      "report_group_code": "T15-T19",
+      "support_level": "medium"
+    },
+    {
+      "disease_group_id": "283",
+      "disease_group_name": "Bỏng và sự ăn mòn - Burnss and corrosions",
+      "model_class_index": 203,
+      "model_supported": true,
+      "report_group_code": "T20-T32",
+      "support_level": "medium"
+    },
+    {
+      "disease_group_id": "284",
+      "disease_group_name": "Nhiễm độc thuốc và các sinh phẩm - Poisoning by drugs and biological substances",
+      "model_class_index": 204,
+      "model_supported": true,
+      "report_group_code": "T36-T50",
+      "support_level": "low"
+    },
+    {
+      "disease_group_id": "285",
+      "disease_group_name": "Tác hại của các chất có nguồn gốc chủ yếu không phải thuốc - Toxic effects of substances chiefly nonmedical as to source",
+      "model_class_index": 205,
+      "model_supported": true,
+      "report_group_code": "T51-T65",
+      "support_level": "low"
+    },
+    {
+      "disease_group_id": "287",
+      "disease_group_name": "Hậu quả của các nguyên nhân bên ngoài khác và không xác định - Other and unspecified effects of external causes",
+      "model_class_index": 206,
+      "model_supported": true,
+      "report_group_code": "T33-T35,T66-T73,T75-T78",
+      "support_level": "medium"
+    },
+    {
+      "disease_group_id": "288",
+      "disease_group_name": "Một số biến chứng sớm của chấn thương, của chăm sóc ngoại khoa và y học, chưa xếp ở nơi khác - Certain early complications of trauma and complications of surgical and medical care, not elsewhere classified",
+      "model_class_index": 207,
+      "model_supported": true,
+      "report_group_code": "T79-T88",
+      "support_level": "medium"
+    },
+    {
+      "disease_group_id": "289",
+      "disease_group_name": "Di chứng, thương tổn do chấn thương, do ngộ độc và hậu quả khác do nguyên nhân bên ngoài - Sequalae of injuries, of poisoning and of other consequences of external causes",
+      "model_class_index": 208,
+      "model_supported": true,
+      "report_group_code": "T90-T98",
+      "support_level": "insufficient"
+    },
+    {
+      "disease_group_id": "290",
+      "disease_group_name": "Tai nạn giao thông - Transport accidént",
+      "model_class_index": 209,
+      "model_supported": true,
+      "report_group_code": "V01-V99",
+      "support_level": "insufficient"
+    },
+    {
+      "disease_group_id": "291",
+      "disease_group_name": "Tai nạn do các nguyên nhân sức mạnh cơ học và không cố ý - exposure to inanimate mechanical forces",
+      "model_class_index": 210,
+      "model_supported": true,
+      "report_group_code": "W00-W64",
+      "support_level": "low"
+    },
+    {
+      "disease_group_id": "292",
+      "disease_group_name": "Tai nạn chết đuối, chết chìm - Accident drowning and submersion",
+      "model_class_index": 211,
+      "model_supported": true,
+      "report_group_code": "W65-W84",
+      "support_level": "insufficient"
+    },
+    {
+      "disease_group_id": "294",
+      "disease_group_name": "Tai nạn do khói, lửa, đám cháy - expossure to smoke, fire and fpames",
+      "model_class_index": null,
+      "model_supported": false,
+      "report_group_code": "X00-X09",
+      "support_level": "insufficient"
+    },
+    {
+      "disease_group_id": "295",
+      "disease_group_name": "Tai nạn do tiếp xúc với các chất nóng - contact with heat and hot",
+      "model_class_index": null,
+      "model_supported": false,
+      "report_group_code": "X10-X19",
+      "support_level": "insufficient"
+    },
+    {
+      "disease_group_id": "296",
+      "disease_group_name": "Tai nạn do tiếp xúc với động vật và cây độc - Contact with venomous animals and plants",
+      "model_class_index": 212,
+      "model_supported": true,
+      "report_group_code": "X20-X29",
+      "support_level": "low"
+    },
+    {
+      "disease_group_id": "297",
+      "disease_group_name": "Tai nạn ngộ độc do các chất độc - Accident poisoning by and exposure to noxious substances",
+      "model_class_index": 213,
+      "model_supported": true,
+      "report_group_code": "X40-X49",
+      "support_level": "insufficient"
+    },
+    {
+      "disease_group_id": "298",
+      "disease_group_name": "Tự tử - Intentional self-harm",
+      "model_class_index": null,
+      "model_supported": false,
+      "report_group_code": "X60-X84",
+      "support_level": "insufficient"
+    },
+    {
+      "disease_group_id": "299",
+      "disease_group_name": "Bạo lực đánh nhau - Assault",
+      "model_class_index": 214,
+      "model_supported": true,
+      "report_group_code": "X85-Y09",
+      "support_level": "low"
+    },
+    {
+      "disease_group_id": "30",
+      "disease_group_name": "Viêm não Virut - Viral encephalitis",
+      "model_class_index": 14,
+      "model_supported": true,
+      "report_group_code": "A83-A86",
+      "support_level": "low"
+    },
+    {
+      "disease_group_id": "300",
+      "disease_group_name": "Tai biến của thuốc và các chất sinh học trong điều trị - Drugs medicament and biological substances causing adverseeffects in therapeutic use.",
+      "model_class_index": 215,
+      "model_supported": true,
+      "report_group_code": "Y40-Y59",
+      "support_level": "high"
+    },
+    {
+      "disease_group_id": "304",
+      "disease_group_name": "Người tiếp xúc với các dịch vụ y tế làm các khám xét và điều tra - Person encountering health services for examination and investigation",
+      "model_class_index": 216,
+      "model_supported": true,
+      "report_group_code": "Z00-Z01",
+      "support_level": "low"
+    },
+    {
+      "disease_group_id": "306",
+      "disease_group_name": "Người có nguy cơ liên quan đến bệnh truyền nhiễm - Other persons with potential health hazards related to communicable diseases",
+      "model_class_index": 217,
+      "model_supported": true,
+      "report_group_code": "Z20,Z22-Z29",
+      "support_level": "low"
+    },
+    {
+      "disease_group_id": "311",
+      "disease_group_name": "Bệnh do tiếp xúc với dịch vụ y tế phải chăm sóc và khám xét đặc biệt - Persons encountering health services for specific procedures and health care",
+      "model_class_index": 218,
+      "model_supported": true,
+      "report_group_code": "Z40-Z54",
+      "support_level": "high"
+    },
+    {
+      "disease_group_id": "312",
+      "disease_group_name": "Bệnh do tiếp xúc với dịch vụ y tế vì những lý do khác - Person encoutering health services for other reasons",
+      "model_class_index": 219,
+      "model_supported": true,
+      "report_group_code": "Z31-Z33,Z37,Z55-Z99",
+      "support_level": "medium"
+    },
+    {
+      "disease_group_id": "313",
+      "disease_group_name": "COVID-19 * U07.1 là bệnh nhân COVID-19 có kết quả xét nghiệm SARS-CoV-2 dương tính cập nhật theo hướng dẫn chẩn đoán và điều trị của Bộ Y tế.",
+      "model_class_index": 220,
+      "model_supported": true,
+      "report_group_code": "U07.1",
+      "support_level": "high"
+    },
+    {
+      "disease_group_id": "32",
+      "disease_group_name": "Sốt virut khác do tiết túc truyền và sốt virus xuất huyết - Other arthropod",
+      "model_class_index": 15,
+      "model_supported": true,
+      "report_group_code": "A90-A94,A96-A99",
+      "support_level": "high"
+    },
+    {
+      "disease_group_id": "33",
+      "disease_group_name": "Nhiễm virut Héc-pét - Herpesviral infections",
+      "model_class_index": 16,
+      "model_supported": true,
+      "report_group_code": "B00",
+      "support_level": "insufficient"
+    },
+    {
+      "disease_group_id": "34",
+      "disease_group_name": "Thuỷ đậu và zôna - Varicella and Zoster",
+      "model_class_index": 17,
+      "model_supported": true,
+      "report_group_code": "B01-B02",
+      "support_level": "low"
+    },
+    {
+      "disease_group_id": "35",
+      "disease_group_name": "Sởi - Measles",
+      "model_class_index": null,
+      "model_supported": false,
+      "report_group_code": "B05",
+      "support_level": "high"
+    },
+    {
+      "disease_group_id": "37",
+      "disease_group_name": "Viêm gan B cấp - Acute hepatitis B",
+      "model_class_index": 18,
+      "model_supported": true,
+      "report_group_code": "B16",
+      "support_level": "insufficient"
+    },
+    {
+      "disease_group_id": "38",
+      "disease_group_name": "Viêm gan virut khác - Other viral hepatitis",
+      "model_class_index": 19,
+      "model_supported": true,
+      "report_group_code": "B15,B17-B19",
+      "support_level": "low"
+    },
+    {
+      "disease_group_id": "39",
+      "disease_group_name": "Nhiễm HIV - Human immuno deficiency virus disease",
+      "model_class_index": 20,
+      "model_supported": true,
+      "report_group_code": "B20-B24",
+      "support_level": "insufficient"
+    },
+    {
+      "disease_group_id": "4",
+      "disease_group_name": "Lỵ Amip - Amoebiasis",
+      "model_class_index": 1,
+      "model_supported": true,
+      "report_group_code": "A06",
+      "support_level": "low"
+    },
+    {
+      "disease_group_id": "40",
+      "disease_group_name": "Quai bị - Mumps",
+      "model_class_index": null,
+      "model_supported": false,
+      "report_group_code": "B26",
+      "support_level": "insufficient"
+    },
+    {
+      "disease_group_id": "41",
+      "disease_group_name": "Bệnh virut khác - Other viral diseases",
+      "model_class_index": 21,
+      "model_supported": true,
+      "report_group_code": "A81,A87-A89,B03-B04,B07-B09,B25,B27-B34",
+      "support_level": "high"
+    },
+    {
+      "disease_group_id": "42",
+      "disease_group_name": "Nấm - Mycoses",
+      "model_class_index": 22,
+      "model_supported": true,
+      "report_group_code": "B35-B49",
+      "support_level": "insufficient"
+    },
+    {
+      "disease_group_id": "47",
+      "disease_group_name": "Các nhiễm khuẩn do sán lá - Other fluke infections",
+      "model_class_index": 23,
+      "model_supported": true,
+      "report_group_code": "B66",
+      "support_level": "insufficient"
+    },
+    {
+      "disease_group_id": "48",
+      "disease_group_name": "Sán Echinococ - Echinococcosis",
+      "model_class_index": 24,
+      "model_supported": true,
+      "report_group_code": "B67",
+      "support_level": "insufficient"
+    },
+    {
+      "disease_group_id": "5",
+      "disease_group_name": "Ỉa chảy, viêm dạy dày, ruột non có nguồn gốc nhiễm khuẩn - Diarrhoea and gastroenteritis of presumed infectious origin.",
+      "model_class_index": 2,
+      "model_supported": true,
+      "report_group_code": "A09",
+      "support_level": "high"
+    },
+    {
+      "disease_group_id": "53",
+      "disease_group_name": "Bệnh giun sán khác - Other Helminthiases",
+      "model_class_index": 25,
+      "model_supported": true,
+      "report_group_code": "B68-B71,B75,B77-B83",
+      "support_level": "insufficient"
+    },
+    {
+      "disease_group_id": "57",
+      "disease_group_name": "Bệnh nhiễm khuẩn và kí sinh vật khác - Other infectious and parasitic diseases",
+      "model_class_index": 26,
+      "model_supported": true,
+      "report_group_code": "A65-A67,A69-A70,A74,A77-A79,B58-B64,B85-B89,B94-B99",
+      "support_level": "medium"
+    },
+    {
+      "disease_group_id": "58",
+      "disease_group_name": "U ác môi, khoang miệng, họng - Malignant neoplasm of lip, oral cavity and pharynx",
+      "model_class_index": 27,
+      "model_supported": true,
+      "report_group_code": "C00-C14",
+      "support_level": "low"
+    },
+    {
+      "disease_group_id": "6",
+      "disease_group_name": "Các bệnh nhiễm khuẩn ruột khác - Other intestinal infectious diseases",
+      "model_class_index": 3,
+      "model_supported": true,
+      "report_group_code": "A02,A04-A05,A07-A08",
+      "support_level": "high"
+    },
+    {
+      "disease_group_id": "60",
+      "disease_group_name": "U ác dạ dày - Malignant neoplasm of stomach",
+      "model_class_index": 28,
+      "model_supported": true,
+      "report_group_code": "C16",
+      "support_level": "insufficient"
+    },
+    {
+      "disease_group_id": "61",
+      "disease_group_name": "U ác đại tràng - Malignant neoplasm of colon",
+      "model_class_index": null,
+      "model_supported": false,
+      "report_group_code": "C18",
+      "support_level": "insufficient"
+    },
+    {
+      "disease_group_id": "62",
+      "disease_group_name": "U ác chỗ nối trực tràng sigma, trực tràng, hậu môn và ống hậu môn - Malignant neoplasm of rectosigmoid function, rectum, anus and anal canal",
+      "model_class_index": 29,
+      "model_supported": true,
+      "report_group_code": "C19-C21",
+      "support_level": "insufficient"
+    },
+    {
+      "disease_group_id": "63",
+      "disease_group_name": "U ác gan và đường mật trong gan - Malignant neoplasm of liver and intrahepatic bile ducts",
+      "model_class_index": 30,
+      "model_supported": true,
+      "report_group_code": "C22",
+      "support_level": "medium"
+    },
+    {
+      "disease_group_id": "64",
+      "disease_group_name": "U ác tụy - Malignant neoplasm of pancreas",
+      "model_class_index": 31,
+      "model_supported": true,
+      "report_group_code": "C25",
+      "support_level": "insufficient"
+    },
+    {
+      "disease_group_id": "65",
+      "disease_group_name": "Các u khác cơ quan tiêu hoá - Other malignant neoplasms of digestive organs",
+      "model_class_index": 32,
+      "model_supported": true,
+      "report_group_code": "C17,C23-C24,C26",
+      "support_level": "low"
+    },
+    {
+      "disease_group_id": "67",
+      "disease_group_name": "U ác khí quản, phế quản và phổi - Malignant neoplasms of trachea, bronchus and lung",
+      "model_class_index": null,
+      "model_supported": false,
+      "report_group_code": "C33-C34",
+      "support_level": "insufficient"
+    },
+    {
+      "disease_group_id": "68",
+      "disease_group_name": "Các u khác cơ quan hô hấp và lồng ngực - Other malignant neplasm of respiratory and intrathoracic",
+      "model_class_index": 33,
+      "model_supported": true,
+      "report_group_code": "C30-C31,C37-C39",
+      "support_level": "medium"
+    },
+    {
+      "disease_group_id": "69",
+      "disease_group_name": "U ác xương và sụn khớp - Malignant neoplasms of bone and articular cartilage",
+      "model_class_index": 34,
+      "model_supported": true,
+      "report_group_code": "C40-C41",
+      "support_level": "medium"
+    },
+    {
+      "disease_group_id": "7",
+      "disease_group_name": "Lao bộ máy hô hấp - Respiratory tuberculosis",
+      "model_class_index": 4,
+      "model_supported": true,
+      "report_group_code": "A15-A16",
+      "support_level": "low"
+    },
+    {
+      "disease_group_id": "70",
+      "disease_group_name": "U ác hắc tố da - Malignant melanoma of skin",
+      "model_class_index": 35,
+      "model_supported": true,
+      "report_group_code": "C43",
+      "support_level": "insufficient"
+    },
+    {
+      "disease_group_id": "72",
+      "disease_group_name": "U ác mạc treo và các mô mềm - Malignantneoplasms of mesothelial and soft tissue",
+      "model_class_index": 36,
+      "model_supported": true,
+      "report_group_code": "C45-C49",
+      "support_level": "high"
+    },
+    {
+      "disease_group_id": "73",
+      "disease_group_name": "U ác vú - Malignant neoplasm of breast",
+      "model_class_index": 37,
+      "model_supported": true,
+      "report_group_code": "C50",
+      "support_level": "insufficient"
+    },
+    {
+      "disease_group_id": "74",
+      "disease_group_name": "U ác khác cơ quan sinh dục nữ - Malignant neoplasms of female genital organs",
+      "model_class_index": 38,
+      "model_supported": true,
+      "report_group_code": "C51-C52,C57-C58",
+      "support_level": "low"
+    },
+    {
+      "disease_group_id": "76",
+      "disease_group_name": "U ác các phần khác và không xác định của tử cung - Malignant neoplasms of other and unspecified parts of uterus",
+      "model_class_index": 39,
+      "model_supported": true,
+      "report_group_code": "C54-C55",
+      "support_level": "medium"
+    },
+    {
+      "disease_group_id": "78",
+      "disease_group_name": "U ác khác của cơ quan sinh dục nam - Other malignant neoplasms of male genital organs",
+      "model_class_index": 40,
+      "model_supported": true,
+      "report_group_code": "C60,C62-C63",
+      "support_level": "low"
+    },
+    {
+      "disease_group_id": "79",
+      "disease_group_name": "U ác bàng quang - Malignant neoplasm of bladder",
+      "model_class_index": 41,
+      "model_supported": true,
+      "report_group_code": "C67",
+      "support_level": "low"
+    },
+    {
+      "disease_group_id": "8",
+      "disease_group_name": "Các dạng lao khác - Other tuberculosis",
+      "model_class_index": 5,
+      "model_supported": true,
+      "report_group_code": "A17-A19",
+      "support_level": "low"
+    },
+    {
+      "disease_group_id": "80",
+      "disease_group_name": "U ác khác của đường tiết niệu - Other malignant neoplasms of uterinary tract",
+      "model_class_index": 42,
+      "model_supported": true,
+      "report_group_code": "C64-C66,C68",
+      "support_level": "high"
+    },
+    {
+      "disease_group_id": "81",
+      "disease_group_name": "U ác mắt và các phần phụ - Malignant neoplasm of eye and adnexa",
+      "model_class_index": 43,
+      "model_supported": true,
+      "report_group_code": "C69",
+      "support_level": "insufficient"
+    },
+    {
+      "disease_group_id": "82",
+      "disease_group_name": "U ác não - Malignant neoplasm of brain",
+      "model_class_index": 44,
+      "model_supported": true,
+      "report_group_code": "C71",
+      "support_level": "medium"
+    },
+    {
+      "disease_group_id": "83",
+      "disease_group_name": "U ác các phần khác của hệ thần kinh trung ương - Malignant neoplasm of other parts of central nervous system",
+      "model_class_index": 45,
+      "model_supported": true,
+      "report_group_code": "C70,C72",
+      "support_level": "low"
+    },
+    {
+      "disease_group_id": "84",
+      "disease_group_name": "U ác các khu trú khác, khó định nghĩa, thứ phát, không xác định rõ và phức hợp - Malignant neoplasm of other and ill",
+      "model_class_index": 46,
+      "model_supported": true,
+      "report_group_code": "C73-C80,C97",
+      "support_level": "medium"
+    },
+    {
+      "disease_group_id": "85",
+      "disease_group_name": "Bệnh Hodgkin - Hodgkin disease",
+      "model_class_index": 47,
+      "model_supported": true,
+      "report_group_code": "C81",
+      "support_level": "medium"
+    },
+    {
+      "disease_group_id": "86",
+      "disease_group_name": "U bạch huyết không phải Hodgkin - Non-Hodgkin's lymphoma",
+      "model_class_index": 48,
+      "model_supported": true,
+      "report_group_code": "C82-C85",
+      "support_level": "high"
+    },
+    {
+      "disease_group_id": "87",
+      "disease_group_name": "Bệnh bạch cầu - Leukaemia",
+      "model_class_index": 49,
+      "model_supported": true,
+      "report_group_code": "C91-C95",
+      "support_level": "high"
+    },
+    {
+      "disease_group_id": "88",
+      "disease_group_name": "U ác limphô khác, cơ quan tạo máu và tổ chức có liên quan - Other malignant neoplasms of lymphoid, haematopoietic and related tissue",
+      "model_class_index": 50,
+      "model_supported": true,
+      "report_group_code": "C86,C88-C90,C96",
+      "support_level": "low"
+    },
+    {
+      "disease_group_id": "9",
+      "disease_group_name": "Dịch hạch - Plague",
+      "model_class_index": 6,
+      "model_supported": true,
+      "report_group_code": "A20",
+      "support_level": "insufficient"
+    },
+    {
+      "disease_group_id": "90",
+      "disease_group_name": "U da lành - Benign neoplasm of skin",
+      "model_class_index": 51,
+      "model_supported": true,
+      "report_group_code": "D22-D23",
+      "support_level": "medium"
+    },
+    {
+      "disease_group_id": "91",
+      "disease_group_name": "U vú lành - Benign neoplasm of breast",
+      "model_class_index": 52,
+      "model_supported": true,
+      "report_group_code": "D24",
+      "support_level": "low"
+    },
+    {
+      "disease_group_id": "92",
+      "disease_group_name": "U cơ trơn tử cung - Leiomyoma of uterus",
+      "model_class_index": 53,
+      "model_supported": true,
+      "report_group_code": "D25",
+      "support_level": "insufficient"
+    },
+    {
+      "disease_group_id": "93",
+      "disease_group_name": "U buồng trứng lành - Benign neoplasm of ovary",
+      "model_class_index": 54,
+      "model_supported": true,
+      "report_group_code": "D27",
+      "support_level": "medium"
+    },
+    {
+      "disease_group_id": "94",
+      "disease_group_name": "U lành cơ quan tiết niệu - Benign neoplasm of urinary organs",
+      "model_class_index": 55,
+      "model_supported": true,
+      "report_group_code": "D30",
+      "support_level": "insufficient"
+    },
+    {
+      "disease_group_id": "95",
+      "disease_group_name": "U lành não và các phần khác của hệ thần kinh trung ương - Benign neoplasm of brain and other parts of central nervous system",
+      "model_class_index": 56,
+      "model_supported": true,
+      "report_group_code": "D33",
+      "support_level": "medium"
+    },
+    {
+      "disease_group_id": "96",
+      "disease_group_name": "U khác insitu, lành tính và các u tiến triển không chắc chắn hoặc chưa rõ - Other insitus and benign neoplasms and neoplasms of uncertain or unknown behaviour",
+      "model_class_index": 57,
+      "model_supported": true,
+      "report_group_code": "D00-D05,D07-D21,D26,D28-D29,D31-D32,D34-D48",
+      "support_level": "high"
+    },
+    {
+      "disease_group_id": "97",
+      "disease_group_name": "Thiếu máu do thiếu sắt - Iron deficiency anaemia",
+      "model_class_index": 58,
+      "model_supported": true,
+      "report_group_code": "D50",
+      "support_level": "medium"
+    },
+    {
+      "disease_group_id": "98",
+      "disease_group_name": "Thiếu máu khác - Other anaemias",
+      "model_class_index": 59,
+      "model_supported": true,
+      "report_group_code": "D51-D64",
+      "support_level": "high"
+    },
+    {
+      "disease_group_id": "99",
+      "disease_group_name": "Tổn thương chảy máu, bệnh khác của máu và cơ quan tạo máu - Haemorrhagic conditions and other diseases of blood, blood",
+      "model_class_index": 60,
+      "model_supported": true,
+      "report_group_code": "D65-D77",
+      "support_level": "high"
+    }
+  ],
+  "model_class_count": 221,
+  "model_classes": [
+    "1",
+    "4",
+    "5",
+    "6",
+    "7",
+    "8",
+    "9",
+    "13",
+    "17",
+    "18",
+    "19",
+    "20",
+    "24",
+    "27",
+    "30",
+    "32",
+    "33",
+    "34",
+    "37",
+    "38",
+    "39",
+    "41",
+    "42",
+    "47",
+    "48",
+    "53",
+    "57",
+    "58",
+    "60",
+    "62",
+    "63",
+    "64",
+    "65",
+    "68",
+    "69",
+    "70",
+    "72",
+    "73",
+    "74",
+    "76",
+    "78",
+    "79",
+    "80",
+    "81",
+    "82",
+    "83",
+    "84",
+    "85",
+    "86",
+    "87",
+    "88",
+    "90",
+    "91",
+    "92",
+    "93",
+    "94",
+    "95",
+    "96",
+    "97",
+    "98",
+    "99",
+    "100",
+    "101",
+    "102",
+    "103",
+    "104",
+    "105",
+    "107",
+    "109",
+    "111",
+    "115",
+    "116",
+    "117",
+    "118",
+    "119",
+    "120",
+    "123",
+    "124",
+    "125",
+    "126",
+    "127",
+    "128",
+    "129",
+    "130",
+    "131",
+    "132",
+    "135",
+    "136",
+    "137",
+    "139",
+    "140",
+    "141",
+    "142",
+    "143",
+    "144",
+    "145",
+    "146",
+    "148",
+    "150",
+    "151",
+    "152",
+    "153",
+    "154",
+    "155",
+    "156",
+    "159",
+    "160",
+    "161",
+    "164",
+    "165",
+    "166",
+    "167",
+    "168",
+    "169",
+    "170",
+    "171",
+    "172",
+    "173",
+    "174",
+    "175",
+    "176",
+    "179",
+    "180",
+    "181",
+    "182",
+    "183",
+    "184",
+    "185",
+    "186",
+    "187",
+    "188",
+    "189",
+    "190",
+    "191",
+    "192",
+    "194",
+    "195",
+    "196",
+    "197",
+    "198",
+    "199",
+    "200",
+    "201",
+    "202",
+    "203",
+    "204",
+    "205",
+    "206",
+    "207",
+    "208",
+    "209",
+    "210",
+    "211",
+    "212",
+    "213",
+    "214",
+    "215",
+    "216",
+    "217",
+    "218",
+    "220",
+    "221",
+    "222",
+    "223",
+    "224",
+    "226",
+    "229",
+    "230",
+    "233",
+    "242",
+    "245",
+    "246",
+    "247",
+    "249",
+    "250",
+    "251",
+    "253",
+    "254",
+    "255",
+    "256",
+    "257",
+    "258",
+    "259",
+    "260",
+    "261",
+    "262",
+    "263",
+    "264",
+    "265",
+    "266",
+    "267",
+    "268",
+    "270",
+    "271",
+    "272",
+    "273",
+    "274",
+    "276",
+    "277",
+    "278",
+    "279",
+    "281",
+    "282",
+    "283",
+    "284",
+    "285",
+    "287",
+    "288",
+    "289",
+    "290",
+    "291",
+    "292",
+    "296",
+    "297",
+    "299",
+    "300",
+    "304",
+    "306",
+    "311",
+    "312",
+    "313"
+  ]
+}

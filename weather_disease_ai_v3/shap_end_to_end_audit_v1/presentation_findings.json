@@ -1,0 +1,933 @@
+[
+  {
+    "sampled_api_diseases": 10,
+    "differing_group_directions": [
+      {
+        "disease_id": "169",
+        "key": "weather:HUMIDITY:7D",
+        "shown": "UP",
+        "full": "MIXED",
+        "missing_features": [
+          {
+            "feature": "humidity_max_7d",
+            "label_vi": "Độ ẩm — 7 ngày gần đây",
+            "category": "WEATHER",
+            "window": "7D",
+            "input_value": 79,
+            "shap_value": -0.09681290796627784,
+            "direction": "DOWN",
+            "weather_factor": "humidity"
+          },
+          {
+            "feature": "humidity_min_7d",
+            "label_vi": "Độ ẩm — 7 ngày gần đây",
+            "category": "WEATHER",
+            "window": "7D",
+            "input_value": 60,
+            "shap_value": -0.030614616312685555,
+            "direction": "DOWN",
+            "weather_factor": "humidity"
+          }
+        ]
+      },
+      {
+        "disease_id": "6",
+        "key": "weather:WIND:7D",
+        "shown": "UP",
+        "full": "MIXED",
+        "missing_features": [
+          {
+            "feature": "wind_gust_max_7d",
+            "label_vi": "Gió — 7 ngày gần đây",
+            "category": "WEATHER",
+            "window": "7D",
+            "input_value": 16,
+            "shap_value": 0.03018087125247653,
+            "direction": "UP",
+            "weather_factor": "wind"
+          },
+          {
+            "feature": "wind_speed_max_7d",
+            "label_vi": "Gió — 7 ngày gần đây",
+            "category": "WEATHER",
+            "window": "7D",
+            "input_value": 9,
+            "shap_value": -0.1717510579954423,
+            "direction": "DOWN",
+            "weather_factor": "wind"
+          }
+        ]
+      },
+      {
+        "disease_id": "6",
+        "key": "weather:TEMPERATURE:7D",
+        "shown": "UP",
+        "full": "MIXED",
+        "missing_features": [
+          {
+            "feature": "temperature_mean_7d",
+            "label_vi": "Nhiệt độ — 7 ngày gần đây",
+            "category": "WEATHER",
+            "window": "7D",
+            "input_value": 26.875,
+            "shap_value": -0.03177401797287109,
+            "direction": "DOWN",
+            "weather_factor": "temperature"
+          },
+          {
+            "feature": "temperature_max_7d",
+            "label_vi": "Nhiệt độ — 7 ngày gần đây",
+            "category": "WEATHER",
+            "window": "7D",
+            "input_value": 29.75,
+            "shap_value": -0.05828861770270517,
+            "direction": "DOWN",
+            "weather_factor": "temperature"
+          }
+        ]
+      },
+      {
+        "disease_id": "6",
+        "key": "weather:HUMIDITY:7D",
+        "shown": "DOWN",
+        "full": "MIXED",
+        "missing_features": [
+          {
+            "feature": "humidity_mean_7d",
+            "label_vi": "Độ ẩm — 7 ngày gần đây",
+            "category": "WEATHER",
+            "window": "7D",
+            "input_value": 69.214286,
+            "shap_value": 0.03525884214366257,
+            "direction": "UP",
+            "weather_factor": "humidity"
+          },
+          {
+            "feature": "humidity_min_7d",
+            "label_vi": "Độ ẩm — 7 ngày gần đây",
+            "category": "WEATHER",
+            "window": "7D",
+            "input_value": 60,
+            "shap_value": 0.0056858863362569245,
+            "direction": "UP",
+            "weather_factor": "humidity"
+          }
+        ]
+      },
+      {
+        "disease_id": "32",
+        "key": "seasonal:time-of-year",
+        "shown": "UP",
+        "full": "MIXED",
+        "missing_features": [
+          {
+            "feature": "season",
+            "label_vi": "Mùa mưa / mùa khô",
+            "category": "SEASONAL_CALENDAR",
+            "window": "NONE",
+            "input_value": "Mùa mưa",
+            "shap_value": 0.0001028625282215802,
+            "direction": "UP",
+            "weather_factor": null
+          },
+          {
+            "feature": "day_of_year_cos",
+            "label_vi": "Thời điểm trong năm",
+            "category": "SEASONAL_CALENDAR",
+            "window": "NONE",
+            "input_value": -0.8105309990194823,
+            "shap_value": -0.02871357946913744,
+            "direction": "DOWN",
+            "weather_factor": null
+          }
+        ]
+      },
+      {
+        "disease_id": "32",
+        "key": "weather:TEMPERATURE:3D",
+        "shown": "UP",
+        "full": "MIXED",
+        "missing_features": [
+          {
+            "feature": "temperature_mean_3d",
+            "label_vi": "Nhiệt độ — 3 ngày gần đây",
+            "category": "WEATHER",
+            "window": "3D",
+            "input_value": 26.875,
+            "shap_value": 0.0017669986419539731,
+            "direction": "UP",
+            "weather_factor": "temperature"
+          },
+          {
+            "feature": "temperature_max_3d",
+            "label_vi": "Nhiệt độ — 3 ngày gần đây",
+            "category": "WEATHER",
+            "window": "3D",
+            "input_value": 29.75,
+            "shap_value": -0.031903358955017815,
+            "direction": "DOWN",
+            "weather_factor": "temperature"
+          }
+        ]
+      },
+      {
+        "disease_id": "32",
+        "key": "weather:HUMIDITY:7D",
+        "shown": "DOWN",
+        "full": "MIXED",
+        "missing_features": [
+          {
+            "feature": "humidity_min_7d",
+            "label_vi": "Độ ẩm — 7 ngày gần đây",
+            "category": "WEATHER",
+            "window": "7D",
+            "input_value": 60,
+            "shap_value": 0.0029728719607551007,
+            "direction": "UP",
+            "weather_factor": "humidity"
+          },
+          {
+            "feature": "humidity_mean_7d",
+            "label_vi": "Độ ẩm — 7 ngày gần đây",
+            "category": "WEATHER",
+            "window": "7D",
+            "input_value": 69.214286,
+            "shap_value": -0.003669899546169883,
+            "direction": "DOWN",
+            "weather_factor": "humidity"
+          }
+        ]
+      },
+      {
+        "disease_id": "32",
+        "key": "weather:TEMPERATURE:7D",
+        "shown": "DOWN",
+        "full": "MIXED",
+        "missing_features": [
+          {
+            "feature": "temperature_max_7d",
+            "label_vi": "Nhiệt độ — 7 ngày gần đây",
+            "category": "WEATHER",
+            "window": "7D",
+            "input_value": 29.75,
+            "shap_value": 0.002042001125475518,
+            "direction": "UP",
+            "weather_factor": "temperature"
+          },
+          {
+            "feature": "temperature_min_7d",
+            "label_vi": "Nhiệt độ — 7 ngày gần đây",
+            "category": "WEATHER",
+            "window": "7D",
+            "input_value": 24,
+            "shap_value": -0.04015714832892155,
+            "direction": "DOWN",
+            "weather_factor": "temperature"
+          }
+        ]
+      },
+      {
+        "disease_id": "32",
+        "key": "weather:WIND:7D",
+        "shown": "DOWN",
+        "full": "MIXED",
+        "missing_features": [
+          {
+            "feature": "wind_speed_mean_7d",
+            "label_vi": "Gió — 7 ngày gần đây",
+            "category": "WEATHER",
+            "window": "7D",
+            "input_value": 6.5,
+            "shap_value": 0.004348741309268169,
+            "direction": "UP",
+            "weather_factor": "wind"
+          },
+          {
+            "feature": "wind_gust_max_7d",
+            "label_vi": "Gió — 7 ngày gần đây",
+            "category": "WEATHER",
+            "window": "7D",
+            "input_value": 16,
+            "shap_value": -0.059837559376060716,
+            "direction": "DOWN",
+            "weather_factor": "wind"
+          }
+        ]
+      },
+      {
+        "disease_id": "32",
+        "key": "weather:WIND:3D",
+        "shown": "DOWN",
+        "full": "MIXED",
+        "missing_features": [
+          {
+            "feature": "wind_speed_mean_3d",
+            "label_vi": "Gió — 3 ngày gần đây",
+            "category": "WEATHER",
+            "window": "3D",
+            "input_value": 6.5,
+            "shap_value": 0.0013857713815479933,
+            "direction": "UP",
+            "weather_factor": "wind"
+          },
+          {
+            "feature": "wind_gust_max_3d",
+            "label_vi": "Gió — 3 ngày gần đây",
+            "category": "WEATHER",
+            "window": "3D",
+            "input_value": 16,
+            "shap_value": -0.054837600685997065,
+            "direction": "DOWN",
+            "weather_factor": "wind"
+          }
+        ]
+      },
+      {
+        "disease_id": "32",
+        "key": "weather:TEMPERATURE:CURRENT",
+        "shown": "DOWN",
+        "full": "MIXED",
+        "missing_features": [
+          {
+            "feature": "temperature_min_current",
+            "label_vi": "Nhiệt độ — hiện tại",
+            "category": "WEATHER",
+            "window": "CURRENT",
+            "input_value": 24,
+            "shap_value": 0.0021076494911375044,
+            "direction": "UP",
+            "weather_factor": "temperature"
+          },
+          {
+            "feature": "temperature_max_current",
+            "label_vi": "Nhiệt độ — hiện tại",
+            "category": "WEATHER",
+            "window": "CURRENT",
+            "input_value": 29.75,
+            "shap_value": -0.0019916334977664583,
+            "direction": "DOWN",
+            "weather_factor": "temperature"
+          }
+        ]
+      },
+      {
+        "disease_id": "41",
+        "key": "weather:HUMIDITY:7D",
+        "shown": "UP",
+        "full": "MIXED",
+        "missing_features": [
+          {
+            "feature": "humidity_max_7d",
+            "label_vi": "Độ ẩm — 7 ngày gần đây",
+            "category": "WEATHER",
+            "window": "7D",
+            "input_value": 79,
+            "shap_value": -0.10473115771214361,
+            "direction": "DOWN",
+            "weather_factor": "humidity"
+          },
+          {
+            "feature": "humidity_min_7d",
+            "label_vi": "Độ ẩm — 7 ngày gần đây",
+            "category": "WEATHER",
+            "window": "7D",
+            "input_value": 60,
+            "shap_value": -0.002183021342862837,
+            "direction": "DOWN",
+            "weather_factor": "humidity"
+          }
+        ]
+      },
+      {
+        "disease_id": "41",
+        "key": "weather:WIND:3D",
+        "shown": "DOWN",
+        "full": "MIXED",
+        "missing_features": [
+          {
+            "feature": "wind_speed_mean_3d",
+            "label_vi": "Gió — 3 ngày gần đây",
+            "category": "WEATHER",
+            "window": "3D",
+            "input_value": 6.5,
+            "shap_value": 0.029833778488303847,
+            "direction": "UP",
+            "weather_factor": "wind"
+          },
+          {
+            "feature": "wind_gust_max_3d",
+            "label_vi": "Gió — 3 ngày gần đây",
+            "category": "WEATHER",
+            "window": "3D",
+            "input_value": 16,
+            "shap_value": -0.08474781787838863,
+            "direction": "DOWN",
+            "weather_factor": "wind"
+          }
+        ]
+      },
+      {
+        "disease_id": "190",
+        "key": "weather:WIND:7D",
+        "shown": "DOWN",
+        "full": "MIXED",
+        "missing_features": [
+          {
+            "feature": "wind_speed_mean_7d",
+            "label_vi": "Gió — 7 ngày gần đây",
+            "category": "WEATHER",
+            "window": "7D",
+            "input_value": 6.5,
+            "shap_value": 0.015333272602429187,
+            "direction": "UP",
+            "weather_factor": "wind"
+          },
+          {
+            "feature": "wind_gust_max_7d",
+            "label_vi": "Gió — 7 ngày gần đây",
+            "category": "WEATHER",
+            "window": "7D",
+            "input_value": 16,
+            "shap_value": 0.05736134310802457,
+            "direction": "UP",
+            "weather_factor": "wind"
+          }
+        ]
+      },
+      {
+        "disease_id": "190",
+        "key": "weather:HUMIDITY:7D",
+        "shown": "DOWN",
+        "full": "MIXED",
+        "missing_features": [
+          {
+            "feature": "humidity_min_7d",
+            "label_vi": "Độ ẩm — 7 ngày gần đây",
+            "category": "WEATHER",
+            "window": "7D",
+            "input_value": 60,
+            "shap_value": 0.05262541889467301,
+            "direction": "UP",
+            "weather_factor": "humidity"
+          },
+          {
+            "feature": "humidity_mean_7d",
+            "label_vi": "Độ ẩm — 7 ngày gần đây",
+            "category": "WEATHER",
+            "window": "7D",
+            "input_value": 69.214286,
+            "shap_value": -0.005687241291251684,
+            "direction": "DOWN",
+            "weather_factor": "humidity"
+          }
+        ]
+      },
+      {
+        "disease_id": "190",
+        "key": "weather:WIND:3D",
+        "shown": "DOWN",
+        "full": "MIXED",
+        "missing_features": [
+          {
+            "feature": "wind_speed_mean_3d",
+            "label_vi": "Gió — 3 ngày gần đây",
+            "category": "WEATHER",
+            "window": "3D",
+            "input_value": 6.5,
+            "shap_value": 0.025441703262366836,
+            "direction": "UP",
+            "weather_factor": "wind"
+          },
+          {
+            "feature": "wind_speed_max_3d",
+            "label_vi": "Gió — 3 ngày gần đây",
+            "category": "WEATHER",
+            "window": "3D",
+            "input_value": 9,
+            "shap_value": -0.0907954367392737,
+            "direction": "DOWN",
+            "weather_factor": "wind"
+          }
+        ]
+      },
+      {
+        "disease_id": "165",
+        "key": "weather:TEMPERATURE:7D",
+        "shown": "UP",
+        "full": "MIXED",
+        "missing_features": [
+          {
+            "feature": "temperature_mean_7d",
+            "label_vi": "Nhiệt độ — 7 ngày gần đây",
+            "category": "WEATHER",
+            "window": "7D",
+            "input_value": 26.875,
+            "shap_value": -0.01340997811476172,
+            "direction": "DOWN",
+            "weather_factor": "temperature"
+          },
+          {
+            "feature": "temperature_max_7d",
+            "label_vi": "Nhiệt độ — 7 ngày gần đây",
+            "category": "WEATHER",
+            "window": "7D",
+            "input_value": 29.75,
+            "shap_value": -0.023639531028099563,
+            "direction": "DOWN",
+            "weather_factor": "temperature"
+          }
+        ]
+      },
+      {
+        "disease_id": "165",
+        "key": "weather:TEMPERATURE:3D",
+        "shown": "UP",
+        "full": "MIXED",
+        "missing_features": [
+          {
+            "feature": "temperature_mean_3d",
+            "label_vi": "Nhiệt độ — 3 ngày gần đây",
+            "category": "WEATHER",
+            "window": "3D",
+            "input_value": 26.875,
+            "shap_value": 0.006237684791835813,
+            "direction": "UP",
+            "weather_factor": "temperature"
+          },
+          {
+            "feature": "temperature_max_3d",
+            "label_vi": "Nhiệt độ — 3 ngày gần đây",
+            "category": "WEATHER",
+            "window": "3D",
+            "input_value": 29.75,
+            "shap_value": -0.007440940601648601,
+            "direction": "DOWN",
+            "weather_factor": "temperature"
+          }
+        ]
+      },
+      {
+        "disease_id": "165",
+        "key": "weather:WIND:7D",
+        "shown": "DOWN",
+        "full": "MIXED",
+        "missing_features": [
+          {
+            "feature": "wind_gust_max_7d",
+            "label_vi": "Gió — 7 ngày gần đây",
+            "category": "WEATHER",
+            "window": "7D",
+            "input_value": 16,
+            "shap_value": 0.01008697908826809,
+            "direction": "UP",
+            "weather_factor": "wind"
+          },
+          {
+            "feature": "wind_speed_mean_7d",
+            "label_vi": "Gió — 7 ngày gần đây",
+            "category": "WEATHER",
+            "window": "7D",
+            "input_value": 6.5,
+            "shap_value": -0.012706024495508481,
+            "direction": "DOWN",
+            "weather_factor": "wind"
+          }
+        ]
+      },
+      {
+        "disease_id": "165",
+        "key": "weather:PRECIPITATION:7D",
+        "shown": "DOWN",
+        "full": "MIXED",
+        "missing_features": [
+          {
+            "feature": "rain_sum_7d",
+            "label_vi": "Lượng mưa — 7 ngày gần đây",
+            "category": "WEATHER",
+            "window": "7D",
+            "input_value": 84,
+            "shap_value": 0.002331491855461956,
+            "direction": "UP",
+            "weather_factor": "precipitation"
+          },
+          {
+            "feature": "precipitation_sum_7d",
+            "label_vi": "Lượng mưa — 7 ngày gần đây",
+            "category": "WEATHER",
+            "window": "7D",
+            "input_value": 168,
+            "shap_value": -0.08201400689155437,
+            "direction": "DOWN",
+            "weather_factor": "precipitation"
+          },
+          {
+            "feature": "rain_days_7d",
+            "label_vi": "Lượng mưa — 7 ngày gần đây",
+            "category": "WEATHER",
+            "window": "7D",
+            "input_value": 7,
+            "shap_value": -0.002715555364483306,
+            "direction": "DOWN",
+            "weather_factor": "precipitation"
+          }
+        ]
+      },
+      {
+        "disease_id": "165",
+        "key": "weather:WIND:3D",
+        "shown": "DOWN",
+        "full": "MIXED",
+        "missing_features": [
+          {
+            "feature": "wind_speed_mean_3d",
+            "label_vi": "Gió — 3 ngày gần đây",
+            "category": "WEATHER",
+            "window": "3D",
+            "input_value": 6.5,
+            "shap_value": 0.007657816024232838,
+            "direction": "UP",
+            "weather_factor": "wind"
+          }
+        ]
+      },
+      {
+        "disease_id": "80",
+        "key": "weather:PRECIPITATION:7D",
+        "shown": "DOWN",
+        "full": "MIXED",
+        "missing_features": [
+          {
+            "feature": "precipitation_sum_7d",
+            "label_vi": "Lượng mưa — 7 ngày gần đây",
+            "category": "WEATHER",
+            "window": "7D",
+            "input_value": 168,
+            "shap_value": 0.004078927473802792,
+            "direction": "UP",
+            "weather_factor": "precipitation"
+          },
+          {
+            "feature": "rain_sum_7d",
+            "label_vi": "Lượng mưa — 7 ngày gần đây",
+            "category": "WEATHER",
+            "window": "7D",
+            "input_value": 84,
+            "shap_value": -0.0016741480280846612,
+            "direction": "DOWN",
+            "weather_factor": "precipitation"
+          },
+          {
+            "feature": "rain_days_7d",
+            "label_vi": "Lượng mưa — 7 ngày gần đây",
+            "category": "WEATHER",
+            "window": "7D",
+            "input_value": 7,
+            "shap_value": -0.00865196814719129,
+            "direction": "DOWN",
+            "weather_factor": "precipitation"
+          }
+        ]
+      },
+      {
+        "disease_id": "80",
+        "key": "weather:WIND:7D",
+        "shown": "DOWN",
+        "full": "MIXED",
+        "missing_features": [
+          {
+            "feature": "wind_speed_mean_7d",
+            "label_vi": "Gió — 7 ngày gần đây",
+            "category": "WEATHER",
+            "window": "7D",
+            "input_value": 6.5,
+            "shap_value": 0.04658504107442739,
+            "direction": "UP",
+            "weather_factor": "wind"
+          },
+          {
+            "feature": "wind_gust_max_7d",
+            "label_vi": "Gió — 7 ngày gần đây",
+            "category": "WEATHER",
+            "window": "7D",
+            "input_value": 16,
+            "shap_value": -0.009157425576144159,
+            "direction": "DOWN",
+            "weather_factor": "wind"
+          }
+        ]
+      },
+      {
+        "disease_id": "170",
+        "key": "weather:PRECIPITATION:7D",
+        "shown": "UP",
+        "full": "MIXED",
+        "missing_features": [
+          {
+            "feature": "precipitation_sum_7d",
+            "label_vi": "Lượng mưa — 7 ngày gần đây",
+            "category": "WEATHER",
+            "window": "7D",
+            "input_value": 168,
+            "shap_value": 0.0008396958108285546,
+            "direction": "UP",
+            "weather_factor": "precipitation"
+          },
+          {
+            "feature": "rain_sum_7d",
+            "label_vi": "Lượng mưa — 7 ngày gần đây",
+            "category": "WEATHER",
+            "window": "7D",
+            "input_value": 84,
+            "shap_value": 0.003887354710712598,
+            "direction": "UP",
+            "weather_factor": "precipitation"
+          },
+          {
+            "feature": "rain_days_7d",
+            "label_vi": "Lượng mưa — 7 ngày gần đây",
+            "category": "WEATHER",
+            "window": "7D",
+            "input_value": 7,
+            "shap_value": -0.003831389177672225,
+            "direction": "DOWN",
+            "weather_factor": "precipitation"
+          }
+        ]
+      },
+      {
+        "disease_id": "170",
+        "key": "weather:WIND:7D",
+        "shown": "DOWN",
+        "full": "MIXED",
+        "missing_features": [
+          {
+            "feature": "wind_gust_max_7d",
+            "label_vi": "Gió — 7 ngày gần đây",
+            "category": "WEATHER",
+            "window": "7D",
+            "input_value": 16,
+            "shap_value": 0.023007670870007622,
+            "direction": "UP",
+            "weather_factor": "wind"
+          },
+          {
+            "feature": "wind_speed_mean_7d",
+            "label_vi": "Gió — 7 ngày gần đây",
+            "category": "WEATHER",
+            "window": "7D",
+            "input_value": 6.5,
+            "shap_value": -0.033113184297964386,
+            "direction": "DOWN",
+            "weather_factor": "wind"
+          }
+        ]
+      },
+      {
+        "disease_id": "87",
+        "key": "weather:TEMPERATURE:7D",
+        "shown": "UP",
+        "full": "MIXED",
+        "missing_features": [
+          {
+            "feature": "temperature_mean_7d",
+            "label_vi": "Nhiệt độ — 7 ngày gần đây",
+            "category": "WEATHER",
+            "window": "7D",
+            "input_value": 26.875,
+            "shap_value": 0.009414378950517648,
+            "direction": "UP",
+            "weather_factor": "temperature"
+          },
+          {
+            "feature": "temperature_max_7d",
+            "label_vi": "Nhiệt độ — 7 ngày gần đây",
+            "category": "WEATHER",
+            "window": "7D",
+            "input_value": 29.75,
+            "shap_value": -0.056576049789035826,
+            "direction": "DOWN",
+            "weather_factor": "temperature"
+          }
+        ]
+      },
+      {
+        "disease_id": "87",
+        "key": "weather:HUMIDITY:7D",
+        "shown": "DOWN",
+        "full": "MIXED",
+        "missing_features": [
+          {
+            "feature": "humidity_mean_7d",
+            "label_vi": "Độ ẩm — 7 ngày gần đây",
+            "category": "WEATHER",
+            "window": "7D",
+            "input_value": 69.214286,
+            "shap_value": 0.0005099171618003668,
+            "direction": "UP",
+            "weather_factor": "humidity"
+          },
+          {
+            "feature": "humidity_min_7d",
+            "label_vi": "Độ ẩm — 7 ngày gần đây",
+            "category": "WEATHER",
+            "window": "7D",
+            "input_value": 60,
+            "shap_value": 0.012540899803932444,
+            "direction": "UP",
+            "weather_factor": "humidity"
+          }
+        ]
+      },
+      {
+        "disease_id": "87",
+        "key": "weather:WIND:7D",
+        "shown": "DOWN",
+        "full": "MIXED",
+        "missing_features": [
+          {
+            "feature": "wind_gust_max_7d",
+            "label_vi": "Gió — 7 ngày gần đây",
+            "category": "WEATHER",
+            "window": "7D",
+            "input_value": 16,
+            "shap_value": 0.01573813658397232,
+            "direction": "UP",
+            "weather_factor": "wind"
+          },
+          {
+            "feature": "wind_speed_mean_7d",
+            "label_vi": "Gió — 7 ngày gần đây",
+            "category": "WEATHER",
+            "window": "7D",
+            "input_value": 6.5,
+            "shap_value": -0.011144290550794807,
+            "direction": "DOWN",
+            "weather_factor": "wind"
+          }
+        ]
+      },
+      {
+        "disease_id": "187",
+        "key": "weather:TEMPERATURE:7D",
+        "shown": "UP",
+        "full": "MIXED",
+        "missing_features": [
+          {
+            "feature": "temperature_max_7d",
+            "label_vi": "Nhiệt độ — 7 ngày gần đây",
+            "category": "WEATHER",
+            "window": "7D",
+            "input_value": 29.75,
+            "shap_value": 0.017123895832470246,
+            "direction": "UP",
+            "weather_factor": "temperature"
+          },
+          {
+            "feature": "temperature_mean_7d",
+            "label_vi": "Nhiệt độ — 7 ngày gần đây",
+            "category": "WEATHER",
+            "window": "7D",
+            "input_value": 26.875,
+            "shap_value": -0.014854367653548447,
+            "direction": "DOWN",
+            "weather_factor": "temperature"
+          }
+        ]
+      },
+      {
+        "disease_id": "187",
+        "key": "weather:HUMIDITY:7D",
+        "shown": "DOWN",
+        "full": "MIXED",
+        "missing_features": [
+          {
+            "feature": "humidity_mean_7d",
+            "label_vi": "Độ ẩm — 7 ngày gần đây",
+            "category": "WEATHER",
+            "window": "7D",
+            "input_value": 69.214286,
+            "shap_value": 0.0026188194743667218,
+            "direction": "UP",
+            "weather_factor": "humidity"
+          },
+          {
+            "feature": "humidity_min_7d",
+            "label_vi": "Độ ẩm — 7 ngày gần đây",
+            "category": "WEATHER",
+            "window": "7D",
+            "input_value": 60,
+            "shap_value": 0.0348531852009838,
+            "direction": "UP",
+            "weather_factor": "humidity"
+          }
+        ]
+      },
+      {
+        "disease_id": "187",
+        "key": "weather:WIND:3D",
+        "shown": "DOWN",
+        "full": "MIXED",
+        "missing_features": [
+          {
+            "feature": "wind_speed_mean_3d",
+            "label_vi": "Gió — 3 ngày gần đây",
+            "category": "WEATHER",
+            "window": "3D",
+            "input_value": 6.5,
+            "shap_value": 0.02285158974926446,
+            "direction": "UP",
+            "weather_factor": "wind"
+          },
+          {
+            "feature": "wind_gust_max_3d",
+            "label_vi": "Gió — 3 ngày gần đây",
+            "category": "WEATHER",
+            "window": "3D",
+            "input_value": 16,
+            "shap_value": 0.00030548471475293226,
+            "direction": "UP",
+            "weather_factor": "wind"
+          }
+        ]
+      },
+      {
+        "disease_id": "187",
+        "key": "weather:PRECIPITATION:7D",
+        "shown": "DOWN",
+        "full": "MIXED",
+        "missing_features": [
+          {
+            "feature": "rain_sum_7d",
+            "label_vi": "Lượng mưa — 7 ngày gần đây",
+            "category": "WEATHER",
+            "window": "7D",
+            "input_value": 84,
+            "shap_value": 0.0055292926966181224,
+            "direction": "UP",
+            "weather_factor": "precipitation"
+          },
+          {
+            "feature": "rain_days_7d",
+            "label_vi": "Lượng mưa — 7 ngày gần đây",
+            "category": "WEATHER",
+            "window": "7D",
+            "input_value": 7,
+            "shap_value": -0.006293194217904443,
+            "direction": "DOWN",
+            "weather_factor": "precipitation"
+          },
+          {
+            "feature": "rain_max_daily_7d",
+            "label_vi": "Lượng mưa — 7 ngày gần đây",
+            "category": "WEATHER",
+            "window": "7D",
+            "input_value": 12,
+            "shap_value": -0.018504067038916445,
+            "direction": "DOWN",
+            "weather_factor": "precipitation"
+          }
+        ]
+      }
+    ]
+  }
+]

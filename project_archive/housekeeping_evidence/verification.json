@@ -1,0 +1,37 @@
+{
+  "status": "PASS_WITH_FINDINGS",
+  "candidateGroups": 91,
+  "candidateFiles": 1299,
+  "groupClassifications": {
+    "SAFE_TO_ARCHIVE": 67,
+    "REVIEW_REQUIRED": 23,
+    "KEEP_ACTIVE": 1
+  },
+  "fileClassifications": {
+    "SAFE_TO_ARCHIVE": 553,
+    "REVIEW_REQUIRED": 673,
+    "PROTECTED": 65,
+    "KEEP_ACTIVE": 8
+  },
+  "movedGroups": 67,
+  "movedFiles": 553,
+  "movedBytes": 7123521,
+  "preservedSnapshotFiles": 210,
+  "trackedMovedFiles": 114,
+  "untrackedMovedFiles": 439,
+  "protectedHashesUnchanged": 1395,
+  "gitIndexUnchanged": true,
+  "frontendLiteralImportsChecked": 569,
+  "newBrokenFrontendImports": 0,
+  "preexistingUnresolvedFrontendImports": [],
+  "backendModulesParsedWithoutExecution": 94,
+  "localBackendImportsChecked": 311,
+  "newBrokenMarkdownLinks": 0,
+  "markdownLinksChecked": 22,
+  "preexistingBrokenMarkdownLinks": [],
+  "rootReadmesRetained": 4,
+  "legacyDocsMoved": 0,
+  "miscFilesMoved": 0,
+  "dbModelsDatasetsSecretsContentInspected": false,
+  "fullTestsBuildBrowserRun": false
+}

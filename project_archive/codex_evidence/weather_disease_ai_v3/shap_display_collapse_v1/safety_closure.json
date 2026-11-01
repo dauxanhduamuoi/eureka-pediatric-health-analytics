@@ -1,0 +1,31 @@
+{
+  "changed_files": [
+    "Frontend\\src\\app\\components\\ParentPortal.test.tsx",
+    "Frontend\\src\\app\\components\\weather-ai\\tier1Presentation.test.tsx",
+    "Frontend\\src\\app\\components\\weather-ai\\tier1Presentation.ts",
+    "Frontend\\src\\app\\components\\weather-ai\\WeatherAIResults.test.tsx",
+    "Frontend\\src\\app\\components\\weather-ai\\WeatherAIResults.tsx"
+  ],
+  "changed_backend_files": [],
+  "changed_tables_excluding_login_sessions": [
+    "auto_medical_knowledge_topic_states",
+    "parent_disease_visibility_settings",
+    "parent_disease_visibility_audits"
+  ],
+  "table_count": 32,
+  "real_db_file_unchanged": false,
+  "real_db_before": "3204dabbf21254bf221d6c0587c4cdc00f55cf02dba0162da02e8ef7a9246056",
+  "real_db_after": "b3108c5a4fe3d7daf22a6d1b16bb42fd110b560429ec7267e7d3d3d0a9023bc9",
+  "readonly_total_changes": [
+    0,
+    0
+  ],
+  "head_unchanged": true,
+  "staged_diff_unchanged": true,
+  "head": "6a69d26e7b07188f7def6cd7bcf9481f8e2eb649",
+  "medical_selector_source_unchanged": true,
+  "parent_card_source_unchanged": true,
+  "backend_started_or_restarted": false,
+  "external_network_calls": false,
+  "browser_real": "NOT VERIFIED"
+}

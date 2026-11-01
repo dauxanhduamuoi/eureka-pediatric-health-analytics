@@ -1,0 +1,1183 @@
+{
+  "frontend_permission_map": " Partial<Record<TabType, string>> = {\n  dashboard: 'feature.dashboard',\n  'data-import': 'feature.data_import',\n  seasonal: 'feature.seasonal',\n  'age-analysis': 'feature.age_analysis',\n  'monthly-disease-analysis': 'feature.monthly_disease',\n  'gender-analysis': 'feature.gender_analysis',\n  'disease-trend-analysis': 'feature.disease_trend',\n  forecast: 'feature.forecast',\n  'weather-risk': 'feature.weather_risk',\n  'parent-disease-visibility': 'feature.parent_disease_visibility',\n  areas: 'feature.areas',\n  reports: 'feature.reports',\n",
+  "frontend_role_map": " Partial<Record<TabType, readonly string[]>> = {\n  permissions: ['admin'],\n  'medical-knowledge': ['admin', 'staff'],\n",
+  "note": "Static declarations; import router also enforces feature.data_import at router level. Actual permissions tested using isolated DB.",
+  "backend_routes": [
+    {
+      "file": "admin.py",
+      "function": "list_users",
+      "declarations": [
+        "router.get('/users', response_model=list[UserOut])"
+      ],
+      "parameter_guards": [
+        "Depends(get_db)",
+        "Depends(require_admin)"
+      ]
+    },
+    {
+      "file": "admin.py",
+      "function": "list_roles",
+      "declarations": [
+        "router.get('/roles')"
+      ],
+      "parameter_guards": [
+        "Depends(get_db)",
+        "Depends(require_admin)"
+      ]
+    },
+    {
+      "file": "admin.py",
+      "function": "list_permissions",
+      "declarations": [
+        "router.get('/permissions')"
+      ],
+      "parameter_guards": [
+        "Depends(require_admin)"
+      ]
+    },
+    {
+      "file": "admin.py",
+      "function": "create_user",
+      "declarations": [
+        "router.post('/users', response_model=UserOut)"
+      ],
+      "parameter_guards": [
+        "Depends(get_db)",
+        "Depends(require_admin_permission('admin.create_user'))"
+      ]
+    },
+    {
+      "file": "admin.py",
+      "function": "bulk_create_users",
+      "declarations": [
+        "router.post('/users/bulk')"
+      ],
+      "parameter_guards": [
+        "Depends(get_db)",
+        "Depends(require_admin_permission('admin.create_user'))"
+      ]
+    },
+    {
+      "file": "admin.py",
+      "function": "update_user_role",
+      "declarations": [
+        "router.patch('/users/{user_id}/role', response_model=UserOut)"
+      ],
+      "parameter_guards": [
+        "Depends(get_db)",
+        "Depends(require_admin_permission('admin.assign_permissions'))"
+      ]
+    },
+    {
+      "file": "admin.py",
+      "function": "update_user_active",
+      "declarations": [
+        "router.patch('/users/{user_id}/active', response_model=UserOut)"
+      ],
+      "parameter_guards": [
+        "Depends(get_db)",
+        "Depends(require_admin_permission('admin.toggle_user'))"
+      ]
+    },
+    {
+      "file": "admin.py",
+      "function": "update_user_permissions",
+      "declarations": [
+        "router.patch('/users/{user_id}/permissions', response_model=UserOut)"
+      ],
+      "parameter_guards": [
+        "Depends(get_db)",
+        "Depends(require_admin_permission('admin.assign_permissions'))"
+      ]
+    },
+    {
+      "file": "admin.py",
+      "function": "reset_user_password",
+      "declarations": [
+        "router.post('/users/{user_id}/reset-password')"
+      ],
+      "parameter_guards": [
+        "Depends(get_db)",
+        "Depends(require_admin_permission('admin.reset_password'))"
+      ]
+    },
+    {
+      "file": "admin.py",
+      "function": "delete_user",
+      "declarations": [
+        "router.delete('/users/{user_id}')"
+      ],
+      "parameter_guards": [
+        "Depends(get_db)",
+        "Depends(require_admin_permission('admin.delete_user'))"
+      ]
+    },
+    {
+      "file": "admin.py",
+      "function": "list_user_sessions",
+      "declarations": [
+        "router.get('/users/{user_id}/sessions')"
+      ],
+      "parameter_guards": [
+        "Depends(get_db)",
+        "Depends(require_admin)"
+      ]
+    },
+    {
+      "file": "areas.py",
+      "function": "list_provinces",
+      "declarations": [
+        "router.get('/provinces')"
+      ],
+      "parameter_guards": [
+        "Depends(get_db)"
+      ]
+    },
+    {
+      "file": "areas.py",
+      "function": "list_province_regions",
+      "declarations": [
+        "router.get('/province-regions')"
+      ],
+      "parameter_guards": []
+    },
+    {
+      "file": "areas.py",
+      "function": "case_summary",
+      "declarations": [
+        "router.get('/case-summary')"
+      ],
+      "parameter_guards": [
+        "Depends(get_db)",
+        "Depends(require_permission('feature.areas'))",
+        "require_permission('feature.areas')"
+      ]
+    },
+    {
+      "file": "areas.py",
+      "function": "disease_summary",
+      "declarations": [
+        "router.get('/disease-summary')"
+      ],
+      "parameter_guards": [
+        "Depends(get_db)",
+        "Depends(require_permission('feature.areas'))",
+        "require_permission('feature.areas')"
+      ]
+    },
+    {
+      "file": "areas.py",
+      "function": "local_risks",
+      "declarations": [
+        "router.get('/local-risks')"
+      ],
+      "parameter_guards": [
+        "Depends(get_db)"
+      ]
+    },
+    {
+      "file": "areas.py",
+      "function": "recommendations",
+      "declarations": [
+        "router.get('/recommendations')"
+      ],
+      "parameter_guards": [
+        "Depends(get_db)"
+      ]
+    },
+    {
+      "file": "areas.py",
+      "function": "sync_defaults",
+      "declarations": [
+        "router.post('/sync-defaults')"
+      ],
+      "parameter_guards": [
+        "Depends(get_db)",
+        "Depends(require_admin_permission('admin.assign_permissions'))"
+      ]
+    },
+    {
+      "file": "auth.py",
+      "function": "login",
+      "declarations": [
+        "router.post('/login', response_model=TokenResponse)"
+      ],
+      "parameter_guards": [
+        "Depends()",
+        "Depends(get_db)"
+      ]
+    },
+    {
+      "file": "auth.py",
+      "function": "me",
+      "declarations": [
+        "router.get('/me')"
+      ],
+      "parameter_guards": [
+        "Depends(get_db)",
+        "Depends(get_current_user)"
+      ]
+    },
+    {
+      "file": "auth.py",
+      "function": "update_profile",
+      "declarations": [
+        "router.patch('/profile')"
+      ],
+      "parameter_guards": [
+        "Depends(get_db)",
+        "Depends(get_current_user)"
+      ]
+    },
+    {
+      "file": "auth.py",
+      "function": "change_password",
+      "declarations": [
+        "router.post('/change-password')"
+      ],
+      "parameter_guards": [
+        "Depends(get_db)",
+        "Depends(get_current_user)"
+      ]
+    },
+    {
+      "file": "auth.py",
+      "function": "list_my_sessions",
+      "declarations": [
+        "router.get('/sessions')"
+      ],
+      "parameter_guards": [
+        "Depends(get_db)",
+        "Depends(get_current_user)",
+        "Depends(get_current_session_id)"
+      ]
+    },
+    {
+      "file": "auth.py",
+      "function": "revoke_my_session",
+      "declarations": [
+        "router.post('/sessions/{session_id}/revoke')"
+      ],
+      "parameter_guards": [
+        "Depends(get_db)",
+        "Depends(get_current_user)"
+      ]
+    },
+    {
+      "file": "auth.py",
+      "function": "revoke_other_sessions",
+      "declarations": [
+        "router.post('/sessions/revoke-others')"
+      ],
+      "parameter_guards": [
+        "Depends(get_db)",
+        "Depends(get_current_user)",
+        "Depends(get_current_session_id)"
+      ]
+    },
+    {
+      "file": "auto_medical_knowledge.py",
+      "function": "get_auto_overview",
+      "declarations": [
+        "router.get('', response_model=AutoMedicalKnowledgeOverviewResponse)"
+      ],
+      "parameter_guards": [
+        "Depends(require_staff_or_admin)",
+        "Depends(get_auto_admin_service)"
+      ]
+    },
+    {
+      "file": "auto_medical_knowledge.py",
+      "function": "update_auto_settings",
+      "declarations": [
+        "router.patch('/settings', response_model=AutoMedicalKnowledgeSettingsResponse)"
+      ],
+      "parameter_guards": [
+        "Depends(require_admin)",
+        "Depends(get_auto_admin_service)"
+      ]
+    },
+    {
+      "file": "auto_medical_knowledge.py",
+      "function": "set_auto_topic_visibility",
+      "declarations": [
+        "router.post('/topics/visibility', response_model=AutoActionResponse)"
+      ],
+      "parameter_guards": [
+        "Depends(require_staff_or_admin)",
+        "Depends(get_auto_admin_service)"
+      ]
+    },
+    {
+      "file": "auto_medical_knowledge.py",
+      "function": "retry_auto_job",
+      "declarations": [
+        "router.post('/jobs/{job_id}/retry', response_model=AutoActionResponse)"
+      ],
+      "parameter_guards": [
+        "Depends(require_admin)",
+        "Depends(get_auto_admin_service)"
+      ]
+    },
+    {
+      "file": "auto_medical_knowledge.py",
+      "function": "regenerate_auto_topic",
+      "declarations": [
+        "router.post('/regenerate', response_model=AutoActionResponse)"
+      ],
+      "parameter_guards": [
+        "Depends(require_admin)",
+        "Depends(get_auto_queue_service)"
+      ]
+    },
+    {
+      "file": "dashboard.py",
+      "function": "overview",
+      "declarations": [
+        "router.get('/overview')"
+      ],
+      "parameter_guards": [
+        "Depends(get_db)",
+        "Depends(require_permission('feature.dashboard'))",
+        "require_permission('feature.dashboard')"
+      ]
+    },
+    {
+      "file": "dashboard.py",
+      "function": "monthly_statistics",
+      "declarations": [
+        "router.get('/monthly-statistics')"
+      ],
+      "parameter_guards": [
+        "Depends(get_db)",
+        "Depends(require_any_permission(('feature.dashboard', 'feature.monthly_disease', 'feature.gender_analysis', 'feature.disease_trend', 'feature.reports')))",
+        "require_any_permission(('feature.dashboard', 'feature.monthly_disease', 'feature.gender_analysis', 'feature.disease_trend', 'feature.reports'))"
+      ]
+    },
+    {
+      "file": "dashboard.py",
+      "function": "top_disease_groups",
+      "declarations": [
+        "router.get('/top-disease-groups')"
+      ],
+      "parameter_guards": [
+        "Depends(get_db)",
+        "Depends(require_any_permission(('feature.dashboard', 'feature.reports')))",
+        "require_any_permission(('feature.dashboard', 'feature.reports'))"
+      ]
+    },
+    {
+      "file": "dashboard.py",
+      "function": "cases_by_year",
+      "declarations": [
+        "router.get('/cases-by-year')"
+      ],
+      "parameter_guards": [
+        "Depends(get_db)",
+        "Depends(require_permission('feature.dashboard'))",
+        "require_permission('feature.dashboard')"
+      ]
+    },
+    {
+      "file": "dashboard.py",
+      "function": "top_disease_groups_by_month",
+      "declarations": [
+        "router.get('/top-disease-groups-by-month')"
+      ],
+      "parameter_guards": [
+        "Depends(get_db)",
+        "Depends(require_permission('feature.monthly_disease'))",
+        "require_permission('feature.monthly_disease')"
+      ]
+    },
+    {
+      "file": "dashboard.py",
+      "function": "disease_percentage_by_month",
+      "declarations": [
+        "router.get('/disease-percentage-by-month')"
+      ],
+      "parameter_guards": [
+        "Depends(get_db)",
+        "Depends(require_permission('feature.monthly_disease'))",
+        "require_permission('feature.monthly_disease')"
+      ]
+    },
+    {
+      "file": "dashboard.py",
+      "function": "seasonal_summary",
+      "declarations": [
+        "router.get('/seasonal-summary')"
+      ],
+      "parameter_guards": [
+        "Depends(get_db)",
+        "Depends(require_permission('feature.seasonal'))",
+        "require_permission('feature.seasonal')"
+      ]
+    },
+    {
+      "file": "dashboard.py",
+      "function": "monthly_comparison",
+      "declarations": [
+        "router.get('/monthly-comparison')"
+      ],
+      "parameter_guards": [
+        "Depends(get_db)",
+        "Depends(require_permission('feature.monthly_disease'))",
+        "require_permission('feature.monthly_disease')"
+      ]
+    },
+    {
+      "file": "dashboard.py",
+      "function": "cases_by_age_range",
+      "declarations": [
+        "router.get('/cases-by-age-range')"
+      ],
+      "parameter_guards": [
+        "Depends(get_db)",
+        "Depends(require_permission('feature.age_analysis'))",
+        "require_permission('feature.age_analysis')"
+      ]
+    },
+    {
+      "file": "dashboard.py",
+      "function": "disease_by_age_range",
+      "declarations": [
+        "router.get('/disease-by-age-range')"
+      ],
+      "parameter_guards": [
+        "Depends(get_db)",
+        "Depends(require_permission('feature.age_analysis'))",
+        "require_permission('feature.age_analysis')"
+      ]
+    },
+    {
+      "file": "dashboard.py",
+      "function": "cases_by_gender",
+      "declarations": [
+        "router.get('/cases-by-gender')"
+      ],
+      "parameter_guards": [
+        "Depends(get_db)",
+        "Depends(require_permission('feature.gender_analysis'))",
+        "require_permission('feature.gender_analysis')"
+      ]
+    },
+    {
+      "file": "dashboard.py",
+      "function": "disease_trend",
+      "declarations": [
+        "router.get('/disease-trend')"
+      ],
+      "parameter_guards": [
+        "Depends(get_db)",
+        "Depends(require_permission('feature.disease_trend'))",
+        "require_permission('feature.disease_trend')"
+      ]
+    },
+    {
+      "file": "dashboard.py",
+      "function": "year_over_year",
+      "declarations": [
+        "router.get('/year-over-year')"
+      ],
+      "parameter_guards": [
+        "Depends(get_db)",
+        "Depends(require_any_permission(('feature.seasonal', 'feature.disease_trend')))",
+        "require_any_permission(('feature.seasonal', 'feature.disease_trend'))"
+      ]
+    },
+    {
+      "file": "dashboard.py",
+      "function": "seasonal_peak",
+      "declarations": [
+        "router.get('/seasonal-peak')"
+      ],
+      "parameter_guards": [
+        "Depends(get_db)",
+        "Depends(require_permission('feature.seasonal'))",
+        "require_permission('feature.seasonal')"
+      ]
+    },
+    {
+      "file": "dashboard.py",
+      "function": "disease_by_gender",
+      "declarations": [
+        "router.get('/disease-by-gender')"
+      ],
+      "parameter_guards": [
+        "Depends(get_db)",
+        "Depends(require_permission('feature.gender_analysis'))",
+        "require_permission('feature.gender_analysis')"
+      ]
+    },
+    {
+      "file": "dashboard.py",
+      "function": "disease_season_comparison",
+      "declarations": [
+        "router.get('/disease-season-comparison')"
+      ],
+      "parameter_guards": [
+        "Depends(get_db)",
+        "Depends(require_permission('feature.seasonal'))",
+        "require_permission('feature.seasonal')"
+      ]
+    },
+    {
+      "file": "dashboard.py",
+      "function": "get_periods",
+      "declarations": [
+        "router.get('/periods')"
+      ],
+      "parameter_guards": [
+        "Depends(get_db)",
+        "Depends(require_any_permission(('feature.dashboard', 'feature.monthly_disease', 'feature.gender_analysis', 'feature.disease_trend', 'feature.age_analysis', 'feature.seasonal', 'feature.reports')))",
+        "require_any_permission(('feature.dashboard', 'feature.monthly_disease', 'feature.gender_analysis', 'feature.disease_trend', 'feature.age_analysis', 'feature.seasonal', 'feature.reports'))"
+      ]
+    },
+    {
+      "file": "dashboard.py",
+      "function": "get_disease_groups",
+      "declarations": [
+        "router.get('/disease-groups')"
+      ],
+      "parameter_guards": [
+        "Depends(get_db)",
+        "Depends(require_any_permission(('feature.disease_trend', 'feature.gender_analysis', 'feature.reports')))",
+        "require_any_permission(('feature.disease_trend', 'feature.gender_analysis', 'feature.reports'))"
+      ]
+    },
+    {
+      "file": "dashboard.py",
+      "function": "summary_card",
+      "declarations": [
+        "router.get('/summary-card')"
+      ],
+      "parameter_guards": [
+        "Depends(get_db)",
+        "Depends(require_permission('feature.monthly_disease'))",
+        "require_permission('feature.monthly_disease')"
+      ]
+    },
+    {
+      "file": "forecast.py",
+      "function": "run_ai_forecast",
+      "declarations": [
+        "router.post('/run')"
+      ],
+      "parameter_guards": [
+        "Depends(get_db)",
+        "Depends(require_permission('feature.forecast'))",
+        "require_permission('feature.forecast')"
+      ]
+    },
+    {
+      "file": "forecast.py",
+      "function": "get_forecast_results",
+      "declarations": [
+        "router.get('/results')"
+      ],
+      "parameter_guards": [
+        "Depends(get_db)",
+        "Depends(require_permission('feature.forecast'))",
+        "require_permission('feature.forecast')"
+      ]
+    },
+    {
+      "file": "forecast.py",
+      "function": "get_group_summary",
+      "declarations": [
+        "router.get('/group-summary')"
+      ],
+      "parameter_guards": [
+        "Depends(get_db)",
+        "Depends(require_permission('feature.forecast'))",
+        "require_permission('feature.forecast')"
+      ]
+    },
+    {
+      "file": "forecast.py",
+      "function": "get_forecast_accuracy",
+      "declarations": [
+        "router.get('/accuracy')"
+      ],
+      "parameter_guards": [
+        "Depends(get_db)",
+        "Depends(require_permission('feature.forecast'))",
+        "require_permission('feature.forecast')"
+      ]
+    },
+    {
+      "file": "import_data.py",
+      "function": "import_job_status",
+      "declarations": [
+        "router.get('/job-status')"
+      ],
+      "parameter_guards": [
+        "Depends(get_current_user)"
+      ]
+    },
+    {
+      "file": "import_data.py",
+      "function": "import_predict_current",
+      "declarations": [
+        "router.post('/predict-current')"
+      ],
+      "parameter_guards": [
+        "Depends(get_db)",
+        "Depends(get_current_user)"
+      ]
+    },
+    {
+      "file": "import_data.py",
+      "function": "import_disease_codes_endpoint",
+      "declarations": [
+        "router.post('/disease-codes')"
+      ],
+      "parameter_guards": [
+        "Depends(get_db)",
+        "Depends(get_current_user)"
+      ]
+    },
+    {
+      "file": "import_data.py",
+      "function": "preview_parent_guide_endpoint",
+      "declarations": [
+        "router.post('/parent-guide/preview')"
+      ],
+      "parameter_guards": [
+        "Depends(get_current_user)"
+      ]
+    },
+    {
+      "file": "import_data.py",
+      "function": "import_parent_guide_endpoint",
+      "declarations": [
+        "router.post('/parent-guide')"
+      ],
+      "parameter_guards": [
+        "Depends(get_db)",
+        "Depends(get_current_user)"
+      ]
+    },
+    {
+      "file": "import_data.py",
+      "function": "get_parent_guide_status",
+      "declarations": [
+        "router.get('/parent-guide/status')"
+      ],
+      "parameter_guards": [
+        "Depends(get_db)",
+        "Depends(get_current_user)"
+      ]
+    },
+    {
+      "file": "import_data.py",
+      "function": "list_parent_guide",
+      "declarations": [
+        "router.get('/parent-guide')"
+      ],
+      "parameter_guards": [
+        "Depends(get_db)",
+        "Depends(get_current_user)"
+      ]
+    },
+    {
+      "file": "import_data.py",
+      "function": "preview_province_regions_endpoint",
+      "declarations": [
+        "router.post('/province-regions/preview')"
+      ],
+      "parameter_guards": [
+        "Depends(get_current_user)"
+      ]
+    },
+    {
+      "file": "import_data.py",
+      "function": "import_province_regions_endpoint",
+      "declarations": [
+        "router.post('/province-regions')"
+      ],
+      "parameter_guards": [
+        "Depends(get_db)",
+        "Depends(get_current_user)"
+      ]
+    },
+    {
+      "file": "import_data.py",
+      "function": "get_province_regions_status",
+      "declarations": [
+        "router.get('/province-regions/status')"
+      ],
+      "parameter_guards": [
+        "Depends(get_current_user)"
+      ]
+    },
+    {
+      "file": "import_data.py",
+      "function": "get_disease_codes_status",
+      "declarations": [
+        "router.get('/disease-codes/status')"
+      ],
+      "parameter_guards": [
+        "Depends(get_db)",
+        "Depends(get_current_user)"
+      ]
+    },
+    {
+      "file": "import_data.py",
+      "function": "get_patient_data_status",
+      "declarations": [
+        "router.get('/patient-data/status')"
+      ],
+      "parameter_guards": [
+        "Depends(get_db)",
+        "Depends(get_current_user)"
+      ]
+    },
+    {
+      "file": "import_data.py",
+      "function": "list_disease_codes",
+      "declarations": [
+        "router.get('/disease-codes')"
+      ],
+      "parameter_guards": [
+        "Depends(get_db)",
+        "Depends(get_current_user)"
+      ]
+    },
+    {
+      "file": "medical_evidence_provider_settings.py",
+      "function": "read_provider_settings",
+      "declarations": [
+        "router.get('/settings', response_model=MedicalEvidenceProviderSettingsResponse)"
+      ],
+      "parameter_guards": [
+        "Depends(require_staff_or_admin)",
+        "Depends(get_db)",
+        "Depends(_service)"
+      ]
+    },
+    {
+      "file": "medical_evidence_provider_settings.py",
+      "function": "update_provider_setting",
+      "declarations": [
+        "router.patch('/settings', response_model=MedicalEvidenceProviderSettingsResponse)"
+      ],
+      "parameter_guards": [
+        "Depends(require_admin)",
+        "Depends(_service)"
+      ]
+    },
+    {
+      "file": "medical_evidence_reviewed.py",
+      "function": "search_providers",
+      "declarations": [
+        "router.post('/search', response_model=ReviewedProviderSearchResponse)"
+      ],
+      "parameter_guards": [
+        "Depends(require_staff_or_admin)",
+        "Depends(_service)"
+      ]
+    },
+    {
+      "file": "medical_evidence_reviewed.py",
+      "function": "lookup_exact_provider",
+      "declarations": [
+        "router.post('/lookup', response_model=ReviewedProviderExactLookupResponse)"
+      ],
+      "parameter_guards": [
+        "Depends(require_staff_or_admin)",
+        "Depends(_service)"
+      ]
+    },
+    {
+      "file": "medical_evidence_reviewed.py",
+      "function": "import_provider_sources",
+      "declarations": [
+        "router.post('/import', response_model=ReviewedProviderImportResponse)"
+      ],
+      "parameter_guards": [
+        "Depends(require_staff_or_admin)",
+        "Depends(_service)"
+      ]
+    },
+    {
+      "file": "medical_knowledge_drafts.py",
+      "function": "generate_medical_knowledge_draft",
+      "declarations": [
+        "router.post('/drafts/generate', response_model=DraftRevisionResponse)"
+      ],
+      "parameter_guards": [
+        "Depends(require_staff_or_admin)",
+        "Depends(get_draft_service)"
+      ]
+    },
+    {
+      "file": "medical_knowledge_drafts.py",
+      "function": "get_medical_knowledge_topic_history",
+      "declarations": [
+        "router.get('/topics', response_model=DraftTopicHistoryResponse)"
+      ],
+      "parameter_guards": [
+        "Depends(require_staff_or_admin)",
+        "Depends(get_draft_service)"
+      ]
+    },
+    {
+      "file": "medical_knowledge_drafts.py",
+      "function": "get_medical_knowledge_revision",
+      "declarations": [
+        "router.get('/revisions/{revision_id}', response_model=DraftRevisionResponse)"
+      ],
+      "parameter_guards": [
+        "Depends(require_staff_or_admin)",
+        "Depends(get_draft_service)"
+      ]
+    },
+    {
+      "file": "medical_knowledge_drafts.py",
+      "function": "update_medical_knowledge_draft",
+      "declarations": [
+        "router.patch('/revisions/{revision_id}', response_model=DraftRevisionResponse)"
+      ],
+      "parameter_guards": [
+        "Depends(require_staff_or_admin)",
+        "Depends(get_draft_service)"
+      ]
+    },
+    {
+      "file": "medical_knowledge_drafts.py",
+      "function": "approve_medical_knowledge_revision",
+      "declarations": [
+        "router.post('/revisions/{revision_id}/approve', response_model=RevisionApprovalResponse)"
+      ],
+      "parameter_guards": [
+        "Depends(require_staff_or_admin)",
+        "Depends(get_approval_service)"
+      ]
+    },
+    {
+      "file": "medical_knowledge_drafts.py",
+      "function": "publish_medical_knowledge_revision",
+      "declarations": [
+        "router.post('/revisions/{revision_id}/publish', response_model=RevisionPublicationResponse)"
+      ],
+      "parameter_guards": [
+        "Depends(require_staff_or_admin)",
+        "Depends(get_publication_service)"
+      ]
+    },
+    {
+      "file": "medical_knowledge_drafts.py",
+      "function": "unpublish_medical_knowledge_revision",
+      "declarations": [
+        "router.post('/revisions/{revision_id}/unpublish', response_model=RevisionUnpublicationResponse)"
+      ],
+      "parameter_guards": [
+        "Depends(require_staff_or_admin)",
+        "Depends(get_publication_service)"
+      ]
+    },
+    {
+      "file": "medical_knowledge_pubmed.py",
+      "function": "medical_knowledge_options",
+      "declarations": [
+        "options_router.get('/options', response_model=MedicalKnowledgeOptionsResponse)"
+      ],
+      "parameter_guards": [
+        "Depends(require_staff_or_admin)"
+      ]
+    },
+    {
+      "file": "medical_knowledge_pubmed.py",
+      "function": "get_topic_source_library",
+      "declarations": [
+        "options_router.get('/topic-sources', response_model=MedicalKnowledgeTopicSourceLibraryResponse)"
+      ],
+      "parameter_guards": [
+        "Depends(require_staff_or_admin)",
+        "Depends(get_pubmed_service)"
+      ]
+    },
+    {
+      "file": "medical_knowledge_pubmed.py",
+      "function": "search_pubmed",
+      "declarations": [
+        "router.post('/search', response_model=PubMedSearchResponse)"
+      ],
+      "parameter_guards": [
+        "Depends(require_staff_or_admin)",
+        "Depends(get_pubmed_service)"
+      ]
+    },
+    {
+      "file": "medical_knowledge_pubmed.py",
+      "function": "lookup_pubmed_article",
+      "declarations": [
+        "router.post('/lookup', response_model=PubMedLookupResponse)"
+      ],
+      "parameter_guards": [
+        "Depends(require_staff_or_admin)",
+        "Depends(get_pubmed_service)"
+      ]
+    },
+    {
+      "file": "medical_knowledge_pubmed.py",
+      "function": "import_pubmed_sources",
+      "declarations": [
+        "router.post('/import', response_model=PubMedImportResponse)"
+      ],
+      "parameter_guards": [
+        "Depends(require_staff_or_admin)",
+        "Depends(get_pubmed_service)"
+      ]
+    },
+    {
+      "file": "medical_knowledge_service_status.py",
+      "function": "get_service_status",
+      "declarations": [
+        "router.get('', response_model=MedicalKnowledgeServiceStatus)"
+      ],
+      "parameter_guards": [
+        "Depends(require_staff_or_admin)"
+      ]
+    },
+    {
+      "file": "medical_knowledge_service_status.py",
+      "function": "test_pubmed_connection",
+      "declarations": [
+        "router.post('/pubmed/test', response_model=ConnectionTestResult)"
+      ],
+      "parameter_guards": [
+        "Depends(require_staff_or_admin)",
+        "Depends(get_status_pubmed_client)"
+      ]
+    },
+    {
+      "file": "medical_knowledge_service_status.py",
+      "function": "test_llm_connection",
+      "declarations": [
+        "router.post('/llm/test', response_model=ConnectionTestResult)"
+      ],
+      "parameter_guards": [
+        "Depends(require_staff_or_admin)",
+        "Depends(get_status_llm_generator)"
+      ]
+    },
+    {
+      "file": "parent_disease_visibility.py",
+      "function": "read_parent_disease_visibility",
+      "declarations": [
+        "router.get('', response_model=ParentDiseaseVisibilityResponse)"
+      ],
+      "parameter_guards": [
+        "Depends(require_permission(PERMISSION_CODE))",
+        "Depends(get_parent_disease_visibility_service)",
+        "require_permission(PERMISSION_CODE)"
+      ]
+    },
+    {
+      "file": "parent_disease_visibility.py",
+      "function": "update_parent_disease_visibility",
+      "declarations": [
+        "router.patch('/{disease_group_id}', response_model=ParentDiseaseVisibilityResponse)"
+      ],
+      "parameter_guards": [
+        "Depends(require_permission(PERMISSION_CODE))",
+        "Depends(get_parent_disease_visibility_service)",
+        "require_permission(PERMISSION_CODE)"
+      ]
+    },
+    {
+      "file": "public.py",
+      "function": "disease_knowledge",
+      "declarations": [
+        "router.get('/disease-knowledge')"
+      ],
+      "parameter_guards": [
+        "Depends(get_db)"
+      ]
+    },
+    {
+      "file": "public.py",
+      "function": "published_medical_knowledge",
+      "declarations": [
+        "router.post('/medical-knowledge/published', response_model=PublishedMedicalKnowledgeBatchResponse)"
+      ],
+      "parameter_guards": [
+        "Depends(get_published_medical_knowledge_read_service)"
+      ]
+    },
+    {
+      "file": "public.py",
+      "function": "public_weather_options",
+      "declarations": [
+        "router.get('/weather-options')"
+      ],
+      "parameter_guards": []
+    },
+    {
+      "file": "public.py",
+      "function": "parent_risk",
+      "declarations": [
+        "router.post('/parent-risk')"
+      ],
+      "parameter_guards": [
+        "Depends(get_db)"
+      ]
+    },
+    {
+      "file": "reports.py",
+      "function": "report_by_age_months",
+      "declarations": [
+        "router.get('/by-age-months')"
+      ],
+      "parameter_guards": [
+        "Depends(get_db)",
+        "Depends(require_permission('feature.reports'))",
+        "require_permission('feature.reports')"
+      ]
+    },
+    {
+      "file": "reports.py",
+      "function": "report_by_month_year",
+      "declarations": [
+        "router.get('/by-month-year')"
+      ],
+      "parameter_guards": [
+        "Depends(get_db)",
+        "Depends(require_permission('feature.reports'))",
+        "require_permission('feature.reports')"
+      ]
+    },
+    {
+      "file": "reports.py",
+      "function": "disease_bilingual",
+      "declarations": [
+        "router.get('/disease-bilingual')"
+      ],
+      "parameter_guards": [
+        "Depends(get_db)",
+        "Depends(require_any_permission(tuple(sorted(FEATURE_PERMISSION_CODES))))",
+        "require_any_permission(tuple(sorted(FEATURE_PERMISSION_CODES)))"
+      ]
+    },
+    {
+      "file": "reports.py",
+      "function": "report_options",
+      "declarations": [
+        "router.get('/options')"
+      ],
+      "parameter_guards": [
+        "Depends(get_db)",
+        "Depends(require_permission('feature.reports'))",
+        "require_permission('feature.reports')"
+      ]
+    },
+    {
+      "file": "reports.py",
+      "function": "preview_report",
+      "declarations": [
+        "router.post('/preview')"
+      ],
+      "parameter_guards": [
+        "Depends(get_db)",
+        "Depends(require_permission('feature.reports'))",
+        "require_permission('feature.reports')"
+      ]
+    },
+    {
+      "file": "reports.py",
+      "function": "create_report_export",
+      "declarations": [
+        "router.post('/exports')"
+      ],
+      "parameter_guards": [
+        "Depends(get_db)",
+        "Depends(require_permission('feature.reports'))",
+        "require_permission('feature.reports')"
+      ]
+    },
+    {
+      "file": "reports.py",
+      "function": "list_report_exports",
+      "declarations": [
+        "router.get('/exports')"
+      ],
+      "parameter_guards": [
+        "Depends(get_db)",
+        "Depends(require_permission('feature.reports'))",
+        "require_permission('feature.reports')"
+      ]
+    },
+    {
+      "file": "reports.py",
+      "function": "get_report_export",
+      "declarations": [
+        "router.get('/exports/{report_id}')"
+      ],
+      "parameter_guards": [
+        "Depends(get_db)",
+        "Depends(require_permission('feature.reports'))",
+        "require_permission('feature.reports')"
+      ]
+    },
+    {
+      "file": "reports.py",
+      "function": "download_report_export",
+      "declarations": [
+        "router.get('/exports/{report_id}/download')"
+      ],
+      "parameter_guards": [
+        "Depends(get_db)",
+        "Depends(require_permission('feature.reports'))",
+        "require_permission('feature.reports')"
+      ]
+    },
+    {
+      "file": "reports.py",
+      "function": "delete_report_export",
+      "declarations": [
+        "router.delete('/exports/{report_id}')"
+      ],
+      "parameter_guards": [
+        "Depends(get_db)",
+        "Depends(require_permission('feature.reports'))",
+        "require_permission('feature.reports')"
+      ]
+    },
+    {
+      "file": "weather_ai.py",
+      "function": "weather_ai_status",
+      "declarations": [
+        "router.get('/status')"
+      ],
+      "parameter_guards": [
+        "Depends(require_permission('feature.weather_risk'))",
+        "require_permission('feature.weather_risk')"
+      ]
+    },
+    {
+      "file": "weather_ai.py",
+      "function": "weather_ai_options",
+      "declarations": [
+        "router.get('/options')"
+      ],
+      "parameter_guards": [
+        "Depends(require_permission('feature.weather_risk'))",
+        "require_permission('feature.weather_risk')"
+      ]
+    },
+    {
+      "file": "weather_ai.py",
+      "function": "predict_risk",
+      "declarations": [
+        "router.post('/predict-risk', response_model=WeatherAIPredictResponse)"
+      ],
+      "parameter_guards": [
+        "Depends(require_permission('feature.weather_risk'))",
+        "require_permission('feature.weather_risk')"
+      ]
+    }
+  ]
+}

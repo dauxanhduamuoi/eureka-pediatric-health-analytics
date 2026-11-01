@@ -1,0 +1,753 @@
+{
+  "captured_before_W01_W02_fix": true,
+  "synthetic_fixture": "2026-08-01..2026-08-07; formulas in test_weather_input_validation.py",
+  "age_group": "1-5 tuổi",
+  "gender": "Nam",
+  "anchor_date": "2026-08-07",
+  "feature_order": [
+    "age_group",
+    "gender",
+    "month",
+    "season",
+    "day_of_year_sin",
+    "day_of_year_cos",
+    "weather_code_current",
+    "temperature_mean_current",
+    "temperature_max_current",
+    "temperature_min_current",
+    "humidity_mean_current",
+    "humidity_max_current",
+    "humidity_min_current",
+    "wind_speed_mean_current",
+    "wind_speed_max_current",
+    "precipitation_sum_current",
+    "rain_sum_current",
+    "wind_gust_max_current",
+    "rain_day_current",
+    "temperature_mean_3d",
+    "temperature_max_3d",
+    "temperature_min_3d",
+    "humidity_mean_3d",
+    "humidity_max_3d",
+    "humidity_min_3d",
+    "wind_speed_mean_3d",
+    "wind_speed_max_3d",
+    "precipitation_sum_3d",
+    "rain_sum_3d",
+    "rain_days_3d",
+    "rain_max_daily_3d",
+    "wind_gust_max_3d",
+    "temperature_mean_7d",
+    "temperature_max_7d",
+    "temperature_min_7d",
+    "humidity_mean_7d",
+    "humidity_max_7d",
+    "humidity_min_7d",
+    "wind_speed_mean_7d",
+    "wind_speed_max_7d",
+    "precipitation_sum_7d",
+    "rain_sum_7d",
+    "rain_days_7d",
+    "rain_max_daily_7d",
+    "wind_gust_max_7d"
+  ],
+  "encoded": [
+    0,
+    0,
+    8,
+    1,
+    -0.5856957398073508,
+    -0.8105309990194823,
+    2,
+    26.875,
+    29.75,
+    24,
+    68.833333,
+    79,
+    60,
+    6.5,
+    9,
+    24,
+    12,
+    16,
+    1,
+    26.875,
+    29.75,
+    24,
+    69.277778,
+    79,
+    60,
+    6.5,
+    9,
+    72,
+    36,
+    3,
+    12,
+    16,
+    26.875,
+    29.75,
+    24,
+    69.214286,
+    79,
+    60,
+    6.5,
+    9,
+    168,
+    84,
+    7,
+    12,
+    16
+  ],
+  "predictions": [
+    {
+      "rank": 1,
+      "disease_id": "169",
+      "disease_name": "Các bệnh viêm phổi - Pneumonia",
+      "disease_group_id": "169",
+      "disease_group_name": "Các bệnh viêm phổi - Pneumonia",
+      "report_group_code": "J12-J18",
+      "ranking_score": 0.9357446721586534,
+      "tier1": {
+        "available": true,
+        "summary_vi": "Nhóm tuổi, Thời điểm trong năm và Độ ẩm — 7 ngày gần đây đang góp phần làm nhóm bệnh này được model xếp hạng cao hơn.",
+        "positive_factors": [
+          {
+            "feature": "age_group",
+            "label_vi": "Nhóm tuổi",
+            "category": "DEMOGRAPHIC",
+            "window": "NONE",
+            "input_value": "1-5 tuổi",
+            "shap_value": 3.193126458866094,
+            "direction": "UP",
+            "weather_factor": null
+          },
+          {
+            "feature": "day_of_year_sin",
+            "label_vi": "Thời điểm trong năm",
+            "category": "SEASONAL_CALENDAR",
+            "window": "NONE",
+            "input_value": -0.5856957398073508,
+            "shap_value": 0.08112972346655699,
+            "direction": "UP",
+            "weather_factor": null
+          },
+          {
+            "feature": "humidity_mean_7d",
+            "label_vi": "Độ ẩm — 7 ngày gần đây",
+            "category": "WEATHER",
+            "window": "7D",
+            "input_value": 69.214286,
+            "shap_value": 0.06300378823983896,
+            "direction": "UP",
+            "weather_factor": "humidity"
+          },
+          {
+            "feature": "wind_speed_mean_3d",
+            "label_vi": "Gió — 3 ngày gần đây",
+            "category": "WEATHER",
+            "window": "3D",
+            "input_value": 6.5,
+            "shap_value": 0.05732482269321173,
+            "direction": "UP",
+            "weather_factor": "wind"
+          },
+          {
+            "feature": "wind_speed_mean_7d",
+            "label_vi": "Gió — 7 ngày gần đây",
+            "category": "WEATHER",
+            "window": "7D",
+            "input_value": 6.5,
+            "shap_value": 0.02615886863709875,
+            "direction": "UP",
+            "weather_factor": "wind"
+          }
+        ],
+        "negative_factors": [
+          {
+            "feature": "wind_speed_max_3d",
+            "label_vi": "Gió — 3 ngày gần đây",
+            "category": "WEATHER",
+            "window": "3D",
+            "input_value": 9,
+            "shap_value": -0.37612040350618964,
+            "direction": "DOWN",
+            "weather_factor": "wind"
+          },
+          {
+            "feature": "weather_code_current",
+            "label_vi": "Trạng thái thời tiết — hiện tại",
+            "category": "WEATHER",
+            "window": "CURRENT",
+            "input_value": 2,
+            "shap_value": -0.15661856429307786,
+            "direction": "DOWN",
+            "weather_factor": "weather_code"
+          },
+          {
+            "feature": "temperature_max_7d",
+            "label_vi": "Nhiệt độ — 7 ngày gần đây",
+            "category": "WEATHER",
+            "window": "7D",
+            "input_value": 29.75,
+            "shap_value": -0.1431190186977658,
+            "direction": "DOWN",
+            "weather_factor": "temperature"
+          },
+          {
+            "feature": "wind_speed_max_7d",
+            "label_vi": "Gió — 7 ngày gần đây",
+            "category": "WEATHER",
+            "window": "7D",
+            "input_value": 9,
+            "shap_value": -0.14082045485452527,
+            "direction": "DOWN",
+            "weather_factor": "wind"
+          },
+          {
+            "feature": "day_of_year_cos",
+            "label_vi": "Thời điểm trong năm",
+            "category": "SEASONAL_CALENDAR",
+            "window": "NONE",
+            "input_value": -0.8105309990194823,
+            "shap_value": -0.122561848821123,
+            "direction": "DOWN",
+            "weather_factor": null
+          }
+        ],
+        "base_value_raw": 0.7921298082638669,
+        "additivity_max_abs_error": 3.552713678800501e-15,
+        "error": null
+      },
+      "tier2": {
+        "available": false,
+        "reason": "NO_MEDICAL_KNOWLEDGE",
+        "evidence_status": null,
+        "relationship_type": null,
+        "matched_weather_factor": null,
+        "explanation_short_vi": null,
+        "limitations_vi": null,
+        "sources": []
+      }
+    },
+    {
+      "rank": 2,
+      "disease_id": "6",
+      "disease_name": "Các bệnh nhiễm khuẩn ruột khác - Other intestinal infectious diseases",
+      "disease_group_id": "6",
+      "disease_group_name": "Các bệnh nhiễm khuẩn ruột khác - Other intestinal infectious diseases",
+      "report_group_code": "A02,A04-A05,A07-A08",
+      "ranking_score": 0.9215317074106136,
+      "tier1": {
+        "available": true,
+        "summary_vi": "Nhóm tuổi, Gió — 7 ngày gần đây và Nhiệt độ — 7 ngày gần đây đang góp phần làm nhóm bệnh này được model xếp hạng cao hơn.",
+        "positive_factors": [
+          {
+            "feature": "age_group",
+            "label_vi": "Nhóm tuổi",
+            "category": "DEMOGRAPHIC",
+            "window": "NONE",
+            "input_value": "1-5 tuổi",
+            "shap_value": 3.47015917909519,
+            "direction": "UP",
+            "weather_factor": null
+          },
+          {
+            "feature": "wind_speed_mean_7d",
+            "label_vi": "Gió — 7 ngày gần đây",
+            "category": "WEATHER",
+            "window": "7D",
+            "input_value": 6.5,
+            "shap_value": 0.13808016491351335,
+            "direction": "UP",
+            "weather_factor": "wind"
+          },
+          {
+            "feature": "temperature_min_7d",
+            "label_vi": "Nhiệt độ — 7 ngày gần đây",
+            "category": "WEATHER",
+            "window": "7D",
+            "input_value": 24,
+            "shap_value": 0.13169570092829774,
+            "direction": "UP",
+            "weather_factor": "temperature"
+          },
+          {
+            "feature": "day_of_year_sin",
+            "label_vi": "Thời điểm trong năm",
+            "category": "SEASONAL_CALENDAR",
+            "window": "NONE",
+            "input_value": -0.5856957398073508,
+            "shap_value": 0.10878486172821114,
+            "direction": "UP",
+            "weather_factor": null
+          },
+          {
+            "feature": "gender",
+            "label_vi": "Giới tính",
+            "category": "DEMOGRAPHIC",
+            "window": "NONE",
+            "input_value": "Nam",
+            "shap_value": 0.0818645043363021,
+            "direction": "UP",
+            "weather_factor": null
+          }
+        ],
+        "negative_factors": [
+          {
+            "feature": "day_of_year_cos",
+            "label_vi": "Thời điểm trong năm",
+            "category": "SEASONAL_CALENDAR",
+            "window": "NONE",
+            "input_value": -0.8105309990194823,
+            "shap_value": -0.6049806981009428,
+            "direction": "DOWN",
+            "weather_factor": null
+          },
+          {
+            "feature": "humidity_max_7d",
+            "label_vi": "Độ ẩm — 7 ngày gần đây",
+            "category": "WEATHER",
+            "window": "7D",
+            "input_value": 79,
+            "shap_value": -0.3640195484231079,
+            "direction": "DOWN",
+            "weather_factor": "humidity"
+          },
+          {
+            "feature": "wind_speed_max_3d",
+            "label_vi": "Gió — 3 ngày gần đây",
+            "category": "WEATHER",
+            "window": "3D",
+            "input_value": 9,
+            "shap_value": -0.26349841191421447,
+            "direction": "DOWN",
+            "weather_factor": "wind"
+          },
+          {
+            "feature": "weather_code_current",
+            "label_vi": "Trạng thái thời tiết — hiện tại",
+            "category": "WEATHER",
+            "window": "CURRENT",
+            "input_value": 2,
+            "shap_value": -0.2198369828301907,
+            "direction": "DOWN",
+            "weather_factor": "weather_code"
+          },
+          {
+            "feature": "wind_speed_mean_3d",
+            "label_vi": "Gió — 3 ngày gần đây",
+            "category": "WEATHER",
+            "window": "3D",
+            "input_value": 6.5,
+            "shap_value": -0.1794035212805798,
+            "direction": "DOWN",
+            "weather_factor": "wind"
+          }
+        ],
+        "base_value_raw": 0.8115087651344552,
+        "additivity_max_abs_error": 4.440892098500626e-16,
+        "error": null
+      },
+      "tier2": {
+        "available": false,
+        "reason": "NO_MEDICAL_KNOWLEDGE",
+        "evidence_status": null,
+        "relationship_type": null,
+        "matched_weather_factor": null,
+        "explanation_short_vi": null,
+        "limitations_vi": null,
+        "sources": []
+      }
+    },
+    {
+      "rank": 3,
+      "disease_id": "32",
+      "disease_name": "Sốt virut khác do tiết túc truyền và sốt virus xuất huyết - Other arthropod",
+      "disease_group_id": "32",
+      "disease_group_name": "Sốt virut khác do tiết túc truyền và sốt virus xuất huyết - Other arthropod",
+      "report_group_code": "A90-A94,A96-A99",
+      "ranking_score": 0.8994976262065656,
+      "tier1": {
+        "available": true,
+        "summary_vi": "Nhóm tuổi, Thời điểm trong năm và Yếu tố mùa vụ theo tháng đang góp phần làm nhóm bệnh này được model xếp hạng cao hơn.",
+        "positive_factors": [
+          {
+            "feature": "age_group",
+            "label_vi": "Nhóm tuổi",
+            "category": "DEMOGRAPHIC",
+            "window": "NONE",
+            "input_value": "1-5 tuổi",
+            "shap_value": 1.7716223776487243,
+            "direction": "UP",
+            "weather_factor": null
+          },
+          {
+            "feature": "day_of_year_sin",
+            "label_vi": "Thời điểm trong năm",
+            "category": "SEASONAL_CALENDAR",
+            "window": "NONE",
+            "input_value": -0.5856957398073508,
+            "shap_value": 0.8738370463773854,
+            "direction": "UP",
+            "weather_factor": null
+          },
+          {
+            "feature": "month",
+            "label_vi": "Yếu tố mùa vụ theo tháng",
+            "category": "SEASONAL_CALENDAR",
+            "window": "NONE",
+            "input_value": 8,
+            "shap_value": 0.0931257480638209,
+            "direction": "UP",
+            "weather_factor": null
+          },
+          {
+            "feature": "temperature_min_3d",
+            "label_vi": "Nhiệt độ — 3 ngày gần đây",
+            "category": "WEATHER",
+            "window": "3D",
+            "input_value": 24,
+            "shap_value": 0.014021028880535285,
+            "direction": "UP",
+            "weather_factor": "temperature"
+          },
+          {
+            "feature": "wind_speed_mean_current",
+            "label_vi": "Gió — hiện tại",
+            "category": "WEATHER",
+            "window": "CURRENT",
+            "input_value": 6.5,
+            "shap_value": 0.005062967128044539,
+            "direction": "UP",
+            "weather_factor": "wind"
+          }
+        ],
+        "negative_factors": [
+          {
+            "feature": "humidity_max_7d",
+            "label_vi": "Độ ẩm — 7 ngày gần đây",
+            "category": "WEATHER",
+            "window": "7D",
+            "input_value": 79,
+            "shap_value": -0.4043390805941975,
+            "direction": "DOWN",
+            "weather_factor": "humidity"
+          },
+          {
+            "feature": "temperature_mean_7d",
+            "label_vi": "Nhiệt độ — 7 ngày gần đây",
+            "category": "WEATHER",
+            "window": "7D",
+            "input_value": 26.875,
+            "shap_value": -0.13211804939280522,
+            "direction": "DOWN",
+            "weather_factor": "temperature"
+          },
+          {
+            "feature": "wind_speed_max_7d",
+            "label_vi": "Gió — 7 ngày gần đây",
+            "category": "WEATHER",
+            "window": "7D",
+            "input_value": 9,
+            "shap_value": -0.09820566383680464,
+            "direction": "DOWN",
+            "weather_factor": "wind"
+          },
+          {
+            "feature": "wind_speed_max_3d",
+            "label_vi": "Gió — 3 ngày gần đây",
+            "category": "WEATHER",
+            "window": "3D",
+            "input_value": 9,
+            "shap_value": -0.0897717331663682,
+            "direction": "DOWN",
+            "weather_factor": "wind"
+          },
+          {
+            "feature": "temperature_mean_current",
+            "label_vi": "Nhiệt độ — hiện tại",
+            "category": "WEATHER",
+            "window": "CURRENT",
+            "input_value": 26.875,
+            "shap_value": -0.06928065191225942,
+            "direction": "DOWN",
+            "weather_factor": "temperature"
+          }
+        ],
+        "base_value_raw": 0.5596077088360928,
+        "additivity_max_abs_error": 4.440892098500626e-16,
+        "error": null
+      },
+      "tier2": {
+        "available": false,
+        "reason": "NO_MEDICAL_KNOWLEDGE",
+        "evidence_status": null,
+        "relationship_type": null,
+        "matched_weather_factor": null,
+        "explanation_short_vi": null,
+        "limitations_vi": null,
+        "sources": []
+      }
+    },
+    {
+      "rank": 4,
+      "disease_id": "41",
+      "disease_name": "Bệnh virut khác - Other viral diseases",
+      "disease_group_id": "41",
+      "disease_group_name": "Bệnh virut khác - Other viral diseases",
+      "report_group_code": "A81,A87-A89,B03-B04,B07-B09,B25,B27-B34",
+      "ranking_score": 0.8975132378639217,
+      "tier1": {
+        "available": true,
+        "summary_vi": "Nhóm tuổi, Gió — 7 ngày gần đây và Độ ẩm — 7 ngày gần đây đang góp phần làm nhóm bệnh này được model xếp hạng cao hơn.",
+        "positive_factors": [
+          {
+            "feature": "age_group",
+            "label_vi": "Nhóm tuổi",
+            "category": "DEMOGRAPHIC",
+            "window": "NONE",
+            "input_value": "1-5 tuổi",
+            "shap_value": 3.152378230789253,
+            "direction": "UP",
+            "weather_factor": null
+          },
+          {
+            "feature": "wind_speed_mean_7d",
+            "label_vi": "Gió — 7 ngày gần đây",
+            "category": "WEATHER",
+            "window": "7D",
+            "input_value": 6.5,
+            "shap_value": 0.15928273178980992,
+            "direction": "UP",
+            "weather_factor": "wind"
+          },
+          {
+            "feature": "humidity_mean_7d",
+            "label_vi": "Độ ẩm — 7 ngày gần đây",
+            "category": "WEATHER",
+            "window": "7D",
+            "input_value": 69.214286,
+            "shap_value": 0.102421045625769,
+            "direction": "UP",
+            "weather_factor": "humidity"
+          },
+          {
+            "feature": "day_of_year_sin",
+            "label_vi": "Thời điểm trong năm",
+            "category": "SEASONAL_CALENDAR",
+            "window": "NONE",
+            "input_value": -0.5856957398073508,
+            "shap_value": 0.10139779880337783,
+            "direction": "UP",
+            "weather_factor": null
+          },
+          {
+            "feature": "temperature_min_7d",
+            "label_vi": "Nhiệt độ — 7 ngày gần đây",
+            "category": "WEATHER",
+            "window": "7D",
+            "input_value": 24,
+            "shap_value": 0.07973427229170454,
+            "direction": "UP",
+            "weather_factor": "temperature"
+          }
+        ],
+        "negative_factors": [
+          {
+            "feature": "day_of_year_cos",
+            "label_vi": "Thời điểm trong năm",
+            "category": "SEASONAL_CALENDAR",
+            "window": "NONE",
+            "input_value": -0.8105309990194823,
+            "shap_value": -0.39191212190212565,
+            "direction": "DOWN",
+            "weather_factor": null
+          },
+          {
+            "feature": "weather_code_current",
+            "label_vi": "Trạng thái thời tiết — hiện tại",
+            "category": "WEATHER",
+            "window": "CURRENT",
+            "input_value": 2,
+            "shap_value": -0.26444824252102944,
+            "direction": "DOWN",
+            "weather_factor": "weather_code"
+          },
+          {
+            "feature": "wind_speed_max_3d",
+            "label_vi": "Gió — 3 ngày gần đây",
+            "category": "WEATHER",
+            "window": "3D",
+            "input_value": 9,
+            "shap_value": -0.17940930259210627,
+            "direction": "DOWN",
+            "weather_factor": "wind"
+          },
+          {
+            "feature": "wind_speed_max_7d",
+            "label_vi": "Gió — 7 ngày gần đây",
+            "category": "WEATHER",
+            "window": "7D",
+            "input_value": 9,
+            "shap_value": -0.17653082526242703,
+            "direction": "DOWN",
+            "weather_factor": "wind"
+          },
+          {
+            "feature": "temperature_max_7d",
+            "label_vi": "Nhiệt độ — 7 ngày gần đây",
+            "category": "WEATHER",
+            "window": "7D",
+            "input_value": 29.75,
+            "shap_value": -0.13238930446048663,
+            "direction": "DOWN",
+            "weather_factor": "temperature"
+          }
+        ],
+        "base_value_raw": -0.047507278653392424,
+        "additivity_max_abs_error": 4.440892098500626e-15,
+        "error": null
+      },
+      "tier2": {
+        "available": false,
+        "reason": "NO_MEDICAL_KNOWLEDGE",
+        "evidence_status": null,
+        "relationship_type": null,
+        "matched_weather_factor": null,
+        "explanation_short_vi": null,
+        "limitations_vi": null,
+        "sources": []
+      }
+    },
+    {
+      "rank": 5,
+      "disease_id": "190",
+      "disease_name": "Tắc liệt ruột và tắc ruột không do thoát vị - Paralytic ileus, intestinal obstruction without hernia",
+      "disease_group_id": "190",
+      "disease_group_name": "Tắc liệt ruột và tắc ruột không do thoát vị - Paralytic ileus, intestinal obstruction without hernia",
+      "report_group_code": "K56",
+      "ranking_score": 0.8927253910773941,
+      "tier1": {
+        "available": true,
+        "summary_vi": "Nhóm tuổi, Giới tính và Nhiệt độ — 7 ngày gần đây đang góp phần làm nhóm bệnh này được model xếp hạng cao hơn.",
+        "positive_factors": [
+          {
+            "feature": "age_group",
+            "label_vi": "Nhóm tuổi",
+            "category": "DEMOGRAPHIC",
+            "window": "NONE",
+            "input_value": "1-5 tuổi",
+            "shap_value": 3.4611064459162852,
+            "direction": "UP",
+            "weather_factor": null
+          },
+          {
+            "feature": "gender",
+            "label_vi": "Giới tính",
+            "category": "DEMOGRAPHIC",
+            "window": "NONE",
+            "input_value": "Nam",
+            "shap_value": 0.22479748880883954,
+            "direction": "UP",
+            "weather_factor": null
+          },
+          {
+            "feature": "temperature_max_7d",
+            "label_vi": "Nhiệt độ — 7 ngày gần đây",
+            "category": "WEATHER",
+            "window": "7D",
+            "input_value": 29.75,
+            "shap_value": 0.1895331538549991,
+            "direction": "UP",
+            "weather_factor": "temperature"
+          },
+          {
+            "feature": "day_of_year_sin",
+            "label_vi": "Thời điểm trong năm",
+            "category": "SEASONAL_CALENDAR",
+            "window": "NONE",
+            "input_value": -0.5856957398073508,
+            "shap_value": 0.13181999985389622,
+            "direction": "UP",
+            "weather_factor": null
+          },
+          {
+            "feature": "temperature_min_7d",
+            "label_vi": "Nhiệt độ — 7 ngày gần đây",
+            "category": "WEATHER",
+            "window": "7D",
+            "input_value": 24,
+            "shap_value": 0.10285342465060886,
+            "direction": "UP",
+            "weather_factor": "temperature"
+          }
+        ],
+        "negative_factors": [
+          {
+            "feature": "wind_speed_max_7d",
+            "label_vi": "Gió — 7 ngày gần đây",
+            "category": "WEATHER",
+            "window": "7D",
+            "input_value": 9,
+            "shap_value": -0.28592353274597454,
+            "direction": "DOWN",
+            "weather_factor": "wind"
+          },
+          {
+            "feature": "humidity_max_7d",
+            "label_vi": "Độ ẩm — 7 ngày gần đây",
+            "category": "WEATHER",
+            "window": "7D",
+            "input_value": 79,
+            "shap_value": -0.2776410782906754,
+            "direction": "DOWN",
+            "weather_factor": "humidity"
+          },
+          {
+            "feature": "day_of_year_cos",
+            "label_vi": "Thời điểm trong năm",
+            "category": "SEASONAL_CALENDAR",
+            "window": "NONE",
+            "input_value": -0.8105309990194823,
+            "shap_value": -0.1902310812154723,
+            "direction": "DOWN",
+            "weather_factor": null
+          },
+          {
+            "feature": "weather_code_current",
+            "label_vi": "Trạng thái thời tiết — hiện tại",
+            "category": "WEATHER",
+            "window": "CURRENT",
+            "input_value": 2,
+            "shap_value": -0.17136493006665898,
+            "direction": "DOWN",
+            "weather_factor": "weather_code"
+          },
+          {
+            "feature": "wind_gust_max_3d",
+            "label_vi": "Gió — 3 ngày gần đây",
+            "category": "WEATHER",
+            "window": "3D",
+            "input_value": 16,
+            "shap_value": -0.16057064762088458,
+            "direction": "DOWN",
+            "weather_factor": "wind"
+          }
+        ],
+        "base_value_raw": -0.8911485533790509,
+        "additivity_max_abs_error": 3.9968028886505635e-15,
+        "error": null
+      },
+      "tier2": {
+        "available": false,
+        "reason": "NO_MEDICAL_KNOWLEDGE",
+        "evidence_status": null,
+        "relationship_type": null,
+        "matched_weather_factor": null,
+        "explanation_short_vi": null,
+        "limitations_vi": null,
+        "sources": []
+      }
+    }
+  ]
+}

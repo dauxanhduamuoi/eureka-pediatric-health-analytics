@@ -1,0 +1,34 @@
+/* Local system fonts keep Vietnamese text readable when the demo is offline. */
+@theme {
+  --font-sans: 'Segoe UI', Arial, sans-serif;
+}
+
+body {
+  font-family: 'Segoe UI', Arial, sans-serif;
+}
+
+.parent-portal {
+  font-size: 16px;
+  line-height: 1.65;
+}
+
+.parent-portal .font-black,
+.parent-portal .font-extrabold {
+  font-weight: 600;
+}
+
+.parent-portal [data-testid='parent-disease-card'] p,
+.parent-portal [data-testid='parent-disease-card'] li {
+  font-size: 1rem;
+  line-height: 1.65;
+}
+
+.parent-portal details > summary {
+  min-height: 44px;
+  padding-block: 0.5rem;
+}
+
+.parent-portal summary:focus-visible {
+  outline: 2px solid #0284c7;
+  outline-offset: 3px;
+}

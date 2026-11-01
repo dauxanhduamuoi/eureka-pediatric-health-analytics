@@ -1,0 +1,32 @@
+{
+  "inactive_before": {
+    "foreground": "#586e61",
+    "background": "#e9f8ee",
+    "ratio": 5.01
+  },
+  "active_before": {
+    "foreground": "#21623b",
+    "background": "#e1f3e7",
+    "ratio": 6.32
+  },
+  "inactive_after": {
+    "foreground": "#276749",
+    "background": "#d8f3e1",
+    "ratio": 5.71
+  },
+  "active_after": {
+    "foreground": "#166534",
+    "background": "#bfeacd",
+    "ratio": 5.39
+  },
+  "hover_after": {
+    "foreground": "#166534",
+    "background": "#ccefd8",
+    "ratio": 5.74
+  },
+  "focus_on_rail": {
+    "foreground": "#166534",
+    "background": "#d8f3e1",
+    "ratio": 6.05
+  }
+}

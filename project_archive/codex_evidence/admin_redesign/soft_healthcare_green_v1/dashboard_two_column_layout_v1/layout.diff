@@ -1,0 +1,326 @@
+--- before/Frontend/src/app/components/DashboardOverview.test.tsx
++++ after/Frontend/src/app/components/DashboardOverview.test.tsx
+@@ -85,17 +85,24 @@
+   vi.mocked(api.runForecast).mockResolvedValue({ message: 'OK', result: {} });
+ });
+ 
+-it('places actions/KPIs before monthly and Top groups, then annual coverage and all detail views', async () => {
++it('keeps actions/KPIs first, stacks monthly/yearly in one column and renders Top groups once beside it', async () => {
+   mount();
+   await screen.findByTestId('line-data');
+   const root = document.querySelector('.admin-dashboard-content')!;
+   const sections = [
+     root.querySelector('.admin-page-heading')!, root.querySelector('.admin-toolbar')!,
+     root.querySelector('.admin-metric-strip')!, region('dashboard.monthlyCases'),
+-    region('dashboard.topGroups'), region('dashboard.yearlyCasesTitle'), root.querySelector('details')!,
++    region('dashboard.yearlyCasesTitle'), region('dashboard.topGroups'), root.querySelector('details')!,
+   ];
+   for (let i = 1; i < sections.length; i++) {
+     expect(sections[i - 1].compareDocumentPosition(sections[i]) & Node.DOCUMENT_POSITION_FOLLOWING).toBeTruthy();
++  }
++  const charts = root.querySelector('.admin-dashboard-charts')!;
++  const left = charts.querySelector('.admin-dashboard-left-column')!;
++  expect(Array.from(left.children)).toEqual([region('dashboard.monthlyCases'), region('dashboard.yearlyCasesTitle')]);
++  expect(region('dashboard.topGroups').parentElement).toBe(charts);
++  for (const key of ['dashboard.monthlyCases', 'dashboard.yearlyCasesTitle', 'dashboard.topGroups'] as const) {
++    expect(screen.getAllByRole('region', { name: viStrings[key] })).toHaveLength(1);
+   }
+   expect(within(root.querySelector('.admin-metric-strip') as HTMLElement).getByText('Kết quả dự báo')).toBeVisible();
+   const details = root.querySelector('details')!;
+@@ -194,6 +201,7 @@
+ it('defaults to donut, toggles both ways with identical data and makes no extra API calls', async () => {
+   mount();
+   const pie = await screen.findByTestId('pie-data');
++  const unchangedCharts = [region('dashboard.monthlyCases'), region('dashboard.yearlyCasesTitle')];
+   const donut = screen.getByRole('button', { name: viStrings['dashboard.donutView'] });
+   const bars = screen.getByRole('button', { name: viStrings['dashboard.barsView'] });
+   expect(screen.getByRole('group', { name: viStrings['dashboard.topGroupView'] })).toContainElement(donut);
+@@ -224,6 +232,9 @@
+   expect(donut).toHaveAttribute('aria-pressed', 'true');
+   expect(JSON.parse(screen.getByTestId('pie-data').textContent!)).toEqual(data);
+   expect(calls.map((fn) => vi.mocked(fn).mock.calls.length)).toEqual(before);
++  expect([region('dashboard.monthlyCases'), region('dashboard.yearlyCasesTitle')]).toEqual(unchangedCharts);
++  expect(screen.getAllByRole('region', { name: viStrings['dashboard.yearlyCasesTitle'] })).toHaveLength(1);
++  expect(screen.getAllByRole('region', { name: viStrings['dashboard.monthlyCases'] })).toHaveLength(1);
+ });
+ 
+ it('keeps donut selected and shares correct when Top K changes, then resets to donut on a fresh mount', async () => {
+--- before/Frontend/src/app/components/DashboardOverview.tsx
++++ after/Frontend/src/app/components/DashboardOverview.tsx
+@@ -415,132 +415,134 @@
+           iconBg={stat.iconBg} iconColor={stat.iconColor} borderColor={stat.borderColor} />)}
+       </div>
+ 
+-      {/* Charts Row */}
++      {/* Independent desktop columns; CSS interleaves the cards on smaller screens. */}
+       <div className="admin-dashboard-charts">
+-        <section aria-labelledby="dashboard-monthly-title" className="admin-surface bg-white rounded-xl p-6 border border-slate-200 shadow-sm">
+-          <h3 id="dashboard-monthly-title" className="text-lg font-semibold text-slate-800 mb-4">{t('dashboard.monthlyCases')}</h3>
+-          {monthlyChartData.length === 0 ? (
+-            <EmptyChart loading={showEmptyLoading} label={t('dashboard.noData')} t={t} />
+-          ) : (
+-            <ResponsiveContainer width="100%" height={300}>
+-              <LineChart data={monthlyChartData} margin={{ top: 12, right: 18, left: 0, bottom: 8 }}>
+-                <CartesianGrid strokeDasharray="3 5" stroke={ADMIN_CHART.grid} vertical={false} />
+-                <XAxis dataKey="period" tick={{ fontSize: 11 }} tickLine={false} axisLine={false} tickMargin={10} minTickGap={32} interval="preserveStartEnd" />
+-                <YAxis tick={{ fontSize: 11 }} tickLine={false} axisLine={false} width={58} tickFormatter={(value: number) => value.toLocaleString()} />
+-                <Tooltip contentStyle={{ borderRadius: 10, border: `1px solid ${ADMIN_CHART.border}`, fontSize: 12 }}
+-                  formatter={(value: number) => [`${value.toLocaleString()} ${t('dashboard.caseUnit')}`, t('dashboard.cases')]} />
+-                <Line
+-                  type="monotone"
+-                  dataKey="cases"
+-                  name={t('dashboard.cases')}
+-                  stroke={ADMIN_CHART.primary}
+-                  strokeWidth={2}
+-                  dot={{ r: 2 }}
+-                  activeDot={{ r: 4 }}
+-                  isAnimationActive={chartAnimation}
+-                />
+-              </LineChart>
+-            </ResponsiveContainer>
+-          )}
+-        </section>
+-
+-        <section aria-labelledby="dashboard-top-title" className="admin-surface bg-white rounded-xl p-6 border border-slate-200 shadow-sm">
++        <div className="admin-dashboard-left-column">
++          <section aria-labelledby="dashboard-monthly-title" className="admin-dashboard-period admin-surface bg-white rounded-xl p-6 border border-slate-200 shadow-sm">
++            <h3 id="dashboard-monthly-title" className="text-lg font-semibold text-slate-800 mb-4">{t('dashboard.monthlyCases')}</h3>
++            {monthlyChartData.length === 0 ? (
++              <EmptyChart loading={showEmptyLoading} label={t('dashboard.noData')} t={t} />
++            ) : (
++              <ResponsiveContainer width="100%" height={300}>
++                <LineChart data={monthlyChartData} margin={{ top: 12, right: 18, left: 0, bottom: 8 }}>
++                  <CartesianGrid strokeDasharray="3 5" stroke={ADMIN_CHART.grid} vertical={false} />
++                  <XAxis dataKey="period" tick={{ fontSize: 11 }} tickLine={false} axisLine={false} tickMargin={10} minTickGap={32} interval="preserveStartEnd" />
++                  <YAxis tick={{ fontSize: 11 }} tickLine={false} axisLine={false} width={58} tickFormatter={(value: number) => value.toLocaleString()} />
++                  <Tooltip contentStyle={{ borderRadius: 10, border: `1px solid ${ADMIN_CHART.border}`, fontSize: 12 }}
++                    formatter={(value: number) => [`${value.toLocaleString()} ${t('dashboard.caseUnit')}`, t('dashboard.cases')]} />
++                  <Line
++                    type="monotone"
++                    dataKey="cases"
++                    name={t('dashboard.cases')}
++                    stroke={ADMIN_CHART.primary}
++                    strokeWidth={2}
++                    dot={{ r: 2 }}
++                    activeDot={{ r: 4 }}
++                    isAnimationActive={chartAnimation}
++                  />
++                </LineChart>
++              </ResponsiveContainer>
++            )}
++          </section>
++
++          <section aria-labelledby="dashboard-yearly-title" className="admin-dashboard-year admin-surface bg-white rounded-xl p-6 border border-slate-200 shadow-sm">
++            <div className="mb-4 flex flex-col gap-1 sm:flex-row sm:items-start sm:justify-between">
++              <div>
++                <h3 id="dashboard-yearly-title" className="text-lg font-semibold text-slate-800">{t('dashboard.yearlyCasesTitle')}</h3>
++                <p className="text-xs text-slate-500 mt-1">
++                  {t('dashboard.yearlyCasesDesc')}
++                </p>
++              </div>
++              <div className="flex flex-wrap gap-2">
++                <span className="rounded-full bg-blue-50 px-3 py-1 text-xs font-semibold text-blue-700 ring-1 ring-blue-100">
++                  {yearlyChartData.length} {t('dashboard.yearUnit')}
++                </span>
++                {incompleteYears.length > 0 && (
++                  <span className="inline-flex items-center gap-1 rounded-full bg-amber-50 px-3 py-1 text-xs font-semibold text-amber-700 ring-1 ring-amber-100">
++                    <AlertTriangle size={12} />
++                    {incompleteYears.length} {t('dashboard.incompleteYearCount')}
++                  </span>
++                )}
++              </div>
++            </div>
++            {yearlyChartData.length === 0 ? (
++              <EmptyChart loading={showEmptyLoading} label={t('dashboard.noData')} t={t} />
++            ) : (
++              <>
++                <ResponsiveContainer width="100%" height={230}>
++                  <BarChart data={yearlyChartData} barCategoryGap="28%" margin={{ top: 12, right: 18, left: 0, bottom: 8 }}>
++                    <CartesianGrid strokeDasharray="3 5" stroke={ADMIN_CHART.grid} vertical={false} />
++                    <XAxis dataKey="year" tick={{ fontSize: 12 }} tickLine={false} axisLine={false} tickMargin={10} minTickGap={24} />
++                    <YAxis tick={{ fontSize: 11 }} tickLine={false} axisLine={false} width={58} tickFormatter={(value: number) => value.toLocaleString()} />
++                    <Tooltip
++                      cursor={false}
++                      contentStyle={{ borderRadius: 10, border: `1px solid ${ADMIN_CHART.border}`, fontSize: 12, whiteSpace: 'normal' }}
++                      wrapperStyle={{ maxWidth: 'min(280px, calc(100vw - 64px))' }}
++                      formatter={(value: number) => [
++                        `${value.toLocaleString()} ${t('dashboard.caseUnit')}`,
++                        t('dashboard.totalCases'),
++                      ]}
++                      labelFormatter={(label, payload) => {
++                        const row = payload?.[0]?.payload as
++                          | { monthCount?: number; isCompleteYear?: boolean; missingMonths?: number[] }
++                          | undefined;
++                        if (!row) return `${t('dashboard.yearLabel')} ${label}`;
++                        const status = row.isCompleteYear
++                          ? t('dashboard.fullYearStatus')
++                          : `${t('dashboard.hasMonthsStatus')} ${row.monthCount ?? 0}/12 ${t('reports.col.month').toLowerCase()}`;
++                        return `${t('dashboard.yearLabel')} ${label} - ${status}`;
++                      }}
++                    />
++                    <Bar
++                      dataKey="cases"
++                      name={t('dashboard.totalCases')}
++                      maxBarSize={40}
++                      radius={[4, 4, 0, 0]}
++                      isAnimationActive={chartAnimation}
++                    >
++                      {yearlyChartData.map((entry) => (
++                        <Cell
++                          key={entry.year}
++                          fill={entry.isCompleteYear ? ADMIN_CHART.primary : '#f59e0b'}
++                        />
++                      ))}
++                    </Bar>
++                  </BarChart>
++                </ResponsiveContainer>
++
++                {incompleteYears.length > 0 && (
++                  <div className="mt-4 rounded-xl border border-amber-200 bg-amber-50 p-3 text-sm text-amber-800">
++                    <div className="mb-2 flex items-center gap-2 font-semibold">
++                      <AlertTriangle size={16} />
++                      {t('dashboard.incompleteYearsTitle')}
++                    </div>
++                    <div className="admin-year-coverage-list">
++                      {incompleteYears.map((row) => (
++                        <div key={row.year} className="rounded-lg bg-white/70 px-3 py-2 ring-1 ring-amber-100">
++                          <div className="font-semibold">
++                            {t('dashboard.yearLabel')} {row.year}: {t('dashboard.hasMonthsStatus')} {row.month_count}/12{' '}
++                            {t('reports.col.month').toLowerCase()}
++                          </div>
++                          <div className="mt-1 text-xs text-amber-700">
++                            {t('dashboard.missingMonths')}: {row.missing_months.length > 0
++                              ? row.missing_months.map((m) => `T${m}`).join(', ')
++                              : t('dashboard.unknown')}
++                          </div>
++                        </div>
++                      ))}
++                    </div>
++                  </div>
++                )}
++              </>
++            )}
++          </section>
++
++        </div>
++        <section aria-labelledby="dashboard-top-title" className="admin-dashboard-top admin-surface bg-white rounded-xl p-6 border border-slate-200 shadow-sm">
+           <DashboardTopGroupsChart groups={rankedGroups} animate={chartAnimation}
+             emptyState={<EmptyChart loading={showEmptyLoading} label={t('dashboard.noGroupData')} t={t} />} />
+         </section>
+       </div>
+-
+-      <section aria-labelledby="dashboard-yearly-title" className="admin-surface bg-white rounded-xl p-6 border border-slate-200 shadow-sm">
+-        <div className="mb-4 flex flex-col gap-1 sm:flex-row sm:items-start sm:justify-between">
+-          <div>
+-            <h3 id="dashboard-yearly-title" className="text-lg font-semibold text-slate-800">{t('dashboard.yearlyCasesTitle')}</h3>
+-            <p className="text-xs text-slate-500 mt-1">
+-              {t('dashboard.yearlyCasesDesc')}
+-            </p>
+-          </div>
+-          <div className="flex flex-wrap gap-2">
+-            <span className="rounded-full bg-blue-50 px-3 py-1 text-xs font-semibold text-blue-700 ring-1 ring-blue-100">
+-              {yearlyChartData.length} {t('dashboard.yearUnit')}
+-            </span>
+-            {incompleteYears.length > 0 && (
+-              <span className="inline-flex items-center gap-1 rounded-full bg-amber-50 px-3 py-1 text-xs font-semibold text-amber-700 ring-1 ring-amber-100">
+-                <AlertTriangle size={12} />
+-                {incompleteYears.length} {t('dashboard.incompleteYearCount')}
+-              </span>
+-            )}
+-          </div>
+-        </div>
+-        {yearlyChartData.length === 0 ? (
+-          <EmptyChart loading={showEmptyLoading} label={t('dashboard.noData')} t={t} />
+-        ) : (
+-          <>
+-            <ResponsiveContainer width="100%" height={230}>
+-              <BarChart data={yearlyChartData} barCategoryGap="28%" margin={{ top: 12, right: 18, left: 0, bottom: 8 }}>
+-                <CartesianGrid strokeDasharray="3 5" stroke={ADMIN_CHART.grid} vertical={false} />
+-                <XAxis dataKey="year" tick={{ fontSize: 12 }} tickLine={false} axisLine={false} tickMargin={10} minTickGap={24} />
+-                <YAxis tick={{ fontSize: 11 }} tickLine={false} axisLine={false} width={58} tickFormatter={(value: number) => value.toLocaleString()} />
+-                <Tooltip
+-                  cursor={false}
+-                  contentStyle={{ borderRadius: 10, border: `1px solid ${ADMIN_CHART.border}`, fontSize: 12, whiteSpace: 'normal' }}
+-                  wrapperStyle={{ maxWidth: 'min(280px, calc(100vw - 64px))' }}
+-                  formatter={(value: number) => [
+-                    `${value.toLocaleString()} ${t('dashboard.caseUnit')}`,
+-                    t('dashboard.totalCases'),
+-                  ]}
+-                  labelFormatter={(label, payload) => {
+-                    const row = payload?.[0]?.payload as
+-                      | { monthCount?: number; isCompleteYear?: boolean; missingMonths?: number[] }
+-                      | undefined;
+-                    if (!row) return `${t('dashboard.yearLabel')} ${label}`;
+-                    const status = row.isCompleteYear
+-                      ? t('dashboard.fullYearStatus')
+-                      : `${t('dashboard.hasMonthsStatus')} ${row.monthCount ?? 0}/12 ${t('reports.col.month').toLowerCase()}`;
+-                    return `${t('dashboard.yearLabel')} ${label} - ${status}`;
+-                  }}
+-                />
+-                <Bar
+-                  dataKey="cases"
+-                  name={t('dashboard.totalCases')}
+-                  maxBarSize={40}
+-                  radius={[4, 4, 0, 0]}
+-                  isAnimationActive={chartAnimation}
+-                >
+-                  {yearlyChartData.map((entry) => (
+-                    <Cell
+-                      key={entry.year}
+-                      fill={entry.isCompleteYear ? ADMIN_CHART.primary : '#f59e0b'}
+-                    />
+-                  ))}
+-                </Bar>
+-              </BarChart>
+-            </ResponsiveContainer>
+-
+-            {incompleteYears.length > 0 && (
+-              <div className="mt-4 rounded-xl border border-amber-200 bg-amber-50 p-3 text-sm text-amber-800">
+-                <div className="mb-2 flex items-center gap-2 font-semibold">
+-                  <AlertTriangle size={16} />
+-                  {t('dashboard.incompleteYearsTitle')}
+-                </div>
+-                <div className="admin-year-coverage-list">
+-                  {incompleteYears.map((row) => (
+-                    <div key={row.year} className="rounded-lg bg-white/70 px-3 py-2 ring-1 ring-amber-100">
+-                      <div className="font-semibold">
+-                        {t('dashboard.yearLabel')} {row.year}: {t('dashboard.hasMonthsStatus')} {row.month_count}/12{' '}
+-                        {t('reports.col.month').toLowerCase()}
+-                      </div>
+-                      <div className="mt-1 text-xs text-amber-700">
+-                        {t('dashboard.missingMonths')}: {row.missing_months.length > 0
+-                          ? row.missing_months.map((m) => `T${m}`).join(', ')
+-                          : t('dashboard.unknown')}
+-                      </div>
+-                    </div>
+-                  ))}
+-                </div>
+-              </div>
+-            )}
+-          </>
+-        )}
+-      </section>
+ 
+       <AdminDetails title={t('content.dashboardDetails')}>
+       <div className="admin-surface bg-white rounded-xl p-6 border border-slate-200 shadow-sm">
+--- before/Frontend/src/app/components/admin/content.css
++++ after/Frontend/src/app/components/admin/content.css
+@@ -39,6 +39,10 @@
+ .admin-metric-strip .admin-kpi-icon { background: transparent; padding: 0; }
+ .admin-dashboard-charts { gap: var(--content-gap); }
+ .eureka-admin .admin-dashboard-content .admin-dashboard-charts { display: grid; grid-template-columns: minmax(0, 1fr); align-items: start; }
++.admin-dashboard-left-column { display: contents; }
++.admin-dashboard-period { order: 0; }
++.admin-dashboard-top { order: 1; }
++.admin-dashboard-year { order: 2; }
+ .eureka-admin .admin-dashboard-ranking { display: grid; gap: 12px; list-style: none; margin: 0; padding: 0; }
+ .admin-dashboard-ranking > li { display: flex; align-items: baseline; gap: 8px; min-width: 0; border-radius: 4px; }
+ .admin-dashboard-rank { flex: 0 0 18px; color: var(--admin-muted); font-size: 11px; font-variant-numeric: tabular-nums; }
+@@ -72,6 +76,7 @@
+ }
+ @media (min-width: 1100px) {
+   .eureka-admin .admin-dashboard-content .admin-dashboard-charts { grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr); }
++  .admin-dashboard-left-column { display: flex; flex-direction: column; gap: var(--content-gap); min-width: 0; }
+ }
+ .admin-year-coverage-list { display: grid; gap: 5px; }
+ .admin-year-coverage-list > div { display: flex; flex-wrap: wrap; gap: 4px 12px; padding: 4px 0; background: transparent; box-shadow: none; }

@@ -1,0 +1,12 @@
+{
+  "status": "BROWSER NOT VERIFIED",
+  "tool": "cua.getState",
+  "apps": [],
+  "browsers": [],
+  "errors": [
+    "Native apps: Error: Computer Use native pipe is unavailable: failed to connect native pipe: The system cannot find the file specified. (os error 2)",
+    "Browsers: Error: The browser access host is unavailable"
+  ],
+  "unverifiedViewports": [1440, 1280, 768, 390],
+  "screenshotsCaptured": false
+}

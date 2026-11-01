@@ -1,0 +1,1242 @@
+--- before/Frontend/src/app/components/PermissionsPage.test.tsx
++++ after/Frontend/src/app/components/PermissionsPage.test.tsx
+@@ -1,5 +1,5 @@
+ import { fireEvent, render, screen, waitFor, within } from '@testing-library/react';
+-import { beforeEach, describe, expect, it, vi } from 'vitest';
++import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
+ import { I18nProvider } from '@/lib/i18n';
+ import * as api from '@/lib/api';
+ import viStrings from '@/i18n/locales/vi';
+@@ -29,6 +29,7 @@
+ }
+ beforeEach(() => {
+   vi.resetAllMocks();
++  vi.spyOn(window, 'confirm').mockReturnValue(true);
+   auth.user = { ...admin };
+   vi.mocked(api.listUsers).mockResolvedValue([{ ...nurse, permissions: [...nurse.permissions] }]);
+   vi.mocked(api.listRoles).mockResolvedValue({ roles: ['admin', 'staff'] });
+@@ -36,6 +37,7 @@
+   vi.mocked(api.updateUserPermissions).mockImplementation(async (_id, permissions) => ({ ...nurse, permissions }));
+   vi.mocked(api.createUser).mockResolvedValue({ ...nurse, id: 3, username: 'newstaff' });
+ });
++afterEach(() => { vi.restoreAllMocks(); vi.unstubAllGlobals(); });
+ 
+ describe('Permission management moved intact with isolated API mocks', () => {
+   it.each([null, { ...admin, role: 'staff', permissions: ['admin.assign_permissions'] }])('denies a missing Admin role before loading data: %s', (user) => {
+@@ -51,7 +53,7 @@
+     mount();
+     const row = await screen.findByRole('row', { name: /nurse/ });
+     expect(within(row).queryByRole('button', { name: 'Phân quyền' })).not.toBeInTheDocument();
+-    expect(within(row).getByRole('combobox')).toBeDisabled();
++    expect(within(row).queryByRole('button', { name: 'Đổi vai trò' })).not.toBeInTheDocument();
+     expect(api.updateUserPermissions).not.toHaveBeenCalled();
+   });
+ 
+@@ -90,9 +92,11 @@
+     fireEvent.click(within(dialog).getByRole('checkbox', { name: /Hiển thị nhóm bệnh trên Parent/ }));
+     fireEvent.click(within(dialog).getByRole('button', { name: 'Đóng' }));
+     expect(api.updateUserPermissions).not.toHaveBeenCalled();
+-  });
+-
+-  it.each([403, 409, 500])('shows an API %s save error in the dialog without false success, and permits retry', async (status) => {
++    const reopened = await openPermissions();
++    expect(within(reopened).getByRole('checkbox', { name: /Hiển thị nhóm bệnh trên Parent/ })).not.toBeChecked();
++  });
++
++  it.each([401, 403, 409, 500])('shows an API %s save error in the dialog without false success, and permits retry', async (status) => {
+     vi.mocked(api.updateUserPermissions).mockRejectedValueOnce(new api.ApiError(status, `Lỗi kiểm thử ${status}`));
+     mount();
+     const dialog = await openPermissions();
+@@ -109,7 +113,9 @@
+   it('keeps creation validation/default permissions without adding permissions', async () => {
+     mount();
+     await screen.findByRole('row', { name: /nurse/ });
+-    const create = screen.getByRole('button', { name: t('settings.users.create') });
++    fireEvent.click(screen.getByRole('button', { name: t('settings.users.create') }));
++    const drawer = screen.getByRole('dialog', { name: t('settings.users.create') });
++    const create = within(drawer).getByRole('button', { name: t('settings.users.create') });
+     fireEvent.click(create);
+     expect(screen.getByText(t('settings.users.required'))).toBeVisible();
+     expect(api.createUser).not.toHaveBeenCalled();
+@@ -126,4 +132,143 @@
+     expect(screen.queryByRole('dialog')).not.toBeInTheDocument();
+     expect(api.updateUserPermissions).not.toHaveBeenCalled();
+   });
++
++  it('combines filtering with pagination, preserves filters and resets to page one', async () => {
++    vi.mocked(api.listUsers).mockResolvedValue(Array.from({ length: 13 }, (_, i) => ({ ...nurse, id: i + 10, username: `staff${i}`, full_name: `Nhân viên ${i}`, is_active: i % 2 === 0 })));
++    mount();
++    await screen.findByRole('row', { name: /staff0/ });
++    fireEvent.change(screen.getByRole('combobox', { name: 'Số tài khoản mỗi trang' }), { target: { value: '5' } });
++    expect(screen.getAllByRole('row')).toHaveLength(6);
++    fireEvent.click(screen.getByRole('button', { name: 'Trang sau' }));
++    expect(screen.getByText('Trang 2 / 3')).toBeVisible();
++    fireEvent.change(screen.getByRole('combobox', { name: 'Lọc theo trạng thái' }), { target: { value: 'inactive' } });
++    expect(screen.getByText('Trang 1 / 2')).toBeVisible();
++    fireEvent.change(screen.getByRole('textbox', { name: 'Tìm tài khoản' }), { target: { value: 'staff11' } });
++    expect(screen.getByRole('row', { name: /staff11/ })).toBeVisible();
++    expect(screen.getAllByRole('row')).toHaveLength(2);
++    expect(api.listUsers).toHaveBeenCalledOnce();
++  });
++
++  it('searches permissions and prevents accidental discard until confirmed', async () => {
++    mount();
++    const dialog = await openPermissions();
++    const checkbox = within(dialog).getByRole('checkbox', { name: /Hiển thị nhóm bệnh trên Parent/ });
++    fireEvent.click(checkbox);
++    expect(within(dialog).getByText('Có thay đổi chưa lưu')).toBeVisible();
++    fireEvent.change(within(dialog).getByRole('textbox', { name: 'Tìm kiếm quyền' }), { target: { value: 'parent' } });
++    expect(within(dialog).queryByRole('checkbox', { name: 'Tổng quan' })).not.toBeInTheDocument();
++    expect(checkbox).toBeChecked();
++    vi.mocked(window.confirm).mockReturnValueOnce(false);
++    fireEvent.keyDown(dialog, { key: 'Escape' });
++    expect(dialog).toBeInTheDocument();
++    fireEvent.click(within(dialog).getByRole('button', { name: 'Hủy' }));
++    expect(screen.queryByRole('dialog')).not.toBeInTheDocument();
++    expect(api.updateUserPermissions).not.toHaveBeenCalled();
++  });
++
++  it('keeps a failed create form open, validates password length and shows catalog failures safely', async () => {
++    vi.mocked(api.createUser).mockRejectedValueOnce(new api.ApiError(409, 'Tài khoản đã tồn tại'));
++    mount();
++    await screen.findByRole('row', { name: /nurse/ });
++    fireEvent.click(screen.getByRole('button', { name: t('settings.users.create') }));
++    const dialog = screen.getByRole('dialog');
++    fireEvent.change(within(dialog).getByLabelText(t('settings.users.inputUsername')), { target: { value: 'newstaff' } });
++    fireEvent.change(within(dialog).getByLabelText(t('settings.users.inputPassword')), { target: { value: '123' } });
++    fireEvent.click(within(dialog).getByRole('button', { name: t('settings.users.create') }));
++    expect(within(dialog).getByRole('alert')).toHaveTextContent('ít nhất 6');
++    expect(api.createUser).not.toHaveBeenCalled();
++    fireEvent.change(within(dialog).getByLabelText(t('settings.users.inputPassword')), { target: { value: 'test-only-value' } });
++    fireEvent.click(within(dialog).getByRole('button', { name: t('settings.users.create') }));
++    expect(await within(dialog).findByRole('alert')).toHaveTextContent('Tài khoản đã tồn tại');
++    expect(dialog).toBeInTheDocument();
++    expect(screen.queryByText('Đã tạo tài khoản.')).not.toBeInTheDocument();
++  });
++
++  it('does not permit account creation when the permission catalog fails', async () => {
++    vi.mocked(api.listPermissions).mockRejectedValueOnce(new api.ApiError(500, 'Catalog fixture failure'));
++    mount();
++    expect(await screen.findByRole('alert')).toHaveTextContent('Không tải được danh mục quyền');
++    expect(screen.getByRole('button', { name: t('settings.users.create') })).toBeDisabled();
++    expect(api.createUser).not.toHaveBeenCalled();
++  });
++
++  it('handles role changes, locking and deletion only after confirmations', async () => {
++    vi.mocked(api.updateUserRole).mockResolvedValue({ ...nurse, role: 'admin', permissions: ['admin.assign_permissions'] });
++    vi.mocked(api.updateUserActive).mockResolvedValue({ ...nurse, role: 'admin', is_active: false });
++    vi.mocked(api.deleteUser).mockResolvedValue({ message: 'OK' });
++    mount();
++    let row = await screen.findByRole('row', { name: /nurse/ });
++    fireEvent.click(within(row).getByText('Thao tác'));
++    fireEvent.click(within(row).getByRole('button', { name: 'Đổi vai trò' }));
++    const dialog = screen.getByRole('dialog', { name: 'Đổi vai trò cho nurse' });
++    fireEvent.change(within(dialog).getByRole('combobox', { name: 'Vai trò' }), { target: { value: 'admin' } });
++    fireEvent.click(within(dialog).getByRole('button', { name: 'Lưu vai trò' }));
++    await waitFor(() => expect(api.updateUserRole).toHaveBeenCalledWith(2, 'admin', undefined));
++    await waitFor(() => expect(screen.queryByRole('dialog')).not.toBeInTheDocument());
++    row = screen.getByRole('row', { name: /nurse/ });
++    vi.mocked(window.confirm).mockReturnValueOnce(false);
++    fireEvent.click(within(row).getByRole('button', { name: t('settings.users.disable') }));
++    expect(api.updateUserActive).not.toHaveBeenCalled();
++    fireEvent.click(within(row).getByRole('button', { name: t('settings.users.disable') }));
++    await waitFor(() => expect(api.updateUserActive).toHaveBeenCalled());
++    row = screen.getByRole('row', { name: /nurse/ });
++    fireEvent.click(within(row).getByRole('button', { name: 'Xóa' }));
++    await waitFor(() => expect(screen.queryByRole('row', { name: /nurse/ })).not.toBeInTheDocument());
++    expect(api.deleteUser).toHaveBeenCalledWith(2, undefined);
++  });
++
++  it('validates and resets a password without reporting success on API failure', async () => {
++    vi.mocked(api.resetUserPassword).mockRejectedValueOnce(new api.ApiError(403, 'Không được reset'));
++    mount();
++    const row = await screen.findByRole('row', { name: /nurse/ });
++    fireEvent.click(within(row).getByText('Thao tác'));
++    fireEvent.click(within(row).getByRole('button', { name: 'Reset mật khẩu' }));
++    const dialog = screen.getByRole('dialog', { name: 'Reset mật khẩu' });
++    fireEvent.change(within(dialog).getByLabelText('Mật khẩu mới'), { target: { value: 'test-only-value' } });
++    fireEvent.click(within(dialog).getByRole('button', { name: 'Reset mật khẩu' }));
++    expect(await within(dialog).findByRole('alert')).toHaveTextContent('Không được reset');
++    expect(within(dialog).queryByText(/Đã reset/)).not.toBeInTheDocument();
++  });
++
++  it('sends the loaded revision with permission updates and leaves a conflict draft intact', async () => {
++    vi.mocked(api.listUsers).mockResolvedValue([{ ...nurse, revision: 'fixture-revision' }]);
++    vi.mocked(api.updateUserPermissions).mockRejectedValueOnce(new api.ApiError(409, 'Tài khoản đã thay đổi, hãy tải lại'));
++    mount();
++    const dialog = await openPermissions();
++    const checkbox = within(dialog).getByRole('checkbox', { name: /Hiển thị nhóm bệnh trên Parent/ });
++    fireEvent.click(checkbox);
++    fireEvent.click(within(dialog).getByRole('button', { name: 'Lưu phân quyền' }));
++    expect(await within(dialog).findByRole('alert')).toHaveTextContent('hãy tải lại');
++    expect(checkbox).toBeChecked();
++    expect(api.updateUserPermissions).toHaveBeenCalledWith(2, ['feature.dashboard', 'feature.parent_disease_visibility'], 'fixture-revision');
++  });
++
++  it('does not select or allow administrative grants beyond a limited Admin authority', async () => {
++    auth.user = { ...admin, permissions: ['admin.create_user'] };
++    vi.mocked(api.listPermissions).mockResolvedValue({ permissions: [...definitions, { code: 'admin.create_user', label: 'Thêm tài khoản', group: 'Quản trị' }], default_staff_permissions: ['feature.dashboard'] });
++    mount();
++    await screen.findByRole('row', { name: /nurse/ });
++    fireEvent.click(screen.getByRole('button', { name: t('settings.users.create') }));
++    const dialog = screen.getByRole('dialog');
++    fireEvent.change(within(dialog).getByRole('combobox', { name: 'Vai trò' }), { target: { value: 'admin' } });
++    expect(within(dialog).getByRole('checkbox', { name: /Phân quyền tài khoản/ })).toBeDisabled();
++    expect(within(dialog).getByRole('checkbox', { name: /Phân quyền tài khoản/ })).not.toBeChecked();
++    expect(within(dialog).getByRole('checkbox', { name: /Thêm tài khoản/ })).toBeChecked();
++  });
++
++  it('preserves bulk creation fields/payload and exports only the isolated mock result', async () => {
++    mount();
++    await screen.findByRole('row', { name: /nurse/ });
++    fireEvent.click(screen.getByRole('button', { name: 'Tạo hàng loạt' }));
++    const dialog = screen.getByRole('dialog', { name: 'Tạo hàng loạt tài khoản' });
++    fireEvent.change(within(dialog).getByLabelText('Tiền tố username'), { target: { value: 'mock' } });
++    fireEvent.change(within(dialog).getByLabelText('Số lượng'), { target: { value: '2' } });
++    fireEvent.change(within(dialog).getByLabelText('Mật khẩu chung'), { target: { value: 'isolated-fixture-value' } });
++    vi.mocked(api.bulkCreateUsers).mockResolvedValue({ created: [] });
++    vi.stubGlobal('URL', { createObjectURL: vi.fn().mockReturnValue('blob:isolated-fixture'), revokeObjectURL: vi.fn() });
++    vi.spyOn(HTMLAnchorElement.prototype, 'click').mockImplementation(() => {});
++    fireEvent.click(within(dialog).getByRole('button', { name: 'Tạo và xuất file Excel' }));
++    await waitFor(() => expect(api.bulkCreateUsers).toHaveBeenCalledWith({ username_prefix: 'mock', count: 2, password: 'isolated-fixture-value', role: 'staff', permissions: ['feature.dashboard'], full_name_prefix: undefined, position: undefined }));
++    await waitFor(() => expect(screen.queryByRole('dialog')).not.toBeInTheDocument());
++  });
+ });
+--- before/Frontend/src/app/components/PermissionsPage.tsx
++++ after/Frontend/src/app/components/PermissionsPage.tsx
+@@ -1,5 +1,6 @@
+-import { ChevronLeft, ChevronRight, Loader2, RotateCcw, Search, Users, ShieldCheck } from 'lucide-react';
+-import * as api from '@/lib/api';
++import { useState } from 'react';
++import { Plus, Users, ShieldCheck } from 'lucide-react';
++import type { AdminUser } from '@/lib/api';
+ import { useT } from '@/lib/i18n';
+ import { useAuth } from '../contexts/AuthContext';
+ import { canAccessTab } from '../navigation';
+@@ -8,7 +9,10 @@
+ import { RoleSelect } from './admin/permissions/PermissionControls';
+ import { UserAccountCreation, BulkAccountCreation } from './admin/permissions/UserAccountForms';
+ import PermissionDialogs from './admin/permissions/PermissionDialogs';
++import UserManagementDialog from './admin/permissions/UserManagementDialog';
++import UserTable from './admin/permissions/UserTable';
+ import { useUserAdministration } from './admin/permissions/useUserAdministration';
++import './admin/permissions/permissions.css';
+ 
+ export default function PermissionsPage() {
+   const { user } = useAuth();
+@@ -19,229 +23,47 @@
+ 
+ function UserAdministrationContent() {
+   const admin = useUserAdministration();
+-  const {
+-    user, t, users, setUsers, usersLoading,
+-    usersError, setUsersError, userSearch, setUserSearch, userRoleFilter,
+-    setUserRoleFilter, userStatusFilter, setUserStatusFilter, userPage, setUserPage,
+-    userPageSize, setUserPageSize, availableRoles, setSelectedUserId, setResetUserId,
+-    canAdmin, filteredUsers, userTotalPages, pagedUsers, loadUsers,
+-    roleLabels, selectedUser,
+-  } = admin;
++  const [creation, setCreation] = useState<'single' | 'bulk' | null>(null);
++  const [roleTarget, setRoleTarget] = useState<AdminUser | null>(null);
++  const [nextRole, setNextRole] = useState('');
++  const { t, canAdmin, catalogLoading, catalogError, usersError, notice } = admin;
++  function closeCreation() {
++    if (admin.creating || admin.bulkCreating) return;
++    const dirty = creation === 'single'
++      ? Boolean(admin.newUsername || admin.newPassword || admin.newFullName || admin.newPosition || admin.newRole !== 'staff' || JSON.stringify([...admin.newPermissions].sort()) !== JSON.stringify([...admin.defaultPermissionsForRole('staff')].sort()))
++      : Boolean(admin.bulkPassword || admin.bulkPosition || admin.bulkFullNamePrefix || admin.bulkPrefix !== 'nv' || admin.bulkCount !== 5 || admin.bulkRole !== 'staff' || JSON.stringify([...admin.bulkPermissions].sort()) !== JSON.stringify([...admin.defaultPermissionsForRole('staff')].sort()));
++    if (dirty && !window.confirm('Bỏ thay đổi chưa lưu?')) return;
++    admin.setNewUsername(''); admin.setNewPassword(''); admin.setNewFullName(''); admin.setNewPosition(''); admin.setNewRole('staff');
++    admin.setNewPermissions(admin.defaultPermissionsForRole('staff'));
++    admin.setBulkPassword(''); admin.setBulkPosition(''); admin.setBulkFullNamePrefix(''); admin.setBulkPrefix('nv'); admin.setBulkCount(5); admin.setBulkRole('staff');
++    admin.setBulkPermissions(admin.defaultPermissionsForRole('staff')); setCreation(null);
++    admin.clearCreationErrors();
++  }
+   return <div className="admin-page-stack admin-permissions-content" id="permissions-title">
+     <AdminPageHeading icon={ShieldCheck} title={t('sidebar.permissions')} description={t('admin.description.permissions')} />
+-    <Section icon={Users} title={t('settings.users.title')} subtitle={t('settings.users.subtitle')}>
+-      {usersError && !selectedUser() && (
+-        <div role="alert" className="mb-3 bg-red-50 border border-red-200 text-red-700 rounded-lg px-3 py-2 text-sm">
+-          {usersError}
+-        </div>
+-      )}
+-
+-      <div className="admin-permissions-layout">
+-        <div className="xl:col-span-2 border border-slate-200 rounded-lg overflow-hidden">
+-          <div className="flex flex-wrap items-center justify-between gap-2 px-4 py-2 bg-slate-50 border-b border-slate-200">
+-            <span className="text-sm font-medium text-slate-700">
+-              {filteredUsers.length} / {users.length} {t('settings.users.count')}
+-            </span>
+-            <button
+-              onClick={loadUsers}
+-              disabled={usersLoading}
+-              className="text-xs text-slate-500 hover:text-slate-700 inline-flex items-center gap-1"
+-            >
+-              {usersLoading ? <Loader2 size={12} className="animate-spin" /> : <RotateCcw size={12} />}
+-              {t('common.refresh')}
+-            </button>
+-          </div>
+-          <div className="grid grid-cols-1 gap-2 border-b border-slate-200 bg-white p-3 sm:grid-cols-2">
+-            <label className="relative">
+-              <Search size={16} className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-400" />
+-              <input
+-                value={userSearch}
+-                onChange={(event) => setUserSearch(event.target.value)}
+-                placeholder="Tìm theo username hoặc họ tên..."
+-                className="w-full rounded-lg border border-slate-200 bg-white py-2 pl-9 pr-3 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+-              />
+-            </label>
+-            <select
+-              value={userRoleFilter}
+-              onChange={(event) => setUserRoleFilter(event.target.value)}
+-              className="w-full rounded-lg border border-slate-200 bg-white px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+-              aria-label="Lọc theo vai trò"
+-            >
+-              <option value="all">Tất cả vai trò</option>
+-              {availableRoles.map((role) => (
+-                <option key={role} value={role}>
+-                  {roleLabels[role] ?? role}
+-                </option>
+-              ))}
+-            </select>
+-            <select
+-              value={userStatusFilter}
+-              onChange={(event) => setUserStatusFilter(event.target.value as 'all' | 'active' | 'inactive')}
+-              className="w-full rounded-lg border border-slate-200 bg-white px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+-              aria-label="Lọc theo trạng thái"
+-            >
+-              <option value="all">Tất cả trạng thái</option>
+-              <option value="active">Hoạt động</option>
+-              <option value="inactive">Đã khóa</option>
+-            </select>
+-            <label className="flex items-center gap-2 rounded-lg border border-slate-200 bg-white px-3 text-xs text-slate-500">
+-              <span className="shrink-0">Hiển thị</span>
+-              <select
+-                value={userPageSize}
+-                onChange={(event) => setUserPageSize(Number(event.target.value))}
+-                className="min-w-0 flex-1 border-0 bg-transparent py-2 text-sm text-slate-700 focus:outline-none"
+-                aria-label="Số tài khoản mỗi trang"
+-              >
+-                {[5, 10, 20, 50].map((size) => (
+-                  <option key={size} value={size}>
+-                    {size}
+-                  </option>
+-                ))}
+-              </select>
+-            </label>
+-          </div>
+-          <div className="overflow-x-auto">
+-            <table className="w-full text-sm">
+-              <thead>
+-                <tr className="text-left text-slate-500 border-b border-slate-200">
+-                  <th className="py-2 px-3">{t('settings.users.colUsername')}</th>
+-                  <th className="py-2 px-3">{t('settings.users.colFullName')}</th>
+-                  <th className="py-2 px-3 min-w-[240px]">{t('settings.users.colRole')}</th>
+-                  <th className="py-2 px-3">{t('settings.users.colStatus')}</th>
+-                  <th className="py-2 px-3 text-right">{t('settings.users.colAction')}</th>
+-                </tr>
+-              </thead>
+-              <tbody>
+-                {filteredUsers.length === 0 && !usersLoading && (
+-                  <tr>
+-                    <td colSpan={5} className="py-6 text-center text-slate-400">
+-                      {users.length === 0 ? t('common.noData') : 'Không tìm thấy tài khoản phù hợp.'}
+-                    </td>
+-                  </tr>
+-                )}
+-                {pagedUsers.map((u) => (
+-                  <tr key={u.id} className="border-b border-slate-100 last:border-0">
+-                    <td className="py-2 px-3 font-medium text-slate-700">{u.username}</td>
+-                    <td className="py-2 px-3 text-slate-600">{u.full_name ?? '—'}</td>
+-                    <td className="py-2 px-3 min-w-[240px]">
+-                      <RoleSelect
+-                        value={u.role}
+-                        options={availableRoles}
+-                        labels={roleLabels}
+-                        disabled={!canAdmin('admin.assign_permissions')}
+-                        onChange={async (next) => {
+-                          try {
+-                            const updated = await api.updateUserRole(u.id, next);
+-                            setUsers((cur) => cur.map((x) => (x.id === u.id ? updated : x)));
+-                          } catch (err) {
+-                            setUsersError(err instanceof Error ? err.message : String(err));
+-                          }
+-                        }}
+-                      />
+-                    </td>
+-                    <td className="py-2 px-3">
+-                      {u.is_active ? (
+-                        <span className="inline-block px-2 py-0.5 rounded-full text-xs bg-emerald-50 text-emerald-700 border border-emerald-200">
+-                          {t('common.active')}
+-                        </span>
+-                      ) : (
+-                        <span className="inline-block px-2 py-0.5 rounded-full text-xs bg-red-50 text-red-700 border border-red-200">
+-                          {t('common.inactive')}
+-                        </span>
+-                      )}
+-                    </td>
+-                    <td className="py-2 px-3 text-right">
+-                      <div className="flex flex-wrap justify-end gap-2">
+-                      {canAdmin('admin.assign_permissions') && (
+-                        <button
+-                          onClick={() => setSelectedUserId(u.id)}
+-                          className="text-xs text-blue-600 hover:text-blue-700"
+-                        >
+-                          Phân quyền
+-                        </button>
+-                      )}
+-                      {canAdmin('admin.reset_password') && (
+-                        <button
+-                          onClick={() => setResetUserId(u.id)}
+-                          className="text-xs text-slate-600 hover:text-blue-700"
+-                        >
+-                          Reset
+-                        </button>
+-                      )}
+-                      {u.username !== user?.username && canAdmin('admin.toggle_user') && (
+-                        <button
+-                          onClick={async () => {
+-                            try {
+-                              const updated = await api.updateUserActive(u.id, !u.is_active);
+-                              setUsers((cur) => cur.map((x) => (x.id === u.id ? updated : x)));
+-                            } catch (err) {
+-                              setUsersError(err instanceof Error ? err.message : String(err));
+-                            }
+-                          }}
+-                          className="text-xs text-slate-600 hover:text-red-600"
+-                        >
+-                          {u.is_active ? t('settings.users.disable') : t('settings.users.enable')}
+-                        </button>
+-                      )}
+-                      {u.username !== user?.username && canAdmin('admin.delete_user') && (
+-                        <button
+-                          onClick={async () => {
+-                            if (!window.confirm(`Xóa tài khoản ${u.username}?`)) return;
+-                            try {
+-                              await api.deleteUser(u.id);
+-                              setUsers((cur) => cur.filter((x) => x.id !== u.id));
+-                            } catch (err) {
+-                              setUsersError(err instanceof Error ? err.message : String(err));
+-                            }
+-                          }}
+-                          className="text-xs text-red-600 hover:text-red-700"
+-                        >
+-                          Xóa
+-                        </button>
+-                      )}
+-                      </div>
+-                    </td>
+-                  </tr>
+-                ))}
+-              </tbody>
+-            </table>
+-          </div>
+-          <div className="flex flex-wrap items-center justify-between gap-3 border-t border-slate-200 bg-slate-50 px-4 py-3 text-xs text-slate-500">
+-            <span>
+-              Hiển thị {filteredUsers.length === 0 ? 0 : (userPage - 1) * userPageSize + 1}–
+-              {Math.min(userPage * userPageSize, filteredUsers.length)} / {filteredUsers.length} tài khoản
+-            </span>
+-            <div className="flex items-center gap-2">
+-              <button
+-                type="button"
+-                onClick={() => setUserPage((page) => Math.max(1, page - 1))}
+-                disabled={userPage <= 1}
+-                className="inline-flex h-8 w-8 items-center justify-center rounded-lg border border-slate-200 bg-white text-slate-600 disabled:cursor-not-allowed disabled:opacity-40"
+-                aria-label="Trang trước"
+-              >
+-                <ChevronLeft size={15} />
+-              </button>
+-              <span className="min-w-[72px] text-center font-medium text-slate-600">
+-                Trang {userPage} / {userTotalPages}
+-              </span>
+-              <button
+-                type="button"
+-                onClick={() => setUserPage((page) => Math.min(userTotalPages, page + 1))}
+-                disabled={userPage >= userTotalPages}
+-                className="inline-flex h-8 w-8 items-center justify-center rounded-lg border border-slate-200 bg-white text-slate-600 disabled:cursor-not-allowed disabled:opacity-40"
+-                aria-label="Trang sau"
+-              >
+-                <ChevronRight size={15} />
+-              </button>
+-            </div>
+-          </div>
+-        </div>
+-
+-        <UserAccountCreation admin={admin} />
++    <Section icon={Users} title={t('settings.users.title')} subtitle={t('settings.users.subtitle')} actions={
++      canAdmin('admin.create_user') && <div className="admin-user-create-actions">
++        <button type="button" className="admin-user-primary" disabled={catalogLoading || Boolean(catalogError)} onClick={() => { admin.clearCreationErrors(); setCreation('single'); }}><Plus size={16} />{t('settings.users.create')}</button>
++        <button type="button" disabled={catalogLoading || Boolean(catalogError)} onClick={() => { admin.clearCreationErrors(); setCreation('bulk'); }}>Tạo hàng loạt</button>
+       </div>
+-
+-      <PermissionDialogs admin={admin} />
+-      <BulkAccountCreation admin={admin} />
++    }>
++      {catalogError && <p role="alert" className="admin-user-error">{catalogError}</p>}
++      {usersError && !admin.selectedUser() && <p role="alert" className="admin-user-error">{usersError}</p>}
++      {notice && !admin.selectedUser() && <p role="status" className="admin-user-notice">{notice}</p>}
++      <UserTable admin={admin} onRole={(account) => { admin.setUsersError(null); setRoleTarget(account); setNextRole(account.role); }} />
+     </Section>
++    {creation && <UserManagementDialog title={creation === 'single' ? t('settings.users.create') : 'Tạo hàng loạt tài khoản'} onClose={closeCreation} busy={admin.creating || admin.bulkCreating}>
++      {creation === 'single' ? <UserAccountCreation admin={admin} onCreated={() => setCreation(null)} onCancel={closeCreation} /> : <BulkAccountCreation admin={admin} onCreated={() => setCreation(null)} onCancel={closeCreation} />}
++    </UserManagementDialog>}
++    {roleTarget && <UserManagementDialog title={`Đổi vai trò cho ${roleTarget.username}`} busy={admin.actionBusy} onClose={() => { if (nextRole === roleTarget.role || window.confirm('Bỏ thay đổi chưa lưu?')) setRoleTarget(null); }}>
++      <div className="admin-user-dialog-body"><p>Đổi vai trò sẽ thay các quyền riêng bằng bộ quyền mặc định được phép cấp cho vai trò mới. Hãy kiểm tra trước khi lưu.</p>
++        <RoleSelect value={nextRole} options={admin.availableRoles} labels={admin.roleLabels} disabled={admin.actionBusy} onChange={setNextRole} />
++        {usersError && <p role="alert" className="admin-user-error">{usersError}</p>}
++      </div>
++      <footer className="admin-user-dialog-footer"><button type="button" disabled={admin.actionBusy} onClick={() => setRoleTarget(null)}>Hủy</button><button type="button" className="admin-user-primary" disabled={admin.actionBusy || nextRole === roleTarget.role || (roleTarget.id === admin.user?.id && nextRole !== 'admin')} onClick={async () => {
++        if (window.confirm(`Đổi vai trò của ${roleTarget.username}?`) && await admin.changeAccount(roleTarget, 'role', nextRole)) setRoleTarget(null);
++      }}>{admin.actionBusy ? 'Đang lưu...' : 'Lưu vai trò'}</button></footer>
++    </UserManagementDialog>}
++    <PermissionDialogs admin={admin} />
+   </div>;
+ }
+--- before/Frontend/src/app/components/admin/permissions/PermissionControls.tsx
++++ after/Frontend/src/app/components/admin/permissions/PermissionControls.tsx
+@@ -1,47 +1,72 @@
+ import * as api from '@/lib/api';
++import { useId, useState } from 'react';
++import { Search, ChevronDown } from 'lucide-react';
+ 
+ export function PermissionChecklist({
+   title,
+   permissions,
+   selected,
+   onToggle,
++  disabled = false,
++  canGrant = () => true,
+ }: {
+   title: string;
+   permissions: api.PermissionDef[];
+   selected: string[];
+   onToggle: (code: string) => void;
++  disabled?: boolean;
++  canGrant?: (code: string) => boolean;
+ }) {
++  const [search, setSearch] = useState('');
++  const [collapsed, setCollapsed] = useState<string[]>([]);
++  const id = useId();
++  function permissionGroup(p: api.PermissionDef) {
++    if (p.code.startsWith('admin.')) return 'Quản trị hệ thống';
++    if (p.code === 'feature.dashboard') return 'Tổng quan';
++    if (p.code === 'feature.data_import') return 'Quản lý dữ liệu';
++    if (p.code === 'feature.reports') return 'Báo cáo';
++    if (p.code === 'feature.forecast') return 'Dự báo và mô hình';
++    if (['feature.weather_risk', 'feature.parent_disease_visibility'].includes(p.code)) return 'AI thời tiết';
++    return p.group === 'Chức năng nhân viên' ? 'Phân tích dữ liệu' : p.group;
++  }
++  const query = search.trim().toLocaleLowerCase('vi');
+   const groups = permissions.reduce<Record<string, api.PermissionDef[]>>((acc, p) => {
+-    if (!acc[p.group]) acc[p.group] = [];
+-    acc[p.group].push(p);
++    if (query && !`${p.label} ${p.description ?? ''} ${p.code} ${permissionGroup(p)}`.toLocaleLowerCase('vi').includes(query)) return acc;
++    const group = permissionGroup(p);
++    if (!acc[group]) acc[group] = [];
++    acc[group].push(p);
+     return acc;
+   }, {});
+ 
+   return (
+-    <div className="rounded-lg border border-slate-200 bg-white p-3">
+-      <div className="mb-2 text-xs font-semibold uppercase text-slate-500">{title}</div>
++    <div className="admin-permission-checklist">
++      <div className="admin-permission-checklist-heading"><strong>{title}</strong><span>{permissions.filter((p) => selected.includes(p.code)).length}/{permissions.length} quyền đang chọn</span></div>
++      <label className="admin-permission-search"><Search size={16} aria-hidden="true" /><input aria-label="Tìm kiếm quyền" placeholder="Tìm tên hoặc chức năng..." value={search} onChange={(event) => setSearch(event.target.value)} /></label>
+       <div className="admin-permission-groups">
+-        {Object.entries(groups).map(([group, rows]) => (
++        {Object.entries(groups).map(([group, rows], index) => (
+           <div key={group}>
+-            <div className="mb-1 text-xs font-medium text-slate-600">{group}</div>
+-            <div className="grid grid-cols-1 gap-1 sm:grid-cols-2">
++            <button type="button" className="admin-permission-group-toggle" aria-expanded={Boolean(query) || !collapsed.includes(group)} aria-controls={`${id}-${index}`} onClick={() => setCollapsed((cur) => cur.includes(group) ? cur.filter((item) => item !== group) : [...cur, group])}>
++              <span>{group} <small>{rows.filter((p) => selected.includes(p.code)).length}/{rows.length}</small></span><ChevronDown size={16} aria-hidden="true" />
++            </button>
++            <div id={`${id}-${index}`} hidden={!query && collapsed.includes(group)} className="admin-permission-options">
+               {rows.map((p) => (
+-                <label key={p.code} className="flex items-start gap-2 rounded-md px-2 py-1.5 text-xs hover:bg-slate-50">
++                <label key={p.code} title={`${p.code}${!canGrant(p.code) ? ' — Bạn không được thay đổi quyền này' : ''}`}>
+                   <input
+                     type="checkbox"
++                    disabled={disabled || !canGrant(p.code)}
+                     checked={selected.includes(p.code)}
+                     onChange={() => onToggle(p.code)}
+-                    className="mt-0.5"
+                   />
+                   <span>
+                     <span className="font-medium text-slate-700">{p.label}</span>
+-                    <span className="block font-mono text-[10px] text-slate-400">{p.code}</span>
++                    {p.description && <small>{p.description}</small>}
+                   </span>
+                 </label>
+               ))}
+             </div>
+           </div>
+         ))}
++        {Object.keys(groups).length === 0 && <p>Không có quyền phù hợp.</p>}
+       </div>
+     </div>
+   );
+@@ -53,19 +78,22 @@
+   labels,
+   disabled,
+   onChange,
++  label = 'Vai trò',
+ }: {
+   value: string;
+   options: string[];
+   labels: Record<string, string>;
+   disabled?: boolean;
+   onChange: (value: string) => void | Promise<void>;
++  label?: string;
+ }) {
+   return (
+     <select
+       value={value}
++      aria-label={label}
+       disabled={disabled}
+       onChange={(event) => void onChange(event.target.value)}
+-      className="w-full min-w-[220px] rounded-lg border border-slate-200 bg-white px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 disabled:opacity-60"
++      className="w-full min-w-0 rounded-lg border border-slate-200 bg-white px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 disabled:opacity-60"
+     >
+       {options.map((role) => (
+         <option key={role} value={role}>
+--- before/Frontend/src/app/components/admin/permissions/PermissionDialogs.tsx
++++ after/Frontend/src/app/components/admin/permissions/PermissionDialogs.tsx
+@@ -1,117 +1,40 @@
+-import { ShieldCheck, KeyRound, Loader2 } from 'lucide-react';
+ import { Input, PermissionChecklist } from './PermissionControls';
++import UserManagementDialog from './UserManagementDialog';
+ import type { UserAdministration } from './useUserAdministration';
+ 
+ export default function PermissionDialogs({ admin }: { admin: UserAdministration }) {
+-  const {
+-    users, usersError, setUsers, setSelectedUserId, resetUserId,
+-    setResetUserId, savingPermissions, resetPassword, setResetPassword, resetResult,
+-    setResetResult, canAdmin, visiblePermissionDefs, selectedUser, togglePermission,
+-    saveSelectedUserPermissions, handleResetPassword,
+-  } = admin;
++  const target = admin.selectedUser();
++  const dirty = Boolean(target && JSON.stringify([...target.permissions].sort()) !== JSON.stringify([...admin.permissionDraft].sort()));
++  const resetTarget = admin.users.find((account) => account.id === admin.resetUserId);
++  const closePermissions = () => { if (!admin.savingPermissions && (!dirty || window.confirm('Bỏ thay đổi chưa lưu?'))) admin.setSelectedUserId(null); };
++  const closeReset = () => {
++    if (admin.resetting || (admin.resetPassword && !window.confirm('Bỏ thay đổi chưa lưu?'))) return;
++    admin.setResetUserId(null); admin.setResetPassword(''); admin.setResetResult(null);
++  };
+   return <>
+-    {selectedUser() && (
+-      <div role="dialog" aria-modal="true" aria-labelledby="permission-dialog-title" className="fixed inset-0 z-50 flex items-center justify-center bg-slate-900/45 p-4">
+-        <div className="max-h-[90vh] w-full max-w-5xl overflow-auto rounded-xl bg-white p-5 shadow-2xl">
+-          <div className="mb-4 flex items-start justify-between gap-4">
+-            <div>
+-              <h4 id="permission-dialog-title" className="flex items-center gap-2 text-lg font-semibold text-slate-800">
+-                <ShieldCheck size={18} /> Phân quyền cho {selectedUser()?.username}
+-              </h4>
+-              <p className="mt-1 text-xs text-slate-500">
+-                Admin luôn dùng được các mục chính. Các quyền quản trị chỉ kiểm soát thao tác nâng cao.
+-              </p>
+-            </div>
+-            <button
+-              onClick={() => {
+-                setSelectedUserId(null);
+-                setResetPassword('');
+-                setResetResult(null);
+-              }}
+-              className="rounded-lg border border-slate-200 px-3 py-1.5 text-sm text-slate-600 hover:bg-slate-50"
+-            >
+-              Đóng
+-            </button>
+-          </div>
+-      <div>
+-        {usersError && <p role="alert" className="mb-3 text-sm text-red-700">{usersError}</p>}
+-        <div className="rounded-lg border border-slate-200 bg-white p-4">
+-          <h4 className="mb-3 flex items-center gap-2 font-medium text-slate-800">
+-            <ShieldCheck size={16} /> Bảng phân quyền
+-          </h4>
+-          <PermissionChecklist
+-            title="Quyền được sử dụng"
+-            permissions={visiblePermissionDefs(selectedUser()?.role ?? 'staff')}
+-            selected={selectedUser()?.permissions ?? []}
+-            onToggle={(code) => {
+-              const target = selectedUser();
+-              if (!target) return;
+-              setUsers((cur) =>
+-                cur.map((u) =>
+-                  u.id === target.id ? { ...u, permissions: togglePermission(u.permissions, code) } : u,
+-                ),
+-              );
+-            }}
+-          />
+-          <button
+-            onClick={saveSelectedUserPermissions}
+-            disabled={savingPermissions || !canAdmin('admin.assign_permissions')}
+-            className="mt-3 inline-flex items-center gap-2 rounded-lg bg-blue-600 px-3 py-2 text-sm text-white hover:bg-blue-700 disabled:opacity-60"
+-          >
+-            {savingPermissions ? <Loader2 size={14} className="animate-spin" /> : <ShieldCheck size={14} />}
+-            Lưu phân quyền
+-          </button>
++    {target && <UserManagementDialog title={`Phân quyền cho ${target.username}`} onClose={closePermissions} busy={admin.savingPermissions}>
++      <div className="admin-user-dialog-body">
++        <div className="admin-user-editor-identity"><strong>{target.full_name || target.username}</strong><span>{admin.roleLabels[target.role] ?? target.role} · @{target.username}</span></div>
++        <p>{target.role === 'admin' ? 'Admin luôn dùng được các mục chính. Các quyền quản trị kiểm soát thao tác nâng cao; bạn chỉ được cấp quyền quản trị trong phạm vi được phép.' : 'Chọn các chức năng tài khoản được sử dụng. Thay đổi chỉ có hiệu lực sau khi bấm Lưu phân quyền.'}</p>
++        {admin.usersError && <p role="alert" className="admin-user-error">{admin.usersError}</p>}
++        {admin.catalogError && <p role="alert" className="admin-user-error">{admin.catalogError}</p>}
++        {admin.notice && <p role="status" className="admin-user-notice">{admin.notice}</p>}
++        <PermissionChecklist title="Quyền được sử dụng" permissions={admin.visiblePermissionDefs(target.role)} selected={admin.permissionDraft} disabled={admin.savingPermissions} canGrant={admin.canGrant}
++          onToggle={(code) => admin.setPermissionDraft((cur) => admin.togglePermission(cur, code))} />
++        <p className="admin-user-draft-state">{dirty ? 'Có thay đổi chưa lưu' : 'Không có thay đổi chưa lưu'}</p>
++      </div>
++      <footer className="admin-user-dialog-footer"><button type="button" disabled={admin.savingPermissions} onClick={closePermissions}>Hủy</button>
++        <button type="button" className="admin-user-primary" disabled={admin.savingPermissions || admin.catalogLoading || Boolean(admin.catalogError) || !admin.canAdmin('admin.assign_permissions')} onClick={() => void admin.saveSelectedUserPermissions()}>{admin.savingPermissions ? 'Đang lưu...' : 'Lưu phân quyền'}</button>
++      </footer>
++    </UserManagementDialog>}
++    {resetTarget && <UserManagementDialog title="Reset mật khẩu" busy={admin.resetting} onClose={closeReset}>
++      <form className="admin-user-editor-form" onSubmit={(event) => { event.preventDefault(); void admin.handleResetPassword(resetTarget); }}>
++        <div className="admin-user-dialog-body"><p>Tài khoản: <strong>{resetTarget.username}</strong>. Các phiên đăng nhập cũ sẽ bị thu hồi sau khi đổi mật khẩu thành công.</p>
++          <fieldset disabled={admin.resetting}><Input label="Mật khẩu mới" value={admin.resetPassword} onChange={admin.setResetPassword} type="password" placeholder="Ít nhất 6 ký tự" /></fieldset>
++          {admin.resetResult && <p role={admin.resetSucceeded ? 'status' : 'alert'} className={admin.resetSucceeded ? 'admin-user-notice' : 'admin-user-error'}>{admin.resetResult}</p>}
+         </div>
+-      </div>
+-        </div>
+-      </div>
+-    )}
+-
+-    {resetUserId && (
+-      <div className="fixed inset-0 z-50 flex items-center justify-center bg-slate-900/45 p-4">
+-        <div className="w-full max-w-md rounded-xl bg-white p-5 shadow-2xl">
+-          <div className="mb-4 flex items-start justify-between gap-4">
+-            <div>
+-              <h4 className="flex items-center gap-2 text-lg font-semibold text-slate-800">
+-                <KeyRound size={18} /> Reset mật khẩu
+-              </h4>
+-              <p className="mt-1 text-xs text-slate-500">
+-                Tài khoản: {users.find((u) => u.id === resetUserId)?.username}
+-              </p>
+-            </div>
+-            <button
+-              onClick={() => {
+-                setResetUserId(null);
+-                setResetPassword('');
+-                setResetResult(null);
+-              }}
+-              className="rounded-lg border border-slate-200 px-3 py-1.5 text-sm text-slate-600 hover:bg-slate-50"
+-            >
+-              Đóng
+-            </button>
+-          </div>
+-          <Input
+-            label="Mật khẩu mới"
+-            value={resetPassword}
+-            onChange={setResetPassword}
+-            type="password"
+-            placeholder="Ít nhất 6 ký tự"
+-          />
+-          <button
+-            onClick={() => {
+-              const target = users.find((u) => u.id === resetUserId);
+-              if (target) handleResetPassword(target);
+-            }}
+-            disabled={!canAdmin('admin.reset_password')}
+-            className="mt-3 inline-flex w-full items-center justify-center gap-2 rounded-lg bg-blue-600 px-3 py-2 text-sm text-white hover:bg-blue-700 disabled:opacity-60"
+-          >
+-            <KeyRound size={14} />
+-            Reset mật khẩu
+-          </button>
+-          {resetResult && <p className="mt-2 text-xs text-slate-600">{resetResult}</p>}
+-        </div>
+-      </div>
+-    )}
+-
++        <footer className="admin-user-dialog-footer"><button type="button" disabled={admin.resetting} onClick={closeReset}>Hủy</button><button type="submit" className="admin-user-primary" disabled={admin.resetting || !admin.canAdmin('admin.reset_password')}>{admin.resetting ? 'Đang lưu...' : 'Reset mật khẩu'}</button></footer>
++      </form>
++    </UserManagementDialog>}
+   </>;
+ }
+--- before/Frontend/src/app/components/admin/permissions/UserAccountForms.tsx
++++ after/Frontend/src/app/components/admin/permissions/UserAccountForms.tsx
+@@ -1,129 +1,57 @@
+-import { Plus, Loader2, Download } from 'lucide-react';
++import { Loader2 } from 'lucide-react';
+ import { Input, PermissionChecklist, RoleSelect } from './PermissionControls';
+ import type { UserAdministration } from './useUserAdministration';
+ 
+-export function UserAccountCreation({ admin }: { admin: UserAdministration }) {
+-  const {
+-    t, availableRoles, newPermissions, setNewPermissions, newUsername,
+-    setNewUsername, newPassword, setNewPassword, newFullName, setNewFullName,
+-    newRole, setNewRole, newPosition, setNewPosition, creating,
+-    createError, canAdmin, visiblePermissionDefs, defaultPermissionsForRole, handleCreateUser,
+-    togglePermission, roleLabels,
+-  } = admin;
+-  return (
+-    <div className="border border-slate-200 rounded-lg p-4 bg-slate-50 space-y-3">
+-      <h4 className="font-medium text-slate-800 flex items-center gap-2">
+-        <Plus size={16} /> {t('settings.users.create')}
+-      </h4>
+-      <Input
+-        label={t('settings.users.inputUsername')}
+-        value={newUsername}
+-        onChange={setNewUsername}
+-        placeholder={t('settings.users.usernameHint')}
+-      />
+-      <Input
+-        label={t('settings.users.inputPassword')}
+-        value={newPassword}
+-        onChange={setNewPassword}
+-        type="password"
+-        placeholder={t('settings.users.passwordHint')}
+-      />
+-      <Input
+-        label={t('settings.users.inputFullName')}
+-        value={newFullName}
+-        onChange={setNewFullName}
+-        placeholder={t('settings.users.fullNameHint')}
+-      />
+-      <div>
+-        <label className="text-xs text-slate-500 mb-1 block">{t('settings.users.inputRole')}</label>
+-        <RoleSelect
+-          value={newRole}
+-          options={availableRoles}
+-          labels={roleLabels}
+-          onChange={(role) => {
+-            setNewRole(role);
+-            setNewPermissions(defaultPermissionsForRole(role));
+-          }}
+-        />
+-      </div>
+-      <Input
+-        label="Chức vụ"
+-        value={newPosition}
+-        onChange={setNewPosition}
+-        placeholder="Bác sĩ, điều dưỡng, giám đốc..."
+-      />
+-      <PermissionChecklist
+-        title="Phân quyền tài khoản"
+-        permissions={visiblePermissionDefs(newRole)}
+-        selected={newPermissions}
+-        onToggle={(code) => setNewPermissions((cur) => togglePermission(cur, code))}
+-      />
+-      {createError && (
+-        <p className="text-xs text-red-600 break-words">{createError}</p>
+-      )}
+-      <button
+-        onClick={handleCreateUser}
+-        disabled={creating || !canAdmin('admin.create_user')}
+-        className="w-full inline-flex items-center justify-center gap-2 px-3 py-2 rounded-lg bg-blue-600 text-white text-sm hover:bg-blue-700 disabled:opacity-60"
+-      >
+-        {creating ? <Loader2 size={14} className="animate-spin" /> : <Plus size={14} />}
+-        {t('settings.users.create')}
++type Props = { admin: UserAdministration; onCreated?: () => void; onCancel?: () => void };
++
++export function UserAccountCreation({ admin, onCreated, onCancel }: Props) {
++  const { t, availableRoles, newPermissions, setNewPermissions, newUsername, setNewUsername,
++    newPassword, setNewPassword, newFullName, setNewFullName, newRole, setNewRole,
++    newPosition, setNewPosition, creating, createError, canAdmin, visiblePermissionDefs,
++    defaultPermissionsForRole, handleCreateUser, togglePermission, roleLabels } = admin;
++  return <form className="admin-user-editor-form" noValidate onSubmit={async (event) => { event.preventDefault(); if (await handleCreateUser()) onCreated?.(); }}>
++    <div className="admin-user-dialog-body">
++      <fieldset disabled={creating} className="admin-user-form-fields">
++        <Input label={t('settings.users.inputUsername')} value={newUsername} onChange={setNewUsername} placeholder={t('settings.users.usernameHint')} />
++        <Input label={t('settings.users.inputPassword')} value={newPassword} onChange={setNewPassword} type="password" placeholder={t('settings.users.passwordHint')} />
++        <Input label={t('settings.users.inputFullName')} value={newFullName} onChange={setNewFullName} placeholder={t('settings.users.fullNameHint')} />
++        <div><span className="admin-user-field-label">{t('settings.users.inputRole')}</span><RoleSelect value={newRole} options={availableRoles} labels={roleLabels} onChange={(role) => { setNewRole(role); setNewPermissions(defaultPermissionsForRole(role)); }} /></div>
++        <Input label="Chức vụ" value={newPosition} onChange={setNewPosition} placeholder="Bác sĩ, điều dưỡng, nhân viên..." />
++      </fieldset>
++      <PermissionChecklist title="Phân quyền tài khoản" permissions={visiblePermissionDefs(newRole)} selected={newPermissions} disabled={creating} canGrant={admin.canGrant} onToggle={(code) => setNewPermissions((cur) => togglePermission(cur, code))} />
++      {createError && <p role="alert" className="admin-user-error">{createError}</p>}
++    </div>
++    <footer className="admin-user-dialog-footer">
++      {onCancel && <button type="button" disabled={creating} onClick={onCancel}>Hủy</button>}
++      <button type="submit" className="admin-user-primary" disabled={creating || admin.catalogLoading || Boolean(admin.catalogError) || !canAdmin('admin.create_user')}>
++        {creating && <Loader2 size={15} className="animate-spin" />}{creating ? 'Đang tạo...' : t('settings.users.create')}
+       </button>
+-    </div>
+-  );
++    </footer>
++  </form>;
+ }
+ 
+-export function BulkAccountCreation({ admin }: { admin: UserAdministration }) {
+-  const {
+-    availableRoles, bulkPrefix, setBulkPrefix, bulkCount, setBulkCount,
+-    bulkPassword, setBulkPassword, bulkRole, setBulkRole, bulkFullNamePrefix,
+-    setBulkFullNamePrefix, bulkPosition, setBulkPosition, bulkPermissions, setBulkPermissions,
+-    bulkCreating, bulkError, canAdmin, visiblePermissionDefs, defaultPermissionsForRole,
+-    togglePermission, handleBulkCreate, roleLabels,
+-  } = admin;
+-  return (
+-    <div className="mt-4 rounded-lg border border-slate-200 bg-slate-50 p-4">
+-      <h4 className="mb-3 flex items-center gap-2 font-medium text-slate-800">
+-        <Download size={16} /> Tạo hàng loạt tài khoản nhân viên
+-      </h4>
+-      <div className="grid grid-cols-1 gap-3 md:grid-cols-2 xl:grid-cols-5">
++export function BulkAccountCreation({ admin, onCreated, onCancel }: Props) {
++  const { availableRoles, bulkPrefix, setBulkPrefix, bulkCount, setBulkCount, bulkPassword,
++    setBulkPassword, bulkRole, setBulkRole, bulkFullNamePrefix, setBulkFullNamePrefix,
++    bulkPosition, setBulkPosition, bulkPermissions, setBulkPermissions, bulkCreating,
++    bulkError, canAdmin, visiblePermissionDefs, defaultPermissionsForRole, togglePermission,
++    handleBulkCreate, roleLabels } = admin;
++  return <form className="admin-user-editor-form" noValidate onSubmit={async (event) => { event.preventDefault(); if (await handleBulkCreate()) onCreated?.(); }}>
++    <div className="admin-user-dialog-body">
++      <p>Tạo nhiều tài khoản theo tiền tố và xuất danh sách như chức năng hiện có. Hãy bảo quản file tài khoản được xuất.</p>
++      <fieldset disabled={bulkCreating} className="admin-user-form-fields">
+         <Input label="Tiền tố username" value={bulkPrefix} onChange={setBulkPrefix} placeholder="nv" />
+-        <Input label="Số lượng" value={String(bulkCount)} onChange={(v) => setBulkCount(Number(v) || 1)} type="number" />
++        <Input label="Số lượng" value={String(bulkCount)} onChange={(value) => setBulkCount(Number(value))} type="number" />
+         <Input label="Mật khẩu chung" value={bulkPassword} onChange={setBulkPassword} type="password" />
+-        <Input label="Tiền tố họ tên" value={bulkFullNamePrefix} onChange={setBulkFullNamePrefix} placeholder="Nhân viên" />
+-        <div>
+-          <label className="mb-1 block text-xs text-slate-500">Vai trò</label>
+-          <RoleSelect
+-            value={bulkRole}
+-            options={availableRoles}
+-            labels={roleLabels}
+-            onChange={(role) => {
+-              setBulkRole(role);
+-              setBulkPermissions(defaultPermissionsForRole(role));
+-            }}
+-          />
+-        </div>
+-      </div>
+-      <div className="mt-3 max-w-sm">
+-        <Input label="Chức vụ mặc định" value={bulkPosition} onChange={setBulkPosition} placeholder="Nhân viên, điều dưỡng..." />
+-      </div>
+-      <div className="mt-3">
+-        <PermissionChecklist
+-          title="Bảng phân quyền bắt buộc cho tạo hàng loạt"
+-          permissions={visiblePermissionDefs(bulkRole)}
+-          selected={bulkPermissions}
+-          onToggle={(code) => setBulkPermissions((cur) => togglePermission(cur, code))}
+-        />
+-      </div>
+-      {bulkError && <p className="mt-2 text-xs text-red-600">{bulkError}</p>}
+-      <button
+-        onClick={handleBulkCreate}
+-        disabled={bulkCreating || !canAdmin('admin.create_user')}
+-        className="mt-3 inline-flex items-center gap-2 rounded-lg bg-blue-600 px-3 py-2 text-sm text-white hover:bg-blue-700 disabled:opacity-60"
+-      >
+-        {bulkCreating ? <Loader2 size={14} className="animate-spin" /> : <Download size={14} />}
+-        Tạo và xuất file Excel
+-      </button>
++        <Input label="Tiền tố họ tên" value={bulkFullNamePrefix} onChange={setBulkFullNamePrefix} />
++        <div><span className="admin-user-field-label">Vai trò</span><RoleSelect value={bulkRole} options={availableRoles} labels={roleLabels} onChange={(role) => { setBulkRole(role); setBulkPermissions(defaultPermissionsForRole(role)); }} /></div>
++        <Input label="Chức vụ mặc định" value={bulkPosition} onChange={setBulkPosition} />
++      </fieldset>
++      <PermissionChecklist title="Phân quyền tài khoản" permissions={visiblePermissionDefs(bulkRole)} selected={bulkPermissions} disabled={bulkCreating} canGrant={admin.canGrant} onToggle={(code) => setBulkPermissions((cur) => togglePermission(cur, code))} />
++      {bulkError && <p role="alert" className="admin-user-error">{bulkError}</p>}
+     </div>
+-  );
++    <footer className="admin-user-dialog-footer">{onCancel && <button type="button" disabled={bulkCreating} onClick={onCancel}>Hủy</button>}
++      <button type="submit" className="admin-user-primary" disabled={bulkCreating || !canAdmin('admin.create_user')}>{bulkCreating ? 'Đang tạo...' : 'Tạo và xuất file Excel'}</button>
++    </footer>
++  </form>;
+ }
+--- before/Frontend/src/app/components/admin/permissions/useUserAdministration.ts
++++ after/Frontend/src/app/components/admin/permissions/useUserAdministration.ts
+@@ -1,10 +1,10 @@
+-import { useEffect, useMemo, useState } from 'react';
++import { useEffect, useMemo, useRef, useState } from 'react';
+ import * as api from '@/lib/api';
+ import { useI18n } from '@/lib/i18n';
+ import { useAuth } from '../../../contexts/AuthContext';
+ 
+ export function useUserAdministration() {
+-  const { user } = useAuth();
++  const { user, refreshUser } = useAuth();
+   const { t } = useI18n();
+   // Admin state
+   const [users, setUsers] = useState<api.AdminUser[]>([]);
+@@ -19,12 +19,21 @@
+   const [availableRoles, setAvailableRoles] = useState<string[]>(['admin', 'staff']);
+   const [permissionDefs, setPermissionDefs] = useState<api.PermissionDef[]>([]);
+   const [defaultStaffPermissions, setDefaultStaffPermissions] = useState<string[]>([]);
+-  const [selectedUserId, setSelectedUserId] = useState<number | null>(null);
++  const [selectedUserId, selectUserId] = useState<number | null>(null);
++  const [permissionDraft, setPermissionDraft] = useState<string[]>([]);
++  const [permissionRevision, setPermissionRevision] = useState<string | undefined>();
++  const [notice, setNotice] = useState<string | null>(null);
++  const [catalogError, setCatalogError] = useState<string | null>(null);
++  const [catalogLoading, setCatalogLoading] = useState(true);
++  const [actionBusy, setActionBusy] = useState(false);
++  const [resetting, setResetting] = useState(false);
++  const loadGeneration = useRef(0);
+   const [resetUserId, setResetUserId] = useState<number | null>(null);
+   const [savingPermissions, setSavingPermissions] = useState(false);
+   const [newPermissions, setNewPermissions] = useState<string[]>([]);
+   const [resetPassword, setResetPassword] = useState('');
+   const [resetResult, setResetResult] = useState<string | null>(null);
++  const [resetSucceeded, setResetSucceeded] = useState(false);
+ 
+   const [newUsername, setNewUsername] = useState('');
+   const [newPassword, setNewPassword] = useState('');
+@@ -56,8 +65,9 @@
+       ? permissionDefs.filter((p) => p.code.startsWith('admin.'))
+       : permissionDefs.filter((p) => p.code.startsWith('feature.'));
+   const adminDefaultPermissions = permissionDefs.filter((p) => p.code.startsWith('admin.')).map((p) => p.code);
++  const canGrant = (code: string) => isAdmin && (!code.startsWith('admin.') || !user?.permissions.length || user.permissions.includes(code));
+   const defaultPermissionsForRole = (role: string) =>
+-    role === 'admin' ? adminDefaultPermissions : defaultStaffPermissions;
++    role === 'admin' ? adminDefaultPermissions.filter(canGrant) : defaultStaffPermissions;
+ 
+   // Map role-key → label hiển thị theo i18n hiện tại. Role không có key
+   // tương ứng (ví dụ admin tự thêm `nurse`) sẽ tự fallback về tên gốc.
+@@ -108,31 +118,37 @@
+         setPermissionDefs(r.permissions);
+         setDefaultStaffPermissions(r.default_staff_permissions);
+         const adminDefaults = r.permissions.filter((p) => p.code.startsWith('admin.')).map((p) => p.code);
+-        setNewPermissions(newRole === 'admin' ? adminDefaults : r.default_staff_permissions);
+-        setBulkPermissions(bulkRole === 'admin' ? adminDefaults : r.default_staff_permissions);
++        setNewPermissions(newRole === 'admin' ? adminDefaults.filter(canGrant) : r.default_staff_permissions);
++        setBulkPermissions(bulkRole === 'admin' ? adminDefaults.filter(canGrant) : r.default_staff_permissions);
+       })
+-      .catch(() => undefined);
++      .catch(() => setCatalogError('Không tải được danh mục quyền. Vui lòng tải lại trang trước khi cấp quyền hoặc tạo tài khoản.'))
++      .finally(() => setCatalogLoading(false));
++    return () => { loadGeneration.current += 1; };
+   }, [isAdmin]);
+ 
+   async function loadUsers() {
++    const generation = ++loadGeneration.current;
+     setUsersLoading(true);
+     setUsersError(null);
+     try {
+       const rows = await api.listUsers();
+-      setUsers(rows);
+-    } catch (e) {
+-      setUsersError(e instanceof Error ? e.message : String(e));
+-    } finally {
+-      setUsersLoading(false);
++      if (generation === loadGeneration.current) setUsers(rows);
++    } catch (e) {
++      if (generation === loadGeneration.current) setUsersError(e instanceof Error ? e.message : String(e));
++    } finally {
++      if (generation === loadGeneration.current) setUsersLoading(false);
+     }
+   }
+ 
+   async function handleCreateUser() {
++    if (creating) return false;
+     setCreateError(null);
+     if (!newUsername.trim() || !newPassword) {
+       setCreateError(t('settings.users.required'));
+-      return;
+-    }
++      return false;
++    }
++    if (newPassword.length < 6) { setCreateError('Mật khẩu phải có ít nhất 6 ký tự.'); return false; }
++    if (catalogLoading || catalogError || !canAdmin('admin.create_user')) return false;
+     setCreating(true);
+     try {
+       await api.createUser({
+@@ -150,8 +166,11 @@
+       setNewPosition('');
+       setNewPermissions(defaultStaffPermissions);
+       await loadUsers();
++      setNotice('Đã tạo tài khoản.');
++      return true;
+     } catch (e) {
+       setCreateError(e instanceof Error ? e.message : String(e));
++      return false;
+     } finally {
+       setCreating(false);
+     }
+@@ -159,6 +178,14 @@
+ 
+   function selectedUser() {
+     return users.find((u) => u.id === selectedUserId) ?? null;
++  }
++
++  function setSelectedUserId(id: number | null) {
++    const target = users.find((account) => account.id === id);
++    selectUserId(id);
++    setPermissionDraft([...(target?.permissions ?? [])]);
++    setPermissionRevision(target?.revision);
++    setUsersError(null); setNotice(null);
+   }
+ 
+   function togglePermission(current: string[], code: string) {
+@@ -170,9 +197,18 @@
+     if (!target) return;
+     setSavingPermissions(true);
+     setUsersError(null);
+-    try {
+-      const updated = await api.updateUserPermissions(target.id, target.permissions);
++    setNotice(null);
++    try {
++      const updated = permissionRevision
++        ? await api.updateUserPermissions(target.id, permissionDraft, permissionRevision)
++        : await api.updateUserPermissions(target.id, permissionDraft);
+       setUsers((cur) => cur.map((u) => (u.id === updated.id ? updated : u)));
++      setPermissionDraft([...updated.permissions]); setPermissionRevision(updated.revision);
++      setNotice('Đã lưu phân quyền.');
++      if (updated.id === user?.id && refreshUser) {
++        try { await refreshUser(); }
++        catch { setNotice('Đã lưu phân quyền. Vui lòng tải lại trang để cập nhật thông tin phiên của bạn.'); }
++      }
+     } catch (e) {
+       setUsersError(e instanceof Error ? e.message : String(e));
+     } finally {
+@@ -181,18 +217,47 @@
+   }
+ 
+   async function handleResetPassword(target: api.AdminUser) {
++    if (resetting || !canAdmin('admin.reset_password')) return;
++    setResetSucceeded(false);
+     if (!resetPassword || resetPassword.length < 6) {
+       setResetResult('Mật khẩu mới phải có ít nhất 6 ký tự.');
+       return;
+     }
+     setResetResult(null);
+-    try {
+-      const result = await api.resetUserPassword(target.id, resetPassword);
++    setResetting(true);
++    try {
++      const result = await api.resetUserPassword(target.id, resetPassword, target.revision);
+       setResetResult(`Đã reset mật khẩu cho ${result.username}.`);
++      setResetSucceeded(true);
+       setResetPassword('');
++      await loadUsers();
+     } catch (e) {
+       setResetResult(e instanceof Error ? e.message : String(e));
+-    }
++    } finally {
++      setResetting(false);
++    }
++  }
++
++  async function changeAccount(target: api.AdminUser, action: 'role' | 'active' | 'delete', role?: string) {
++    const required = action === 'role' ? 'admin.assign_permissions' : action === 'active' ? 'admin.toggle_user' : 'admin.delete_user';
++    if (!canAdmin(required) || actionBusy) return false;
++    setActionBusy(true); setUsersError(null); setNotice(null);
++    try {
++      if (action === 'delete') {
++        await api.deleteUser(target.id, target.revision);
++        setUsers((cur) => cur.filter((account) => account.id !== target.id));
++      } else {
++        const updated = action === 'role'
++          ? await api.updateUserRole(target.id, role!, target.revision)
++          : await api.updateUserActive(target.id, !target.is_active, target.revision);
++        setUsers((cur) => cur.map((account) => account.id === updated.id ? updated : account));
++      }
++      setNotice(action === 'delete' ? 'Đã xóa tài khoản.' : action === 'role' ? 'Đã đổi vai trò.' : 'Đã cập nhật trạng thái tài khoản.');
++      return true;
++    } catch (error) {
++      setUsersError(error instanceof Error ? error.message : String(error));
++      return false;
++    } finally { setActionBusy(false); }
+   }
+ 
+   function downloadCreatedAccounts(rows: Array<{ username: string; password: string; role: string }>) {
+@@ -215,10 +280,14 @@
+   }
+ 
+   async function handleBulkCreate() {
++    if (bulkCreating || catalogLoading || catalogError || !canAdmin('admin.create_user')) return false;
+     setBulkError(null);
++    if (!bulkPrefix.trim() || !Number.isInteger(bulkCount) || bulkCount < 1 || bulkCount > 500 || bulkPassword.length < 6) {
++      setBulkError('Kiểm tra tiền tố, số lượng từ 1–500 và mật khẩu ít nhất 6 ký tự.'); return false;
++    }
+     if (bulkPermissions.length === 0) {
+       setBulkError('Tạo hàng loạt bắt buộc phải chọn ít nhất một quyền.');
+-      return;
++      return false;
+     }
+     setBulkCreating(true);
+     try {
+@@ -232,9 +301,13 @@
+         position: bulkPosition.trim() || undefined,
+       });
+       downloadCreatedAccounts(result.created);
++      setBulkPassword('');
+       await loadUsers();
++      setNotice('Đã tạo và xuất danh sách tài khoản.');
++      return true;
+     } catch (e) {
+       setBulkError(e instanceof Error ? e.message : String(e));
++      return false;
+     } finally {
+       setBulkCreating(false);
+     }
+@@ -242,6 +315,8 @@
+ 
+   return {
+     roleLabels, user, t, users, setUsers,
++    permissionDraft, setPermissionDraft, notice, setNotice, catalogError, catalogLoading, canGrant, actionBusy, changeAccount, resetting, resetSucceeded,
++    clearCreationErrors: () => { setCreateError(null); setBulkError(null); },
+     usersLoading, usersError, setUsersError, userSearch, setUserSearch,
+     userRoleFilter, setUserRoleFilter, userStatusFilter, setUserStatusFilter, userPage,
+     setUserPage, userPageSize, setUserPageSize, availableRoles, setSelectedUserId,
+--- before/Frontend/src/lib/api.ts
++++ after/Frontend/src/lib/api.ts
+@@ -486,6 +486,7 @@
+   role: string;
+   is_active: boolean;
+   permissions: string[];
++  revision?: string;
+   birth_date?: string | null;
+   gender?: string | null;
+   position?: string | null;
+@@ -562,40 +563,40 @@
+   return request<{ permissions: PermissionDef[]; default_staff_permissions: string[] }>('/api/admin/permissions');
+ }
+ 
+-export function updateUserRole(userId: number, role: string) {
++export function updateUserRole(userId: number, role: string, expectedRevision?: string) {
+   return request<AdminUser>(`/api/admin/users/${userId}/role`, {
+     method: 'PATCH',
+     headers: { 'Content-Type': 'application/json' },
+-    body: JSON.stringify({ role }),
+-  });
+-}
+-
+-export function updateUserActive(userId: number, isActive: boolean) {
++    body: JSON.stringify({ role, expected_revision: expectedRevision }),
++  });
++}
++
++export function updateUserActive(userId: number, isActive: boolean, expectedRevision?: string) {
+   return request<AdminUser>(`/api/admin/users/${userId}/active`, {
+     method: 'PATCH',
+     headers: { 'Content-Type': 'application/json' },
+-    body: JSON.stringify({ is_active: isActive }),
+-  });
+-}
+-
+-export function updateUserPermissions(userId: number, permissions: string[]) {
++    body: JSON.stringify({ is_active: isActive, expected_revision: expectedRevision }),
++  });
++}
++
++export function updateUserPermissions(userId: number, permissions: string[], expectedRevision?: string) {
+   return request<AdminUser>(`/api/admin/users/${userId}/permissions`, {
+     method: 'PATCH',
+     headers: { 'Content-Type': 'application/json' },
+-    body: JSON.stringify({ permissions }),
+-  });
+-}
+-
+-export function resetUserPassword(userId: number, password: string) {
++    body: JSON.stringify({ permissions, expected_revision: expectedRevision }),
++  });
++}
++
++export function resetUserPassword(userId: number, password: string, expectedRevision?: string) {
+   return request<{ username: string; message: string }>(`/api/admin/users/${userId}/reset-password`, {
+     method: 'POST',
+     headers: { 'Content-Type': 'application/json' },
+-    body: JSON.stringify({ password }),
+-  });
+-}
+-
+-export function deleteUser(userId: number) {
+-  return request<{ message: string }>(`/api/admin/users/${userId}`, { method: 'DELETE' });
++    body: JSON.stringify({ password, expected_revision: expectedRevision }),
++  });
++}
++
++export function deleteUser(userId: number, expectedRevision?: string) {
++  return request<{ message: string }>(`/api/admin/users/${userId}`, { method: 'DELETE', headers: expectedRevision ? { 'If-Match': expectedRevision } : undefined });
+ }
+ 
+ export function bulkCreateUsers(payload: {

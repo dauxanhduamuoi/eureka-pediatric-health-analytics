@@ -1,0 +1,585 @@
+[
+  {
+    "section": "dashboard",
+    "url": "/?section=dashboard",
+    "component": "Frontend/src/app/components/DashboardOverview.tsx",
+    "mode": "/",
+    "permission": "feature.dashboard",
+    "domain_api_functions": [
+      "getCasesByYear",
+      "getForecastGroupSummary",
+      "getForecastResults",
+      "getMonthlyStatistics",
+      "getOverview",
+      "getTopDiseaseGroups",
+      "runForecast"
+    ],
+    "charts_before": [
+      "BarChart",
+      "LineChart",
+      "PieChart"
+    ],
+    "charts_direct_after": [
+      "BarChart",
+      "LineChart",
+      "PieChart"
+    ],
+    "controls_before": [
+      "handleRunForecast"
+    ],
+    "tests": "Full frontend suite; source contract parity; dedicated runtime mock tests for Dashboard/Seasonal/Age/Forecast/Weather/Reports/visibility/permissions/MK/import/settings where present. Browser not verified.",
+    "component_dependencies": [
+      "Frontend\\src\\app\\components\\DashboardOverview.tsx",
+      "Frontend\\src\\app\\components\\admin\\AdminStatCard.tsx",
+      "Frontend\\src\\app\\components\\admin\\chartPalette.ts",
+      "Frontend\\src\\app\\components\\admin\\AdminPageHeading.tsx",
+      "Frontend\\src\\app\\components\\common\\DiseaseLabelCell.tsx",
+      "Frontend\\src\\app\\components\\admin\\useAdminChartAnimation.ts"
+    ],
+    "inventory_note": "Static source dependency inventory; not a claim that all conditional API branches were executed."
+  },
+  {
+    "section": "data-import",
+    "url": "/?section=data-import",
+    "component": "Frontend/src/app/components/DataImport.tsx",
+    "mode": "/",
+    "permission": "feature.data_import",
+    "domain_api_functions": [
+      "getActiveImportJob",
+      "getDiseaseCodesStatus",
+      "getParentGuideStatus",
+      "getPatientDataStatus",
+      "getProvinceRegionsStatus",
+      "importParentGuide",
+      "importProvinceRegions",
+      "listDiseaseCodes",
+      "listParentGuide",
+      "previewParentGuide",
+      "previewProvinceRegions",
+      "runImportJob"
+    ],
+    "charts_before": [],
+    "charts_direct_after": [],
+    "controls_before": [
+      "handleImport"
+    ],
+    "tests": "Full frontend suite; source contract parity; dedicated runtime mock tests for Dashboard/Seasonal/Age/Forecast/Weather/Reports/visibility/permissions/MK/import/settings where present. Browser not verified.",
+    "component_dependencies": [
+      "Frontend\\src\\app\\components\\DataImport.tsx",
+      "Frontend\\src\\app\\components\\admin\\AdminPageHeading.tsx",
+      "Frontend\\src\\app\\components\\DiseaseCodesManager.tsx",
+      "Frontend\\src\\app\\components\\ParentGuideManager.tsx",
+      "Frontend\\src\\app\\components\\ProvinceRegionsManager.tsx"
+    ],
+    "inventory_note": "Static source dependency inventory; not a claim that all conditional API branches were executed."
+  },
+  {
+    "section": "seasonal",
+    "url": "/?section=seasonal",
+    "component": "Frontend/src/app/components/SeasonalAnalysis.tsx",
+    "mode": "/",
+    "permission": "feature.seasonal",
+    "domain_api_functions": [
+      "getDiseaseSeasonComparison",
+      "getMonthlyStatistics",
+      "getSeasonalPeak",
+      "getSeasonalSummary"
+    ],
+    "charts_before": [
+      "AreaChart",
+      "BarChart"
+    ],
+    "charts_direct_after": [
+      "BarChart",
+      "SeasonalDistributionChart",
+      "SeasonalTrendChart"
+    ],
+    "controls_before": [],
+    "tests": "Full frontend suite; source contract parity; dedicated runtime mock tests for Dashboard/Seasonal/Age/Forecast/Weather/Reports/visibility/permissions/MK/import/settings where present. Browser not verified.",
+    "component_dependencies": [
+      "Frontend\\src\\app\\components\\SeasonalAnalysis.tsx",
+      "Frontend\\src\\app\\components\\admin\\AdminPageHeading.tsx",
+      "Frontend\\src\\app\\components\\admin\\chartPalette.ts",
+      "Frontend\\src\\app\\components\\common\\DiseaseLabelCell.tsx",
+      "Frontend\\src\\app\\components\\admin\\useAdminChartAnimation.ts"
+    ],
+    "inventory_note": "Static source dependency inventory; not a claim that all conditional API branches were executed."
+  },
+  {
+    "section": "age-analysis",
+    "url": "/?section=age-analysis",
+    "component": "Frontend/src/app/components/AgeAnalysis.tsx",
+    "mode": "/",
+    "permission": "feature.age_analysis",
+    "domain_api_functions": [
+      "getCasesByAgeRange",
+      "getDashboardPeriods",
+      "getDiseaseByAgeRange"
+    ],
+    "charts_before": [
+      "BarChart"
+    ],
+    "charts_direct_after": [
+      "BarChart"
+    ],
+    "controls_before": [],
+    "tests": "Full frontend suite; source contract parity; dedicated runtime mock tests for Dashboard/Seasonal/Age/Forecast/Weather/Reports/visibility/permissions/MK/import/settings where present. Browser not verified.",
+    "component_dependencies": [
+      "Frontend\\src\\app\\components\\AgeAnalysis.tsx",
+      "Frontend\\src\\app\\components\\admin\\AdminStatCard.tsx",
+      "Frontend\\src\\app\\components\\admin\\chartPalette.ts",
+      "Frontend\\src\\app\\components\\admin\\AdminPageHeading.tsx",
+      "Frontend\\src\\app\\components\\common\\DiseaseLabelCell.tsx",
+      "Frontend\\src\\app\\components\\admin\\useAdminChartAnimation.ts"
+    ],
+    "inventory_note": "Static source dependency inventory; not a claim that all conditional API branches were executed."
+  },
+  {
+    "section": "monthly-disease-analysis",
+    "url": "/?section=monthly-disease-analysis",
+    "component": "Frontend/src/app/components/AdvancedAnalytics.tsx",
+    "mode": "mode=\"monthly\" /",
+    "permission": "feature.monthly_disease",
+    "domain_api_functions": [
+      "getCasesByGender",
+      "getDashboardDiseaseGroups",
+      "getDashboardPeriods",
+      "getDiseaseByGender",
+      "getDiseasePercentageByMonth",
+      "getDiseaseTrend",
+      "getMonthlyComparison",
+      "getSummaryCard",
+      "getTopDiseaseGroupsByMonth",
+      "getYearOverYear",
+      "searchDisease",
+      "searchPeriod"
+    ],
+    "charts_before": [
+      "BarChart",
+      "LineChart",
+      "PieChart"
+    ],
+    "charts_direct_after": [
+      "BarChart",
+      "LineChart",
+      "PieChart"
+    ],
+    "controls_before": [],
+    "tests": "Full frontend suite; source contract parity; dedicated runtime mock tests for Dashboard/Seasonal/Age/Forecast/Weather/Reports/visibility/permissions/MK/import/settings where present. Browser not verified.",
+    "component_dependencies": [
+      "Frontend\\src\\app\\components\\AdvancedAnalytics.tsx",
+      "Frontend\\src\\app\\components\\admin\\AdminStatCard.tsx",
+      "Frontend\\src\\app\\components\\admin\\chartPalette.ts",
+      "Frontend\\src\\app\\components\\admin\\AdminPageHeading.tsx",
+      "Frontend\\src\\app\\components\\common\\DiseaseLabelCell.tsx",
+      "Frontend\\src\\app\\components\\admin\\useAdminChartAnimation.ts"
+    ],
+    "inventory_note": "Static source dependency inventory; not a claim that all conditional API branches were executed."
+  },
+  {
+    "section": "gender-analysis",
+    "url": "/?section=gender-analysis",
+    "component": "Frontend/src/app/components/AdvancedAnalytics.tsx",
+    "mode": "mode=\"gender\" /",
+    "permission": "feature.gender_analysis",
+    "domain_api_functions": [
+      "getCasesByGender",
+      "getDashboardDiseaseGroups",
+      "getDashboardPeriods",
+      "getDiseaseByGender",
+      "getDiseasePercentageByMonth",
+      "getDiseaseTrend",
+      "getMonthlyComparison",
+      "getSummaryCard",
+      "getTopDiseaseGroupsByMonth",
+      "getYearOverYear",
+      "searchDisease",
+      "searchPeriod"
+    ],
+    "charts_before": [
+      "BarChart",
+      "LineChart",
+      "PieChart"
+    ],
+    "charts_direct_after": [
+      "BarChart",
+      "LineChart",
+      "PieChart"
+    ],
+    "controls_before": [],
+    "tests": "Full frontend suite; source contract parity; dedicated runtime mock tests for Dashboard/Seasonal/Age/Forecast/Weather/Reports/visibility/permissions/MK/import/settings where present. Browser not verified.",
+    "component_dependencies": [
+      "Frontend\\src\\app\\components\\AdvancedAnalytics.tsx",
+      "Frontend\\src\\app\\components\\admin\\AdminStatCard.tsx",
+      "Frontend\\src\\app\\components\\admin\\chartPalette.ts",
+      "Frontend\\src\\app\\components\\admin\\AdminPageHeading.tsx",
+      "Frontend\\src\\app\\components\\common\\DiseaseLabelCell.tsx",
+      "Frontend\\src\\app\\components\\admin\\useAdminChartAnimation.ts"
+    ],
+    "inventory_note": "Static source dependency inventory; not a claim that all conditional API branches were executed."
+  },
+  {
+    "section": "disease-trend-analysis",
+    "url": "/?section=disease-trend-analysis",
+    "component": "Frontend/src/app/components/AdvancedAnalytics.tsx",
+    "mode": "mode=\"trend\" /",
+    "permission": "feature.disease_trend",
+    "domain_api_functions": [
+      "getCasesByGender",
+      "getDashboardDiseaseGroups",
+      "getDashboardPeriods",
+      "getDiseaseByGender",
+      "getDiseasePercentageByMonth",
+      "getDiseaseTrend",
+      "getMonthlyComparison",
+      "getSummaryCard",
+      "getTopDiseaseGroupsByMonth",
+      "getYearOverYear",
+      "searchDisease",
+      "searchPeriod"
+    ],
+    "charts_before": [
+      "BarChart",
+      "LineChart",
+      "PieChart"
+    ],
+    "charts_direct_after": [
+      "BarChart",
+      "LineChart",
+      "PieChart"
+    ],
+    "controls_before": [],
+    "tests": "Full frontend suite; source contract parity; dedicated runtime mock tests for Dashboard/Seasonal/Age/Forecast/Weather/Reports/visibility/permissions/MK/import/settings where present. Browser not verified.",
+    "component_dependencies": [
+      "Frontend\\src\\app\\components\\AdvancedAnalytics.tsx",
+      "Frontend\\src\\app\\components\\admin\\AdminStatCard.tsx",
+      "Frontend\\src\\app\\components\\admin\\chartPalette.ts",
+      "Frontend\\src\\app\\components\\admin\\AdminPageHeading.tsx",
+      "Frontend\\src\\app\\components\\common\\DiseaseLabelCell.tsx",
+      "Frontend\\src\\app\\components\\admin\\useAdminChartAnimation.ts"
+    ],
+    "inventory_note": "Static source dependency inventory; not a claim that all conditional API branches were executed."
+  },
+  {
+    "section": "forecast",
+    "url": "/?section=forecast",
+    "component": "Frontend/src/app/components/Forecast.tsx",
+    "mode": "/",
+    "permission": "feature.forecast",
+    "domain_api_functions": [
+      "getForecastGroupSummary",
+      "getForecastResults",
+      "runForecast"
+    ],
+    "charts_before": [
+      "BarChart"
+    ],
+    "charts_direct_after": [
+      "BarChart"
+    ],
+    "controls_before": [
+      "handleExport",
+      "handleRun"
+    ],
+    "tests": "Full frontend suite; source contract parity; dedicated runtime mock tests for Dashboard/Seasonal/Age/Forecast/Weather/Reports/visibility/permissions/MK/import/settings where present. Browser not verified.",
+    "component_dependencies": [
+      "Frontend\\src\\app\\components\\Forecast.tsx",
+      "Frontend\\src\\app\\components\\admin\\AdminStatCard.tsx",
+      "Frontend\\src\\app\\components\\admin\\AdminPageHeading.tsx",
+      "Frontend\\src\\app\\components\\common\\DiseaseLabelCell.tsx",
+      "Frontend\\src\\app\\components\\admin\\useAdminChartAnimation.ts"
+    ],
+    "inventory_note": "Static source dependency inventory; not a claim that all conditional API branches were executed."
+  },
+  {
+    "section": "weather-risk",
+    "url": "/?section=weather-risk",
+    "component": "Frontend/src/app/components/WeatherRisk.tsx",
+    "mode": "/",
+    "permission": "feature.weather_risk",
+    "domain_api_functions": [
+      "getWeatherAIOptions",
+      "getWeatherAIStatus",
+      "listAreaProvinces",
+      "predictWeatherAIRisk",
+      "weatherAIErrorMessage"
+    ],
+    "charts_before": [],
+    "charts_direct_after": [],
+    "controls_before": [
+      "handleLocationModeChange"
+    ],
+    "tests": "Full frontend suite; source contract parity; dedicated runtime mock tests for Dashboard/Seasonal/Age/Forecast/Weather/Reports/visibility/permissions/MK/import/settings where present. Browser not verified.",
+    "component_dependencies": [
+      "Frontend\\src\\app\\components\\WeatherRisk.tsx",
+      "Frontend\\src\\app\\components\\admin\\AdminPageHeading.tsx",
+      "Frontend\\src\\app\\components\\weather-ai\\WeatherAIResults.tsx",
+      "Frontend\\src\\app\\components\\weather-ai\\tier1Presentation.ts"
+    ],
+    "inventory_note": "Static source dependency inventory; not a claim that all conditional API branches were executed."
+  },
+  {
+    "section": "parent-disease-visibility",
+    "url": "/?section=parent-disease-visibility",
+    "component": "Frontend/src/app/components/ParentDiseaseVisibilityPage.tsx",
+    "mode": "/",
+    "permission": "feature.parent_disease_visibility",
+    "domain_api_functions": [
+      "getParentDiseaseVisibility",
+      "getToken",
+      "login",
+      "logout",
+      "me",
+      "updateParentDiseaseVisibility"
+    ],
+    "charts_before": [],
+    "charts_direct_after": [],
+    "controls_before": [],
+    "tests": "Full frontend suite; source contract parity; dedicated runtime mock tests for Dashboard/Seasonal/Age/Forecast/Weather/Reports/visibility/permissions/MK/import/settings where present. Browser not verified.",
+    "component_dependencies": [
+      "Frontend\\src\\app\\components\\ParentDiseaseVisibilityPage.tsx",
+      "Frontend\\src\\app\\navigation.ts",
+      "Frontend\\src\\app\\contexts\\AuthContext.tsx",
+      "Frontend\\src\\app\\components\\ParentDiseaseVisibilitySettings.tsx"
+    ],
+    "inventory_note": "Static source dependency inventory; not a claim that all conditional API branches were executed."
+  },
+  {
+    "section": "medical-knowledge",
+    "url": "/?section=medical-knowledge",
+    "component": "Frontend/src/app/components/medical-knowledge/MedicalKnowledgeResearchPage.tsx",
+    "mode": "/",
+    "permission": "Admin/Staff roles",
+    "domain_api_functions": [
+      "approveMedicalKnowledgeRevision",
+      "generateMedicalKnowledgeDraft",
+      "getAutoTierPresentation",
+      "getMedicalEvidenceProviderSettings",
+      "getMedicalKnowledgeDraftHistory",
+      "getMedicalKnowledgeOptions",
+      "getMedicalKnowledgeRevision",
+      "getMedicalKnowledgeServiceStatus",
+      "getMedicalKnowledgeTopicSources",
+      "importMedicalEvidenceProviderSources",
+      "importPubMedSources",
+      "lookupMedicalEvidenceExact",
+      "lookupPubMedByPmid",
+      "publishMedicalKnowledgeRevision",
+      "publishing",
+      "searchMedicalEvidenceProviders",
+      "searchPubMed",
+      "testLlmConnection",
+      "testPubMedConnection",
+      "updateAutoMedicalKnowledgeSettings",
+      "updateMedicalEvidenceProviderSetting",
+      "updateMedicalKnowledgeDraft"
+    ],
+    "charts_before": [],
+    "charts_direct_after": [],
+    "controls_before": [],
+    "tests": "Full frontend suite; source contract parity; dedicated runtime mock tests for Dashboard/Seasonal/Age/Forecast/Weather/Reports/visibility/permissions/MK/import/settings where present. Browser not verified.",
+    "component_dependencies": [
+      "Frontend\\src\\app\\components\\medical-knowledge\\MedicalKnowledgeResearchPage.tsx",
+      "Frontend\\src\\app\\components\\medical-knowledge\\PubMedResults.tsx",
+      "Frontend\\src\\app\\components\\medical-knowledge\\PubMedResultCard.tsx",
+      "Frontend\\src\\app\\components\\medical-knowledge\\PubMedSearchForm.tsx",
+      "Frontend\\src\\app\\components\\medical-knowledge\\MedicalTopicSelector.tsx",
+      "Frontend\\src\\app\\components\\medical-knowledge\\WhoExactLookup.tsx",
+      "Frontend\\src\\app\\components\\medical-knowledge\\MedicalDraftWorkspace.tsx",
+      "Frontend\\src\\app\\components\\medical-knowledge\\MedicalDraftReviewForm.tsx",
+      "Frontend\\src\\app\\components\\medical-knowledge\\ServiceConfigurationPanel.tsx",
+      "Frontend\\src\\app\\components\\medical-knowledge\\MedicalTopicSourceLibrary.tsx",
+      "Frontend\\src\\app\\components\\medical-knowledge\\AutoMedicalKnowledgePanel.tsx"
+    ],
+    "inventory_note": "Static source dependency inventory; not a claim that all conditional API branches were executed."
+  },
+  {
+    "section": "areas",
+    "url": "/?section=areas",
+    "component": "Frontend/src/app/components/AreaInsights.tsx",
+    "mode": "/",
+    "permission": "feature.areas",
+    "domain_api_functions": [
+      "getAreaCaseSummary",
+      "getAreaDiseaseSummary",
+      "getAreaLocalRisks",
+      "getAreaRecommendations",
+      "getToken",
+      "listAreaProvinces",
+      "login",
+      "logout",
+      "me",
+      "syncDefaultAreas"
+    ],
+    "charts_before": [
+      "BarChart"
+    ],
+    "charts_direct_after": [
+      "BarChart"
+    ],
+    "controls_before": [
+      "handleSyncDefaults"
+    ],
+    "tests": "Full frontend suite; source contract parity; dedicated runtime mock tests for Dashboard/Seasonal/Age/Forecast/Weather/Reports/visibility/permissions/MK/import/settings where present. Browser not verified.",
+    "component_dependencies": [
+      "Frontend\\src\\app\\components\\AreaInsights.tsx",
+      "Frontend\\src\\app\\components\\admin\\AdminStatCard.tsx",
+      "Frontend\\src\\app\\components\\admin\\AdminPageHeading.tsx",
+      "Frontend\\src\\app\\components\\admin\\chartPalette.ts",
+      "Frontend\\src\\app\\contexts\\AuthContext.tsx",
+      "Frontend\\src\\app\\components\\admin\\useAdminChartAnimation.ts"
+    ],
+    "inventory_note": "Static source dependency inventory; not a claim that all conditional API branches were executed."
+  },
+  {
+    "section": "reports",
+    "url": "/?section=reports",
+    "component": "Frontend/src/app/components/Reports.tsx",
+    "mode": "/",
+    "permission": "feature.reports",
+    "domain_api_functions": [
+      "getForecastGroupSummary",
+      "getMonthlyStatistics",
+      "getReportByAgeMonths",
+      "getReportByMonthYear",
+      "getToken",
+      "getTopDiseaseGroups",
+      "login",
+      "logout",
+      "me"
+    ],
+    "charts_before": [],
+    "charts_direct_after": [],
+    "controls_before": [
+      "handleApplyTemplate",
+      "handleDelete",
+      "handleGenerate"
+    ],
+    "tests": "Full frontend suite; source contract parity; dedicated runtime mock tests for Dashboard/Seasonal/Age/Forecast/Weather/Reports/visibility/permissions/MK/import/settings where present. Browser not verified.",
+    "component_dependencies": [
+      "Frontend\\src\\app\\components\\Reports.tsx",
+      "Frontend\\src\\app\\components\\admin\\AdminStatCard.tsx",
+      "Frontend\\src\\app\\components\\admin\\AdminPageHeading.tsx",
+      "Frontend\\src\\app\\contexts\\AuthContext.tsx"
+    ],
+    "inventory_note": "Static source dependency inventory; not a claim that all conditional API branches were executed."
+  },
+  {
+    "section": "notifications",
+    "url": "/?section=notifications",
+    "component": "Frontend/src/app/components/NotificationsPanel.tsx",
+    "mode": "/",
+    "permission": "authenticated",
+    "domain_api_functions": [],
+    "charts_before": [],
+    "charts_direct_after": [],
+    "controls_before": [
+      "handleClear",
+      "handleMarkAll",
+      "handleRead",
+      "handleRefresh",
+      "handleRemove"
+    ],
+    "tests": "Full frontend suite; source contract parity; dedicated runtime mock tests for Dashboard/Seasonal/Age/Forecast/Weather/Reports/visibility/permissions/MK/import/settings where present. Browser not verified.",
+    "component_dependencies": [
+      "Frontend\\src\\app\\components\\NotificationsPanel.tsx",
+      "Frontend\\src\\app\\components\\admin\\AdminStatCard.tsx",
+      "Frontend\\src\\app\\components\\admin\\AdminPageHeading.tsx"
+    ],
+    "inventory_note": "Static source dependency inventory; not a claim that all conditional API branches were executed."
+  },
+  {
+    "section": "settings",
+    "url": "/?section=settings",
+    "component": "Frontend/src/app/components/Settings.tsx",
+    "mode": "/",
+    "permission": "authenticated",
+    "domain_api_functions": [
+      "savePreferences"
+    ],
+    "charts_before": [],
+    "charts_direct_after": [],
+    "controls_before": [
+      "handleReset",
+      "handleSave"
+    ],
+    "tests": "Full frontend suite; source contract parity; dedicated runtime mock tests for Dashboard/Seasonal/Age/Forecast/Weather/Reports/visibility/permissions/MK/import/settings where present. Browser not verified.",
+    "component_dependencies": [
+      "Frontend\\src\\app\\components\\Settings.tsx",
+      "Frontend\\src\\app\\components\\admin\\AdminSection.tsx",
+      "Frontend\\src\\app\\components\\admin\\AdminPageHeading.tsx"
+    ],
+    "inventory_note": "Static source dependency inventory; not a claim that all conditional API branches were executed."
+  },
+  {
+    "section": "permissions",
+    "url": "/?section=permissions",
+    "component": "Frontend/src/app/components/PermissionsPage.tsx",
+    "mode": "/",
+    "permission": "Admin role",
+    "domain_api_functions": [
+      "bulkCreateUsers",
+      "createUser",
+      "deleteUser",
+      "getToken",
+      "listPermissions",
+      "listRoles",
+      "listUsers",
+      "login",
+      "logout",
+      "me",
+      "resetUserPassword",
+      "updateUserActive",
+      "updateUserPermissions",
+      "updateUserRole"
+    ],
+    "charts_before": [],
+    "charts_direct_after": [],
+    "controls_before": [],
+    "tests": "Full frontend suite; source contract parity; dedicated runtime mock tests for Dashboard/Seasonal/Age/Forecast/Weather/Reports/visibility/permissions/MK/import/settings where present. Browser not verified.",
+    "component_dependencies": [
+      "Frontend\\src\\app\\components\\PermissionsPage.tsx",
+      "Frontend\\src\\app\\contexts\\AuthContext.tsx",
+      "Frontend\\src\\app\\navigation.ts",
+      "Frontend\\src\\app\\components\\admin\\AdminPageHeading.tsx",
+      "Frontend\\src\\app\\components\\admin\\AdminSection.tsx",
+      "Frontend\\src\\app\\components\\admin\\permissions\\PermissionControls.tsx",
+      "Frontend\\src\\app\\components\\admin\\permissions\\UserAccountForms.tsx",
+      "Frontend\\src\\app\\components\\admin\\permissions\\useUserAdministration.ts",
+      "Frontend\\src\\app\\components\\admin\\permissions\\PermissionDialogs.tsx"
+    ],
+    "inventory_note": "Static source dependency inventory; not a claim that all conditional API branches were executed."
+  },
+  {
+    "section": "account",
+    "url": "/?section=account",
+    "component": "Frontend/src/app/components/Account.tsx",
+    "mode": "/",
+    "permission": "authenticated",
+    "domain_api_functions": [
+      "changePassword",
+      "getToken",
+      "listSessions",
+      "login",
+      "logout",
+      "me",
+      "revokeOtherSessions",
+      "revokeSession",
+      "updateProfile"
+    ],
+    "charts_before": [],
+    "charts_direct_after": [],
+    "controls_before": [
+      "handleChangePassword",
+      "handleRevoke",
+      "handleRevokeOthers",
+      "handleSaveProfile"
+    ],
+    "tests": "Full frontend suite; source contract parity; dedicated runtime mock tests for Dashboard/Seasonal/Age/Forecast/Weather/Reports/visibility/permissions/MK/import/settings where present. Browser not verified.",
+    "component_dependencies": [
+      "Frontend\\src\\app\\components\\Account.tsx",
+      "Frontend\\src\\app\\contexts\\AuthContext.tsx"
+    ],
+    "inventory_note": "Static source dependency inventory; not a claim that all conditional API branches were executed."
+  }
+]

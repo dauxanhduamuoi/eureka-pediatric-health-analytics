@@ -1,0 +1,9 @@
+{
+  "status": "PASS",
+  "rules": [
+    {
+      "file": "Frontend/dist/assets/index-bPwlQSUo.css",
+      "rule": "html:has(.eureka-admin>.admin-workspace),body:has(.eureka-admin>.admin-workspace){overflow:hidden}"
+    }
+  ]
+}

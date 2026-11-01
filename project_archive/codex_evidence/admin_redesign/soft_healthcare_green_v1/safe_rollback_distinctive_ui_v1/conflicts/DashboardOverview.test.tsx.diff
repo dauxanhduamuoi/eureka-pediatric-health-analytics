@@ -1,0 +1,36 @@
+--- recorded-distinctive-task-end/Frontend/src/app/components/DashboardOverview.test.tsx
++++ current/Frontend/src/app/components/DashboardOverview.test.tsx
+@@ -85,28 +85,22 @@
+   vi.mocked(api.runForecast).mockResolvedValue({ message: 'OK', result: {} });
+ });
+ 
+-it('keeps actions/KPIs before a primary trend followed by composition and annual coverage', async () => {
++it('keeps actions/KPIs first, stacks monthly/yearly in one column and renders Top groups once beside it', async () => {
+   mount();
+   await screen.findByTestId('line-data');
+   const root = document.querySelector('.admin-dashboard-content')!;
+   const sections = [
+     root.querySelector('.admin-page-heading')!, root.querySelector('.admin-toolbar')!,
+     root.querySelector('.admin-metric-strip')!, region('dashboard.monthlyCases'),
+-    region('dashboard.topGroups'), region('dashboard.yearlyCasesTitle'), root.querySelector('details')!,
++    region('dashboard.yearlyCasesTitle'), region('dashboard.topGroups'), root.querySelector('details')!,
+   ];
+   for (let i = 1; i < sections.length; i++) {
+     expect(sections[i - 1].compareDocumentPosition(sections[i]) & Node.DOCUMENT_POSITION_FOLLOWING).toBeTruthy();
+   }
+   const charts = root.querySelector('.admin-dashboard-charts')!;
+-  expect(Array.from(charts.children)).toEqual([region('dashboard.monthlyCases'), region('dashboard.topGroups'), region('dashboard.yearlyCasesTitle')]);
+-  expect(charts.querySelector('.admin-dashboard-left-column')).toBeNull();
+-  const navigation = screen.getByRole('navigation', { name: 'Diễn biến và cơ cấu nhóm bệnh · nội dung' });
+-  for (const link of within(navigation).getAllByRole('link')) {
+-    const target = root.querySelector(link.getAttribute('href')!);
+-    expect(target).not.toBeNull();
+-    expect(target).toHaveAttribute('tabindex', '-1');
+-  }
+-  expect(root.querySelector('.analytics-context-scope')).toHaveTextContent('2024-01 → 2025-02');
++  const left = charts.querySelector('.admin-dashboard-left-column')!;
++  expect(Array.from(left.children)).toEqual([region('dashboard.monthlyCases'), region('dashboard.yearlyCasesTitle')]);
++  expect(region('dashboard.topGroups').parentElement).toBe(charts);
+   for (const key of ['dashboard.monthlyCases', 'dashboard.yearlyCasesTitle', 'dashboard.topGroups'] as const) {
+     expect(screen.getAllByRole('region', { name: viStrings[key] })).toHaveLength(1);
+   }

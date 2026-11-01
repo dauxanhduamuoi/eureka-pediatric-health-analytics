@@ -1,0 +1,51 @@
+{
+  "source_status": "RESTORED",
+  "restored": [
+    {
+      "path": "Frontend/src/app/components/admin/AdminContent.regression.test.tsx",
+      "sha256": "fd1a0cb5edc384d3b4b7325ab554ed851974bd8ebacb166d08975085180a0d19",
+      "matches_pre_task_baseline": true
+    },
+    {
+      "path": "Frontend/src/app/components/DashboardOverview.test.tsx",
+      "sha256": "02e68ac83e03bcca6c79f527651ec730dc73a3f7ff5581261181c480f40b0a30",
+      "matches_pre_task_baseline": true
+    },
+    {
+      "path": "Frontend/src/app/components/DashboardOverview.tsx",
+      "sha256": "6f8db4545cbbe4b92e340d06227de339b6734c7c5b2163a66f1e1ab703958305",
+      "matches_pre_task_baseline": true
+    },
+    {
+      "path": "Frontend/src/app/components/SeasonalAnalysis.tsx",
+      "sha256": "71b80b5a06b866cb8f374f1c288b7ba5c98311cc26fe69d0bc232d219211e384",
+      "matches_pre_task_baseline": true
+    }
+  ],
+  "removed_from_active_source": [
+    {
+      "former_source_path": "Frontend/src/app/components/admin/analytics-workspace.css",
+      "backup_path": "admin_redesign/soft_healthcare_green_v1/safe_rollback_distinctive_ui_v1/restoration_approved_v1/removed_source/Frontend/src/app/components/admin/analytics-workspace.css",
+      "sha256": "f93e29b498a5e50e801d1937e7978b29ebfc1178e1b46477f8147033eb6ce23e",
+      "source_absent": true
+    },
+    {
+      "former_source_path": "Frontend/src/app/components/admin/AnalyticsContext.tsx",
+      "backup_path": "admin_redesign/soft_healthcare_green_v1/safe_rollback_distinctive_ui_v1/restoration_approved_v1/removed_source/Frontend/src/app/components/admin/AnalyticsContext.tsx",
+      "sha256": "fd28479b9ff848d4add3b9aca99624b2a9aa33be6484b5d569d0a71fb1f1ed9a",
+      "source_absent": true
+    }
+  ],
+  "remaining_references": [],
+  "baseline_files_verified": 580,
+  "all_baseline_file_hashes_match": true,
+  "git_index_matches_baseline": true,
+  "database_access": false,
+  "backend_tests_run": false,
+  "frontend_tests_passed": 139,
+  "typecheck": "PASS",
+  "build": "PASS",
+  "diff_check": "PASS",
+  "browser": "NOT VERIFIED",
+  "no_references_in_source": true
+}

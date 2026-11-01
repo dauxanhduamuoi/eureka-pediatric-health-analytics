@@ -1,0 +1,159 @@
+{
+  "pass": true,
+  "results": [
+    {
+      "file": "Frontend/src/app/components/DashboardOverview.tsx",
+      "checks": {
+        "hooks": true,
+        "domainCalls": true,
+        "fieldsAndEvents": true,
+        "handlers": true
+      }
+    },
+    {
+      "file": "Frontend/src/app/components/SeasonalAnalysis.tsx",
+      "checks": {
+        "hooks": true,
+        "domainCalls": true,
+        "fieldsAndEvents": true,
+        "handlers": true
+      }
+    },
+    {
+      "file": "Frontend/src/app/components/AgeAnalysis.tsx",
+      "checks": {
+        "hooks": true,
+        "domainCalls": true,
+        "fieldsAndEvents": true,
+        "handlers": true
+      }
+    },
+    {
+      "file": "Frontend/src/app/components/AdvancedAnalytics.tsx",
+      "checks": {
+        "hooks": true,
+        "domainCalls": true,
+        "fieldsAndEvents": true,
+        "handlers": true
+      }
+    },
+    {
+      "file": "Frontend/src/app/components/AreaInsights.tsx",
+      "checks": {
+        "hooks": true,
+        "domainCalls": true,
+        "fieldsAndEvents": true,
+        "handlers": true
+      }
+    },
+    {
+      "file": "Frontend/src/app/components/Forecast.tsx",
+      "checks": {
+        "hooks": true,
+        "domainCalls": true,
+        "fieldsAndEvents": true,
+        "handlers": true
+      }
+    },
+    {
+      "file": "Frontend/src/app/components/WeatherRisk.tsx",
+      "checks": {
+        "hooks": true,
+        "domainCalls": true,
+        "fieldsAndEvents": true,
+        "handlers": true
+      }
+    },
+    {
+      "file": "Frontend/src/app/components/ParentDiseaseVisibilitySettings.tsx",
+      "checks": {
+        "hooks": true,
+        "domainCalls": true,
+        "fieldsAndEvents": true,
+        "handlers": true
+      }
+    },
+    {
+      "file": "Frontend/src/app/components/DataImport.tsx",
+      "checks": {
+        "hooks": true,
+        "domainCalls": true,
+        "fieldsAndEvents": true,
+        "handlers": true
+      }
+    },
+    {
+      "file": "Frontend/src/app/components/Reports.tsx",
+      "checks": {
+        "hooks": true,
+        "domainCalls": true,
+        "fieldsAndEvents": true,
+        "handlers": true
+      }
+    },
+    {
+      "file": "Frontend/src/app/components/Settings.tsx",
+      "checks": {
+        "hooks": true,
+        "domainCalls": true,
+        "fieldsAndEvents": true,
+        "handlers": true
+      }
+    },
+    {
+      "file": "Frontend/src/app/components/Account.tsx",
+      "checks": {
+        "hooks": true,
+        "domainCalls": true,
+        "fieldsAndEvents": true,
+        "handlers": true
+      }
+    },
+    {
+      "file": "Frontend/src/app/components/NotificationsPanel.tsx",
+      "checks": {
+        "hooks": true,
+        "domainCalls": true,
+        "fieldsAndEvents": true,
+        "handlers": true
+      }
+    },
+    {
+      "file": "Frontend/src/app/components/PermissionsPage.tsx",
+      "checks": {
+        "hooks": true,
+        "domainCalls": true,
+        "fieldsAndEvents": true,
+        "handlers": true
+      }
+    },
+    {
+      "file": "Frontend/src/app/components/medical-knowledge/MedicalKnowledgeResearchPage.tsx",
+      "checks": {
+        "hooks": true,
+        "domainCalls": true,
+        "fieldsAndEvents": true,
+        "handlers": true
+      }
+    },
+    {
+      "file": "Frontend/src/app/components/medical-knowledge/AutoMedicalKnowledgePanel.tsx",
+      "checks": {
+        "hooks": true,
+        "domainCalls": true,
+        "fieldsAndEvents": true,
+        "handlers": true
+      }
+    },
+    {
+      "file": "Frontend/src/app/components/admin/permissions/PermissionControls.tsx",
+      "checks": {
+        "hooks": true,
+        "domainCalls": true,
+        "fieldsAndEvents": true,
+        "handlers": true
+      }
+    }
+  ],
+  "limitations": "Static source parity for state, requests, input handlers and payloads. Excludes chart presentation and metric props; does not prove browser layout or all runtime interactions."
+}

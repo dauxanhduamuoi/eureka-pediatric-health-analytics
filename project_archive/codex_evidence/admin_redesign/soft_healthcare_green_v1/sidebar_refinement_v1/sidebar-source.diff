@@ -1,0 +1,284 @@
+--- before/Frontend/src/app/App.tsx
++++ after/Frontend/src/app/App.tsx
+@@ -6,7 +6,7 @@
+ import AdminLayout from './components/admin/AdminLayout';
+ import { AuthProvider, useAuth } from './contexts/AuthContext';
+ import { useUnreadNotifications } from './hooks/useUnreadNotifications';
+-import { canAccessTab, getBottomNavItems, getMainNavItems, type TabType } from './navigation';
++import { canAccessTab, getMainNavItems, type TabType } from './navigation';
+ import { useAdminSectionNavigation } from './useAdminSectionNavigation';
+ import { useT } from '@/lib/i18n';
+ 
+@@ -15,15 +15,14 @@
+   const t = useT();
+   const allMenuItems = useMemo(() => getMainNavItems(t), [t]);
+   const menuItems = useMemo(() => allMenuItems.filter((item) => canAccessTab(user, item.id)), [allMenuItems, user]);
+-  const bottomItems = useMemo(() => getBottomNavItems(t), [t]);
+   const fallbackTab: TabType = menuItems[0]?.id ?? 'settings';
+   const { activeTab, navigateToTab } = useAdminSectionNavigation(user, fallbackTab);
+   const unreadCount = useUnreadNotifications(activeTab === 'notifications');
+-  const pageTitle = [...menuItems, ...bottomItems].find((item) => item.id === activeTab)?.label
+-    ?? t(activeTab === 'notifications' ? 'sidebar.notifications' : 'sidebar.account');
++  const pageTitle = menuItems.find((item) => item.id === activeTab)?.label
++    ?? t(activeTab === 'settings' ? 'sidebar.settings' : activeTab === 'notifications' ? 'sidebar.notifications' : 'sidebar.account');
+   if (!user) return null;
+ 
+-  return <AdminLayout user={user} items={menuItems} bottomItems={bottomItems} activeTab={activeTab}
++  return <AdminLayout user={user} items={menuItems} activeTab={activeTab}
+     pageTitle={pageTitle} unreadCount={unreadCount} onNavigate={navigateToTab}
+     onLogout={() => { if (window.confirm(t('sidebar.logoutConfirm'))) logout(); }}>
+     <AppPages activeTab={activeTab} />
+--- before/Frontend/src/app/components/admin/admin.css
++++ after/Frontend/src/app/components/admin/admin.css
+@@ -48,6 +48,19 @@
+ }
+ html[data-theme='developer'] .eureka-admin { --admin-radius: 8px; --admin-control-radius: 5px; --admin-shadow: none; }
+ :root .eureka-admin .admin-sidebar {
++  /* Sidebar palette stays light, independently of main-page appearance. */
++  --admin-surface: #fbfefc;
++  --admin-subtle: #eff8f2;
++  --admin-mint: #e1f3e7;
++  --admin-border: #deebe2;
++  --admin-primary: #218247;
++  --admin-accent-ink: #21623b;
++  --admin-ink: #253d2e;
++  --admin-muted: #586e61;
++  --admin-scroll-track: #f0f8f3;
++  --admin-scroll-thumb: #b5d8c0;
++  color-scheme: light;
++  color: var(--admin-ink);
+   width: 264px;
+   flex: 0 0 auto;
+   display: flex;
+@@ -56,20 +69,28 @@
+   background: var(--admin-surface);
+   border-right: 1px solid var(--admin-border);
+ }
+-:root .eureka-admin[data-sidebar='collapsed'] .admin-sidebar { width: 80px; }
++:root .eureka-admin[data-sidebar='collapsed'] .admin-sidebar { width: 80px; background: #e9f8ee; --admin-scroll-track: #e9f8ee; --admin-scroll-thumb: #a5cfb2; }
+ :root .eureka-admin [hidden] { display: none !important; }
+-.admin-brand { display: flex; align-items: center; gap: 11px; min-height: 90px; padding: 22px; }
++.admin-brand { display: flex; align-items: center; gap: 10px; min-height: 88px; padding: 18px 16px; flex-shrink: 0; }
+ .admin-brand-mark { display: grid; place-items: center; width: 36px; height: 38px; flex-shrink: 0; border-radius: 11px; background: var(--admin-mint); color: var(--admin-primary); }
+-#root .eureka-admin .admin-brand-name { font-size: 16px; font-weight: 700; line-height: 1.4; letter-spacing: 0; overflow-wrap: normal; }
++#root .eureka-admin .admin-brand-name { font-size: 14px; font-weight: 700; line-height: 1.45; letter-spacing: 0; overflow-wrap: normal; text-wrap: balance; }
+ .admin-product-name { color: var(--admin-muted); font-size: 11px; margin-bottom: 3px; line-height: 1.5; }
+ .admin-brand-caption { margin-top: 4px; font-size: 10px; color: var(--admin-muted); }
+-.admin-nav-group + .admin-nav-group { margin-top: 21px; }
+-.admin-nav-caption { margin: 0 12px 9px; font-size: 10px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; color: var(--admin-muted); }
++.admin-navigation { padding: 8px 12px 18px; overscroll-behavior: contain; scrollbar-width: thin; scrollbar-color: var(--admin-scroll-thumb) var(--admin-scroll-track); }
++.admin-navigation::-webkit-scrollbar { width: 5px; }
++.admin-navigation::-webkit-scrollbar-track { background: var(--admin-scroll-track); border-radius: 10px; }
++.admin-navigation::-webkit-scrollbar-thumb { background: var(--admin-scroll-thumb); border-radius: 10px; }
++.admin-navigation:hover { --admin-scroll-thumb: #87bb99; }
++.admin-navigation::-webkit-scrollbar-button { display: none; width: 0; height: 0; }
++.admin-nav-group + .admin-nav-group { margin-top: 22px; }
++.admin-nav-caption { margin: 0 12px 8px; font-size: 10px; font-weight: 700; letter-spacing: .7px; text-transform: uppercase; color: var(--admin-muted); }
+ :root .eureka-admin .admin-nav-item {
+   display: flex;
+   align-items: center;
+   gap: 11px;
+   width: 100%;
++  position: relative;
++  min-width: 0;
+   padding: 10px 12px;
+   min-height: 42px;
+   border-radius: var(--admin-control-radius);
+@@ -78,14 +99,22 @@
+   text-align: left;
+   font-size: var(--admin-font-body);
+   font-weight: 600;
++  line-height: 1.5;
+   transition: background-color .15s, color .15s;
+ }
+ .admin-nav-item > svg { flex-shrink: 0; }
+-.admin-nav-item > span { min-width: 0; flex: 1; }
++.admin-nav-item > span { min-width: 0; flex: 1; white-space: normal; overflow-wrap: anywhere; }
+ :root .eureka-admin .admin-nav-item:hover { background: var(--admin-subtle); color: var(--admin-ink); }
+ :root .eureka-admin .admin-nav-item[aria-current='page'] { background: var(--admin-mint); color: var(--admin-accent-ink); font-weight: 700; box-shadow: inset 3px 0 var(--admin-primary); }
+ :root .eureka-admin .admin-nav-item.admin-weather-active { color: var(--admin-accent-ink); }
+-.admin-sidebar-footer { padding: 12px; border-top: 1px solid var(--admin-border); }
++.admin-nav-submenu { margin-left: 20px; padding-left: 8px; border-left: 1px solid var(--admin-border); }
++.admin-sidebar-footer { padding: 10px 12px; border-top: 1px solid var(--admin-border); flex-shrink: 0; }
++:root .eureka-admin[data-sidebar='collapsed'] .admin-brand { justify-content: center; padding: 18px 10px; }
++:root .eureka-admin[data-sidebar='collapsed'] .admin-navigation { padding: 8px 12px 16px; }
++:root .eureka-admin[data-sidebar='collapsed'] .admin-nav-group + .admin-nav-group { border-top: 1px solid var(--admin-border); padding-top: 13px; margin-top: 13px; }
++:root .eureka-admin[data-sidebar='collapsed'] .admin-nav-item { justify-content: center; padding: 11px 8px; min-height: 44px; }
++:root .eureka-admin[data-sidebar='collapsed'] .admin-nav-submenu { margin-left: 0; padding-left: 0; border-left: 0; }
++:root .eureka-admin[data-sidebar='collapsed'] .admin-nav-chevron { position: absolute; right: 1px; bottom: 3px; width: 10px; height: 10px; }
+ .admin-workspace { display: flex; flex: 1; flex-direction: column; min-width: 0; min-height: 0; }
+ :root .eureka-admin .admin-topbar { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 18px 32px; min-height: 90px; flex-shrink: 0; border-bottom: 1px solid var(--admin-border); background: var(--admin-surface); z-index: 60; }
+ .admin-topbar-title, .admin-topbar-actions { display: flex; align-items: center; gap: 18px; min-width: 0; }
+--- before/Frontend/src/app/components/admin/AdminLayout.tsx
++++ after/Frontend/src/app/components/admin/AdminLayout.tsx
+@@ -14,7 +14,6 @@
+ interface AdminLayoutProps {
+   user: CurrentUser;
+   items: NavItem[];
+-  bottomItems: NavItem[];
+   activeTab: TabType;
+   pageTitle: string;
+   unreadCount: number;
+@@ -24,7 +23,7 @@
+ }
+ 
+ /** Presentation only: authentication, permissions and section history stay in App. */
+-export default function AdminLayout({ user, items, bottomItems, activeTab, pageTitle, unreadCount, onNavigate, onLogout, children }: AdminLayoutProps) {
++export default function AdminLayout({ user, items, activeTab, pageTitle, unreadCount, onNavigate, onLogout, children }: AdminLayoutProps) {
+   const t = useT();
+   const [expanded, setExpanded] = useState(true);
+   const [mobile, setMobile] = useState(() => window.innerWidth < 1024);
+@@ -95,26 +94,22 @@
+   }
+ 
+   return (
+-    <div className="eureka-admin" data-sidebar={expanded ? 'expanded' : 'collapsed'}>
++    <div className="eureka-admin" data-sidebar={showLabels ? 'expanded' : 'collapsed'}>
+       <a className="admin-skip-link" href="#admin-content">{t('admin.skipContent')}</a>
+       {mobile && drawerOpen && <div className="admin-drawer-backdrop" onClick={() => setDrawerOpen(false)} aria-hidden="true" />}
+       <aside id="admin-sidebar" ref={sidebarRef} className="admin-sidebar" hidden={mobile && !drawerOpen}
+         role={mobile ? 'dialog' : undefined} aria-modal={mobile && drawerOpen ? true : undefined} aria-label={t('admin.navigation')}>
+         <div className="admin-brand">
+           <span className="admin-brand-mark" role="img" aria-label={t('brand.name')} title={`${t('brand.name')} · ${t('brand.tagline')}`}><Activity size={24} aria-hidden="true" /></span>
+-          <div className={showLabels ? 'min-w-0 flex-1' : 'sr-only'}><p className="admin-brand-name">{t('brand.name')}</p><p className="admin-brand-caption">{t('brand.tagline')}</p></div>
++          <div className={showLabels ? 'min-w-0 flex-1' : 'sr-only'}><p className="admin-brand-name">{t('brand.name').replace(/ (\S+)$/, '\u00a0$1')}</p><p className="admin-brand-caption">{t('brand.tagline')}</p></div>
+           {mobile && <button type="button" className="admin-icon-button" aria-label={t('common.close')} onClick={() => setDrawerOpen(false)}><X size={20} /></button>}
+         </div>
+         <AdminMainNavigation items={items} activeTab={activeTab} onNavigate={navigate} sidebarOpen={showLabels} weatherLabel={t('sidebar.weatherRisk')} unreadCount={unreadCount} />
+-        <div className="admin-sidebar-footer">
+-          {bottomItems.map(({ id, label, icon: Icon }) => <button key={id} type="button" className="admin-nav-item" aria-label={label} aria-current={activeTab === id ? 'page' : undefined} title={!showLabels ? label : undefined} onClick={() => navigate(id)}>
+-            <Icon size={19} aria-hidden="true" />{showLabels && <span>{label}</span>}
+-          </button>)}
+-          <button type="button" className="admin-nav-item admin-logout" aria-label={t('sidebar.logout')} title={!showLabels ? t('sidebar.logout') : undefined} onClick={onLogout}><LogOut size={19} aria-hidden="true" />{showLabels && <span>{t('sidebar.logout')}</span>}</button>
+-          {!mobile && <button type="button" className="admin-nav-item" aria-expanded={expanded} aria-controls="admin-sidebar" aria-label={expanded ? t('sidebar.collapse') : t('sidebar.expand')} onClick={() => setExpanded((value) => !value)}>
+-            {expanded ? <ChevronLeft size={19} aria-hidden="true" /> : <Menu size={19} aria-hidden="true" />}{expanded && <span>{t('sidebar.collapse')}</span>}
+-          </button>}
+-        </div>
++        {!mobile && <div className="admin-sidebar-footer">
++          <button type="button" className="admin-nav-item" aria-expanded={expanded} aria-controls="admin-sidebar" aria-label={expanded ? t('sidebar.collapse') : t('sidebar.expand')} title={!expanded ? t('sidebar.expand') : undefined} onClick={() => setExpanded((value) => !value)}>
++            {expanded ? <ChevronLeft size={19} strokeWidth={1.75} aria-hidden="true" /> : <Menu size={19} strokeWidth={1.75} aria-hidden="true" />}{expanded && <span>{t('sidebar.collapse')}</span>}
++          </button>
++        </div>}
+       </aside>
+       <div className="admin-workspace" ref={contentRef}>
+         <header className="admin-topbar">
+@@ -133,7 +128,7 @@
+               {userMenuOpen && <div id="admin-account-menu" className="admin-account-menu">
+                 <div className="admin-account-identity"><strong>{name}</strong><span>@{user.username} · {role}</span></div>
+                 <button type="button" onClick={() => navigate('account')}><User size={16} />{t('user.myAccount')}</button>
+-                <button type="button" onClick={() => navigate('settings')}><Settings size={16} />{t('user.settings')}</button>
++                <button type="button" aria-current={activeTab === 'settings' ? 'page' : undefined} onClick={() => navigate('settings')}><Settings size={16} />{t('user.settings')}</button>
+                 <button type="button" className="admin-logout" onClick={() => { setUserMenuOpen(false); onLogout(); }}><LogOut size={16} />{t('user.logout')}</button>
+               </div>}
+             </div>
+--- before/Frontend/src/app/components/AdminMainNavigation.tsx
++++ after/Frontend/src/app/components/AdminMainNavigation.tsx
+@@ -33,12 +33,12 @@
+       <button type="button" className="admin-nav-item" onClick={() => onNavigate(item.id)}
+         aria-label={item.label} aria-current={activeTab === item.id ? 'page' : undefined}
+         title={!sidebarOpen ? item.label : undefined}>
+-        <Icon size={19} aria-hidden="true" />{sidebarOpen && <span>{item.label}</span>}
++        <Icon size={19} strokeWidth={1.75} aria-hidden="true" />{sidebarOpen && <span>{item.label}</span>}
+       </button>
+     </li>;
+   }
+ 
+-  return <nav aria-label="Main navigation" className="min-h-0 flex-1 overflow-y-auto overflow-x-hidden p-3">
++  return <nav aria-label={t('admin.navigation')} tabIndex={0} className="admin-navigation min-h-0 flex-1 overflow-y-auto overflow-x-hidden">
+     {SECTIONS.map(({ key, ids }) => {
+       const sectionItems = items.filter((item) => ids.includes(item.id));
+       if (!sectionItems.length) return null;
+@@ -52,11 +52,11 @@
+               <button type="button" className={`admin-nav-item ${weatherActive ? 'admin-weather-active' : ''}`}
+                 aria-label={weatherLabel} aria-expanded={weatherOpen} aria-controls="weather-ai-navigation"
+                 title={!sidebarOpen ? weatherLabel : undefined} onClick={() => setWeatherOpen((open) => !open)}>
+-                <CloudSun size={19} aria-hidden="true" />{sidebarOpen && <span>{weatherLabel}</span>}
+-                {sidebarOpen && <ChevronDown size={14} aria-hidden="true" className={weatherOpen ? '' : '-rotate-90'} />}
++                <CloudSun size={19} strokeWidth={1.75} aria-hidden="true" />{sidebarOpen && <span>{weatherLabel}</span>}
++                <ChevronDown size={14} strokeWidth={1.75} aria-hidden="true" className={`admin-nav-chevron ${weatherOpen ? '' : '-rotate-90'}`} />
+               </button>
+               <ul id="weather-ai-navigation" hidden={!weatherOpen}
+-                className={`mt-1 space-y-1 ${sidebarOpen ? 'ml-3 border-l border-slate-200 pl-2' : ''}`}>
++                className="admin-nav-submenu mt-1 space-y-1">
+                 {weatherItems.map(renderItem)}
+               </ul>
+             </li>;
+--- before/Frontend/src/app/navigation.ts
++++ after/Frontend/src/app/navigation.ts
+@@ -1,18 +1,18 @@
+ import {
+-  Activity,
+-  BarChart3,
++  CalendarDays,
++  ChartColumn,
++  ChartLine,
++  ChartNoAxesCombined,
+   BookOpenText,
+   CloudSun,
+   Eye,
+   FileText,
+   LayoutDashboard,
+-  MapPin,
+-  Settings as SettingsIcon,
++  MapPinned,
+   ShieldCheck,
+-  SlidersHorizontal,
+-  TrendingUp,
+-  Upload,
+-  User as UserIcon,
++  FileUp,
++  UsersRound,
++  VenusAndMars,
+   type LucideIcon,
+ } from 'lucide-react';
+ import type { CurrentUser } from '@/lib/api';
+@@ -80,22 +80,18 @@
+ export function getMainNavItems(t: (key: string) => string): NavItem[] {
+   return [
+     { id: 'dashboard', label: t('sidebar.dashboard'), icon: LayoutDashboard },
+-    { id: 'data-import', label: t('sidebar.dataImport'), icon: Upload },
+-    { id: 'seasonal', label: t('sidebar.seasonal'), icon: TrendingUp },
+-    { id: 'age-analysis', label: t('sidebar.ageAnalysis'), icon: SlidersHorizontal },
+-    { id: 'monthly-disease-analysis', label: t('sidebar.monthlyDisease'), icon: BarChart3 },
+-    { id: 'gender-analysis', label: t('sidebar.genderAnalysis'), icon: UserIcon },
+-    { id: 'disease-trend-analysis', label: t('sidebar.diseaseTrend'), icon: Activity },
+-    { id: 'forecast', label: t('sidebar.forecast'), icon: Activity },
++    { id: 'data-import', label: t('sidebar.dataImport'), icon: FileUp },
++    { id: 'seasonal', label: t('sidebar.seasonal'), icon: CalendarDays },
++    { id: 'age-analysis', label: t('sidebar.ageAnalysis'), icon: UsersRound },
++    { id: 'monthly-disease-analysis', label: t('sidebar.monthlyDisease'), icon: ChartColumn },
++    { id: 'gender-analysis', label: t('sidebar.genderAnalysis'), icon: VenusAndMars },
++    { id: 'disease-trend-analysis', label: t('sidebar.diseaseTrend'), icon: ChartLine },
++    { id: 'forecast', label: t('sidebar.forecast'), icon: ChartNoAxesCombined },
+     { id: 'weather-risk', label: t('sidebar.weatherOverview'), icon: CloudSun, group: 'weather-ai' },
+     { id: 'parent-disease-visibility', label: t('sidebar.parentDiseaseVisibility'), icon: Eye, group: 'weather-ai' },
+     { id: 'medical-knowledge', label: t('sidebar.medicalKnowledge'), icon: BookOpenText, group: 'weather-ai' },
+-    { id: 'areas', label: t('sidebar.areas'), icon: MapPin },
++    { id: 'areas', label: t('sidebar.areas'), icon: MapPinned },
+     { id: 'reports', label: t('sidebar.reports'), icon: FileText },
+     { id: 'permissions', label: t('sidebar.permissions'), icon: ShieldCheck },
+   ];
+ }
+-
+-export function getBottomNavItems(t: (key: string) => string): NavItem[] {
+-  return [{ id: 'settings', label: t('sidebar.settings'), icon: SettingsIcon }];
+-}
+--- before/Frontend/src/i18n/locales/vi.ts
++++ after/Frontend/src/i18n/locales/vi.ts
+@@ -73,14 +73,14 @@
+   'content.yearFilter': 'Năm xu hướng',
+   'content.tableLimit': 'Top nhóm trong bảng',
+   'sidebar.seasonal': 'Phân tích theo mùa',
+-  'sidebar.dataImport': 'Import dữ liệu',
++  'sidebar.dataImport': 'Nhập dữ liệu',
+   'sidebar.ageAnalysis': 'Phân tích độ tuổi',
+   'sidebar.monthlyDisease': 'Nhóm bệnh theo tháng',
+   'sidebar.genderAnalysis': 'Phân tích giới tính',
+   'sidebar.diseaseTrend': 'Xu hướng nhóm bệnh',
+   'sidebar.weatherRisk': 'AI thời tiết',
+   'sidebar.weatherOverview': 'AI thời tiết',
+-  'sidebar.parentDiseaseVisibility': 'Nhóm bệnh hiển thị trên Parent',
++  'sidebar.parentDiseaseVisibility': 'Nhóm bệnh hiển thị cho phụ huynh',
+   'sidebar.parentDiseaseVisibilityDenied': 'Bạn không có quyền quản lý hiển thị nhóm bệnh trên Parent.',
+   'sidebar.medicalKnowledge': 'Kho kiến thức y khoa',
+   'sidebar.areas': 'Khu vực',

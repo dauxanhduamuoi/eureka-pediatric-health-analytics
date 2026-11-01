@@ -1,0 +1,462 @@
+{
+  "same_full_guidance_as_fracture": [
+    {
+      "knowledge_id": 221,
+      "name": "Gãy nhiều xương của cơ thể do lao động và giao thông - Fractures involving multiple body regions",
+      "source": "Excel: huong_dan_phu_huynh_backend_mapping_ready (1).xlsx; IDNHOMICD=275; MANHOMBAOCAO=T02"
+    },
+    {
+      "knowledge_id": 220,
+      "name": "Gãy các phần khác của chi do lao động và giao thông - Fracture of other lim bones",
+      "source": "Excel: huong_dan_phu_huynh_backend_mapping_ready (1).xlsx; IDNHOMICD=274; MANHOMBAOCAO=S42,S52,S62,S82,S92,T10,T12"
+    },
+    {
+      "knowledge_id": 197,
+      "name": "Lão suy - Senility",
+      "source": "Excel: huong_dan_phu_huynh_backend_mapping_ready (1).xlsx; IDNHOMICD=269; MANHOMBAOCAO=R54"
+    },
+    {
+      "knowledge_id": 45,
+      "name": "Di chứng lao - Sequelae of tuberculosis",
+      "source": "Excel: huong_dan_phu_huynh_backend_mapping_ready (1).xlsx; IDNHOMICD=54; MANHOMBAOCAO=B90"
+    },
+    {
+      "knowledge_id": 10,
+      "name": "Các dạng lao khác - Other tuberculosis",
+      "source": "Excel: huong_dan_phu_huynh_backend_mapping_ready (1).xlsx; IDNHOMICD=8; MANHOMBAOCAO=A17-A19"
+    },
+    {
+      "knowledge_id": 9,
+      "name": "Lao bộ máy hô hấp - Respiratory tuberculosis",
+      "source": "Excel: huong_dan_phu_huynh_backend_mapping_ready (1).xlsx; IDNHOMICD=7; MANHOMBAOCAO=A15-A16"
+    }
+  ],
+  "backend_recommendation_mapping_wrong": [],
+  "guide_invalid_rows": {
+    "missing_name": 0,
+    "empty_all_guidance": 0,
+    "duplicate_name_rows": 1
+  },
+  "province_code_mismatches": [
+    {
+      "name": "An Giang",
+      "stored_code": "AN_GIANG",
+      "option_code": "89",
+      "encounters": 3848
+    },
+    {
+      "name": "Bình Định",
+      "stored_code": "BINH_ĐINH",
+      "option_code": "52",
+      "encounters": 5309
+    },
+    {
+      "name": "Cần Thơ",
+      "stored_code": "CAN_THO",
+      "option_code": "92",
+      "encounters": 1205
+    },
+    {
+      "name": "Hải Phòng",
+      "stored_code": "HAI_PHONG",
+      "option_code": "31",
+      "encounters": 220
+    },
+    {
+      "name": "Lâm Đồng",
+      "stored_code": "LAM_ĐONG",
+      "option_code": "68",
+      "encounters": 7467
+    },
+    {
+      "name": "Nghệ An",
+      "stored_code": "NGHE_AN",
+      "option_code": "40",
+      "encounters": 2751
+    },
+    {
+      "name": "Quảng Nam",
+      "stored_code": "QUANG_NAM",
+      "option_code": "49",
+      "encounters": 1124
+    },
+    {
+      "name": "Thanh Hóa",
+      "stored_code": "THANH_HOA",
+      "option_code": "38",
+      "encounters": 2786
+    },
+    {
+      "name": "Đà Nẵng",
+      "stored_code": "ĐA_NANG",
+      "option_code": "48",
+      "encounters": 371
+    },
+    {
+      "name": "Đồng Nai",
+      "stored_code": "ĐONG_NAI",
+      "option_code": "75",
+      "encounters": 31740
+    }
+  ],
+  "unresolved_province_totals": {
+    "encounters": 169,
+    "labels": 14
+  },
+  "sample_other_region_empty_api": {
+    "stored_Dong_Nai": 5,
+    "option_Dong_Nai_75": 0
+  },
+  "global_forecast_target_counts": [
+    {
+      "disease_group": "Các bệnh nhiễm khuẩn ruột khác - Other intestinal infectious diseases",
+      "forecast_period": "2025-05",
+      "risk_level": "Cao",
+      "age_groups": 1
+    },
+    {
+      "disease_group": "Các bệnh nhiễm khuẩn ruột khác - Other intestinal infectious diseases",
+      "forecast_period": "2025-05",
+      "risk_level": "Thấp",
+      "age_groups": 4
+    },
+    {
+      "disease_group": "Các bệnh nhiễm khuẩn ruột khác - Other intestinal infectious diseases",
+      "forecast_period": "2025-05",
+      "risk_level": "Trung bình",
+      "age_groups": 1
+    },
+    {
+      "disease_group": "Gãy các phần khác của chi do lao động và giao thông - Fracture of other lim bones",
+      "forecast_period": "2025-05",
+      "risk_level": "Cao",
+      "age_groups": 1
+    },
+    {
+      "disease_group": "Gãy các phần khác của chi do lao động và giao thông - Fracture of other lim bones",
+      "forecast_period": "2025-05",
+      "risk_level": "Thấp",
+      "age_groups": 3
+    },
+    {
+      "disease_group": "Gãy các phần khác của chi do lao động và giao thông - Fracture of other lim bones",
+      "forecast_period": "2025-05",
+      "risk_level": "Trung bình",
+      "age_groups": 1
+    }
+  ],
+  "publication_reader_no_queue": {
+    "requested": 225,
+    "returned": [
+      {
+        "disease_group_id": "170",
+        "factor_type": "WEATHER",
+        "factor_key": "temperature",
+        "factor_value": null,
+        "knowledge_type": "AUTO",
+        "auto_tier": "BASIC",
+        "revision_id": 41,
+        "evidence_level": "LIMITED_OR_INDIRECT",
+        "source_count": 2,
+        "warning": "Nội dung giải thích ngắn được tạo tự động từ các nguồn y khoa phù hợp. Nội dung chưa được nhân viên y tế kiểm duyệt."
+      },
+      {
+        "disease_group_id": "169",
+        "factor_type": "WEATHER",
+        "factor_key": "temperature",
+        "factor_value": null,
+        "knowledge_type": "AUTO",
+        "auto_tier": "BASIC",
+        "revision_id": 238,
+        "evidence_level": "LIMITED_OR_INDIRECT",
+        "source_count": 4,
+        "warning": "Nội dung giải thích ngắn được tạo tự động từ các nguồn y khoa phù hợp. Nội dung chưa được nhân viên y tế kiểm duyệt."
+      },
+      {
+        "disease_group_id": "6",
+        "factor_type": "AGE",
+        "factor_key": "age_group",
+        "factor_value": "1-5 tuổi",
+        "knowledge_type": "AUTO",
+        "auto_tier": "BASIC",
+        "revision_id": 100,
+        "evidence_level": "LIMITED_OR_INDIRECT",
+        "source_count": 5,
+        "warning": "Nội dung giải thích ngắn được tạo tự động từ các nguồn y khoa phù hợp. Nội dung chưa được nhân viên y tế kiểm duyệt."
+      },
+      {
+        "disease_group_id": "41",
+        "factor_type": "AGE",
+        "factor_key": "age_group",
+        "factor_value": "1-5 tuổi",
+        "knowledge_type": "AUTO",
+        "auto_tier": "BASIC",
+        "revision_id": 104,
+        "evidence_level": "LIMITED_OR_INDIRECT",
+        "source_count": 5,
+        "warning": "Nội dung giải thích ngắn được tạo tự động từ các nguồn y khoa phù hợp. Nội dung chưa được nhân viên y tế kiểm duyệt."
+      },
+      {
+        "disease_group_id": "41",
+        "factor_type": "SEASONALITY",
+        "factor_key": "time_of_year",
+        "factor_value": null,
+        "knowledge_type": "AUTO",
+        "auto_tier": "BASIC",
+        "revision_id": 102,
+        "evidence_level": "LIMITED_OR_INDIRECT",
+        "source_count": 1,
+        "warning": "Nội dung giải thích ngắn được tạo tự động từ các nguồn y khoa phù hợp. Nội dung chưa được nhân viên y tế kiểm duyệt."
+      },
+      {
+        "disease_group_id": "169",
+        "factor_type": "AGE",
+        "factor_key": "age_group",
+        "factor_value": "1-5 tuổi",
+        "knowledge_type": "AUTO",
+        "auto_tier": "STRICT",
+        "revision_id": 14,
+        "evidence_level": "SUPPORTED",
+        "source_count": 1,
+        "warning": "Nội dung được tạo tự động từ các nguồn y khoa và đã vượt qua các bước kiểm tra nâng cao của hệ thống. Nội dung chưa được nhân viên y tế kiểm duyệt."
+      },
+      {
+        "disease_group_id": "169",
+        "factor_type": "WEATHER",
+        "factor_key": "wind",
+        "factor_value": null,
+        "knowledge_type": "AUTO",
+        "auto_tier": "STRICT",
+        "revision_id": 21,
+        "evidence_level": "SUPPORTED",
+        "source_count": 1,
+        "warning": "Nội dung được tạo tự động từ các nguồn y khoa và đã vượt qua các bước kiểm tra nâng cao của hệ thống. Nội dung chưa được nhân viên y tế kiểm duyệt."
+      },
+      {
+        "disease_group_id": "87",
+        "factor_type": "SEASONALITY",
+        "factor_key": "time_of_year",
+        "factor_value": null,
+        "knowledge_type": "AUTO",
+        "auto_tier": "BASIC",
+        "revision_id": 40,
+        "evidence_level": "LIMITED_OR_INDIRECT",
+        "source_count": 2,
+        "warning": "Nội dung giải thích ngắn được tạo tự động từ các nguồn y khoa phù hợp. Nội dung chưa được nhân viên y tế kiểm duyệt."
+      },
+      {
+        "disease_group_id": "165",
+        "factor_type": "AGE",
+        "factor_key": "age_group",
+        "factor_value": "1-5 tuổi",
+        "knowledge_type": "AUTO",
+        "auto_tier": "BASIC",
+        "revision_id": 112,
+        "evidence_level": "LIMITED_OR_INDIRECT",
+        "source_count": 5,
+        "warning": "Nội dung giải thích ngắn được tạo tự động từ các nguồn y khoa phù hợp. Nội dung chưa được nhân viên y tế kiểm duyệt."
+      },
+      {
+        "disease_group_id": "165",
+        "factor_type": "WEATHER",
+        "factor_key": "wind",
+        "factor_value": null,
+        "knowledge_type": "AUTO",
+        "auto_tier": "BASIC",
+        "revision_id": 233,
+        "evidence_level": "LIMITED_OR_INDIRECT",
+        "source_count": 1,
+        "warning": "Nội dung giải thích ngắn được tạo tự động từ các nguồn y khoa phù hợp. Nội dung chưa được nhân viên y tế kiểm duyệt."
+      },
+      {
+        "disease_group_id": "87",
+        "factor_type": "WEATHER",
+        "factor_key": "temperature",
+        "factor_value": null,
+        "knowledge_type": "AUTO",
+        "auto_tier": "BASIC",
+        "revision_id": 22,
+        "evidence_level": "LIMITED_OR_INDIRECT",
+        "source_count": 1,
+        "warning": "Nội dung giải thích ngắn được tạo tự động từ các nguồn y khoa phù hợp. Nội dung chưa được nhân viên y tế kiểm duyệt."
+      },
+      {
+        "disease_group_id": "170",
+        "factor_type": "WEATHER",
+        "factor_key": "humidity",
+        "factor_value": null,
+        "knowledge_type": "AUTO",
+        "auto_tier": "BASIC",
+        "revision_id": 39,
+        "evidence_level": "LIMITED_OR_INDIRECT",
+        "source_count": 1,
+        "warning": "Nội dung giải thích ngắn được tạo tự động từ các nguồn y khoa phù hợp. Nội dung chưa được nhân viên y tế kiểm duyệt."
+      },
+      {
+        "disease_group_id": "6",
+        "factor_type": "AGE",
+        "factor_key": "age_group",
+        "factor_value": "Dưới 1 tuổi",
+        "knowledge_type": "AUTO",
+        "auto_tier": "BASIC",
+        "revision_id": 53,
+        "evidence_level": "LIMITED_OR_INDIRECT",
+        "source_count": 3,
+        "warning": "Nội dung giải thích ngắn được tạo tự động từ các nguồn y khoa phù hợp. Nội dung chưa được nhân viên y tế kiểm duyệt."
+      },
+      {
+        "disease_group_id": "41",
+        "factor_type": "AGE",
+        "factor_key": "age_group",
+        "factor_value": "Dưới 1 tuổi",
+        "knowledge_type": "AUTO",
+        "auto_tier": "BASIC",
+        "revision_id": 65,
+        "evidence_level": "LIMITED_OR_INDIRECT",
+        "source_count": 6,
+        "warning": "Nội dung giải thích ngắn được tạo tự động từ các nguồn y khoa phù hợp. Nội dung chưa được nhân viên y tế kiểm duyệt."
+      },
+      {
+        "disease_group_id": "187",
+        "factor_type": "AGE",
+        "factor_key": "age_group",
+        "factor_value": "1-5 tuổi",
+        "knowledge_type": "AUTO",
+        "auto_tier": "BASIC",
+        "revision_id": 116,
+        "evidence_level": "LIMITED_OR_INDIRECT",
+        "source_count": 2,
+        "warning": "Nội dung giải thích ngắn được tạo tự động từ các nguồn y khoa phù hợp. Nội dung chưa được nhân viên y tế kiểm duyệt."
+      },
+      {
+        "disease_group_id": "87",
+        "factor_type": "AGE",
+        "factor_key": "age_group",
+        "factor_value": "11-15 tuổi",
+        "knowledge_type": "AUTO",
+        "auto_tier": "BASIC",
+        "revision_id": 145,
+        "evidence_level": "LIMITED_OR_INDIRECT",
+        "source_count": 1,
+        "warning": "Nội dung giải thích ngắn được tạo tự động từ các nguồn y khoa phù hợp. Nội dung chưa được nhân viên y tế kiểm duyệt."
+      },
+      {
+        "disease_group_id": "186",
+        "factor_type": "WEATHER",
+        "factor_key": "wind",
+        "factor_value": null,
+        "knowledge_type": "AUTO",
+        "auto_tier": "BASIC",
+        "revision_id": 127,
+        "evidence_level": "LIMITED_OR_INDIRECT",
+        "source_count": 1,
+        "warning": "Nội dung giải thích ngắn được tạo tự động từ các nguồn y khoa phù hợp. Nội dung chưa được nhân viên y tế kiểm duyệt."
+      },
+      {
+        "disease_group_id": "186",
+        "factor_type": "WEATHER",
+        "factor_key": "humidity",
+        "factor_value": null,
+        "knowledge_type": "AUTO",
+        "auto_tier": "BASIC",
+        "revision_id": 128,
+        "evidence_level": "LIMITED_OR_INDIRECT",
+        "source_count": 2,
+        "warning": "Nội dung giải thích ngắn được tạo tự động từ các nguồn y khoa phù hợp. Nội dung chưa được nhân viên y tế kiểm duyệt."
+      },
+      {
+        "disease_group_id": "204",
+        "factor_type": "WEATHER",
+        "factor_key": "humidity",
+        "factor_value": null,
+        "knowledge_type": "AUTO",
+        "auto_tier": "BASIC",
+        "revision_id": 161,
+        "evidence_level": "LIMITED_OR_INDIRECT",
+        "source_count": 3,
+        "warning": "Nội dung giải thích ngắn được tạo tự động từ các nguồn y khoa phù hợp. Nội dung chưa được nhân viên y tế kiểm duyệt."
+      },
+      {
+        "disease_group_id": "169",
+        "factor_type": "AGE",
+        "factor_key": "age_group",
+        "factor_value": "11-15 tuổi",
+        "knowledge_type": "AUTO",
+        "auto_tier": "BASIC",
+        "revision_id": 174,
+        "evidence_level": "LIMITED_OR_INDIRECT",
+        "source_count": 3,
+        "warning": "Nội dung giải thích ngắn được tạo tự động từ các nguồn y khoa phù hợp. Nội dung chưa được nhân viên y tế kiểm duyệt."
+      },
+      {
+        "disease_group_id": "87",
+        "factor_type": "AGE",
+        "factor_key": "age_group",
+        "factor_value": "6-10 tuổi",
+        "knowledge_type": "AUTO",
+        "auto_tier": "BASIC",
+        "revision_id": 196,
+        "evidence_level": "LIMITED_OR_INDIRECT",
+        "source_count": 2,
+        "warning": "Nội dung giải thích ngắn được tạo tự động từ các nguồn y khoa phù hợp. Nội dung chưa được nhân viên y tế kiểm duyệt."
+      },
+      {
+        "disease_group_id": "69",
+        "factor_type": "AGE",
+        "factor_key": "age_group",
+        "factor_value": "11-15 tuổi",
+        "knowledge_type": "AUTO",
+        "auto_tier": "BASIC",
+        "revision_id": 222,
+        "evidence_level": "LIMITED_OR_INDIRECT",
+        "source_count": 2,
+        "warning": "Nội dung giải thích ngắn được tạo tự động từ các nguồn y khoa phù hợp. Nội dung chưa được nhân viên y tế kiểm duyệt."
+      },
+      {
+        "disease_group_id": "165",
+        "factor_type": "AGE",
+        "factor_key": "age_group",
+        "factor_value": "11-15 tuổi",
+        "knowledge_type": "AUTO",
+        "auto_tier": "BASIC",
+        "revision_id": 235,
+        "evidence_level": "LIMITED_OR_INDIRECT",
+        "source_count": 2,
+        "warning": "Nội dung giải thích ngắn được tạo tự động từ các nguồn y khoa phù hợp. Nội dung chưa được nhân viên y tế kiểm duyệt."
+      }
+    ],
+    "reviewed_count": 0,
+    "auto_count": 23,
+    "cross_selector_matches": 0,
+    "writes": 0
+  },
+  "original_source": {
+    "original_path": "seasonal_disease_backend\\Tool\\weather\\train_history.xlsx",
+    "raw_path": "weather_disease_ai_v3\\data\\raw\\train_history.xlsx",
+    "original_sha256": "ae148fdadbcc901a3ade4bff9281bc856f34fc24906fa0c561a2cb09a3f28c78",
+    "raw_sha256": "ae148fdadbcc901a3ade4bff9281bc856f34fc24906fa0c561a2cb09a3f28c78",
+    "original_and_v3_raw_identical": true,
+    "original_encounters": 257771,
+    "source_mapped_groups": 235,
+    "source_mapped_encounters": 257768,
+    "source_unmapped_encounters": 3,
+    "source_name_counts_equal_db": true,
+    "differing_group_counts": [],
+    "source_catalog_codes": 12230,
+    "db_catalog_codes": 12230,
+    "icd_mapping_difference_count": 0,
+    "target_source_counts": {
+      "6": 11572,
+      "274": 4490
+    }
+  },
+  "prepared_training_data": {
+    "observed_groups": 235,
+    "encounters": 257769,
+    "target_encounters": {
+      "274": 4490,
+      "6": 11572
+    }
+  },
+  "read_only_changes": 0
+}

@@ -1,0 +1,9 @@
+{
+  "foreground": "#607268",
+  "background_contrast_ratios": {
+    "#ffffff": 5.12,
+    "#f5f9f6": 4.82,
+    "#e4f6e9": 4.55
+  },
+  "scope": "Existing Admin muted token only; not a rendered visual audit"
+}

@@ -1,0 +1,33 @@
+{
+  "newSourceFiles": [
+    "Frontend/src/app/components/AdvancedAnalytics.test.tsx",
+    "Frontend/src/app/components/NotificationsPanel.test.tsx",
+    "Frontend/src/app/components/advanced-analytics/analytics.css",
+    "Frontend/src/app/components/advanced-analytics/AnalyticsControls.tsx",
+    "Frontend/src/app/components/advanced-analytics/AnalyticsPrimitives.tsx",
+    "Frontend/src/app/components/advanced-analytics/GenderWorkspace.tsx",
+    "Frontend/src/app/components/advanced-analytics/MonthlyWorkspace.tsx",
+    "Frontend/src/app/components/advanced-analytics/TrendInteractions.tsx",
+    "Frontend/src/app/components/advanced-analytics/TrendWorkspace.tsx",
+    "Frontend/src/app/components/advanced-analytics/useAdvancedAnalytics.ts",
+    "Frontend/src/app/components/notifications/NotificationInbox.tsx",
+    "Frontend/src/app/components/notifications/notifications.css"
+  ],
+  "hashes": {
+    "Frontend/src/app/components/AdvancedAnalytics.tsx": "3adf47ee59a3fad65f58776f4c1b0ab4c2091e33c247a85a1f51ce414b2eb776",
+    "Frontend/src/app/components/NotificationsPanel.tsx": "508342ca32082a9af265aaad7095ce505c42b1156bcce8f383cc4d7914cb1c39",
+    "Frontend/src/app/components/AdvancedAnalytics.test.tsx": "a81f339b9a14506c6522d4866b124eaf6c34cd139de336bf61efc7e1bbf4ec67",
+    "Frontend/src/app/components/NotificationsPanel.test.tsx": "840d32298a15f86d2d6b772334ab3b6af0ac9d1ab168453273fcf41bf99fd77d",
+    "Frontend/src/app/components/advanced-analytics/analytics.css": "d808825640bb5db98042b726d8cd0fe02fc8f17d5fa137c7782eeb8e84449ae0",
+    "Frontend/src/app/components/advanced-analytics/AnalyticsControls.tsx": "74876ad87238b46784aa85b2945e17d5ff6927bed03e7e64f7afeda96e9aaa67",
+    "Frontend/src/app/components/advanced-analytics/AnalyticsPrimitives.tsx": "6a0492230af5ce35f5fa1bf5792d1c5111be29a83ba16d7695b21179148263a8",
+    "Frontend/src/app/components/advanced-analytics/GenderWorkspace.tsx": "fac534fd35f416e0d617c7f16d19c8b98043d24f17b7b7fa4080656bf07fe6fc",
+    "Frontend/src/app/components/advanced-analytics/MonthlyWorkspace.tsx": "3ed5d95914d462ba4741677a1738c602107f8105739e5b58b0b997455ffd7d75",
+    "Frontend/src/app/components/advanced-analytics/TrendInteractions.tsx": "35c4705ad2266a4934fb57e387377c84bb9fa09177903d82d0220689053e4736",
+    "Frontend/src/app/components/advanced-analytics/TrendWorkspace.tsx": "8d2db69c3de245a11be015108a9aaf930de9e04f0433115dbb155b178947a3ce",
+    "Frontend/src/app/components/advanced-analytics/useAdvancedAnalytics.ts": "60a07d34ea1ca5a78cb508a589894c8a45718d0a71dabffee428217133b8c9ea",
+    "Frontend/src/app/components/notifications/NotificationInbox.tsx": "de0398600563df616850c87b27baa22de5bbc03d03dc6eac81a45963e00f70e0",
+    "Frontend/src/app/components/notifications/notifications.css": "ac70462a74e5db441ed91aeb09fc358f4771b32dc77934feb0fef2237d5af42c"
+  },
+  "trailingWhitespace": []
+}

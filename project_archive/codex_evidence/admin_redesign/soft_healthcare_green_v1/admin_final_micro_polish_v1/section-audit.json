@@ -1,0 +1,225 @@
+[
+  {
+    "section": "dashboard",
+    "file": "DashboardOverview.tsx",
+    "lines": 816,
+    "uses_admin_composition": true,
+    "uses_shared_controls": true,
+    "typography_utilities": [
+      "text-[10px]",
+      "text-lg",
+      "text-sm",
+      "text-xs"
+    ],
+    "classification": "REFINE"
+  },
+  {
+    "section": "data-import",
+    "file": "DataImport.tsx",
+    "lines": 286,
+    "uses_admin_composition": true,
+    "uses_shared_controls": false,
+    "typography_utilities": [
+      "text-sm",
+      "text-xs"
+    ],
+    "classification": "KEEP"
+  },
+  {
+    "section": "seasonal",
+    "file": "SeasonalAnalysis.tsx",
+    "lines": 620,
+    "uses_admin_composition": true,
+    "uses_shared_controls": true,
+    "typography_utilities": [
+      "text-2xl",
+      "text-[11px]",
+      "text-lg",
+      "text-sm",
+      "text-xs"
+    ],
+    "classification": "KEEP (shared legend wrapping where used)"
+  },
+  {
+    "section": "age-analysis",
+    "file": "AgeAnalysis.tsx",
+    "lines": 391,
+    "uses_admin_composition": true,
+    "uses_shared_controls": true,
+    "typography_utilities": [
+      "text-sm",
+      "text-xs"
+    ],
+    "classification": "KEEP (shared legend wrapping where used)"
+  },
+  {
+    "section": "monthly-disease-analysis",
+    "file": "AdvancedAnalytics.tsx",
+    "lines": 1392,
+    "uses_admin_composition": true,
+    "uses_shared_controls": true,
+    "typography_utilities": [
+      "text-2xl",
+      "text-[11px]",
+      "text-sm",
+      "text-xs"
+    ],
+    "classification": "KEEP (shared legend wrapping where used)"
+  },
+  {
+    "section": "gender-analysis",
+    "file": "AdvancedAnalytics.tsx",
+    "lines": 1392,
+    "uses_admin_composition": true,
+    "uses_shared_controls": true,
+    "typography_utilities": [
+      "text-2xl",
+      "text-[11px]",
+      "text-sm",
+      "text-xs"
+    ],
+    "classification": "KEEP (shared legend wrapping where used)"
+  },
+  {
+    "section": "disease-trend-analysis",
+    "file": "AdvancedAnalytics.tsx",
+    "lines": 1392,
+    "uses_admin_composition": true,
+    "uses_shared_controls": true,
+    "typography_utilities": [
+      "text-2xl",
+      "text-[11px]",
+      "text-sm",
+      "text-xs"
+    ],
+    "classification": "KEEP (shared legend wrapping where used)"
+  },
+  {
+    "section": "forecast",
+    "file": "Forecast.tsx",
+    "lines": 897,
+    "uses_admin_composition": true,
+    "uses_shared_controls": true,
+    "typography_utilities": [
+      "text-[10px]",
+      "text-lg",
+      "text-sm",
+      "text-xs"
+    ],
+    "classification": "KEEP"
+  },
+  {
+    "section": "weather-risk",
+    "file": "WeatherRisk.tsx",
+    "lines": 634,
+    "uses_admin_composition": true,
+    "uses_shared_controls": false,
+    "typography_utilities": [
+      "text-lg",
+      "text-sm",
+      "text-xs"
+    ],
+    "classification": "KEEP"
+  },
+  {
+    "section": "parent-disease-visibility",
+    "file": "ParentDiseaseVisibilityPage.tsx",
+    "lines": 15,
+    "uses_admin_composition": false,
+    "uses_shared_controls": false,
+    "typography_utilities": [
+      "text-sm"
+    ],
+    "classification": "KEEP"
+  },
+  {
+    "section": "medical-knowledge",
+    "file": "medical-knowledge/MedicalKnowledgeResearchPage.tsx",
+    "lines": 837,
+    "uses_admin_composition": true,
+    "uses_shared_controls": false,
+    "typography_utilities": [
+      "text-2xl",
+      "text-3xl",
+      "text-[10px]",
+      "text-lg",
+      "text-sm",
+      "text-xs"
+    ],
+    "classification": "KEEP"
+  },
+  {
+    "section": "areas",
+    "file": "AreaInsights.tsx",
+    "lines": 981,
+    "uses_admin_composition": true,
+    "uses_shared_controls": true,
+    "typography_utilities": [
+      "text-[11px]",
+      "text-sm",
+      "text-xs"
+    ],
+    "classification": "KEEP"
+  },
+  {
+    "section": "reports",
+    "file": "Reports.tsx",
+    "lines": 162,
+    "uses_admin_composition": true,
+    "uses_shared_controls": false,
+    "typography_utilities": [],
+    "classification": "KEEP"
+  },
+  {
+    "section": "notifications",
+    "file": "NotificationsPanel.tsx",
+    "lines": 306,
+    "uses_admin_composition": true,
+    "uses_shared_controls": true,
+    "typography_utilities": [
+      "text-[10px]",
+      "text-[11px]",
+      "text-sm",
+      "text-xs"
+    ],
+    "classification": "KEEP"
+  },
+  {
+    "section": "settings",
+    "file": "Settings.tsx",
+    "lines": 383,
+    "uses_admin_composition": true,
+    "uses_shared_controls": true,
+    "typography_utilities": [
+      "text-[11px]",
+      "text-sm",
+      "text-xs"
+    ],
+    "classification": "KEEP"
+  },
+  {
+    "section": "permissions",
+    "file": "PermissionsPage.tsx",
+    "lines": 69,
+    "uses_admin_composition": true,
+    "uses_shared_controls": true,
+    "typography_utilities": [],
+    "classification": "KEEP"
+  },
+  {
+    "section": "account",
+    "file": "Account.tsx",
+    "lines": 489,
+    "uses_admin_composition": true,
+    "uses_shared_controls": true,
+    "typography_utilities": [
+      "text-2xl",
+      "text-[10px]",
+      "text-[11px]",
+      "text-sm",
+      "text-xl",
+      "text-xs"
+    ],
+    "classification": "KEEP"
+  }
+]

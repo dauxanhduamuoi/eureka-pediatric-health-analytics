@@ -1,0 +1,20 @@
+﻿{
+    "hashes":  [
+                   {
+                       "Path":  "D:\\OS_C\\Bài học trên trường\\Thực tập\\Fullstack_2\\ThucTap-main\\seasonal_disease_backend\\app\\services\\report_export.py",
+                       "Hash":  "E97DE4D9BFA7896D96269C80DD34F82BC4635B3640EB05A209F0CC276C614629"
+                   },
+                   {
+                       "Path":  "D:\\OS_C\\Bài học trên trường\\Thực tập\\Fullstack_2\\ThucTap-main\\output\\pdf\\eureka-reports-validation.pdf",
+                       "Hash":  "C6C06FCA72E4DFF0CE6C7BC0CE175D3A9E9432AE38FA7A9C4CD385199BF0D38F"
+                   },
+                   {
+                       "Path":  "D:\\OS_C\\Bài học trên trường\\Thực tập\\Fullstack_2\\ThucTap-main\\.git\\index",
+                       "Hash":  "86CAF5D7D7440FC7CCEF50F524BCB679A11611EB5D63F41E2780478D0AC2E4AF"
+                   }
+               ],
+    "renderer_unchanged":  true,
+    "git_diff_check_exit":  0,
+    "index_unchanged":  true,
+    "pdf_unchanged":  true
+}

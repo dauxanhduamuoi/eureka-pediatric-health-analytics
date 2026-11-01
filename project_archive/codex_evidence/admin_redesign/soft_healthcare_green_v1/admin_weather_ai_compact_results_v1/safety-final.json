@@ -1,0 +1,21 @@
+{
+  "baseline_source_protected_files": 562,
+  "changed_existing_files": [
+    "Frontend/src/app/components/WeatherRisk.tsx",
+    "Frontend/src/app/components/admin/AdminWorkflows.content.test.tsx",
+    "Frontend/src/app/components/admin/content.css"
+  ],
+  "new_source_test_files": [
+    "Frontend/src/app/components/admin/AdminWeatherAIResults.tsx",
+    "Frontend/src/app/components/admin/AdminWeatherAIResults.test.tsx",
+    "Frontend/src/app/components/WeatherRisk.test.tsx"
+  ],
+  "unexpected_changes": [],
+  "backend_source_unchanged": true,
+  "parent_and_shared_explanations_unchanged": true,
+  "models_checked": 221,
+  "api_and_cache_unchanged": true,
+  "env_unchanged": true,
+  "git_index_unchanged": true,
+  "real_db_access": "No SQL, DB hashing, backend tests or real API calls in this task"
+}

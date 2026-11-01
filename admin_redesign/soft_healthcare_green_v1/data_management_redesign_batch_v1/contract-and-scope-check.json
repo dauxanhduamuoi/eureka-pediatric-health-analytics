@@ -1,0 +1,136 @@
+{
+  "controllers": [
+    {
+      "file": "DataImport.tsx",
+      "originalStatements": 12,
+      "unchangedStatements": 10,
+      "changes": [
+        "loadImportStatuses",
+        "effect:1"
+      ],
+      "additions": [
+        "[statusError,setStatusError]",
+        "[jobError,setJobError]"
+      ],
+      "unexpected": [],
+      "apiCallsUnchanged": true
+    },
+    {
+      "file": "DiseaseCodesManager.tsx",
+      "originalStatements": 14,
+      "unchangedStatements": 12,
+      "changes": [
+        "load",
+        "effect:2"
+      ],
+      "additions": [
+        "listVersion"
+      ],
+      "unexpected": [],
+      "apiCallsUnchanged": true
+    },
+    {
+      "file": "ProvinceRegionsManager.tsx",
+      "originalStatements": 12,
+      "unchangedStatements": 12,
+      "changes": [],
+      "additions": [],
+      "unexpected": [],
+      "apiCallsUnchanged": true
+    },
+    {
+      "file": "ParentGuideManager.tsx",
+      "originalStatements": 25,
+      "unchangedStatements": 24,
+      "changes": [
+        "loadImportedRows"
+      ],
+      "additions": [
+        "guideListVersion"
+      ],
+      "unexpected": [],
+      "apiCallsUnchanged": true
+    }
+  ],
+  "guideContentMappingUnchanged": true,
+  "unscopedSelectors": [],
+  "backupHashesMatch": true,
+  "newSources": [
+    "Frontend/src/app/components/data-management/data-management.css",
+    "Frontend/src/app/components/data-management/DataManagement.navigation.test.tsx",
+    "Frontend/src/app/components/data-management/DataManagers.test.tsx",
+    "Frontend/src/app/components/data-management/DiseaseCodesWorkspace.tsx",
+    "Frontend/src/app/components/data-management/GuidesWorkspace.tsx",
+    "Frontend/src/app/components/data-management/ImportWorkspace.tsx",
+    "Frontend/src/app/components/data-management/ManagementParts.tsx",
+    "Frontend/src/app/components/data-management/RegionsWorkspace.tsx",
+    "Frontend/src/app/components/data-management/useCatalogManagers.ts",
+    "Frontend/src/app/components/DataImport.test.tsx"
+  ],
+  "unexpectedNewSources": [],
+  "missingNewSources": [],
+  "changedSourceHashes": [
+    {
+      "file": "Frontend/src/app/components/DataImport.tsx",
+      "hash": "c40eef67f4a8aa2b5a6adeb501e3935be96d4b9dc7005a807a45975565510286"
+    },
+    {
+      "file": "Frontend/src/app/components/DiseaseCodesManager.tsx",
+      "hash": "a3e3cfb5601b86ebd797d9391804c13b8f6dd441136d7aad4bca56f525f91a54"
+    },
+    {
+      "file": "Frontend/src/app/components/ProvinceRegionsManager.tsx",
+      "hash": "fbeec2155c2382d70db48d3e9e40e0af09683c96989961ce3e98f7f4664041d7"
+    },
+    {
+      "file": "Frontend/src/app/components/ParentGuideManager.tsx",
+      "hash": "26598114ac21cf58a894756bc7e023e7249141124e9fb9d087e5f093dcbf3dd0"
+    },
+    {
+      "file": "Frontend/src/app/components/DataImport.test.tsx",
+      "hash": "11159ce9acb81f7803610b34e180d79358ad29991b822b723e1fb5f4f1a77849"
+    },
+    {
+      "file": "Frontend/src/app/components/data-management/useCatalogManagers.ts",
+      "hash": "087d47a73469f1c664a676a88583489be2b85c9d1f4d0e25c14d526f28547622"
+    },
+    {
+      "file": "Frontend/src/app/components/data-management/ImportWorkspace.tsx",
+      "hash": "63553c0f0187abb1aa7431623da0e43dd48eac42dc02f873e7e630a8d1e3f313"
+    },
+    {
+      "file": "Frontend/src/app/components/data-management/DiseaseCodesWorkspace.tsx",
+      "hash": "9af6bcb87e34d671c061fda5b4c0d856f4fb79d5b8f7ae9ea92ee0f9439180be"
+    },
+    {
+      "file": "Frontend/src/app/components/data-management/RegionsWorkspace.tsx",
+      "hash": "a0106899134e5e012e501d21187373fe44621f7ddc12a50afddb3efe44ac3135"
+    },
+    {
+      "file": "Frontend/src/app/components/data-management/GuidesWorkspace.tsx",
+      "hash": "0ab411fd0475a6d1771239dea3a453df66936f8a89b7dad6a8dde7d166227d3f"
+    },
+    {
+      "file": "Frontend/src/app/components/data-management/ManagementParts.tsx",
+      "hash": "388a0ab78dff90740eb6bc6c1a18bdf1dbd1804e5c6a8403e9e97d7cfff1fc53"
+    },
+    {
+      "file": "Frontend/src/app/components/data-management/data-management.css",
+      "hash": "d5458a2b20b27cd8293f3146e49b3845a77d829665d6355f6fbf8307986fd5bf"
+    },
+    {
+      "file": "Frontend/src/app/components/data-management/DataManagers.test.tsx",
+      "hash": "a35c8ecb952c859d5337b6809474f982a8e6b84a1d2bce8b719ba46dfd6d30aa"
+    },
+    {
+      "file": "Frontend/src/app/components/data-management/DataManagement.navigation.test.tsx",
+      "hash": "3165be6e5fdc9f721ed08edeebdab97acca4b46bcbf07aadaa46472e397f8d81"
+    }
+  ],
+  "trailingWhitespace": [],
+  "protectedFiles": 608,
+  "unexpectedChanges": [],
+  "indexUnchanged": true,
+  "realDatabaseExcludedFromHashInventory": true,
+  "status": "PASS"
+}

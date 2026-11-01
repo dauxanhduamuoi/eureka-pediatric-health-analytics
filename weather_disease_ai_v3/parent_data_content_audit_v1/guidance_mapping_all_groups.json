@@ -1,0 +1,3739 @@
+[
+  {
+    "disease_group_id": "1",
+    "name": "Tả - Cholera",
+    "has_model": true,
+    "match_count": 1,
+    "candidate_ids": [
+      3
+    ],
+    "selected_id": 3,
+    "selected_name": "Tả - Cholera",
+    "exact_expected_id": 3
+  },
+  {
+    "disease_group_id": "10",
+    "name": "Bệnh do Brucella - Brucellosis",
+    "has_model": false,
+    "match_count": 1,
+    "candidate_ids": [
+      12
+    ],
+    "selected_id": 12,
+    "selected_name": "Bệnh do Brucella - Brucellosis",
+    "exact_expected_id": 12
+  },
+  {
+    "disease_group_id": "100",
+    "name": "Một số rối loạn hệ miễn dịch - Certain disorders involving the immune mechanism",
+    "has_model": true,
+    "match_count": 1,
+    "candidate_ids": [
+      100
+    ],
+    "selected_id": 100,
+    "selected_name": "Một số rối loạn hệ miễn dịch - Certain disorders involving the immune mechanism",
+    "exact_expected_id": 100
+  },
+  {
+    "disease_group_id": "101",
+    "name": "Tổn thương tuyến giáp liên quan đến thiếu iod - Iodine deficiency- related thyroid disorders",
+    "has_model": true,
+    "match_count": 1,
+    "candidate_ids": [
+      101
+    ],
+    "selected_id": 101,
+    "selected_name": "Tổn thương tuyến giáp liên quan đến thiếu iod - Iodine deficiency- related thyroid disorders",
+    "exact_expected_id": 101
+  },
+  {
+    "disease_group_id": "102",
+    "name": "Nhiễm độc do tuyến giáp (cường giáp) - Thyrotoxicosis",
+    "has_model": true,
+    "match_count": 1,
+    "candidate_ids": [
+      102
+    ],
+    "selected_id": 102,
+    "selected_name": "Nhiễm độc do tuyến giáp (cường giáp) - Thyrotoxicosis",
+    "exact_expected_id": 102
+  },
+  {
+    "disease_group_id": "103",
+    "name": "Tổn thương khác của tuyến giáp - Other disorders of thyroid.",
+    "has_model": true,
+    "match_count": 1,
+    "candidate_ids": [
+      103
+    ],
+    "selected_id": 103,
+    "selected_name": "Tổn thương khác của tuyến giáp - Other disorders of thyroid.",
+    "exact_expected_id": 103
+  },
+  {
+    "disease_group_id": "104",
+    "name": "Đái tháo đường - Diabetes mellitus.",
+    "has_model": true,
+    "match_count": 1,
+    "candidate_ids": [
+      106
+    ],
+    "selected_id": 106,
+    "selected_name": "Đái tháo đường - Diabetes mellitus.",
+    "exact_expected_id": 106
+  },
+  {
+    "disease_group_id": "105",
+    "name": "Suy dinh dưỡng - Malnutrition",
+    "has_model": true,
+    "match_count": 3,
+    "candidate_ids": [
+      239,
+      112,
+      109
+    ],
+    "selected_id": 239,
+    "selected_name": "Thai chậm phát triển, suy dinh dưỡng, rối loạn gắn liền với thai nghén và cân nặng không đủ khi sinh - Slow fetal growth, fetal malnutrition and disorders related to short gestation and low birth weight",
+    "exact_expected_id": 109
+  },
+  {
+    "disease_group_id": "106",
+    "name": "Thiếu Vitamin A - Vitamin A deficiency",
+    "has_model": false,
+    "match_count": 1,
+    "candidate_ids": [
+      110
+    ],
+    "selected_id": 110,
+    "selected_name": "Thiếu Vitamin A - Vitamin A deficiency",
+    "exact_expected_id": 110
+  },
+  {
+    "disease_group_id": "107",
+    "name": "Thiếu vitamin khác - Other vitamin deficiencies.",
+    "has_model": true,
+    "match_count": 1,
+    "candidate_ids": [
+      111
+    ],
+    "selected_id": 111,
+    "selected_name": "Thiếu vitamin khác - Other vitamin deficiencies.",
+    "exact_expected_id": 111
+  },
+  {
+    "disease_group_id": "108",
+    "name": "Hậu quả của suy dinh dưỡng và thiếu chất dinh dưỡng khác - Sequalae of malnutrition and other nutritional deficiencies",
+    "has_model": false,
+    "match_count": 1,
+    "candidate_ids": [
+      112
+    ],
+    "selected_id": 112,
+    "selected_name": "Hậu quả của suy dinh dưỡng và thiếu chất dinh dưỡng khác - Sequalae of malnutrition and other nutritional deficiencies",
+    "exact_expected_id": 112
+  },
+  {
+    "disease_group_id": "109",
+    "name": "Béo phì - Obesity",
+    "has_model": true,
+    "match_count": 1,
+    "candidate_ids": [
+      113
+    ],
+    "selected_id": 113,
+    "selected_name": "Béo phì - Obesity",
+    "exact_expected_id": 113
+  },
+  {
+    "disease_group_id": "11",
+    "name": "Phong - Leprosy",
+    "has_model": false,
+    "match_count": 2,
+    "candidate_ids": [
+      47,
+      13
+    ],
+    "selected_id": 47,
+    "selected_name": "Di chứng phong - Sequelae of leprosy",
+    "exact_expected_id": 13
+  },
+  {
+    "disease_group_id": "110",
+    "name": "Giảm lượng máu - Volume depletion",
+    "has_model": false,
+    "match_count": 1,
+    "candidate_ids": [
+      114
+    ],
+    "selected_id": 114,
+    "selected_name": "Giảm lượng máu - Volume depletion",
+    "exact_expected_id": 114
+  },
+  {
+    "disease_group_id": "111",
+    "name": "Bệnh khác về nội tiết, dinh dưỡng và chuyển hoá - Other endocrine, nutritional and metabolic disorders",
+    "has_model": true,
+    "match_count": 1,
+    "candidate_ids": [
+      105
+    ],
+    "selected_id": 105,
+    "selected_name": "Bệnh khác về nội tiết, dinh dưỡng và chuyển hoá - Other endocrine, nutritional and metabolic disorders",
+    "exact_expected_id": 105
+  },
+  {
+    "disease_group_id": "112",
+    "name": "Sa sút trí tuệ - Dementia",
+    "has_model": false,
+    "match_count": 1,
+    "candidate_ids": [
+      116
+    ],
+    "selected_id": 116,
+    "selected_name": "Sa sút trí tuệ - Dementia",
+    "exact_expected_id": 116
+  },
+  {
+    "disease_group_id": "113",
+    "name": "Rối loạn tâm thần và ứng xử liên quan uống rượu - Mental and behavioural disorders due to use of alcohol",
+    "has_model": false,
+    "match_count": 1,
+    "candidate_ids": [
+      108
+    ],
+    "selected_id": 108,
+    "selected_name": "Rối loạn tâm thần và ứng xử liên quan uống rượu - Mental and behavioural disorders due to use of alcohol",
+    "exact_expected_id": 108
+  },
+  {
+    "disease_group_id": "114",
+    "name": "Rối loạn tâm thần và ứng xử liên quan dùng các chất kích thích tâm lí khác - Mental and behavioural disorders due to other psychoactive substances use",
+    "has_model": false,
+    "match_count": 1,
+    "candidate_ids": [
+      39
+    ],
+    "selected_id": 39,
+    "selected_name": "Rối loạn tâm thần và ứng xử liên quan dùng các chất kích thích tâm lí khác - Mental and behavioural disorders due to other psychoactive substances use",
+    "exact_expected_id": 39
+  },
+  {
+    "disease_group_id": "115",
+    "name": "Tâm thần phân liệt, rối loạn dạng phân liệt và hoang tưởng - Schizophrenia, schiztypal and delusional disorders",
+    "has_model": true,
+    "match_count": 1,
+    "candidate_ids": [
+      120
+    ],
+    "selected_id": 120,
+    "selected_name": "Tâm thần phân liệt, rối loạn dạng phân liệt và hoang tưởng - Schizophrenia, schiztypal and delusional disorders",
+    "exact_expected_id": 120
+  },
+  {
+    "disease_group_id": "116",
+    "name": "Rối loạn khí sắc - Mood ( affective) disorders.",
+    "has_model": true,
+    "match_count": 1,
+    "candidate_ids": [
+      118
+    ],
+    "selected_id": 118,
+    "selected_name": "Rối loạn khí sắc - Mood ( affective) disorders.",
+    "exact_expected_id": 118
+  },
+  {
+    "disease_group_id": "117",
+    "name": "Loạn thần kinh, rối loạn gắn liền với các yếu tố stress và các rối loạn thuộc thân thể - Neurotic, sterss - related and somatoform disorders",
+    "has_model": true,
+    "match_count": 1,
+    "candidate_ids": [
+      119
+    ],
+    "selected_id": 119,
+    "selected_name": "Loạn thần kinh, rối loạn gắn liền với các yếu tố stress và các rối loạn thuộc thân thể - Neurotic, sterss - related and somatoform disorders",
+    "exact_expected_id": 119
+  },
+  {
+    "disease_group_id": "118",
+    "name": "Chậm phát triển tâm thần - Mental retardation",
+    "has_model": true,
+    "match_count": 1,
+    "candidate_ids": [
+      128
+    ],
+    "selected_id": 128,
+    "selected_name": "Chậm phát triển tâm thần - Mental retardation",
+    "exact_expected_id": 128
+  },
+  {
+    "disease_group_id": "119",
+    "name": "Rối loạn tâm thần và nhân cách khác - Other mental and behavioural disorders",
+    "has_model": true,
+    "match_count": 1,
+    "candidate_ids": [
+      129
+    ],
+    "selected_id": 129,
+    "selected_name": "Rối loạn tâm thần và nhân cách khác - Other mental and behavioural disorders",
+    "exact_expected_id": 129
+  },
+  {
+    "disease_group_id": "12",
+    "name": "Uốn ván sơ sinh - Tetanus neonatorum",
+    "has_model": false,
+    "match_count": 1,
+    "candidate_ids": [
+      14
+    ],
+    "selected_id": 14,
+    "selected_name": "Uốn ván sơ sinh - Tetanus neonatorum",
+    "exact_expected_id": 14
+  },
+  {
+    "disease_group_id": "120",
+    "name": "Viêm hệ thần kinh trung ương - Inflamatory diseases of the central nervous system",
+    "has_model": true,
+    "match_count": 1,
+    "candidate_ids": [
+      121
+    ],
+    "selected_id": 121,
+    "selected_name": "Viêm hệ thần kinh trung ương - Inflamatory diseases of the central nervous system",
+    "exact_expected_id": 121
+  },
+  {
+    "disease_group_id": "121",
+    "name": "Parkinson - Parkinson’s disease",
+    "has_model": false,
+    "match_count": 1,
+    "candidate_ids": [
+      122
+    ],
+    "selected_id": 122,
+    "selected_name": "Parkinson - Parkinson’s disease",
+    "exact_expected_id": 122
+  },
+  {
+    "disease_group_id": "122",
+    "name": "Alzheimer - Alzheimer’s disease",
+    "has_model": false,
+    "match_count": 1,
+    "candidate_ids": [
+      123
+    ],
+    "selected_id": 123,
+    "selected_name": "Alzheimer - Alzheimer’s disease",
+    "exact_expected_id": 123
+  },
+  {
+    "disease_group_id": "123",
+    "name": "Xơ cứng nhiều nơi - Multiple sclerosis",
+    "has_model": true,
+    "match_count": 1,
+    "candidate_ids": [
+      124
+    ],
+    "selected_id": 124,
+    "selected_name": "Xơ cứng nhiều nơi - Multiple sclerosis",
+    "exact_expected_id": 124
+  },
+  {
+    "disease_group_id": "124",
+    "name": "Động kinh - Epilepsy",
+    "has_model": true,
+    "match_count": 1,
+    "candidate_ids": [
+      125
+    ],
+    "selected_id": 125,
+    "selected_name": "Động kinh - Epilepsy",
+    "exact_expected_id": 125
+  },
+  {
+    "disease_group_id": "125",
+    "name": "Đau nửa đầu và các hội chứng đau đầu khác - Migraine and other headache syndromes.",
+    "has_model": true,
+    "match_count": 1,
+    "candidate_ids": [
+      126
+    ],
+    "selected_id": 126,
+    "selected_name": "Đau nửa đầu và các hội chứng đau đầu khác - Migraine and other headache syndromes.",
+    "exact_expected_id": 126
+  },
+  {
+    "disease_group_id": "126",
+    "name": "Cơn thiếu máu não thoáng qua và các hội chứng tương tự - Transient cerebral ischaemic attacks and related syndromes",
+    "has_model": true,
+    "match_count": 1,
+    "candidate_ids": [
+      127
+    ],
+    "selected_id": 127,
+    "selected_name": "Cơn thiếu máu não thoáng qua và các hội chứng tương tự - Transient cerebral ischaemic attacks and related syndromes",
+    "exact_expected_id": 127
+  },
+  {
+    "disease_group_id": "127",
+    "name": "Tổn thương thần kinh, rễ và đám rối thần kinh - Nerve, nerve root and plexus disorders",
+    "has_model": true,
+    "match_count": 1,
+    "candidate_ids": [
+      115
+    ],
+    "selected_id": 115,
+    "selected_name": "Tổn thương thần kinh, rễ và đám rối thần kinh - Nerve, nerve root and plexus disorders",
+    "exact_expected_id": 115
+  },
+  {
+    "disease_group_id": "128",
+    "name": "Liệt não, hội chứng liệt khác - Cerebral palsy and other paralytic syndromes",
+    "has_model": true,
+    "match_count": 1,
+    "candidate_ids": [
+      130
+    ],
+    "selected_id": 130,
+    "selected_name": "Liệt não, hội chứng liệt khác - Cerebral palsy and other paralytic syndromes",
+    "exact_expected_id": 130
+  },
+  {
+    "disease_group_id": "129",
+    "name": "Bệnh khác của hệ thần kinh - Other diseases of the nervous system",
+    "has_model": true,
+    "match_count": 1,
+    "candidate_ids": [
+      107
+    ],
+    "selected_id": 107,
+    "selected_name": "Bệnh khác của hệ thần kinh - Other diseases of the nervous system",
+    "exact_expected_id": 107
+  },
+  {
+    "disease_group_id": "13",
+    "name": "Các dạng uốn ván khác - Other tetanus",
+    "has_model": true,
+    "match_count": 1,
+    "candidate_ids": [
+      15
+    ],
+    "selected_id": 15,
+    "selected_name": "Các dạng uốn ván khác - Other tetanus",
+    "exact_expected_id": 15
+  },
+  {
+    "disease_group_id": "130",
+    "name": "Viêm mi mắt - Inflammation of eyelid",
+    "has_model": true,
+    "match_count": 1,
+    "candidate_ids": [
+      142
+    ],
+    "selected_id": 142,
+    "selected_name": "Viêm mi mắt - Inflammation of eyelid",
+    "exact_expected_id": 142
+  },
+  {
+    "disease_group_id": "131",
+    "name": "Viêm kết mạc, tổn thương khác của kết mạc - Conjunctivitis and other disoders of conjunctiva",
+    "has_model": true,
+    "match_count": 1,
+    "candidate_ids": [
+      143
+    ],
+    "selected_id": 143,
+    "selected_name": "Viêm kết mạc, tổn thương khác của kết mạc - Conjunctivitis and other disoders of conjunctiva",
+    "exact_expected_id": 143
+  },
+  {
+    "disease_group_id": "132",
+    "name": "Viêm giác mạc, tổn thương khác của củng mạc và giác mạc - Keratitis and other disorders of sclera and cornea.",
+    "has_model": true,
+    "match_count": 1,
+    "candidate_ids": [
+      144
+    ],
+    "selected_id": 144,
+    "selected_name": "Viêm giác mạc, tổn thương khác của củng mạc và giác mạc - Keratitis and other disorders of sclera and cornea.",
+    "exact_expected_id": 144
+  },
+  {
+    "disease_group_id": "133",
+    "name": "Đục thể thuỷ tinh, tổn thương khác của thể thuỷ tinh - Cataract and other disorders of lens",
+    "has_model": false,
+    "match_count": 1,
+    "candidate_ids": [
+      146
+    ],
+    "selected_id": 146,
+    "selected_name": "Đục thể thuỷ tinh, tổn thương khác của thể thuỷ tinh - Cataract and other disorders of lens",
+    "exact_expected_id": 146
+  },
+  {
+    "disease_group_id": "134",
+    "name": "Bong và rách võng mạc - Retinal detachments and breaks",
+    "has_model": false,
+    "match_count": 1,
+    "candidate_ids": [
+      148
+    ],
+    "selected_id": 148,
+    "selected_name": "Bong và rách võng mạc - Retinal detachments and breaks",
+    "exact_expected_id": 148
+  },
+  {
+    "disease_group_id": "135",
+    "name": "Glôcôm - Glaucoma",
+    "has_model": true,
+    "match_count": 1,
+    "candidate_ids": [
+      149
+    ],
+    "selected_id": 149,
+    "selected_name": "Glôcôm - Glaucoma",
+    "exact_expected_id": 149
+  },
+  {
+    "disease_group_id": "136",
+    "name": "Lác mắt - Strabismus",
+    "has_model": true,
+    "match_count": 1,
+    "candidate_ids": [
+      150
+    ],
+    "selected_id": 150,
+    "selected_name": "Lác mắt - Strabismus",
+    "exact_expected_id": 150
+  },
+  {
+    "disease_group_id": "137",
+    "name": "Tật khúc xạ, các rối loạn điều tiết - Disorders of refraction and accomodation",
+    "has_model": true,
+    "match_count": 1,
+    "candidate_ids": [
+      151
+    ],
+    "selected_id": 151,
+    "selected_name": "Tật khúc xạ, các rối loạn điều tiết - Disorders of refraction and accomodation",
+    "exact_expected_id": 151
+  },
+  {
+    "disease_group_id": "139",
+    "name": "Các bệnh khác của mắt và phần phụ mắt - Other diseases of the eye and adnexa",
+    "has_model": true,
+    "match_count": 1,
+    "candidate_ids": [
+      141
+    ],
+    "selected_id": 141,
+    "selected_name": "Các bệnh khác của mắt và phần phụ mắt - Other diseases of the eye and adnexa",
+    "exact_expected_id": 141
+  },
+  {
+    "disease_group_id": "14",
+    "name": "Bạch hầu - Diphtheria",
+    "has_model": false,
+    "match_count": 1,
+    "candidate_ids": [
+      16
+    ],
+    "selected_id": 16,
+    "selected_name": "Bạch hầu - Diphtheria",
+    "exact_expected_id": 16
+  },
+  {
+    "disease_group_id": "140",
+    "name": "Viêm tai giữa, bệnh khác của tai giữa và xương chũm - Otitis media and other disorders of middle ear and mastoid",
+    "has_model": true,
+    "match_count": 1,
+    "candidate_ids": [
+      162
+    ],
+    "selected_id": 162,
+    "selected_name": "Viêm tai giữa, bệnh khác của tai giữa và xương chũm - Otitis media and other disorders of middle ear and mastoid",
+    "exact_expected_id": 162
+  },
+  {
+    "disease_group_id": "141",
+    "name": "Mất thính giác - Hearing loss",
+    "has_model": true,
+    "match_count": 1,
+    "candidate_ids": [
+      152
+    ],
+    "selected_id": 152,
+    "selected_name": "Mất thính giác - Hearing loss",
+    "exact_expected_id": 152
+  },
+  {
+    "disease_group_id": "142",
+    "name": "Bệnh khác của tai và xương chũm - Other diseases of the ear and mastoid process",
+    "has_model": true,
+    "match_count": 1,
+    "candidate_ids": [
+      153
+    ],
+    "selected_id": 153,
+    "selected_name": "Bệnh khác của tai và xương chũm - Other diseases of the ear and mastoid process",
+    "exact_expected_id": 153
+  },
+  {
+    "disease_group_id": "143",
+    "name": "Thấp khớp cấp - Acute rheumatic heart disease",
+    "has_model": true,
+    "match_count": 1,
+    "candidate_ids": [
+      159
+    ],
+    "selected_id": 159,
+    "selected_name": "Thấp khớp cấp - Acute rheumatic heart disease",
+    "exact_expected_id": 159
+  },
+  {
+    "disease_group_id": "144",
+    "name": "Bệnh thấp tim mãn - Chronic rheumatic disease",
+    "has_model": true,
+    "match_count": 1,
+    "candidate_ids": [
+      160
+    ],
+    "selected_id": 160,
+    "selected_name": "Bệnh thấp tim mãn - Chronic rheumatic disease",
+    "exact_expected_id": 160
+  },
+  {
+    "disease_group_id": "145",
+    "name": "Tăng huyết áp nguyên phát - Essential (primary) hypertension",
+    "has_model": true,
+    "match_count": 1,
+    "candidate_ids": [
+      161
+    ],
+    "selected_id": 161,
+    "selected_name": "Tăng huyết áp nguyên phát - Essential (primary) hypertension",
+    "exact_expected_id": 161
+  },
+  {
+    "disease_group_id": "146",
+    "name": "Bệnh tăng huyết áp khác - Other hypertensive diseases",
+    "has_model": true,
+    "match_count": 1,
+    "candidate_ids": [
+      154
+    ],
+    "selected_id": 154,
+    "selected_name": "Bệnh tăng huyết áp khác - Other hypertensive diseases",
+    "exact_expected_id": 154
+  },
+  {
+    "disease_group_id": "147",
+    "name": "Nhồi máu cơ tim - Acute myocardial infarction",
+    "has_model": false,
+    "match_count": 1,
+    "candidate_ids": [
+      155
+    ],
+    "selected_id": 155,
+    "selected_name": "Nhồi máu cơ tim - Acute myocardial infarction",
+    "exact_expected_id": 155
+  },
+  {
+    "disease_group_id": "148",
+    "name": "Bệnh tim thiếu máu cục bộ khác - Other ischaemic heart diseases",
+    "has_model": true,
+    "match_count": 1,
+    "candidate_ids": [
+      156
+    ],
+    "selected_id": 156,
+    "selected_name": "Bệnh tim thiếu máu cục bộ khác - Other ischaemic heart diseases",
+    "exact_expected_id": 156
+  },
+  {
+    "disease_group_id": "149",
+    "name": "Tắc động mạch phổi - Pulmonary embolism",
+    "has_model": false,
+    "match_count": 1,
+    "candidate_ids": [
+      157
+    ],
+    "selected_id": 157,
+    "selected_name": "Tắc động mạch phổi - Pulmonary embolism",
+    "exact_expected_id": 157
+  },
+  {
+    "disease_group_id": "15",
+    "name": "Ho gà - Whooping cough",
+    "has_model": false,
+    "match_count": 1,
+    "candidate_ids": [
+      17
+    ],
+    "selected_id": 17,
+    "selected_name": "Ho gà - Whooping cough",
+    "exact_expected_id": 17
+  },
+  {
+    "disease_group_id": "150",
+    "name": "Rối loạn dẫn truyền và loạn nhịp tim - Conduction disorders and cardiac arrhythymias",
+    "has_model": true,
+    "match_count": 1,
+    "candidate_ids": [
+      158
+    ],
+    "selected_id": 158,
+    "selected_name": "Rối loạn dẫn truyền và loạn nhịp tim - Conduction disorders and cardiac arrhythymias",
+    "exact_expected_id": 158
+  },
+  {
+    "disease_group_id": "151",
+    "name": "Suy tim - Heart failure",
+    "has_model": true,
+    "match_count": 1,
+    "candidate_ids": [
+      168
+    ],
+    "selected_id": 168,
+    "selected_name": "Suy tim - Heart failure",
+    "exact_expected_id": 168
+  },
+  {
+    "disease_group_id": "152",
+    "name": "Bệnh tim khác - Other heart diseases",
+    "has_model": true,
+    "match_count": 2,
+    "candidate_ids": [
+      156,
+      117
+    ],
+    "selected_id": 156,
+    "selected_name": "Bệnh tim thiếu máu cục bộ khác - Other ischaemic heart diseases",
+    "exact_expected_id": 117
+  },
+  {
+    "disease_group_id": "153",
+    "name": "Chảy máu não - Intracerebral haemorrhage",
+    "has_model": true,
+    "match_count": 1,
+    "candidate_ids": [
+      169
+    ],
+    "selected_id": 169,
+    "selected_name": "Chảy máu não - Intracerebral haemorrhage",
+    "exact_expected_id": 169
+  },
+  {
+    "disease_group_id": "154",
+    "name": "Nhồi máu não - Cerebral infarction",
+    "has_model": true,
+    "match_count": 1,
+    "candidate_ids": [
+      170
+    ],
+    "selected_id": 170,
+    "selected_name": "Nhồi máu não - Cerebral infarction",
+    "exact_expected_id": 170
+  },
+  {
+    "disease_group_id": "155",
+    "name": "Tai biến mạch máu não, không xác định rõ chảy máu hoặc do nhồi máu - Stroke, not specified as haemorrhage or infarction",
+    "has_model": true,
+    "match_count": 1,
+    "candidate_ids": [
+      171
+    ],
+    "selected_id": 171,
+    "selected_name": "Tai biến mạch máu não, không xác định rõ chảy máu hoặc do nhồi máu - Stroke, not specified as haemorrhage or infarction",
+    "exact_expected_id": 171
+  },
+  {
+    "disease_group_id": "156",
+    "name": "Bệnh mạch máu não khác - Other cerebrovascular diseases",
+    "has_model": true,
+    "match_count": 1,
+    "candidate_ids": [
+      145
+    ],
+    "selected_id": 145,
+    "selected_name": "Bệnh mạch máu não khác - Other cerebrovascular diseases",
+    "exact_expected_id": 145
+  },
+  {
+    "disease_group_id": "157",
+    "name": "Xơ vữa động mạch - Atherosclerosis",
+    "has_model": false,
+    "match_count": 1,
+    "candidate_ids": [
+      172
+    ],
+    "selected_id": 172,
+    "selected_name": "Xơ vữa động mạch - Atherosclerosis",
+    "exact_expected_id": 172
+  },
+  {
+    "disease_group_id": "158",
+    "name": "Bệnh mạch máu ngoại vi khác - Other peripheral vascular disease",
+    "has_model": false,
+    "match_count": 1,
+    "candidate_ids": [
+      163
+    ],
+    "selected_id": 163,
+    "selected_name": "Bệnh mạch máu ngoại vi khác - Other peripheral vascular disease",
+    "exact_expected_id": 163
+  },
+  {
+    "disease_group_id": "159",
+    "name": "Nghẽn và huyết khối động mạch - Arterial embolism and thrombosis",
+    "has_model": true,
+    "match_count": 1,
+    "candidate_ids": [
+      147
+    ],
+    "selected_id": 147,
+    "selected_name": "Nghẽn và huyết khối động mạch - Arterial embolism and thrombosis",
+    "exact_expected_id": 147
+  },
+  {
+    "disease_group_id": "16",
+    "name": "Nhiễm khuẩn não mô cầu - Meningococcal infection",
+    "has_model": false,
+    "match_count": 1,
+    "candidate_ids": [
+      18
+    ],
+    "selected_id": 18,
+    "selected_name": "Nhiễm khuẩn não mô cầu - Meningococcal infection",
+    "exact_expected_id": 18
+  },
+  {
+    "disease_group_id": "160",
+    "name": "Bệnh khác của động mạch, tiểu động mạch và mao mạch - Other diseases of arteries, arterioles and capillaries",
+    "has_model": true,
+    "match_count": 1,
+    "candidate_ids": [
+      165
+    ],
+    "selected_id": 165,
+    "selected_name": "Bệnh khác của động mạch, tiểu động mạch và mao mạch - Other diseases of arteries, arterioles and capillaries",
+    "exact_expected_id": 165
+  },
+  {
+    "disease_group_id": "161",
+    "name": "Viêm tĩnh mạch, viêm tĩnh mạch huyết khối, nghẽn mạch và huyết khối tĩnh mạch - Phlebitis, thrombophlebitis,venous embolism and thrombosis",
+    "has_model": true,
+    "match_count": 1,
+    "candidate_ids": [
+      166
+    ],
+    "selected_id": 166,
+    "selected_name": "Viêm tĩnh mạch, viêm tĩnh mạch huyết khối, nghẽn mạch và huyết khối tĩnh mạch - Phlebitis, thrombophlebitis,venous embolism and thrombosis",
+    "exact_expected_id": 166
+  },
+  {
+    "disease_group_id": "162",
+    "name": "Dẫn tĩnh mạch chi dưới - Varicose veins of lower extremities",
+    "has_model": false,
+    "match_count": 1,
+    "candidate_ids": [
+      167
+    ],
+    "selected_id": 167,
+    "selected_name": "Dẫn tĩnh mạch chi dưới - Varicose veins of lower extremities",
+    "exact_expected_id": 167
+  },
+  {
+    "disease_group_id": "164",
+    "name": "Các bệnh khác của bộ máy tuần hoàn - Other diseases of the circulatory system",
+    "has_model": true,
+    "match_count": 1,
+    "candidate_ids": [
+      164
+    ],
+    "selected_id": 164,
+    "selected_name": "Các bệnh khác của bộ máy tuần hoàn - Other diseases of the circulatory system",
+    "exact_expected_id": 164
+  },
+  {
+    "disease_group_id": "165",
+    "name": "Viêm họng và viêm amidan cấp - Acute pharyngitis and acute tonsillitis",
+    "has_model": true,
+    "match_count": 1,
+    "candidate_ids": [
+      183
+    ],
+    "selected_id": 183,
+    "selected_name": "Viêm họng và viêm amidan cấp - Acute pharyngitis and acute tonsillitis",
+    "exact_expected_id": 183
+  },
+  {
+    "disease_group_id": "166",
+    "name": "Viêm thanh, khí quản cấp - Acute laryngitis and tracheitis",
+    "has_model": true,
+    "match_count": 1,
+    "candidate_ids": [
+      184
+    ],
+    "selected_id": 184,
+    "selected_name": "Viêm thanh, khí quản cấp - Acute laryngitis and tracheitis",
+    "exact_expected_id": 184
+  },
+  {
+    "disease_group_id": "167",
+    "name": "Viêm cấp đường hô hấp trên khác - Other acute upper respiratory infections",
+    "has_model": true,
+    "match_count": 1,
+    "candidate_ids": [
+      173
+    ],
+    "selected_id": 173,
+    "selected_name": "Viêm cấp đường hô hấp trên khác - Other acute upper respiratory infections",
+    "exact_expected_id": 173
+  },
+  {
+    "disease_group_id": "168",
+    "name": "Cúm - Influenza",
+    "has_model": true,
+    "match_count": 1,
+    "candidate_ids": [
+      133
+    ],
+    "selected_id": 133,
+    "selected_name": "Cúm - Influenza",
+    "exact_expected_id": 133
+  },
+  {
+    "disease_group_id": "169",
+    "name": "Các bệnh viêm phổi - Pneumonia",
+    "has_model": true,
+    "match_count": 1,
+    "candidate_ids": [
+      136
+    ],
+    "selected_id": 136,
+    "selected_name": "Các bệnh viêm phổi - Pneumonia",
+    "exact_expected_id": 136
+  },
+  {
+    "disease_group_id": "17",
+    "name": "Nhiễm khuẩn huyết - Septicemia",
+    "has_model": true,
+    "match_count": 1,
+    "candidate_ids": [
+      1
+    ],
+    "selected_id": 1,
+    "selected_name": "Nhiễm khuẩn huyết - Septicemia",
+    "exact_expected_id": 1
+  },
+  {
+    "disease_group_id": "170",
+    "name": "Viêm phế quản và viêm tiểu phế quản cấp - Acute bronchitis and acute bronchiolitis",
+    "has_model": true,
+    "match_count": 1,
+    "candidate_ids": [
+      179
+    ],
+    "selected_id": 179,
+    "selected_name": "Viêm phế quản và viêm tiểu phế quản cấp - Acute bronchitis and acute bronchiolitis",
+    "exact_expected_id": 179
+  },
+  {
+    "disease_group_id": "171",
+    "name": "Viêm xoang mạn tính - Chronic sinusitis",
+    "has_model": true,
+    "match_count": 1,
+    "candidate_ids": [
+      180
+    ],
+    "selected_id": 180,
+    "selected_name": "Viêm xoang mạn tính - Chronic sinusitis",
+    "exact_expected_id": 180
+  },
+  {
+    "disease_group_id": "172",
+    "name": "Bệnh của mũi và các xoang phụ của mũi - Other diseases of nose and nasal sinuses",
+    "has_model": true,
+    "match_count": 1,
+    "candidate_ids": [
+      181
+    ],
+    "selected_id": 181,
+    "selected_name": "Bệnh của mũi và các xoang phụ của mũi - Other diseases of nose and nasal sinuses",
+    "exact_expected_id": 181
+  },
+  {
+    "disease_group_id": "173",
+    "name": "Bệnh mạn tính của amidan và của VA - Chronic diseases of tonsils and adenoids",
+    "has_model": true,
+    "match_count": 1,
+    "candidate_ids": [
+      182
+    ],
+    "selected_id": 182,
+    "selected_name": "Bệnh mạn tính của amidan và của VA - Chronic diseases of tonsils and adenoids",
+    "exact_expected_id": 182
+  },
+  {
+    "disease_group_id": "174",
+    "name": "Bệnh khác đường hô hấp trên - Other diseases of upper respiratory tract",
+    "has_model": true,
+    "match_count": 1,
+    "candidate_ids": [
+      174
+    ],
+    "selected_id": 174,
+    "selected_name": "Bệnh khác đường hô hấp trên - Other diseases of upper respiratory tract",
+    "exact_expected_id": 174
+  },
+  {
+    "disease_group_id": "175",
+    "name": "Viêm phế quản tràn khí và các bệnh phổi tắc nghẽn mạn tính - Bronchitis, emphysema and other chronic obstructive diseases",
+    "has_model": true,
+    "match_count": 1,
+    "candidate_ids": [
+      175
+    ],
+    "selected_id": 175,
+    "selected_name": "Viêm phế quản tràn khí và các bệnh phổi tắc nghẽn mạn tính - Bronchitis, emphysema and other chronic obstructive diseases",
+    "exact_expected_id": 175
+  },
+  {
+    "disease_group_id": "176",
+    "name": "Hen - Asthma",
+    "has_model": true,
+    "match_count": 1,
+    "candidate_ids": [
+      176
+    ],
+    "selected_id": 176,
+    "selected_name": "Hen - Asthma",
+    "exact_expected_id": 176
+  },
+  {
+    "disease_group_id": "177",
+    "name": "Giãn phế quản - Bronchiectasis",
+    "has_model": false,
+    "match_count": 1,
+    "candidate_ids": [
+      177
+    ],
+    "selected_id": 177,
+    "selected_name": "Giãn phế quản - Bronchiectasis",
+    "exact_expected_id": 177
+  },
+  {
+    "disease_group_id": "178",
+    "name": "Bệnh phổi không do phế cầu khuẩn - Pneumoconiosis",
+    "has_model": false,
+    "match_count": 1,
+    "candidate_ids": [
+      178
+    ],
+    "selected_id": 178,
+    "selected_name": "Bệnh phổi không do phế cầu khuẩn - Pneumoconiosis",
+    "exact_expected_id": 178
+  },
+  {
+    "disease_group_id": "179",
+    "name": "Bệnh khác của bộ máy hô hấp - Other diseases of respiratory system.",
+    "has_model": true,
+    "match_count": 1,
+    "candidate_ids": [
+      134
+    ],
+    "selected_id": 134,
+    "selected_name": "Bệnh khác của bộ máy hô hấp - Other diseases of respiratory system.",
+    "exact_expected_id": 134
+  },
+  {
+    "disease_group_id": "18",
+    "name": "Các bệnh do vi khuẩn khác - Other bacterial diseases",
+    "has_model": true,
+    "match_count": 1,
+    "candidate_ids": [
+      2
+    ],
+    "selected_id": 2,
+    "selected_name": "Các bệnh do vi khuẩn khác - Other bacterial diseases",
+    "exact_expected_id": 2
+  },
+  {
+    "disease_group_id": "180",
+    "name": "Sâu răng - Dental caries",
+    "has_model": true,
+    "match_count": 1,
+    "candidate_ids": [
+      138
+    ],
+    "selected_id": 138,
+    "selected_name": "Sâu răng - Dental caries",
+    "exact_expected_id": 138
+  },
+  {
+    "disease_group_id": "181",
+    "name": "Tổn thương khác liên quan đến răng và mô quanh răng - Other disorders of teeth and supporting structures",
+    "has_model": true,
+    "match_count": 1,
+    "candidate_ids": [
+      189
+    ],
+    "selected_id": 189,
+    "selected_name": "Tổn thương khác liên quan đến răng và mô quanh răng - Other disorders of teeth and supporting structures",
+    "exact_expected_id": 189
+  },
+  {
+    "disease_group_id": "182",
+    "name": "Bệnh khác của khoang miệng, tuyến nước bọt và hàm - Other diseases of the oral cavity, salivary glands and jaws",
+    "has_model": true,
+    "match_count": 1,
+    "candidate_ids": [
+      190
+    ],
+    "selected_id": 190,
+    "selected_name": "Bệnh khác của khoang miệng, tuyến nước bọt và hàm - Other diseases of the oral cavity, salivary glands and jaws",
+    "exact_expected_id": 190
+  },
+  {
+    "disease_group_id": "183",
+    "name": "Loét dạ dày và tá tràng - Gastric and duodenal ulcer",
+    "has_model": true,
+    "match_count": 1,
+    "candidate_ids": [
+      191
+    ],
+    "selected_id": 191,
+    "selected_name": "Loét dạ dày và tá tràng - Gastric and duodenal ulcer",
+    "exact_expected_id": 191
+  },
+  {
+    "disease_group_id": "184",
+    "name": "Viêm dạ dày và tá tràng - Gastritis and duodenitis",
+    "has_model": true,
+    "match_count": 1,
+    "candidate_ids": [
+      192
+    ],
+    "selected_id": 192,
+    "selected_name": "Viêm dạ dày và tá tràng - Gastritis and duodenitis",
+    "exact_expected_id": 192
+  },
+  {
+    "disease_group_id": "185",
+    "name": "Bệnh khác của thực quản, dạ dày và tá tràng - Other diseases of oesophagus, stomach, duodenum",
+    "has_model": true,
+    "match_count": 1,
+    "candidate_ids": [
+      131
+    ],
+    "selected_id": 131,
+    "selected_name": "Bệnh khác của thực quản, dạ dày và tá tràng - Other diseases of oesophagus, stomach, duodenum",
+    "exact_expected_id": 131
+  },
+  {
+    "disease_group_id": "186",
+    "name": "Bệnh của ruột thừa - Diseases of appendix",
+    "has_model": true,
+    "match_count": 1,
+    "candidate_ids": [
+      132
+    ],
+    "selected_id": 132,
+    "selected_name": "Bệnh của ruột thừa - Diseases of appendix",
+    "exact_expected_id": 132
+  },
+  {
+    "disease_group_id": "187",
+    "name": "Thoát vị bẹn - Inguinal hernia",
+    "has_model": true,
+    "match_count": 1,
+    "candidate_ids": [
+      193
+    ],
+    "selected_id": 193,
+    "selected_name": "Thoát vị bẹn - Inguinal hernia",
+    "exact_expected_id": 193
+  },
+  {
+    "disease_group_id": "188",
+    "name": "Các thoát vị khác - Other hernia",
+    "has_model": true,
+    "match_count": 1,
+    "candidate_ids": [
+      135
+    ],
+    "selected_id": 135,
+    "selected_name": "Các thoát vị khác - Other hernia",
+    "exact_expected_id": 135
+  },
+  {
+    "disease_group_id": "189",
+    "name": "Bệnh Crohn (viêm ruột non từng vùng) và viêm loét đại tràng - Crohn’s disease and ulcerative colitis",
+    "has_model": true,
+    "match_count": 1,
+    "candidate_ids": [
+      185
+    ],
+    "selected_id": 185,
+    "selected_name": "Bệnh Crohn (viêm ruột non từng vùng) và viêm loét đại tràng - Crohn’s disease and ulcerative colitis",
+    "exact_expected_id": 185
+  },
+  {
+    "disease_group_id": "19",
+    "name": "Giang mai bẩm sinh - Congenital syphilis",
+    "has_model": true,
+    "match_count": 1,
+    "candidate_ids": [
+      23
+    ],
+    "selected_id": 23,
+    "selected_name": "Giang mai bẩm sinh - Congenital syphilis",
+    "exact_expected_id": 23
+  },
+  {
+    "disease_group_id": "190",
+    "name": "Tắc liệt ruột và tắc ruột không do thoát vị - Paralytic ileus, intestinal obstruction without hernia",
+    "has_model": true,
+    "match_count": 1,
+    "candidate_ids": [
+      186
+    ],
+    "selected_id": 186,
+    "selected_name": "Tắc liệt ruột và tắc ruột không do thoát vị - Paralytic ileus, intestinal obstruction without hernia",
+    "exact_expected_id": 186
+  },
+  {
+    "disease_group_id": "191",
+    "name": "Bệnh túi thừa của ruột non - Diverticular disease of intestine",
+    "has_model": true,
+    "match_count": 1,
+    "candidate_ids": [
+      187
+    ],
+    "selected_id": 187,
+    "selected_name": "Bệnh túi thừa của ruột non - Diverticular disease of intestine",
+    "exact_expected_id": 187
+  },
+  {
+    "disease_group_id": "192",
+    "name": "Bệnh khác của ruột non và màng bụng - Other diseases of intestine peritoneum",
+    "has_model": true,
+    "match_count": 1,
+    "candidate_ids": [
+      188
+    ],
+    "selected_id": 188,
+    "selected_name": "Bệnh khác của ruột non và màng bụng - Other diseases of intestine peritoneum",
+    "exact_expected_id": 188
+  },
+  {
+    "disease_group_id": "193",
+    "name": "Bệnh gan do rượu - Alcoholic liver disease",
+    "has_model": false,
+    "match_count": 1,
+    "candidate_ids": [
+      258
+    ],
+    "selected_id": 258,
+    "selected_name": "Bệnh gan do rượu - Alcoholic liver disease",
+    "exact_expected_id": 258
+  },
+  {
+    "disease_group_id": "194",
+    "name": "Các bệnh khác của gan - Other diseases of liver",
+    "has_model": true,
+    "match_count": 1,
+    "candidate_ids": [
+      237
+    ],
+    "selected_id": 237,
+    "selected_name": "Các bệnh khác của gan - Other diseases of liver",
+    "exact_expected_id": 237
+  },
+  {
+    "disease_group_id": "195",
+    "name": "Sỏi mật và viêm túi mật - Cholelithiasis and cholecystitis",
+    "has_model": true,
+    "match_count": 1,
+    "candidate_ids": [
+      260
+    ],
+    "selected_id": 260,
+    "selected_name": "Sỏi mật và viêm túi mật - Cholelithiasis and cholecystitis",
+    "exact_expected_id": 260
+  },
+  {
+    "disease_group_id": "196",
+    "name": "Viêm tuỵ cấp và bệnh khác của tuỵ - Acute pancreatitis and other diseases of pancreas",
+    "has_model": true,
+    "match_count": 1,
+    "candidate_ids": [
+      255
+    ],
+    "selected_id": 255,
+    "selected_name": "Viêm tuỵ cấp và bệnh khác của tuỵ - Acute pancreatitis and other diseases of pancreas",
+    "exact_expected_id": 255
+  },
+  {
+    "disease_group_id": "197",
+    "name": "Bệnh khác của bộ máy tiêu hoá - Other diseases of the digestive system",
+    "has_model": true,
+    "match_count": 1,
+    "candidate_ids": [
+      137
+    ],
+    "selected_id": 137,
+    "selected_name": "Bệnh khác của bộ máy tiêu hoá - Other diseases of the digestive system",
+    "exact_expected_id": 137
+  },
+  {
+    "disease_group_id": "198",
+    "name": "Bệnh nhiễm khuẩn da và mô tế bào dưới da - Infections of skin and subcutaneous tissue",
+    "has_model": true,
+    "match_count": 1,
+    "candidate_ids": [
+      268
+    ],
+    "selected_id": 268,
+    "selected_name": "Bệnh nhiễm khuẩn da và mô tế bào dưới da - Infections of skin and subcutaneous tissue",
+    "exact_expected_id": 268
+  },
+  {
+    "disease_group_id": "199",
+    "name": "Bệnh khác của da và mô tế bào dưới da - Other diseases of skin and subcutaneous tissue",
+    "has_model": true,
+    "match_count": 1,
+    "candidate_ids": [
+      234
+    ],
+    "selected_id": 234,
+    "selected_name": "Bệnh khác của da và mô tế bào dưới da - Other diseases of skin and subcutaneous tissue",
+    "exact_expected_id": 234
+  },
+  {
+    "disease_group_id": "2",
+    "name": "Thương hàn, phó thương hàn - Typhoid and paratyphoid fevers",
+    "has_model": false,
+    "match_count": 1,
+    "candidate_ids": [
+      4
+    ],
+    "selected_id": 4,
+    "selected_name": "Thương hàn, phó thương hàn - Typhoid and paratyphoid fevers",
+    "exact_expected_id": 4
+  },
+  {
+    "disease_group_id": "20",
+    "name": "Giang mai sớm (Giang mai I, II và kín) - Early syphilis",
+    "has_model": true,
+    "match_count": 1,
+    "candidate_ids": [
+      24
+    ],
+    "selected_id": 24,
+    "selected_name": "Giang mai sớm (Giang mai I, II và kín) - Early syphilis",
+    "exact_expected_id": 24
+  },
+  {
+    "disease_group_id": "200",
+    "name": "Viêm khớp dạng thấp và viêm khớp khác - Rheumatoid arthritis, other inflamatory polyarthropaties",
+    "has_model": true,
+    "match_count": 1,
+    "candidate_ids": [
+      247
+    ],
+    "selected_id": 247,
+    "selected_name": "Viêm khớp dạng thấp và viêm khớp khác - Rheumatoid arthritis, other inflamatory polyarthropaties",
+    "exact_expected_id": 247
+  },
+  {
+    "disease_group_id": "201",
+    "name": "Bệnh thoái hoá khớp - Arthrosis",
+    "has_model": true,
+    "match_count": 1,
+    "candidate_ids": [
+      252
+    ],
+    "selected_id": 252,
+    "selected_name": "Bệnh thoái hoá khớp - Arthrosis",
+    "exact_expected_id": 252
+  },
+  {
+    "disease_group_id": "202",
+    "name": "Biến dạng các chi mắc phải - Accquired deformities of limbs",
+    "has_model": true,
+    "match_count": 1,
+    "candidate_ids": [
+      259
+    ],
+    "selected_id": 259,
+    "selected_name": "Biến dạng các chi mắc phải - Accquired deformities of limbs",
+    "exact_expected_id": 259
+  },
+  {
+    "disease_group_id": "203",
+    "name": "Bệnh khác của khớp - Other joint disorders",
+    "has_model": true,
+    "match_count": 1,
+    "candidate_ids": [
+      140
+    ],
+    "selected_id": 140,
+    "selected_name": "Bệnh khác của khớp - Other joint disorders",
+    "exact_expected_id": 140
+  },
+  {
+    "disease_group_id": "204",
+    "name": "Bệnh của hệ thống tổ chức liên kết - Systematic connective tissue disorders",
+    "has_model": true,
+    "match_count": 1,
+    "candidate_ids": [
+      266
+    ],
+    "selected_id": 266,
+    "selected_name": "Bệnh của hệ thống tổ chức liên kết - Systematic connective tissue disorders",
+    "exact_expected_id": 266
+  },
+  {
+    "disease_group_id": "205",
+    "name": "Trật đốt sống cổ và các đốt sống khác - Cervical and other interverbral disc disorders",
+    "has_model": true,
+    "match_count": 1,
+    "candidate_ids": [
+      269
+    ],
+    "selected_id": 269,
+    "selected_name": "Trật đốt sống cổ và các đốt sống khác - Cervical and other interverbral disc disorders",
+    "exact_expected_id": 269
+  },
+  {
+    "disease_group_id": "206",
+    "name": "Bệnh khác của cột sống - Other dorsopathies",
+    "has_model": true,
+    "match_count": 1,
+    "candidate_ids": [
+      273
+    ],
+    "selected_id": 273,
+    "selected_name": "Bệnh khác của cột sống - Other dorsopathies",
+    "exact_expected_id": 273
+  },
+  {
+    "disease_group_id": "207",
+    "name": "Tổn thương các mô mềm - Soft tissue disorders",
+    "has_model": true,
+    "match_count": 1,
+    "candidate_ids": [
+      228
+    ],
+    "selected_id": 228,
+    "selected_name": "Tổn thương các mô mềm - Soft tissue disorders",
+    "exact_expected_id": 228
+  },
+  {
+    "disease_group_id": "208",
+    "name": "Di tật về mật độ và cấu trúc của xương - Disorders of bone density and structure",
+    "has_model": true,
+    "match_count": 1,
+    "candidate_ids": [
+      139
+    ],
+    "selected_id": 139,
+    "selected_name": "Di tật về mật độ và cấu trúc của xương - Disorders of bone density and structure",
+    "exact_expected_id": 139
+  },
+  {
+    "disease_group_id": "209",
+    "name": "Viêm xương tuỷ - Osteomyelitis",
+    "has_model": true,
+    "match_count": 1,
+    "candidate_ids": [
+      235
+    ],
+    "selected_id": 235,
+    "selected_name": "Viêm xương tuỷ - Osteomyelitis",
+    "exact_expected_id": 235
+  },
+  {
+    "disease_group_id": "21",
+    "name": "Các loại giang mai khác - Other syphilis",
+    "has_model": false,
+    "match_count": 1,
+    "candidate_ids": [
+      25
+    ],
+    "selected_id": 25,
+    "selected_name": "Các loại giang mai khác - Other syphilis",
+    "exact_expected_id": 25
+  },
+  {
+    "disease_group_id": "210",
+    "name": "Bệnh khác của hệ xương khớp, cơ và mô liên kết - Other diseases of the musculo-skeletal system and connective tissue",
+    "has_model": true,
+    "match_count": 1,
+    "candidate_ids": [
+      236
+    ],
+    "selected_id": 236,
+    "selected_name": "Bệnh khác của hệ xương khớp, cơ và mô liên kết - Other diseases of the musculo-skeletal system and connective tissue",
+    "exact_expected_id": 236
+  },
+  {
+    "disease_group_id": "211",
+    "name": "Hội chứng viêm thận cấp và tiến triển nhanh - Acute and rapidly prograssive nephritis syndromes",
+    "has_model": true,
+    "match_count": 1,
+    "candidate_ids": [
+      245
+    ],
+    "selected_id": 245,
+    "selected_name": "Hội chứng viêm thận cấp và tiến triển nhanh - Acute and rapidly prograssive nephritis syndromes",
+    "exact_expected_id": 245
+  },
+  {
+    "disease_group_id": "212",
+    "name": "Bệnh cầu thận khác - Other glomerular diseases",
+    "has_model": true,
+    "match_count": 1,
+    "candidate_ids": [
+      246
+    ],
+    "selected_id": 246,
+    "selected_name": "Bệnh cầu thận khác - Other glomerular diseases",
+    "exact_expected_id": 246
+  },
+  {
+    "disease_group_id": "213",
+    "name": "Bệnh ống thận kẽ - Renal tubulo-interstitial diseases",
+    "has_model": true,
+    "match_count": 1,
+    "candidate_ids": [
+      248
+    ],
+    "selected_id": 248,
+    "selected_name": "Bệnh ống thận kẽ - Renal tubulo-interstitial diseases",
+    "exact_expected_id": 248
+  },
+  {
+    "disease_group_id": "214",
+    "name": "Suy thận - Renal failure",
+    "has_model": true,
+    "match_count": 1,
+    "candidate_ids": [
+      249
+    ],
+    "selected_id": 249,
+    "selected_name": "Suy thận - Renal failure",
+    "exact_expected_id": 249
+  },
+  {
+    "disease_group_id": "215",
+    "name": "Sỏi tiết niệu - Urolithiasis",
+    "has_model": true,
+    "match_count": 1,
+    "candidate_ids": [
+      250
+    ],
+    "selected_id": 250,
+    "selected_name": "Sỏi tiết niệu - Urolithiasis",
+    "exact_expected_id": 250
+  },
+  {
+    "disease_group_id": "216",
+    "name": "Viêm bàng quang - Cystitis",
+    "has_model": true,
+    "match_count": 1,
+    "candidate_ids": [
+      253
+    ],
+    "selected_id": 253,
+    "selected_name": "Viêm bàng quang - Cystitis",
+    "exact_expected_id": 253
+  },
+  {
+    "disease_group_id": "217",
+    "name": "Bệnh khác của bộ máy tiết niệu - Other diseases of the urnary system",
+    "has_model": true,
+    "match_count": 1,
+    "candidate_ids": [
+      254
+    ],
+    "selected_id": 254,
+    "selected_name": "Bệnh khác của bộ máy tiết niệu - Other diseases of the urnary system",
+    "exact_expected_id": 254
+  },
+  {
+    "disease_group_id": "218",
+    "name": "Quá sản tuyến tiền liệt - Hyperplasia of prostate",
+    "has_model": true,
+    "match_count": 1,
+    "candidate_ids": [
+      261
+    ],
+    "selected_id": 261,
+    "selected_name": "Quá sản tuyến tiền liệt - Hyperplasia of prostate",
+    "exact_expected_id": 261
+  },
+  {
+    "disease_group_id": "219",
+    "name": "Tổn thương khác của tuyến tiền liệt - Other disorders of prostate",
+    "has_model": false,
+    "match_count": 1,
+    "candidate_ids": [
+      262
+    ],
+    "selected_id": 262,
+    "selected_name": "Tổn thương khác của tuyến tiền liệt - Other disorders of prostate",
+    "exact_expected_id": 262
+  },
+  {
+    "disease_group_id": "22",
+    "name": "Nhiễm lậu cầu khuẩn - Gonococcal infection",
+    "has_model": false,
+    "match_count": 1,
+    "candidate_ids": [
+      26
+    ],
+    "selected_id": 26,
+    "selected_name": "Nhiễm lậu cầu khuẩn - Gonococcal infection",
+    "exact_expected_id": 26
+  },
+  {
+    "disease_group_id": "220",
+    "name": "Tràn dịch tinh mạc, u nang tinh dịch - Hydrocele and spermatocele",
+    "has_model": true,
+    "match_count": 1,
+    "candidate_ids": [
+      263
+    ],
+    "selected_id": 263,
+    "selected_name": "Tràn dịch tinh mạc, u nang tinh dịch - Hydrocele and spermatocele",
+    "exact_expected_id": 263
+  },
+  {
+    "disease_group_id": "221",
+    "name": "Thừa bao qui đầu, hẹp và nghẹt bao qui đầu - Redundant prepuce, phimosis and paraphimosis",
+    "has_model": true,
+    "match_count": 1,
+    "candidate_ids": [
+      264
+    ],
+    "selected_id": 264,
+    "selected_name": "Thừa bao qui đầu, hẹp và nghẹt bao qui đầu - Redundant prepuce, phimosis and paraphimosis",
+    "exact_expected_id": 264
+  },
+  {
+    "disease_group_id": "222",
+    "name": "Bệnh khác của cơ quan sinh dục nam - Other diseases of male genital organs",
+    "has_model": true,
+    "match_count": 1,
+    "candidate_ids": [
+      265
+    ],
+    "selected_id": 265,
+    "selected_name": "Bệnh khác của cơ quan sinh dục nam - Other diseases of male genital organs",
+    "exact_expected_id": 265
+  },
+  {
+    "disease_group_id": "223",
+    "name": "Tổn thương của vú - Disorders of breast",
+    "has_model": true,
+    "match_count": 1,
+    "candidate_ids": [
+      267
+    ],
+    "selected_id": 267,
+    "selected_name": "Tổn thương của vú - Disorders of breast",
+    "exact_expected_id": 267
+  },
+  {
+    "disease_group_id": "224",
+    "name": "Viêm vòi trứng và viêm buồng trứng - Salpingitis and oophoritis",
+    "has_model": true,
+    "match_count": 1,
+    "candidate_ids": [
+      270
+    ],
+    "selected_id": 270,
+    "selected_name": "Viêm vòi trứng và viêm buồng trứng - Salpingitis and oophoritis",
+    "exact_expected_id": 270
+  },
+  {
+    "disease_group_id": "225",
+    "name": "Viêm nhiễm cổ tử cung - Inflamatory disease of cervix uteri",
+    "has_model": false,
+    "match_count": 1,
+    "candidate_ids": [
+      271
+    ],
+    "selected_id": 271,
+    "selected_name": "Viêm nhiễm cổ tử cung - Inflamatory disease of cervix uteri",
+    "exact_expected_id": 271
+  },
+  {
+    "disease_group_id": "226",
+    "name": "Tổn thương viêm khác của các cơ quan khung chậu nữ - Other inflamatory diseases of female pelvic organs",
+    "has_model": true,
+    "match_count": 1,
+    "candidate_ids": [
+      272
+    ],
+    "selected_id": 272,
+    "selected_name": "Tổn thương viêm khác của các cơ quan khung chậu nữ - Other inflamatory diseases of female pelvic organs",
+    "exact_expected_id": 272
+  },
+  {
+    "disease_group_id": "227",
+    "name": "Viêm niêm mạc tử cung - Endometriosis",
+    "has_model": false,
+    "match_count": 1,
+    "candidate_ids": [
+      274
+    ],
+    "selected_id": 274,
+    "selected_name": "Viêm niêm mạc tử cung - Endometriosis",
+    "exact_expected_id": 274
+  },
+  {
+    "disease_group_id": "228",
+    "name": "Sa sinh dục nữ - Female genital prolapse",
+    "has_model": false,
+    "match_count": 1,
+    "candidate_ids": [
+      275
+    ],
+    "selected_id": 275,
+    "selected_name": "Sa sinh dục nữ - Female genital prolapse",
+    "exact_expected_id": 275
+  },
+  {
+    "disease_group_id": "229",
+    "name": "Tổn thương không viêm của buồng trứng, vòi fallope và dây chằng rộng - Noinflammatory disorders of ovary, fallopian tube and broad ligament",
+    "has_model": true,
+    "match_count": 1,
+    "candidate_ids": [
+      276
+    ],
+    "selected_id": 276,
+    "selected_name": "Tổn thương không viêm của buồng trứng, vòi fallope và dây chằng rộng - Noinflammatory disorders of ovary, fallopian tube and broad ligament",
+    "exact_expected_id": 276
+  },
+  {
+    "disease_group_id": "23",
+    "name": "Nhiễm khuẩn Chlamydia lây truyền qua đường tình dục - Sexually transmitted chlamydial diseases",
+    "has_model": false,
+    "match_count": 1,
+    "candidate_ids": [
+      27
+    ],
+    "selected_id": 27,
+    "selected_name": "Nhiễm khuẩn Chlamydia lây truyền qua đường tình dục - Sexually transmitted chlamydial diseases",
+    "exact_expected_id": 27
+  },
+  {
+    "disease_group_id": "230",
+    "name": "Rối loạn kinh nguyệt - Disorders of menstruation",
+    "has_model": true,
+    "match_count": 1,
+    "candidate_ids": [
+      279
+    ],
+    "selected_id": 279,
+    "selected_name": "Rối loạn kinh nguyệt - Disorders of menstruation",
+    "exact_expected_id": 279
+  },
+  {
+    "disease_group_id": "231",
+    "name": "Rối loạn mãn kinh và xung quanh mãn kinh khác - Menopausal other perimenopausal disorders",
+    "has_model": false,
+    "match_count": 1,
+    "candidate_ids": [
+      280
+    ],
+    "selected_id": 280,
+    "selected_name": "Rối loạn mãn kinh và xung quanh mãn kinh khác - Menopausal other perimenopausal disorders",
+    "exact_expected_id": 280
+  },
+  {
+    "disease_group_id": "232",
+    "name": "Vô sinh nữ - Female infertility",
+    "has_model": false,
+    "match_count": 1,
+    "candidate_ids": [
+      281
+    ],
+    "selected_id": 281,
+    "selected_name": "Vô sinh nữ - Female infertility",
+    "exact_expected_id": 281
+  },
+  {
+    "disease_group_id": "233",
+    "name": "Bệnh khác của bộ máy sinh dục tiết niệu - Other disorders of genitourinary tract",
+    "has_model": true,
+    "match_count": 1,
+    "candidate_ids": [
+      229
+    ],
+    "selected_id": 229,
+    "selected_name": "Bệnh khác của bộ máy sinh dục tiết niệu - Other disorders of genitourinary tract",
+    "exact_expected_id": 229
+  },
+  {
+    "disease_group_id": "234",
+    "name": "Xẩy thai tự nhiên - Spontaneous abortion",
+    "has_model": false,
+    "match_count": 1,
+    "candidate_ids": [
+      230
+    ],
+    "selected_id": 230,
+    "selected_name": "Xẩy thai tự nhiên - Spontaneous abortion",
+    "exact_expected_id": 230
+  },
+  {
+    "disease_group_id": "235",
+    "name": "Xẩy thai do can thiệp y tế - Medical abortion",
+    "has_model": false,
+    "match_count": 1,
+    "candidate_ids": [
+      231
+    ],
+    "selected_id": 231,
+    "selected_name": "Xẩy thai do can thiệp y tế - Medical abortion",
+    "exact_expected_id": 231
+  },
+  {
+    "disease_group_id": "236",
+    "name": "Xẩy thai khác - Other pregnancies with abortive outcome",
+    "has_model": false,
+    "match_count": 1,
+    "candidate_ids": [
+      232
+    ],
+    "selected_id": 232,
+    "selected_name": "Xẩy thai khác - Other pregnancies with abortive outcome",
+    "exact_expected_id": 232
+  },
+  {
+    "disease_group_id": "237",
+    "name": "Phù nề, protein-niệu, tăng huyết áp, rối loạn thai nghén, đẻ và sau đẻ - Oedema,proteinuria, hyper- tensive disorders in pregnancy, childbirth and the puerperium",
+    "has_model": false,
+    "match_count": 1,
+    "candidate_ids": [
+      238
+    ],
+    "selected_id": 238,
+    "selected_name": "Phù nề, protein-niệu, tăng huyết áp, rối loạn thai nghén, đẻ và sau đẻ - Oedema,proteinuria, hyper- tensive disorders in pregnancy, childbirth and the puerperium",
+    "exact_expected_id": 238
+  },
+  {
+    "disease_group_id": "238",
+    "name": "Rau tiền đạo, rau bong sớm (U máu sau rau) và chảy máu trước khi đẻ - Placeta praevia, premature separation of placenta and antepartum haemorrhage",
+    "has_model": false,
+    "match_count": 1,
+    "candidate_ids": [
+      241
+    ],
+    "selected_id": 241,
+    "selected_name": "Rau tiền đạo, rau bong sớm (U máu sau rau) và chảy máu trước khi đẻ - Placeta praevia, premature separation of placenta and antepartum haemorrhage",
+    "exact_expected_id": 241
+  },
+  {
+    "disease_group_id": "239",
+    "name": "Chăm sóc khác cho người mẹ liên quan đến thai, buồng ối và những vấn đề có thể xảy ra do đẻ - Other maternal care related to fetus and amniotic cavity and possible delivery problems",
+    "has_model": false,
+    "match_count": 1,
+    "candidate_ids": [
+      242
+    ],
+    "selected_id": 242,
+    "selected_name": "Chăm sóc khác cho người mẹ liên quan đến thai, buồng ối và những vấn đề có thể xảy ra do đẻ - Other maternal care related to fetus and amniotic cavity and possible delivery problems",
+    "exact_expected_id": 242
+  },
+  {
+    "disease_group_id": "24",
+    "name": "Nhiễm khuẩn khác lây truyền qua đường tình dục - Other infection with a predominantly sexual mode of transmission",
+    "has_model": true,
+    "match_count": 1,
+    "candidate_ids": [
+      28
+    ],
+    "selected_id": 28,
+    "selected_name": "Nhiễm khuẩn khác lây truyền qua đường tình dục - Other infection with a predominantly sexual mode of transmission",
+    "exact_expected_id": 28
+  },
+  {
+    "disease_group_id": "240",
+    "name": "Đẻ khó do cản trở (vật chướng ngại) - Obstructed labour",
+    "has_model": false,
+    "match_count": 1,
+    "candidate_ids": [
+      251
+    ],
+    "selected_id": 251,
+    "selected_name": "Đẻ khó do cản trở (vật chướng ngại) - Obstructed labour",
+    "exact_expected_id": 251
+  },
+  {
+    "disease_group_id": "241",
+    "name": "Chảy máu sau đẻ - Postpartum haemorrhage",
+    "has_model": false,
+    "match_count": 1,
+    "candidate_ids": [
+      256
+    ],
+    "selected_id": 256,
+    "selected_name": "Chảy máu sau đẻ - Postpartum haemorrhage",
+    "exact_expected_id": 256
+  },
+  {
+    "disease_group_id": "242",
+    "name": "Các biến chứng khác của chửa đẻ - Other complications pregnancy and delivery",
+    "has_model": true,
+    "match_count": 1,
+    "candidate_ids": [
+      257
+    ],
+    "selected_id": 257,
+    "selected_name": "Các biến chứng khác của chửa đẻ - Other complications pregnancy and delivery",
+    "exact_expected_id": 257
+  },
+  {
+    "disease_group_id": "243",
+    "name": "Đẻ tự nhiên đơn giản - Single spontaneous delivery",
+    "has_model": false,
+    "match_count": 1,
+    "candidate_ids": [
+      277
+    ],
+    "selected_id": 277,
+    "selected_name": "Đẻ tự nhiên đơn giản - Single spontaneous delivery",
+    "exact_expected_id": 277
+  },
+  {
+    "disease_group_id": "244",
+    "name": "Các biến chứng liên quan sinh đẻ và những vấn đề sản khoa chưa xếp ở chỗ khác - Complications predominantly related to the puerperium obstetric conditions, not elsewhere classified",
+    "has_model": false,
+    "match_count": 1,
+    "candidate_ids": [
+      278
+    ],
+    "selected_id": 278,
+    "selected_name": "Các biến chứng liên quan sinh đẻ và những vấn đề sản khoa chưa xếp ở chỗ khác - Complications predominantly related to the puerperium obstetric conditions, not elsewhere classified",
+    "exact_expected_id": 278
+  },
+  {
+    "disease_group_id": "245",
+    "name": "Bệnh lí thai nhi và sơ sinh do biến chứng thai nghén, chửa, đẻ - Fetus and newborn affected by maternal factors and by complications of pregnancy, labour and delivery",
+    "has_model": true,
+    "match_count": 1,
+    "candidate_ids": [
+      233
+    ],
+    "selected_id": 233,
+    "selected_name": "Bệnh lí thai nhi và sơ sinh do biến chứng thai nghén, chửa, đẻ - Fetus and newborn affected by maternal factors and by complications of pregnancy, labour and delivery",
+    "exact_expected_id": 233
+  },
+  {
+    "disease_group_id": "246",
+    "name": "Thai chậm phát triển, suy dinh dưỡng, rối loạn gắn liền với thai nghén và cân nặng không đủ khi sinh - Slow fetal growth, fetal malnutrition and disorders related to short gestation and low birth weight",
+    "has_model": true,
+    "match_count": 1,
+    "candidate_ids": [
+      239
+    ],
+    "selected_id": 239,
+    "selected_name": "Thai chậm phát triển, suy dinh dưỡng, rối loạn gắn liền với thai nghén và cân nặng không đủ khi sinh - Slow fetal growth, fetal malnutrition and disorders related to short gestation and low birth weight",
+    "exact_expected_id": 239
+  },
+  {
+    "disease_group_id": "247",
+    "name": "Các chấn thương sản khoa - Birth trauma",
+    "has_model": true,
+    "match_count": 1,
+    "candidate_ids": [
+      240
+    ],
+    "selected_id": 240,
+    "selected_name": "Các chấn thương sản khoa - Birth trauma",
+    "exact_expected_id": 240
+  },
+  {
+    "disease_group_id": "248",
+    "name": "Thiếu ô xy trong tử cung và trong đẻ - Intrauterine hypoxis and birth asphyxia",
+    "has_model": false,
+    "match_count": 1,
+    "candidate_ids": [
+      243
+    ],
+    "selected_id": 243,
+    "selected_name": "Thiếu ô xy trong tử cung và trong đẻ - Intrauterine hypoxis and birth asphyxia",
+    "exact_expected_id": 243
+  },
+  {
+    "disease_group_id": "249",
+    "name": "Các tổn thương hô hấp đặc hiệu khác của thời kỳ chu sinh - Other respiratory disorders originating in the perinatal period",
+    "has_model": true,
+    "match_count": 1,
+    "candidate_ids": [
+      244
+    ],
+    "selected_id": 244,
+    "selected_name": "Các tổn thương hô hấp đặc hiệu khác của thời kỳ chu sinh - Other respiratory disorders originating in the perinatal period",
+    "exact_expected_id": 244
+  },
+  {
+    "disease_group_id": "25",
+    "name": "Sốt hồi quy - Relapsing fever",
+    "has_model": false,
+    "match_count": 1,
+    "candidate_ids": [
+      29
+    ],
+    "selected_id": 29,
+    "selected_name": "Sốt hồi quy - Relapsing fever",
+    "exact_expected_id": 29
+  },
+  {
+    "disease_group_id": "250",
+    "name": "Nhiễm khuẩn và kí sinh vật bẩm sinh - Congenital infectious and parasitic diseases",
+    "has_model": true,
+    "match_count": 1,
+    "candidate_ids": [
+      212
+    ],
+    "selected_id": 212,
+    "selected_name": "Nhiễm khuẩn và kí sinh vật bẩm sinh - Congenital infectious and parasitic diseases",
+    "exact_expected_id": 212
+  },
+  {
+    "disease_group_id": "251",
+    "name": "Nhiễm khuẩn đặc hiệu khác thời kỳ chu sinh - Other infectious specific to the perinatal period",
+    "has_model": true,
+    "match_count": 1,
+    "candidate_ids": [
+      213
+    ],
+    "selected_id": 213,
+    "selected_name": "Nhiễm khuẩn đặc hiệu khác thời kỳ chu sinh - Other infectious specific to the perinatal period",
+    "exact_expected_id": 213
+  },
+  {
+    "disease_group_id": "252",
+    "name": "Bệnh tan máu của thai và sơ sinh - Haemolytic disease of fetus and newborn.",
+    "has_model": false,
+    "match_count": 1,
+    "candidate_ids": [
+      214
+    ],
+    "selected_id": 214,
+    "selected_name": "Bệnh tan máu của thai và sơ sinh - Haemolytic disease of fetus and newborn.",
+    "exact_expected_id": 214
+  },
+  {
+    "disease_group_id": "253",
+    "name": "Tổn thương khác có nguồn gốc trong thời kỳ chu sinh - Other conditions originating in the perinatal period",
+    "has_model": true,
+    "match_count": 1,
+    "candidate_ids": [
+      215
+    ],
+    "selected_id": 215,
+    "selected_name": "Tổn thương khác có nguồn gốc trong thời kỳ chu sinh - Other conditions originating in the perinatal period",
+    "exact_expected_id": 215
+  },
+  {
+    "disease_group_id": "254",
+    "name": "Gai đôi cột sống - Spina bifida",
+    "has_model": true,
+    "match_count": 1,
+    "candidate_ids": [
+      223
+    ],
+    "selected_id": 223,
+    "selected_name": "Gai đôi cột sống - Spina bifida",
+    "exact_expected_id": 223
+  },
+  {
+    "disease_group_id": "255",
+    "name": "Dị tật bẩm sinh khác của hệ thần kinh - Other congenital malforma",
+    "has_model": true,
+    "match_count": 1,
+    "candidate_ids": [
+      224
+    ],
+    "selected_id": 224,
+    "selected_name": "Dị tật bẩm sinh khác của hệ thần kinh - Other congenital malforma",
+    "exact_expected_id": 224
+  },
+  {
+    "disease_group_id": "256",
+    "name": "Dị tật bẩm sinh khác của bộ máy tuần hoàn - Congenital malfor-mation of the circulatory system",
+    "has_model": true,
+    "match_count": 1,
+    "candidate_ids": [
+      201
+    ],
+    "selected_id": 201,
+    "selected_name": "Dị tật bẩm sinh khác của bộ máy tuần hoàn - Congenital malfor-mation of the circulatory system",
+    "exact_expected_id": 201
+  },
+  {
+    "disease_group_id": "257",
+    "name": "Sứt môi và hở hàm ếch - Cleft lip and cleft palate",
+    "has_model": true,
+    "match_count": 1,
+    "candidate_ids": [
+      202
+    ],
+    "selected_id": 202,
+    "selected_name": "Sứt môi và hở hàm ếch - Cleft lip and cleft palate",
+    "exact_expected_id": 202
+  },
+  {
+    "disease_group_id": "258",
+    "name": "Không có, tịt hoặc hẹp ruột non - Absence, atresia and stenosis of small intestine",
+    "has_model": true,
+    "match_count": 1,
+    "candidate_ids": [
+      203
+    ],
+    "selected_id": 203,
+    "selected_name": "Không có, tịt hoặc hẹp ruột non - Absence, atresia and stenosis of small intestine",
+    "exact_expected_id": 203
+  },
+  {
+    "disease_group_id": "259",
+    "name": "Dị tật bẩm sinh khác của bộ máy sinh dục tiết niệu - Other malformations of the genitourinary system",
+    "has_model": true,
+    "match_count": 1,
+    "candidate_ids": [
+      204
+    ],
+    "selected_id": 204,
+    "selected_name": "Dị tật bẩm sinh khác của bộ máy sinh dục tiết niệu - Other malformations of the genitourinary system",
+    "exact_expected_id": 204
+  },
+  {
+    "disease_group_id": "26",
+    "name": "Mắt hột - Trachoma",
+    "has_model": false,
+    "match_count": 1,
+    "candidate_ids": [
+      30
+    ],
+    "selected_id": 30,
+    "selected_name": "Mắt hột - Trachoma",
+    "exact_expected_id": 30
+  },
+  {
+    "disease_group_id": "260",
+    "name": "Tinh hoàn lạc chỗ - Undescended testicle",
+    "has_model": true,
+    "match_count": 1,
+    "candidate_ids": [
+      207
+    ],
+    "selected_id": 207,
+    "selected_name": "Tinh hoàn lạc chỗ - Undescended testicle",
+    "exact_expected_id": 207
+  },
+  {
+    "disease_group_id": "261",
+    "name": "Dị dạng bẩm sinh của bộ máy sinh dục tiết niệu - Congenital malformations of genital organs",
+    "has_model": true,
+    "match_count": 1,
+    "candidate_ids": [
+      208
+    ],
+    "selected_id": 208,
+    "selected_name": "Dị dạng bẩm sinh của bộ máy sinh dục tiết niệu - Congenital malformations of genital organs",
+    "exact_expected_id": 208
+  },
+  {
+    "disease_group_id": "262",
+    "name": "Dị dạng bẩm sinh hông - Congenital deformities of hip",
+    "has_model": true,
+    "match_count": 1,
+    "candidate_ids": [
+      209
+    ],
+    "selected_id": 209,
+    "selected_name": "Dị dạng bẩm sinh hông - Congenital deformities of hip",
+    "exact_expected_id": 209
+  },
+  {
+    "disease_group_id": "263",
+    "name": "Dị dạng bẩm sinh bàn chân - Congenital deformities of feet",
+    "has_model": true,
+    "match_count": 1,
+    "candidate_ids": [
+      210
+    ],
+    "selected_id": 210,
+    "selected_name": "Dị dạng bẩm sinh bàn chân - Congenital deformities of feet",
+    "exact_expected_id": 210
+  },
+  {
+    "disease_group_id": "264",
+    "name": "Dị dạng bẩm sinh khác của hệ xương và cơ - Other congenital malformations and deformations of the musculo skeletal system",
+    "has_model": true,
+    "match_count": 1,
+    "candidate_ids": [
+      211
+    ],
+    "selected_id": 211,
+    "selected_name": "Dị dạng bẩm sinh khác của hệ xương và cơ - Other congenital malformations and deformations of the musculo skeletal system",
+    "exact_expected_id": 211
+  },
+  {
+    "disease_group_id": "265",
+    "name": "Dị dạng bẩm sinh khác - Other congenital malformations",
+    "has_model": true,
+    "match_count": 2,
+    "candidate_ids": [
+      217,
+      211
+    ],
+    "selected_id": 217,
+    "selected_name": "Dị dạng bẩm sinh khác - Other congenital malformations",
+    "exact_expected_id": 217
+  },
+  {
+    "disease_group_id": "266",
+    "name": "Dị thường nhiễm sắc thể, chưa xếp ở chỗ khác - Chromosomal abnormalities, not elsewhere sclassified",
+    "has_model": true,
+    "match_count": 1,
+    "candidate_ids": [
+      194
+    ],
+    "selected_id": 194,
+    "selected_name": "Dị thường nhiễm sắc thể, chưa xếp ở chỗ khác - Chromosomal abnormalities, not elsewhere sclassified",
+    "exact_expected_id": 194
+  },
+  {
+    "disease_group_id": "267",
+    "name": "Đau bụng và khung chậu - Abdominal and pelvic pain",
+    "has_model": true,
+    "match_count": 1,
+    "candidate_ids": [
+      195
+    ],
+    "selected_id": 195,
+    "selected_name": "Đau bụng và khung chậu - Abdominal and pelvic pain",
+    "exact_expected_id": 195
+  },
+  {
+    "disease_group_id": "268",
+    "name": "Sốt không rõ nguyên nhân - Fever of unknown origin",
+    "has_model": true,
+    "match_count": 1,
+    "candidate_ids": [
+      196
+    ],
+    "selected_id": 196,
+    "selected_name": "Sốt không rõ nguyên nhân - Fever of unknown origin",
+    "exact_expected_id": 196
+  },
+  {
+    "disease_group_id": "269",
+    "name": "Lão suy - Senility",
+    "has_model": false,
+    "match_count": 1,
+    "candidate_ids": [
+      197
+    ],
+    "selected_id": 197,
+    "selected_name": "Lão suy - Senility",
+    "exact_expected_id": 197
+  },
+  {
+    "disease_group_id": "27",
+    "name": "Sốt Rickettsia - Typhus fever",
+    "has_model": true,
+    "match_count": 1,
+    "candidate_ids": [
+      31
+    ],
+    "selected_id": 31,
+    "selected_name": "Sốt Rickettsia - Typhus fever",
+    "exact_expected_id": 31
+  },
+  {
+    "disease_group_id": "270",
+    "name": "Các triệu chứng, dấu hiệu và kết quả bất thường về khám lâm sàng và xét nghiệm khác, chưa xếp ở chỗ khác - Other symptoms, signs and abnormal clinical and laboratory findings, not elsewhere classified",
+    "has_model": true,
+    "match_count": 1,
+    "candidate_ids": [
+      198
+    ],
+    "selected_id": 198,
+    "selected_name": "Các triệu chứng, dấu hiệu và kết quả bất thường về khám lâm sàng và xét nghiệm khác, chưa xếp ở chỗ khác - Other symptoms, signs and abnormal clinical and laboratory findings, not elsewhere classified",
+    "exact_expected_id": 198
+  },
+  {
+    "disease_group_id": "271",
+    "name": "Vỡ xương sọ và các xương mặt - Fracture of skull and facial bones",
+    "has_model": true,
+    "match_count": 1,
+    "candidate_ids": [
+      216
+    ],
+    "selected_id": 216,
+    "selected_name": "Vỡ xương sọ và các xương mặt - Fracture of skull and facial bones",
+    "exact_expected_id": 216
+  },
+  {
+    "disease_group_id": "272",
+    "name": "Gãy xương cổ, ngực, khung chậu - Fracture of neck, thorax or pelvis.",
+    "has_model": true,
+    "match_count": 1,
+    "candidate_ids": [
+      218
+    ],
+    "selected_id": 218,
+    "selected_name": "Gãy xương cổ, ngực, khung chậu - Fracture of neck, thorax or pelvis.",
+    "exact_expected_id": 218
+  },
+  {
+    "disease_group_id": "273",
+    "name": "Gãy xương đùi - Fracture of femur",
+    "has_model": true,
+    "match_count": 1,
+    "candidate_ids": [
+      219
+    ],
+    "selected_id": 219,
+    "selected_name": "Gãy xương đùi - Fracture of femur",
+    "exact_expected_id": 219
+  },
+  {
+    "disease_group_id": "274",
+    "name": "Gãy các phần khác của chi do lao động và giao thông - Fracture of other lim bones",
+    "has_model": true,
+    "match_count": 1,
+    "candidate_ids": [
+      220
+    ],
+    "selected_id": 220,
+    "selected_name": "Gãy các phần khác của chi do lao động và giao thông - Fracture of other lim bones",
+    "exact_expected_id": 220
+  },
+  {
+    "disease_group_id": "275",
+    "name": "Gãy nhiều xương của cơ thể do lao động và giao thông - Fractures involving multiple body regions",
+    "has_model": false,
+    "match_count": 1,
+    "candidate_ids": [
+      221
+    ],
+    "selected_id": 221,
+    "selected_name": "Gãy nhiều xương của cơ thể do lao động và giao thông - Fractures involving multiple body regions",
+    "exact_expected_id": 221
+  },
+  {
+    "disease_group_id": "276",
+    "name": "Sai khớp, bong gân, tổn thương khu trú và ở nhiều vùng cơ thể - Dislocations, sprains and strains of specified and multiple body regions",
+    "has_model": true,
+    "match_count": 1,
+    "candidate_ids": [
+      222
+    ],
+    "selected_id": 222,
+    "selected_name": "Sai khớp, bong gân, tổn thương khu trú và ở nhiều vùng cơ thể - Dislocations, sprains and strains of specified and multiple body regions",
+    "exact_expected_id": 222
+  },
+  {
+    "disease_group_id": "277",
+    "name": "Thương tổn do chấn thương ở mắt và hốc mắt - Injury of eye and orbit",
+    "has_model": true,
+    "match_count": 1,
+    "candidate_ids": [
+      225
+    ],
+    "selected_id": 225,
+    "selected_name": "Thương tổn do chấn thương ở mắt và hốc mắt - Injury of eye and orbit",
+    "exact_expected_id": 225
+  },
+  {
+    "disease_group_id": "278",
+    "name": "Thương tổn do chấn thương trong sọ - Intracranial injury",
+    "has_model": true,
+    "match_count": 1,
+    "candidate_ids": [
+      226
+    ],
+    "selected_id": 226,
+    "selected_name": "Thương tổn do chấn thương trong sọ - Intracranial injury",
+    "exact_expected_id": 226
+  },
+  {
+    "disease_group_id": "279",
+    "name": "Thương tổn do chấn thương các nội tạng khác - Injury of other internal organs",
+    "has_model": true,
+    "match_count": 1,
+    "candidate_ids": [
+      227
+    ],
+    "selected_id": 227,
+    "selected_name": "Thương tổn do chấn thương các nội tạng khác - Injury of other internal organs",
+    "exact_expected_id": 227
+  },
+  {
+    "disease_group_id": "28",
+    "name": "Bại liệt cấp - Acute poliomyelitis",
+    "has_model": false,
+    "match_count": 1,
+    "candidate_ids": [
+      32
+    ],
+    "selected_id": 32,
+    "selected_name": "Bại liệt cấp - Acute poliomyelitis",
+    "exact_expected_id": 32
+  },
+  {
+    "disease_group_id": "280",
+    "name": "Chấn thương dập nát và cắt cụt đã xác định và nhiều vùng trong cơ thể - Fracture of other lim bones",
+    "has_model": false,
+    "match_count": 1,
+    "candidate_ids": [
+      199
+    ],
+    "selected_id": 199,
+    "selected_name": "Chấn thương dập nát và cắt cụt đã xác định và nhiều vùng trong cơ thể - Fracture of other lim bones",
+    "exact_expected_id": 199
+  },
+  {
+    "disease_group_id": "281",
+    "name": "Các tổn thương khác do chấn thương xác định và ở nhiều nơi - Other injuries of specified, unspecified and multiple body regions",
+    "has_model": true,
+    "match_count": 1,
+    "candidate_ids": [
+      200
+    ],
+    "selected_id": 200,
+    "selected_name": "Các tổn thương khác do chấn thương xác định và ở nhiều nơi - Other injuries of specified, unspecified and multiple body regions",
+    "exact_expected_id": 200
+  },
+  {
+    "disease_group_id": "282",
+    "name": "Hậu quả do dị vật vào hốc tự nhiên - Effects of foreign body entert hrough natural orifice",
+    "has_model": true,
+    "match_count": 1,
+    "candidate_ids": [
+      205
+    ],
+    "selected_id": 205,
+    "selected_name": "Hậu quả do dị vật vào hốc tự nhiên - Effects of foreign body entert hrough natural orifice",
+    "exact_expected_id": 205
+  },
+  {
+    "disease_group_id": "283",
+    "name": "Bỏng và sự ăn mòn - Burnss and corrosions",
+    "has_model": true,
+    "match_count": 1,
+    "candidate_ids": [
+      206
+    ],
+    "selected_id": 206,
+    "selected_name": "Bỏng và sự ăn mòn - Burnss and corrosions",
+    "exact_expected_id": 206
+  },
+  {
+    "disease_group_id": "284",
+    "name": "Nhiễm độc thuốc và các sinh phẩm - Poisoning by drugs and biological substances",
+    "has_model": true,
+    "match_count": 1,
+    "candidate_ids": [
+      297
+    ],
+    "selected_id": 297,
+    "selected_name": "Nhiễm độc thuốc và các sinh phẩm - Poisoning by drugs and biological substances",
+    "exact_expected_id": 297
+  },
+  {
+    "disease_group_id": "285",
+    "name": "Tác hại của các chất có nguồn gốc chủ yếu không phải thuốc - Toxic effects of substances chiefly nonmedical as to source",
+    "has_model": true,
+    "match_count": 1,
+    "candidate_ids": [
+      296
+    ],
+    "selected_id": 296,
+    "selected_name": "Tác hại của các chất có nguồn gốc chủ yếu không phải thuốc - Toxic effects of substances chiefly nonmedical as to source",
+    "exact_expected_id": 296
+  },
+  {
+    "disease_group_id": "286",
+    "name": "Các hội chứng do điều trị xấu - Maltreatment syndromes",
+    "has_model": false,
+    "match_count": 1,
+    "candidate_ids": [
+      308
+    ],
+    "selected_id": 308,
+    "selected_name": "Các hội chứng do điều trị xấu - Maltreatment syndromes",
+    "exact_expected_id": 308
+  },
+  {
+    "disease_group_id": "287",
+    "name": "Hậu quả của các nguyên nhân bên ngoài khác và không xác định - Other and unspecified effects of external causes",
+    "has_model": true,
+    "match_count": 1,
+    "candidate_ids": [
+      291
+    ],
+    "selected_id": 291,
+    "selected_name": "Hậu quả của các nguyên nhân bên ngoài khác và không xác định - Other and unspecified effects of external causes",
+    "exact_expected_id": 291
+  },
+  {
+    "disease_group_id": "288",
+    "name": "Một số biến chứng sớm của chấn thương, của chăm sóc ngoại khoa và y học, chưa xếp ở nơi khác - Certain early complications of trauma and complications of surgical and medical care, not elsewhere classified",
+    "has_model": true,
+    "match_count": 1,
+    "candidate_ids": [
+      292
+    ],
+    "selected_id": 292,
+    "selected_name": "Một số biến chứng sớm của chấn thương, của chăm sóc ngoại khoa và y học, chưa xếp ở nơi khác - Certain early complications of trauma and complications of surgical and medical care, not elsewhere classified",
+    "exact_expected_id": 292
+  },
+  {
+    "disease_group_id": "289",
+    "name": "Di chứng, thương tổn do chấn thương, do ngộ độc và hậu quả khác do nguyên nhân bên ngoài - Sequalae of injuries, of poisoning and of other consequences of external causes",
+    "has_model": true,
+    "match_count": 1,
+    "candidate_ids": [
+      293
+    ],
+    "selected_id": 293,
+    "selected_name": "Di chứng, thương tổn do chấn thương, do ngộ độc và hậu quả khác do nguyên nhân bên ngoài - Sequalae of injuries, of poisoning and of other consequences of external causes",
+    "exact_expected_id": 293
+  },
+  {
+    "disease_group_id": "29",
+    "name": "Dại - Rabies",
+    "has_model": false,
+    "match_count": 1,
+    "candidate_ids": [
+      33
+    ],
+    "selected_id": 33,
+    "selected_name": "Dại - Rabies",
+    "exact_expected_id": 33
+  },
+  {
+    "disease_group_id": "290",
+    "name": "Tai nạn giao thông - Transport accidént",
+    "has_model": true,
+    "match_count": 1,
+    "candidate_ids": [
+      290
+    ],
+    "selected_id": 290,
+    "selected_name": "Tai nạn giao thông - Transport accidént",
+    "exact_expected_id": 290
+  },
+  {
+    "disease_group_id": "291",
+    "name": "Tai nạn do các nguyên nhân sức mạnh cơ học và không cố ý - exposure to inanimate mechanical forces",
+    "has_model": true,
+    "match_count": 1,
+    "candidate_ids": [
+      294
+    ],
+    "selected_id": 294,
+    "selected_name": "Tai nạn do các nguyên nhân sức mạnh cơ học và không cố ý - exposure to inanimate mechanical forces",
+    "exact_expected_id": 294
+  },
+  {
+    "disease_group_id": "292",
+    "name": "Tai nạn chết đuối, chết chìm - Accident drowning and submersion",
+    "has_model": true,
+    "match_count": 1,
+    "candidate_ids": [
+      299
+    ],
+    "selected_id": 299,
+    "selected_name": "Tai nạn chết đuối, chết chìm - Accident drowning and submersion",
+    "exact_expected_id": 299
+  },
+  {
+    "disease_group_id": "293",
+    "name": "Tai nạn do dòng điện bức xạ, nhiệt độ và áp lực không khí quá cao - exposure to electric current radiation and extreme ambian air temperature and pressure",
+    "has_model": false,
+    "match_count": 1,
+    "candidate_ids": [
+      300
+    ],
+    "selected_id": 300,
+    "selected_name": "Tai nạn do dòng điện bức xạ, nhiệt độ và áp lực không khí quá cao - exposure to electric current radiation and extreme ambian air temperature and pressure",
+    "exact_expected_id": 300
+  },
+  {
+    "disease_group_id": "294",
+    "name": "Tai nạn do khói, lửa, đám cháy - expossure to smoke, fire and fpames",
+    "has_model": false,
+    "match_count": 1,
+    "candidate_ids": [
+      302
+    ],
+    "selected_id": 302,
+    "selected_name": "Tai nạn do khói, lửa, đám cháy - expossure to smoke, fire and fpames",
+    "exact_expected_id": 302
+  },
+  {
+    "disease_group_id": "295",
+    "name": "Tai nạn do tiếp xúc với các chất nóng - contact with heat and hot",
+    "has_model": false,
+    "match_count": 1,
+    "candidate_ids": [
+      303
+    ],
+    "selected_id": 303,
+    "selected_name": "Tai nạn do tiếp xúc với các chất nóng - contact with heat and hot",
+    "exact_expected_id": 303
+  },
+  {
+    "disease_group_id": "296",
+    "name": "Tai nạn do tiếp xúc với động vật và cây độc - Contact with venomous animals and plants",
+    "has_model": true,
+    "match_count": 1,
+    "candidate_ids": [
+      286
+    ],
+    "selected_id": 286,
+    "selected_name": "Tai nạn do tiếp xúc với động vật và cây độc - Contact with venomous animals and plants",
+    "exact_expected_id": 286
+  },
+  {
+    "disease_group_id": "297",
+    "name": "Tai nạn ngộ độc do các chất độc - Accident poisoning by and exposure to noxious substances",
+    "has_model": true,
+    "match_count": 1,
+    "candidate_ids": [
+      287
+    ],
+    "selected_id": 287,
+    "selected_name": "Tai nạn ngộ độc do các chất độc - Accident poisoning by and exposure to noxious substances",
+    "exact_expected_id": 287
+  },
+  {
+    "disease_group_id": "298",
+    "name": "Tự tử - Intentional self-harm",
+    "has_model": false,
+    "match_count": 1,
+    "candidate_ids": [
+      304
+    ],
+    "selected_id": 304,
+    "selected_name": "Tự tử - Intentional self-harm",
+    "exact_expected_id": 304
+  },
+  {
+    "disease_group_id": "299",
+    "name": "Bạo lực đánh nhau - Assault",
+    "has_model": true,
+    "match_count": 1,
+    "candidate_ids": [
+      305
+    ],
+    "selected_id": 305,
+    "selected_name": "Bạo lực đánh nhau - Assault",
+    "exact_expected_id": 305
+  },
+  {
+    "disease_group_id": "3",
+    "name": "Ỉa chảy do Shigella - Shigellosis",
+    "has_model": false,
+    "match_count": 1,
+    "candidate_ids": [
+      6
+    ],
+    "selected_id": 6,
+    "selected_name": "Ỉa chảy do Shigella - Shigellosis",
+    "exact_expected_id": 6
+  },
+  {
+    "disease_group_id": "30",
+    "name": "Viêm não Virut - Viral encephalitis",
+    "has_model": true,
+    "match_count": 1,
+    "candidate_ids": [
+      34
+    ],
+    "selected_id": 34,
+    "selected_name": "Viêm não Virut - Viral encephalitis",
+    "exact_expected_id": 34
+  },
+  {
+    "disease_group_id": "300",
+    "name": "Tai biến của thuốc và các chất sinh học trong điều trị - Drugs medicament and biological substances causing adverseeffects in therapeutic use.",
+    "has_model": true,
+    "match_count": 1,
+    "candidate_ids": [
+      284
+    ],
+    "selected_id": 284,
+    "selected_name": "Tai biến của thuốc và các chất sinh học trong điều trị - Drugs medicament and biological substances causing adverseeffects in therapeutic use.",
+    "exact_expected_id": 284
+  },
+  {
+    "disease_group_id": "301",
+    "name": "Tai nạn rủi ro với người bệnh trong chăm sóc nội khoa - Misadventures to patients during surgical and medical care.",
+    "has_model": false,
+    "match_count": 1,
+    "candidate_ids": [
+      285
+    ],
+    "selected_id": 285,
+    "selected_name": "Tai nạn rủi ro với người bệnh trong chăm sóc nội khoa - Misadventures to patients during surgical and medical care.",
+    "exact_expected_id": 285
+  },
+  {
+    "disease_group_id": "302",
+    "name": "Tai nạn do sử dụng thiết bị trong chẩn đoán và điều trị - Medical devices associated with adverse incidents in diagnostic and therapeutic use",
+    "has_model": false,
+    "match_count": 1,
+    "candidate_ids": [
+      295
+    ],
+    "selected_id": 295,
+    "selected_name": "Tai nạn do sử dụng thiết bị trong chẩn đoán và điều trị - Medical devices associated with adverse incidents in diagnostic and therapeutic use",
+    "exact_expected_id": 295
+  },
+  {
+    "disease_group_id": "303",
+    "name": "Các yếu tố tăng cường cho nguyên nhân bệnh tật tử vong đã có trong phân loại - Supplementary factors related to cause of morbidity classified elswhere",
+    "has_model": false,
+    "match_count": 1,
+    "candidate_ids": [
+      298
+    ],
+    "selected_id": 298,
+    "selected_name": "Các yếu tố tăng cường cho nguyên nhân bệnh tật tử vong đã có trong phân loại - Supplementary factors related to cause of morbidity classified elswhere",
+    "exact_expected_id": 298
+  },
+  {
+    "disease_group_id": "304",
+    "name": "Người tiếp xúc với các dịch vụ y tế làm các khám xét và điều tra - Person encountering health services for examination and investigation",
+    "has_model": true,
+    "match_count": 1,
+    "candidate_ids": [
+      301
+    ],
+    "selected_id": 301,
+    "selected_name": "Người tiếp xúc với các dịch vụ y tế làm các khám xét và điều tra - Person encountering health services for examination and investigation",
+    "exact_expected_id": 301
+  },
+  {
+    "disease_group_id": "305",
+    "name": "Nhiễm HIV không có triệu chứng - Asymptomatic human immuno deficiency virus infection status",
+    "has_model": false,
+    "match_count": 1,
+    "candidate_ids": [
+      306
+    ],
+    "selected_id": 306,
+    "selected_name": "Nhiễm HIV không có triệu chứng - Asymptomatic human immuno deficiency virus infection status",
+    "exact_expected_id": 306
+  },
+  {
+    "disease_group_id": "306",
+    "name": "Người có nguy cơ liên quan đến bệnh truyền nhiễm - Other persons with potential health hazards related to communicable diseases",
+    "has_model": true,
+    "match_count": 1,
+    "candidate_ids": [
+      307
+    ],
+    "selected_id": 307,
+    "selected_name": "Người có nguy cơ liên quan đến bệnh truyền nhiễm - Other persons with potential health hazards related to communicable diseases",
+    "exact_expected_id": 307
+  },
+  {
+    "disease_group_id": "307",
+    "name": "Quản lí các biện pháp tránh thai - Contraceptive management",
+    "has_model": false,
+    "match_count": 1,
+    "candidate_ids": [
+      282
+    ],
+    "selected_id": 282,
+    "selected_name": "Quản lí các biện pháp tránh thai - Contraceptive management",
+    "exact_expected_id": 282
+  },
+  {
+    "disease_group_id": "308",
+    "name": "Giám sát thai nghén và phát hiện trước đẻ - Antenatal screening and other supervision of pregnancy",
+    "has_model": false,
+    "match_count": 1,
+    "candidate_ids": [
+      309
+    ],
+    "selected_id": 309,
+    "selected_name": "Giám sát thai nghén và phát hiện trước đẻ - Antenatal screening and other supervision of pregnancy",
+    "exact_expected_id": 309
+  },
+  {
+    "disease_group_id": "309",
+    "name": "Trẻ đẻ ra sống phân theo nơi sinh - Liveborn infants according to place of birth",
+    "has_model": false,
+    "match_count": 1,
+    "candidate_ids": [
+      310
+    ],
+    "selected_id": 310,
+    "selected_name": "Trẻ đẻ ra sống phân theo nơi sinh - Liveborn infants according to place of birth",
+    "exact_expected_id": 310
+  },
+  {
+    "disease_group_id": "31",
+    "name": "Sốt vàng - Yellow fever",
+    "has_model": false,
+    "match_count": 1,
+    "candidate_ids": [
+      35
+    ],
+    "selected_id": 35,
+    "selected_name": "Sốt vàng - Yellow fever",
+    "exact_expected_id": 35
+  },
+  {
+    "disease_group_id": "310",
+    "name": "Chăm sóc và khám xét sau đẻ - Postpartum care and examination",
+    "has_model": false,
+    "match_count": 1,
+    "candidate_ids": [
+      311
+    ],
+    "selected_id": 311,
+    "selected_name": "Chăm sóc và khám xét sau đẻ - Postpartum care and examination",
+    "exact_expected_id": 311
+  },
+  {
+    "disease_group_id": "311",
+    "name": "Bệnh do tiếp xúc với dịch vụ y tế phải chăm sóc và khám xét đặc biệt - Persons encountering health services for specific procedures and health care",
+    "has_model": true,
+    "match_count": 1,
+    "candidate_ids": [
+      289
+    ],
+    "selected_id": 289,
+    "selected_name": "Bệnh do tiếp xúc với dịch vụ y tế phải chăm sóc và khám xét đặc biệt - Persons encountering health services for specific procedures and health care",
+    "exact_expected_id": 289
+  },
+  {
+    "disease_group_id": "312",
+    "name": "Bệnh do tiếp xúc với dịch vụ y tế vì những lý do khác - Person encoutering health services for other reasons",
+    "has_model": true,
+    "match_count": 1,
+    "candidate_ids": [
+      283
+    ],
+    "selected_id": 283,
+    "selected_name": "Bệnh do tiếp xúc với dịch vụ y tế vì những lý do khác - Person encoutering health services for other reasons",
+    "exact_expected_id": 283
+  },
+  {
+    "disease_group_id": "313",
+    "name": "COVID-19 * U07.1 là bệnh nhân COVID-19 có kết quả xét nghiệm SARS-CoV-2 dương tính cập nhật theo hướng dẫn chẩn đoán và điều trị của Bộ Y tế.",
+    "has_model": true,
+    "match_count": 1,
+    "candidate_ids": [
+      288
+    ],
+    "selected_id": 288,
+    "selected_name": "COVID-19 * U07.1 là bệnh nhân COVID-19 có kết quả xét nghiệm SARS-CoV-2 dương tính cập nhật theo hướng dẫn chẩn đoán và điều trị của Bộ Y tế.",
+    "exact_expected_id": 288
+  },
+  {
+    "disease_group_id": "32",
+    "name": "Sốt virut khác do tiết túc truyền và sốt virus xuất huyết - Other arthropod",
+    "has_model": true,
+    "match_count": 1,
+    "candidate_ids": [
+      36
+    ],
+    "selected_id": 36,
+    "selected_name": "Sốt virut khác do tiết túc truyền và sốt virus xuất huyết - Other arthropod",
+    "exact_expected_id": 36
+  },
+  {
+    "disease_group_id": "33",
+    "name": "Nhiễm virut Héc-pét - Herpesviral infections",
+    "has_model": true,
+    "match_count": 1,
+    "candidate_ids": [
+      37
+    ],
+    "selected_id": 37,
+    "selected_name": "Nhiễm virut Héc-pét - Herpesviral infections",
+    "exact_expected_id": 37
+  },
+  {
+    "disease_group_id": "34",
+    "name": "Thuỷ đậu và zôna - Varicella and Zoster",
+    "has_model": true,
+    "match_count": 1,
+    "candidate_ids": [
+      38
+    ],
+    "selected_id": 38,
+    "selected_name": "Thuỷ đậu và zôna - Varicella and Zoster",
+    "exact_expected_id": 38
+  },
+  {
+    "disease_group_id": "35",
+    "name": "Sởi - Measles",
+    "has_model": false,
+    "match_count": 1,
+    "candidate_ids": [
+      40
+    ],
+    "selected_id": 40,
+    "selected_name": "Sởi - Measles",
+    "exact_expected_id": 40
+  },
+  {
+    "disease_group_id": "36",
+    "name": "Rubella - Rubella",
+    "has_model": false,
+    "match_count": 1,
+    "candidate_ids": [
+      41
+    ],
+    "selected_id": 41,
+    "selected_name": "Rubella - Rubella",
+    "exact_expected_id": 41
+  },
+  {
+    "disease_group_id": "37",
+    "name": "Viêm gan B cấp - Acute hepatitis B",
+    "has_model": true,
+    "match_count": 1,
+    "candidate_ids": [
+      42
+    ],
+    "selected_id": 42,
+    "selected_name": "Viêm gan B cấp - Acute hepatitis B",
+    "exact_expected_id": 42
+  },
+  {
+    "disease_group_id": "38",
+    "name": "Viêm gan virut khác - Other viral hepatitis",
+    "has_model": true,
+    "match_count": 1,
+    "candidate_ids": [
+      19
+    ],
+    "selected_id": 19,
+    "selected_name": "Viêm gan virut khác - Other viral hepatitis",
+    "exact_expected_id": 19
+  },
+  {
+    "disease_group_id": "39",
+    "name": "Nhiễm HIV - Human immuno deficiency virus disease",
+    "has_model": true,
+    "match_count": 1,
+    "candidate_ids": [
+      20
+    ],
+    "selected_id": 20,
+    "selected_name": "Nhiễm HIV - Human immuno deficiency virus disease",
+    "exact_expected_id": 20
+  },
+  {
+    "disease_group_id": "4",
+    "name": "Lỵ Amip - Amoebiasis",
+    "has_model": true,
+    "match_count": 1,
+    "candidate_ids": [
+      7
+    ],
+    "selected_id": 7,
+    "selected_name": "Lỵ Amip - Amoebiasis",
+    "exact_expected_id": 7
+  },
+  {
+    "disease_group_id": "40",
+    "name": "Quai bị - Mumps",
+    "has_model": false,
+    "match_count": 1,
+    "candidate_ids": [
+      21
+    ],
+    "selected_id": 21,
+    "selected_name": "Quai bị - Mumps",
+    "exact_expected_id": 21
+  },
+  {
+    "disease_group_id": "41",
+    "name": "Bệnh virut khác - Other viral diseases",
+    "has_model": true,
+    "match_count": 1,
+    "candidate_ids": [
+      22
+    ],
+    "selected_id": 22,
+    "selected_name": "Bệnh virut khác - Other viral diseases",
+    "exact_expected_id": 22
+  },
+  {
+    "disease_group_id": "42",
+    "name": "Nấm - Mycoses",
+    "has_model": true,
+    "match_count": 1,
+    "candidate_ids": [
+      43
+    ],
+    "selected_id": 43,
+    "selected_name": "Nấm - Mycoses",
+    "exact_expected_id": 43
+  },
+  {
+    "disease_group_id": "43",
+    "name": "Sốt rét - Malaria",
+    "has_model": false,
+    "match_count": 1,
+    "candidate_ids": [
+      49
+    ],
+    "selected_id": 49,
+    "selected_name": "Sốt rét - Malaria",
+    "exact_expected_id": 49
+  },
+  {
+    "disease_group_id": "44",
+    "name": "Leishamania - Leishmaniasis",
+    "has_model": false,
+    "match_count": 1,
+    "candidate_ids": [
+      50
+    ],
+    "selected_id": 50,
+    "selected_name": "Leishamania - Leishmaniasis",
+    "exact_expected_id": 50
+  },
+  {
+    "disease_group_id": "45",
+    "name": "Trypanosomia - Trypanosomiasis",
+    "has_model": false,
+    "match_count": 1,
+    "candidate_ids": [
+      51
+    ],
+    "selected_id": 51,
+    "selected_name": "Trypanosomia - Trypanosomiasis",
+    "exact_expected_id": 51
+  },
+  {
+    "disease_group_id": "46",
+    "name": "Sán máng - Schistosomiasis",
+    "has_model": false,
+    "match_count": 1,
+    "candidate_ids": [
+      52
+    ],
+    "selected_id": 52,
+    "selected_name": "Sán máng - Schistosomiasis",
+    "exact_expected_id": 52
+  },
+  {
+    "disease_group_id": "47",
+    "name": "Các nhiễm khuẩn do sán lá - Other fluke infections",
+    "has_model": true,
+    "match_count": 1,
+    "candidate_ids": [
+      53
+    ],
+    "selected_id": 53,
+    "selected_name": "Các nhiễm khuẩn do sán lá - Other fluke infections",
+    "exact_expected_id": 53
+  },
+  {
+    "disease_group_id": "48",
+    "name": "Sán Echinococ - Echinococcosis",
+    "has_model": true,
+    "match_count": 1,
+    "candidate_ids": [
+      54
+    ],
+    "selected_id": 54,
+    "selected_name": "Sán Echinococ - Echinococcosis",
+    "exact_expected_id": 54
+  },
+  {
+    "disease_group_id": "49",
+    "name": "Giun rồng - Dracunculiasis",
+    "has_model": false,
+    "match_count": 1,
+    "candidate_ids": [
+      55
+    ],
+    "selected_id": 55,
+    "selected_name": "Giun rồng - Dracunculiasis",
+    "exact_expected_id": 55
+  },
+  {
+    "disease_group_id": "5",
+    "name": "Ỉa chảy, viêm dạy dày, ruột non có nguồn gốc nhiễm khuẩn - Diarrhoea and gastroenteritis of presumed infectious origin.",
+    "has_model": true,
+    "match_count": 1,
+    "candidate_ids": [
+      8
+    ],
+    "selected_id": 8,
+    "selected_name": "Ỉa chảy, viêm dạy dày, ruột non có nguồn gốc nhiễm khuẩn - Diarrhoea and gastroenteritis of presumed infectious origin.",
+    "exact_expected_id": 8
+  },
+  {
+    "disease_group_id": "50",
+    "name": "Giun onchocerca - Onchocerciasis",
+    "has_model": false,
+    "match_count": 1,
+    "candidate_ids": [
+      56
+    ],
+    "selected_id": 56,
+    "selected_name": "Giun onchocerca - Onchocerciasis",
+    "exact_expected_id": 56
+  },
+  {
+    "disease_group_id": "51",
+    "name": "Giun chỉ - Filariasis",
+    "has_model": false,
+    "match_count": 1,
+    "candidate_ids": [
+      57
+    ],
+    "selected_id": 57,
+    "selected_name": "Giun chỉ - Filariasis",
+    "exact_expected_id": 57
+  },
+  {
+    "disease_group_id": "52",
+    "name": "Giun móc - Hookworm diseases",
+    "has_model": false,
+    "match_count": 1,
+    "candidate_ids": [
+      58
+    ],
+    "selected_id": 58,
+    "selected_name": "Giun móc - Hookworm diseases",
+    "exact_expected_id": 58
+  },
+  {
+    "disease_group_id": "53",
+    "name": "Bệnh giun sán khác - Other Helminthiases",
+    "has_model": true,
+    "match_count": 1,
+    "candidate_ids": [
+      44
+    ],
+    "selected_id": 44,
+    "selected_name": "Bệnh giun sán khác - Other Helminthiases",
+    "exact_expected_id": 44
+  },
+  {
+    "disease_group_id": "54",
+    "name": "Di chứng lao - Sequelae of tuberculosis",
+    "has_model": false,
+    "match_count": 1,
+    "candidate_ids": [
+      45
+    ],
+    "selected_id": 45,
+    "selected_name": "Di chứng lao - Sequelae of tuberculosis",
+    "exact_expected_id": 45
+  },
+  {
+    "disease_group_id": "55",
+    "name": "Di chứng viêm tủy xám cấp - Sequelae of poliomyelitis",
+    "has_model": false,
+    "match_count": 1,
+    "candidate_ids": [
+      46
+    ],
+    "selected_id": 46,
+    "selected_name": "Di chứng viêm tủy xám cấp - Sequelae of poliomyelitis",
+    "exact_expected_id": 46
+  },
+  {
+    "disease_group_id": "56",
+    "name": "Di chứng phong - Sequelae of leprosy",
+    "has_model": false,
+    "match_count": 1,
+    "candidate_ids": [
+      47
+    ],
+    "selected_id": 47,
+    "selected_name": "Di chứng phong - Sequelae of leprosy",
+    "exact_expected_id": 47
+  },
+  {
+    "disease_group_id": "57",
+    "name": "Bệnh nhiễm khuẩn và kí sinh vật khác - Other infectious and parasitic diseases",
+    "has_model": true,
+    "match_count": 1,
+    "candidate_ids": [
+      48
+    ],
+    "selected_id": 48,
+    "selected_name": "Bệnh nhiễm khuẩn và kí sinh vật khác - Other infectious and parasitic diseases",
+    "exact_expected_id": 48
+  },
+  {
+    "disease_group_id": "58",
+    "name": "U ác môi, khoang miệng, họng - Malignant neoplasm of lip, oral cavity and pharynx",
+    "has_model": true,
+    "match_count": 1,
+    "candidate_ids": [
+      64
+    ],
+    "selected_id": 64,
+    "selected_name": "U ác môi, khoang miệng, họng - Malignant neoplasm of lip, oral cavity and pharynx",
+    "exact_expected_id": 64
+  },
+  {
+    "disease_group_id": "59",
+    "name": "U ác thực quản - Malignant neoplasm of oesophagus",
+    "has_model": false,
+    "match_count": 1,
+    "candidate_ids": [
+      65
+    ],
+    "selected_id": 65,
+    "selected_name": "U ác thực quản - Malignant neoplasm of oesophagus",
+    "exact_expected_id": 65
+  },
+  {
+    "disease_group_id": "6",
+    "name": "Các bệnh nhiễm khuẩn ruột khác - Other intestinal infectious diseases",
+    "has_model": true,
+    "match_count": 1,
+    "candidate_ids": [
+      5
+    ],
+    "selected_id": 5,
+    "selected_name": "Các bệnh nhiễm khuẩn ruột khác - Other intestinal infectious diseases",
+    "exact_expected_id": 5
+  },
+  {
+    "disease_group_id": "60",
+    "name": "U ác dạ dày - Malignant neoplasm of stomach",
+    "has_model": true,
+    "match_count": 1,
+    "candidate_ids": [
+      66
+    ],
+    "selected_id": 66,
+    "selected_name": "U ác dạ dày - Malignant neoplasm of stomach",
+    "exact_expected_id": 66
+  },
+  {
+    "disease_group_id": "61",
+    "name": "U ác đại tràng - Malignant neoplasm of colon",
+    "has_model": false,
+    "match_count": 1,
+    "candidate_ids": [
+      67
+    ],
+    "selected_id": 67,
+    "selected_name": "U ác đại tràng - Malignant neoplasm of colon",
+    "exact_expected_id": 67
+  },
+  {
+    "disease_group_id": "62",
+    "name": "U ác chỗ nối trực tràng sigma, trực tràng, hậu môn và ống hậu môn - Malignant neoplasm of rectosigmoid function, rectum, anus and anal canal",
+    "has_model": true,
+    "match_count": 1,
+    "candidate_ids": [
+      68
+    ],
+    "selected_id": 68,
+    "selected_name": "U ác chỗ nối trực tràng sigma, trực tràng, hậu môn và ống hậu môn - Malignant neoplasm of rectosigmoid function, rectum, anus and anal canal",
+    "exact_expected_id": 68
+  },
+  {
+    "disease_group_id": "63",
+    "name": "U ác gan và đường mật trong gan - Malignant neoplasm of liver and intrahepatic bile ducts",
+    "has_model": true,
+    "match_count": 1,
+    "candidate_ids": [
+      69
+    ],
+    "selected_id": 69,
+    "selected_name": "U ác gan và đường mật trong gan - Malignant neoplasm of liver and intrahepatic bile ducts",
+    "exact_expected_id": 69
+  },
+  {
+    "disease_group_id": "64",
+    "name": "U ác tụy - Malignant neoplasm of pancreas",
+    "has_model": true,
+    "match_count": 1,
+    "candidate_ids": [
+      70
+    ],
+    "selected_id": 70,
+    "selected_name": "U ác tụy - Malignant neoplasm of pancreas",
+    "exact_expected_id": 70
+  },
+  {
+    "disease_group_id": "65",
+    "name": "Các u khác cơ quan tiêu hoá - Other malignant neoplasms of digestive organs",
+    "has_model": true,
+    "match_count": 1,
+    "candidate_ids": [
+      71
+    ],
+    "selected_id": 71,
+    "selected_name": "Các u khác cơ quan tiêu hoá - Other malignant neoplasms of digestive organs",
+    "exact_expected_id": 71
+  },
+  {
+    "disease_group_id": "66",
+    "name": "U ác thanh quản - Malignant neoplasm of larynx",
+    "has_model": false,
+    "match_count": 1,
+    "candidate_ids": [
+      72
+    ],
+    "selected_id": 72,
+    "selected_name": "U ác thanh quản - Malignant neoplasm of larynx",
+    "exact_expected_id": 72
+  },
+  {
+    "disease_group_id": "67",
+    "name": "U ác khí quản, phế quản và phổi - Malignant neoplasms of trachea, bronchus and lung",
+    "has_model": false,
+    "match_count": 1,
+    "candidate_ids": [
+      73
+    ],
+    "selected_id": 73,
+    "selected_name": "U ác khí quản, phế quản và phổi - Malignant neoplasms of trachea, bronchus and lung",
+    "exact_expected_id": 73
+  },
+  {
+    "disease_group_id": "68",
+    "name": "Các u khác cơ quan hô hấp và lồng ngực - Other malignant neplasm of respiratory and intrathoracic",
+    "has_model": true,
+    "match_count": 1,
+    "candidate_ids": [
+      59
+    ],
+    "selected_id": 59,
+    "selected_name": "Các u khác cơ quan hô hấp và lồng ngực - Other malignant neplasm of respiratory and intrathoracic",
+    "exact_expected_id": 59
+  },
+  {
+    "disease_group_id": "69",
+    "name": "U ác xương và sụn khớp - Malignant neoplasms of bone and articular cartilage",
+    "has_model": true,
+    "match_count": 1,
+    "candidate_ids": [
+      60
+    ],
+    "selected_id": 60,
+    "selected_name": "U ác xương và sụn khớp - Malignant neoplasms of bone and articular cartilage",
+    "exact_expected_id": 60
+  },
+  {
+    "disease_group_id": "7",
+    "name": "Lao bộ máy hô hấp - Respiratory tuberculosis",
+    "has_model": true,
+    "match_count": 1,
+    "candidate_ids": [
+      9
+    ],
+    "selected_id": 9,
+    "selected_name": "Lao bộ máy hô hấp - Respiratory tuberculosis",
+    "exact_expected_id": 9
+  },
+  {
+    "disease_group_id": "70",
+    "name": "U ác hắc tố da - Malignant melanoma of skin",
+    "has_model": true,
+    "match_count": 1,
+    "candidate_ids": [
+      61
+    ],
+    "selected_id": 61,
+    "selected_name": "U ác hắc tố da - Malignant melanoma of skin",
+    "exact_expected_id": 61
+  },
+  {
+    "disease_group_id": "71",
+    "name": "Các u ác khác của da - Other malignant neoplasms of skin",
+    "has_model": false,
+    "match_count": 1,
+    "candidate_ids": [
+      62
+    ],
+    "selected_id": 62,
+    "selected_name": "Các u ác khác của da - Other malignant neoplasms of skin",
+    "exact_expected_id": 62
+  },
+  {
+    "disease_group_id": "72",
+    "name": "U ác mạc treo và các mô mềm - Malignantneoplasms of mesothelial and soft tissue",
+    "has_model": true,
+    "match_count": 1,
+    "candidate_ids": [
+      63
+    ],
+    "selected_id": 63,
+    "selected_name": "U ác mạc treo và các mô mềm - Malignantneoplasms of mesothelial and soft tissue",
+    "exact_expected_id": 63
+  },
+  {
+    "disease_group_id": "73",
+    "name": "U ác vú - Malignant neoplasm of breast",
+    "has_model": true,
+    "match_count": 1,
+    "candidate_ids": [
+      87
+    ],
+    "selected_id": 87,
+    "selected_name": "U ác vú - Malignant neoplasm of breast",
+    "exact_expected_id": 87
+  },
+  {
+    "disease_group_id": "74",
+    "name": "U ác khác cơ quan sinh dục nữ - Malignant neoplasms of female genital organs",
+    "has_model": true,
+    "match_count": 1,
+    "candidate_ids": [
+      88
+    ],
+    "selected_id": 88,
+    "selected_name": "U ác khác cơ quan sinh dục nữ - Malignant neoplasms of female genital organs",
+    "exact_expected_id": 88
+  },
+  {
+    "disease_group_id": "75",
+    "name": "U ác cổ tử cung - Malignant neoplasm of cervix uteri",
+    "has_model": false,
+    "match_count": 1,
+    "candidate_ids": [
+      89
+    ],
+    "selected_id": 89,
+    "selected_name": "U ác cổ tử cung - Malignant neoplasm of cervix uteri",
+    "exact_expected_id": 89
+  },
+  {
+    "disease_group_id": "76",
+    "name": "U ác các phần khác và không xác định của tử cung - Malignant neoplasms of other and unspecified parts of uterus",
+    "has_model": true,
+    "match_count": 1,
+    "candidate_ids": [
+      90
+    ],
+    "selected_id": 90,
+    "selected_name": "U ác các phần khác và không xác định của tử cung - Malignant neoplasms of other and unspecified parts of uterus",
+    "exact_expected_id": 90
+  },
+  {
+    "disease_group_id": "77",
+    "name": "U tiền liệt tuyến - Neoplasm neoplasm of prostate",
+    "has_model": false,
+    "match_count": 1,
+    "candidate_ids": [
+      91
+    ],
+    "selected_id": 91,
+    "selected_name": "U tiền liệt tuyến - Neoplasm neoplasm of prostate",
+    "exact_expected_id": 91
+  },
+  {
+    "disease_group_id": "78",
+    "name": "U ác khác của cơ quan sinh dục nam - Other malignant neoplasms of male genital organs",
+    "has_model": true,
+    "match_count": 1,
+    "candidate_ids": [
+      92
+    ],
+    "selected_id": 92,
+    "selected_name": "U ác khác của cơ quan sinh dục nam - Other malignant neoplasms of male genital organs",
+    "exact_expected_id": 92
+  },
+  {
+    "disease_group_id": "79",
+    "name": "U ác bàng quang - Malignant neoplasm of bladder",
+    "has_model": true,
+    "match_count": 1,
+    "candidate_ids": [
+      93
+    ],
+    "selected_id": 93,
+    "selected_name": "U ác bàng quang - Malignant neoplasm of bladder",
+    "exact_expected_id": 93
+  },
+  {
+    "disease_group_id": "8",
+    "name": "Các dạng lao khác - Other tuberculosis",
+    "has_model": true,
+    "match_count": 1,
+    "candidate_ids": [
+      10
+    ],
+    "selected_id": 10,
+    "selected_name": "Các dạng lao khác - Other tuberculosis",
+    "exact_expected_id": 10
+  },
+  {
+    "disease_group_id": "80",
+    "name": "U ác khác của đường tiết niệu - Other malignant neoplasms of uterinary tract",
+    "has_model": true,
+    "match_count": 1,
+    "candidate_ids": [
+      74
+    ],
+    "selected_id": 74,
+    "selected_name": "U ác khác của đường tiết niệu - Other malignant neoplasms of uterinary tract",
+    "exact_expected_id": 74
+  },
+  {
+    "disease_group_id": "81",
+    "name": "U ác mắt và các phần phụ - Malignant neoplasm of eye and adnexa",
+    "has_model": true,
+    "match_count": 1,
+    "candidate_ids": [
+      75
+    ],
+    "selected_id": 75,
+    "selected_name": "U ác mắt và các phần phụ - Malignant neoplasm of eye and adnexa",
+    "exact_expected_id": 75
+  },
+  {
+    "disease_group_id": "82",
+    "name": "U ác não - Malignant neoplasm of brain",
+    "has_model": true,
+    "match_count": 1,
+    "candidate_ids": [
+      76
+    ],
+    "selected_id": 76,
+    "selected_name": "U ác não - Malignant neoplasm of brain",
+    "exact_expected_id": 76
+  },
+  {
+    "disease_group_id": "83",
+    "name": "U ác các phần khác của hệ thần kinh trung ương - Malignant neoplasm of other parts of central nervous system",
+    "has_model": true,
+    "match_count": 1,
+    "candidate_ids": [
+      77
+    ],
+    "selected_id": 77,
+    "selected_name": "U ác các phần khác của hệ thần kinh trung ương - Malignant neoplasm of other parts of central nervous system",
+    "exact_expected_id": 77
+  },
+  {
+    "disease_group_id": "84",
+    "name": "U ác các khu trú khác, khó định nghĩa, thứ phát, không xác định rõ và phức hợp - Malignant neoplasm of other and ill",
+    "has_model": true,
+    "match_count": 1,
+    "candidate_ids": [
+      78
+    ],
+    "selected_id": 78,
+    "selected_name": "U ác các khu trú khác, khó định nghĩa, thứ phát, không xác định rõ và phức hợp - Malignant neoplasm of other and ill",
+    "exact_expected_id": 78
+  },
+  {
+    "disease_group_id": "85",
+    "name": "Bệnh Hodgkin - Hodgkin disease",
+    "has_model": true,
+    "match_count": 1,
+    "candidate_ids": [
+      85
+    ],
+    "selected_id": 85,
+    "selected_name": "Bệnh Hodgkin - Hodgkin disease",
+    "exact_expected_id": 85
+  },
+  {
+    "disease_group_id": "86",
+    "name": "U bạch huyết không phải Hodgkin - Non-Hodgkin's lymphoma",
+    "has_model": true,
+    "match_count": 1,
+    "candidate_ids": [
+      86
+    ],
+    "selected_id": 86,
+    "selected_name": "U bạch huyết không phải Hodgkin - Non-Hodgkin's lymphoma",
+    "exact_expected_id": 86
+  },
+  {
+    "disease_group_id": "87",
+    "name": "Bệnh bạch cầu - Leukaemia",
+    "has_model": true,
+    "match_count": 1,
+    "candidate_ids": [
+      79
+    ],
+    "selected_id": 79,
+    "selected_name": "Bệnh bạch cầu - Leukaemia",
+    "exact_expected_id": 79
+  },
+  {
+    "disease_group_id": "88",
+    "name": "U ác limphô khác, cơ quan tạo máu và tổ chức có liên quan - Other malignant neoplasms of lymphoid, haematopoietic and related tissue",
+    "has_model": true,
+    "match_count": 1,
+    "candidate_ids": [
+      80
+    ],
+    "selected_id": 80,
+    "selected_name": "U ác limphô khác, cơ quan tạo máu và tổ chức có liên quan - Other malignant neoplasms of lymphoid, haematopoietic and related tissue",
+    "exact_expected_id": 80
+  },
+  {
+    "disease_group_id": "89",
+    "name": "Caxinom cổ tử cung - Carcinoma insitu of cervix uterus",
+    "has_model": false,
+    "match_count": 1,
+    "candidate_ids": [
+      81
+    ],
+    "selected_id": 81,
+    "selected_name": "Caxinom cổ tử cung - Carcinoma insitu of cervix uterus",
+    "exact_expected_id": 81
+  },
+  {
+    "disease_group_id": "9",
+    "name": "Dịch hạch - Plague",
+    "has_model": true,
+    "match_count": 1,
+    "candidate_ids": [
+      11
+    ],
+    "selected_id": 11,
+    "selected_name": "Dịch hạch - Plague",
+    "exact_expected_id": 11
+  },
+  {
+    "disease_group_id": "90",
+    "name": "U da lành - Benign neoplasm of skin",
+    "has_model": true,
+    "match_count": 1,
+    "candidate_ids": [
+      82
+    ],
+    "selected_id": 82,
+    "selected_name": "U da lành - Benign neoplasm of skin",
+    "exact_expected_id": 82
+  },
+  {
+    "disease_group_id": "91",
+    "name": "U vú lành - Benign neoplasm of breast",
+    "has_model": true,
+    "match_count": 1,
+    "candidate_ids": [
+      83
+    ],
+    "selected_id": 83,
+    "selected_name": "U vú lành - Benign neoplasm of breast",
+    "exact_expected_id": 83
+  },
+  {
+    "disease_group_id": "92",
+    "name": "U cơ trơn tử cung - Leiomyoma of uterus",
+    "has_model": true,
+    "match_count": 1,
+    "candidate_ids": [
+      84
+    ],
+    "selected_id": 84,
+    "selected_name": "U cơ trơn tử cung - Leiomyoma of uterus",
+    "exact_expected_id": 84
+  },
+  {
+    "disease_group_id": "93",
+    "name": "U buồng trứng lành - Benign neoplasm of ovary",
+    "has_model": true,
+    "match_count": 1,
+    "candidate_ids": [
+      95
+    ],
+    "selected_id": 95,
+    "selected_name": "U buồng trứng lành - Benign neoplasm of ovary",
+    "exact_expected_id": 95
+  },
+  {
+    "disease_group_id": "94",
+    "name": "U lành cơ quan tiết niệu - Benign neoplasm of urinary organs",
+    "has_model": true,
+    "match_count": 1,
+    "candidate_ids": [
+      96
+    ],
+    "selected_id": 96,
+    "selected_name": "U lành cơ quan tiết niệu - Benign neoplasm of urinary organs",
+    "exact_expected_id": 96
+  },
+  {
+    "disease_group_id": "95",
+    "name": "U lành não và các phần khác của hệ thần kinh trung ương - Benign neoplasm of brain and other parts of central nervous system",
+    "has_model": true,
+    "match_count": 1,
+    "candidate_ids": [
+      97
+    ],
+    "selected_id": 97,
+    "selected_name": "U lành não và các phần khác của hệ thần kinh trung ương - Benign neoplasm of brain and other parts of central nervous system",
+    "exact_expected_id": 97
+  },
+  {
+    "disease_group_id": "96",
+    "name": "U khác insitu, lành tính và các u tiến triển không chắc chắn hoặc chưa rõ - Other insitus and benign neoplasms and neoplasms of uncertain or unknown behaviour",
+    "has_model": true,
+    "match_count": 1,
+    "candidate_ids": [
+      94
+    ],
+    "selected_id": 94,
+    "selected_name": "U khác insitu, lành tính và các u tiến triển không chắc chắn hoặc chưa rõ - Other insitus and benign neoplasms and neoplasms of uncertain or unknown behaviour",
+    "exact_expected_id": 94
+  },
+  {
+    "disease_group_id": "97",
+    "name": "Thiếu máu do thiếu sắt - Iron deficiency anaemia",
+    "has_model": true,
+    "match_count": 1,
+    "candidate_ids": [
+      104
+    ],
+    "selected_id": 104,
+    "selected_name": "Thiếu máu do thiếu sắt - Iron deficiency anaemia",
+    "exact_expected_id": 104
+  },
+  {
+    "disease_group_id": "98",
+    "name": "Thiếu máu khác - Other anaemias",
+    "has_model": true,
+    "match_count": 1,
+    "candidate_ids": [
+      98
+    ],
+    "selected_id": 98,
+    "selected_name": "Thiếu máu khác - Other anaemias",
+    "exact_expected_id": 98
+  },
+  {
+    "disease_group_id": "99",
+    "name": "Tổn thương chảy máu, bệnh khác của máu và cơ quan tạo máu - Haemorrhagic conditions and other diseases of blood, blood",
+    "has_model": true,
+    "match_count": 1,
+    "candidate_ids": [
+      99
+    ],
+    "selected_id": 99,
+    "selected_name": "Tổn thương chảy máu, bệnh khác của máu và cơ quan tạo máu - Haemorrhagic conditions and other diseases of blood, blood",
+    "exact_expected_id": 99
+  }
+]

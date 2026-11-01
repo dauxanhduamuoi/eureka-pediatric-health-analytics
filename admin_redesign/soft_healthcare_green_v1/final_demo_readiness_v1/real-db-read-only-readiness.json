@@ -1,0 +1,56 @@
+{
+  "read_mode": "mode=ro&immutable=1, query_only; presence and period coverage, no patient rows or account identity/credentials",
+  "tables": {
+    "patient_records": {
+      "exists": true,
+      "has_rows": true
+    },
+    "monthly_statistics": {
+      "exists": true,
+      "has_rows": true
+    },
+    "forecast_results": {
+      "exists": true,
+      "has_rows": true
+    },
+    "disease_codes": {
+      "exists": true,
+      "has_rows": true
+    },
+    "users": {
+      "exists": true,
+      "has_rows": true
+    },
+    "user_permissions": {
+      "exists": true,
+      "has_rows": true
+    },
+    "area_provinces": {
+      "exists": true,
+      "has_rows": true
+    },
+    "parent_disease_visibility_settings": {
+      "exists": true,
+      "has_rows": true
+    }
+  },
+  "predict_current": {
+    "has_monthly_data": true,
+    "first_period": "2021-01",
+    "last_period": "2025-04"
+  },
+  "train_history": {
+    "has_monthly_data": false,
+    "first_period": null,
+    "last_period": null
+  },
+  "forecast": {
+    "first_period": "2025-05",
+    "last_period": "2025-05",
+    "has_results": true
+  },
+  "active_roles_available": {
+    "admin": true,
+    "staff": true
+  }
+}

@@ -1,0 +1,129 @@
+--- before/Frontend/src/app/components/admin/AdminLayout.tsx
++++ after/Frontend/src/app/components/admin/AdminLayout.tsx
+@@ -2,7 +2,7 @@
+ import { Activity, Bell, ChevronLeft, ChevronDown, LogOut, Menu, Settings, User, X } from 'lucide-react';
+ import type { CurrentUser } from '@/lib/api';
+ import { useT } from '@/lib/i18n';
+-import { getAdminPageGroup, type NavItem, type TabType } from '../../navigation';
++import { getAdminPageGroup, getAdminPageIcon, type NavItem, type TabType } from '../../navigation';
+ import { AdminPageTitleContext } from './AdminPageHeading';
+ import AdminMainNavigation from '../AdminMainNavigation';
+ import './admin.css';
+@@ -38,6 +38,7 @@
+   const showLabels = mobile || expanded;
+   const name = user.full_name || user.username;
+   const role = user.role === 'admin' ? t('user.adminRole') : t('user.staffRole');
++  const PageIcon = getAdminPageIcon(activeTab, t);
+ 
+   useEffect(() => {
+     const resize = () => {
+@@ -116,6 +117,7 @@
+         <header className="admin-topbar">
+           <div className="admin-topbar-title">
+             {mobile && <button ref={toggleRef} type="button" className="admin-icon-button" aria-label={t('sidebar.expand')} aria-expanded={drawerOpen} aria-controls="admin-sidebar" onClick={() => setDrawerOpen(true)}><Menu size={21} /></button>}
++            <span className="admin-topbar-page-icon" aria-hidden="true"><PageIcon size={22} strokeWidth={1.75} /></span>
+             <div className="admin-topbar-heading"><p className="admin-page-group">{getAdminPageGroup(activeTab, t)}</p><h1 id="admin-page-title">{pageTitle}</h1></div>
+           </div>
+           <div className="admin-topbar-actions">
+--- before/Frontend/src/app/components/admin/AdminPageTitles.test.tsx
++++ after/Frontend/src/app/components/admin/AdminPageTitles.test.tsx
+@@ -1,5 +1,5 @@
+ import type { ReactNode } from 'react';
+-import { cleanup, render, screen, waitFor, within } from '@testing-library/react';
++import { cleanup, fireEvent, render, screen, waitFor, within } from '@testing-library/react';
+ import { afterEach, beforeEach, expect, it, vi } from 'vitest';
+ import { Activity } from 'lucide-react';
+ import { I18nProvider } from '@/lib/i18n';
+@@ -56,6 +56,20 @@
+   expect(screen.getAllByRole('heading', { level: 1 })).toHaveLength(1);
+   expect(screen.getByRole('heading', { level: 1, name: label })).toHaveAttribute('id', 'admin-page-title');
+   expect(document.querySelector('.admin-page-group')).toHaveTextContent(getAdminPageGroup(id, t));
++  const pageIcon = document.querySelector('.admin-topbar-page-icon svg')!;
++  expect(pageIcon).toBeInTheDocument();
++  expect(pageIcon.parentElement).toHaveAttribute('aria-hidden', 'true');
++  if (getMainNavItems(t).some((item) => item.id === id)) {
++    const sidebar = document.getElementById('admin-sidebar')!;
++    const menuIcon = within(sidebar).getAllByRole('button', { name: label }).find((button) => button.getAttribute('aria-current') === 'page')?.querySelector('svg');
++    expect(pageIcon.innerHTML).toBe(menuIcon?.innerHTML);
++  } else if (id === 'notifications') {
++    expect(pageIcon.innerHTML).toBe(screen.getByRole('button', { name: t('sidebar.notifications') }).querySelector('svg')?.innerHTML);
++  } else {
++    fireEvent.click(screen.getByRole('button', { name: 'Tài khoản: Nguyễn Hà' }));
++    const action = id === 'settings' ? t('user.settings') : t('user.myAccount');
++    expect(pageIcon.innerHTML).toBe(screen.getByRole('button', { name: action }).querySelector('svg')?.innerHTML);
++  }
+   expect(within(main).queryByRole('heading', { name: label })).not.toBeInTheDocument();
+   expect(main.querySelector('.admin-page-heading')).toBeNull();
+   if (['age-analysis', 'monthly-disease-analysis', 'gender-analysis', 'disease-trend-analysis'].includes(id)) {
+--- before/Frontend/src/app/components/admin/admin.css
++++ after/Frontend/src/app/components/admin/admin.css
+@@ -91,7 +91,7 @@
+ .admin-brand { display: flex; align-items: center; gap: 10px; min-height: 88px; padding: 18px 16px; flex-shrink: 0; }
+ .admin-brand-mark { display: grid; place-items: center; width: 36px; height: 38px; flex-shrink: 0; border-radius: 11px; background: var(--admin-mint); color: var(--admin-primary); }
+ #root .eureka-admin .admin-brand-name { font-size: 14px; font-weight: 700; line-height: 1.45; letter-spacing: 0; overflow-wrap: normal; text-wrap: balance; }
+-.admin-page-group { color: var(--admin-muted); font-size: 11px; margin-bottom: 3px; line-height: 1.5; }
++.admin-page-group { color: var(--admin-muted); font-size: 11px; font-weight: 600; margin-bottom: 3px; line-height: 1.45; }
+ .admin-brand-caption { margin-top: 4px; font-size: 10px; color: var(--admin-muted); }
+ .admin-navigation { padding: 8px 12px 18px; overscroll-behavior: contain; scrollbar-width: thin; scrollbar-color: var(--admin-scroll-thumb) var(--admin-scroll-track); }
+ .admin-navigation::-webkit-scrollbar { width: 5px; }
+@@ -135,15 +135,17 @@
+ .admin-workspace { display: flex; flex: 1; flex-direction: column; min-width: 0; min-height: 0; }
+ :root .eureka-admin .admin-topbar { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 14px 32px; min-height: 76px; flex-shrink: 0; border-bottom: 1px solid var(--admin-border); background: var(--admin-surface); z-index: 60; }
+ .admin-topbar-title, .admin-topbar-actions { display: flex; align-items: center; gap: 18px; min-width: 0; }
+-.admin-topbar-title { flex: 1; }
++.admin-topbar-title { flex: 1; gap: 12px; }
++.admin-topbar-page-icon { display: grid; place-items: center; width: 42px; height: 42px; flex: 0 0 42px; border: 1px solid var(--admin-border); border-radius: 12px; background: var(--admin-mint); color: var(--admin-accent-ink); }
+ .admin-topbar-heading { flex: 1; min-width: 0; }
+ .admin-topbar-actions { flex-shrink: 0; }
+-.admin-topbar h1 { font-size: 22px; font-weight: 700; line-height: 1.35; overflow-wrap: anywhere; }
++.admin-topbar h1 { color: var(--admin-ink); font-size: 21px; font-weight: 650; line-height: 1.35; overflow-wrap: anywhere; }
+ .admin-eyebrow { color: var(--admin-muted); font-size: 10px; margin-bottom: 3px; letter-spacing: .5px; }
+ :root .eureka-admin .admin-icon-button { display: inline-flex; align-items: center; justify-content: center; width: 40px; height: 40px; flex-shrink: 0; border: 1px solid var(--admin-border); border-radius: 11px; color: var(--admin-muted); background: var(--admin-surface); }
+ :root .eureka-admin .admin-icon-button:hover { background: var(--admin-mint); color: var(--admin-accent-ink); }
+ .admin-notification-count { position: absolute; top: -5px; right: -5px; background: #dc2626; color: white; padding: 1px 5px; border-radius: 20px; font-size: 10px; }
+-.admin-account-button { display: flex; align-items: center; gap: 10px; padding: 2px; }
++.admin-account-button { display: flex; align-items: center; gap: 10px; padding: 2px; border-radius: 10px; }
++.admin-account-button:hover { background: var(--admin-subtle); }
+ .admin-avatar { display: grid; place-items: center; width: 39px; height: 39px; border-radius: 50%; background: var(--admin-mint); color: var(--admin-accent-ink); font-size: 12px; font-weight: 800; flex-shrink: 0; }
+ .admin-account-label { text-align: left; max-width: 170px; }
+ .admin-account-label strong, .admin-account-label small { display: block; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+@@ -227,6 +229,9 @@
+   :root .eureka-admin { --admin-space: 16px; --admin-radius: 13px; }
+   :root .eureka-admin .admin-topbar { padding: 12px; gap: 8px; }
+   .admin-topbar-title, .admin-topbar-actions { gap: 9px; }
++  .admin-topbar-page-icon { width: 34px; height: 34px; flex-basis: 34px; border-radius: 10px; }
++  .admin-topbar-page-icon > svg { width: 20px; height: 20px; }
++  .admin-topbar .admin-page-group { display: none; }
+   .admin-topbar h1 { font-size: 18px; }
+   .admin-eyebrow, .admin-account-label, .admin-account-button > svg { display: none; }
+   .admin-content { padding: 20px 12px 28px; }
+--- before/Frontend/src/app/navigation.ts
++++ after/Frontend/src/app/navigation.ts
+@@ -1,5 +1,6 @@
+ import {
+   CalendarDays,
++  Bell,
+   ChartColumn,
+   ChartLine,
+   ChartNoAxesCombined,
+@@ -10,8 +11,10 @@
+   LayoutDashboard,
+   MapPinned,
+   ShieldCheck,
++  Settings,
+   FileUp,
+   UsersRound,
++  User,
+   VenusAndMars,
+   type LucideIcon,
+ } from 'lucide-react';
+@@ -108,3 +111,9 @@
+     { id: 'permissions', label: t('sidebar.permissions'), icon: ShieldCheck },
+   ];
+ }
++
++/** Reuse menu icons; only utility pages need their own existing account/topbar icons. */
++export function getAdminPageIcon(tab: TabType, t: (key: string) => string): LucideIcon {
++  const utilityIcons: Partial<Record<TabType, LucideIcon>> = { notifications: Bell, settings: Settings, account: User };
++  return getMainNavItems(t).find((item) => item.id === tab)?.icon ?? utilityIcons[tab] ?? LayoutDashboard;
++}

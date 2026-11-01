@@ -1,0 +1,9 @@
+# Public model backup: preserve exact binary/text-model bytes via LFS.
+*.pkl filter=lfs diff=lfs merge=lfs -text
+*.joblib filter=lfs diff=lfs merge=lfs -text
+*.cbm filter=lfs diff=lfs merge=lfs -text
+*.h5 filter=lfs diff=lfs merge=lfs -text
+*.onnx filter=lfs diff=lfs merge=lfs -text
+*.pt filter=lfs diff=lfs merge=lfs -text
+*.pth filter=lfs diff=lfs merge=lfs -text
+weather_disease_ai_v3/deployment/lightgbm_h14_weather/models/*.txt filter=lfs diff=lfs merge=lfs -text

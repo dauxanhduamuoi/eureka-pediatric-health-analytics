@@ -1,0 +1,63 @@
+/* Self-service account workspace only. Auth/session contracts remain in Account. */
+.account-workspace { container: account-workspace / inline-size; }
+.account-workspace .account-identity { display:flex; flex-wrap:wrap; align-items:center; gap:16px; padding-block:8px 18px; border-bottom:1px solid var(--admin-border); }
+.account-workspace .account-initials { display:flex; flex:0 0 52px; width:52px; height:52px; justify-content:center; align-items:center; background:var(--admin-mint); color:var(--admin-accent-ink); border-radius:var(--admin-radius); font-size:19px; font-weight:700; }
+.account-workspace .account-identity-copy { flex:1 1 220px; min-width:0; }
+.account-workspace .account-identity h2 { font-size:21px; font-weight:700; color:var(--admin-ink); overflow-wrap:anywhere; }
+.account-workspace .account-identity p { margin-top:4px; color:var(--admin-muted); font-size:12px; overflow-wrap:anywhere; }
+.account-workspace .account-identity-labels { display:flex; flex-wrap:wrap; gap:6px; margin-top:8px; }
+.account-workspace .account-identity-labels span { padding:3px 7px; border:1px solid var(--admin-border); border-radius:var(--admin-control-radius); color:var(--admin-accent-ink); background:var(--admin-subtle); font-size:11px; }
+.account-workspace button { display:inline-flex; align-items:center; justify-content:center; gap:7px; min-height:38px; padding:8px 12px; border:1px solid var(--admin-border); border-radius:var(--admin-control-radius); background:var(--admin-surface); color:var(--admin-ink); font-size:13px; }
+.account-workspace button:disabled { opacity:.55; cursor:not-allowed; }
+.account-workspace :is(button,input,summary):focus-visible { outline:2px solid var(--admin-primary); outline-offset:3px; }
+.account-workspace .account-main-grid { display:grid; grid-template-columns:minmax(0,1fr); gap:20px; align-items:start; }
+.account-workspace .account-panel { min-width:0; padding:20px; border:1px solid var(--admin-border); border-radius:var(--admin-radius); background:var(--admin-surface); }
+.account-workspace .account-panel > header { margin-bottom:18px; }
+.account-workspace .account-panel header p { max-width:70ch; margin-top:7px; font-size:12px; line-height:1.7; color:var(--admin-muted); }
+.account-workspace .account-readonly-fields { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:14px; margin-bottom:20px; padding:14px; background:var(--admin-subtle); border-radius:var(--admin-control-radius); }
+.account-workspace .account-readonly-fields > div { min-width:0; }
+.account-workspace .account-readonly-fields dt { font-size:11px; color:var(--admin-muted); }
+.account-workspace .account-readonly-fields dd { margin-top:5px; font-size:13px; color:var(--admin-ink); overflow-wrap:anywhere; }
+.account-workspace .account-profile-fields { display:grid; grid-template-columns:minmax(0,1fr); gap:16px; }
+.account-workspace .account-password-fields { display:grid; gap:16px; }
+.account-workspace .account-field { display:grid; min-width:0; gap:7px; }
+.account-workspace .account-field > span { font-size:12px; color:var(--admin-muted); }
+.account-workspace .account-field input { min-width:0; width:100%; min-height:42px; padding:9px 11px; background:var(--admin-surface); color:var(--admin-ink); border:1px solid var(--admin-border); border-radius:var(--admin-control-radius); font:inherit; font-size:13px; }
+.account-workspace .account-field small { color:var(--admin-muted); font-size:11px; line-height:1.6; }
+.account-workspace .account-form-actions { display:flex; flex-wrap:wrap; gap:10px; margin-top:18px; }
+.account-workspace button.account-primary { background:var(--admin-primary); border-color:var(--admin-primary); color:white; }
+.account-workspace .account-feedback { margin-top:12px; padding:10px 12px; border-inline-start:3px solid var(--admin-border); background:var(--admin-subtle); border-radius:var(--admin-control-radius); color:var(--admin-ink); font-size:13px; line-height:1.7; overflow-wrap:anywhere; }
+.account-workspace .account-success { border-inline-start-color:var(--admin-primary); color:var(--admin-accent-ink); }
+.account-workspace .account-error { border-inline-start-color:#b91c1c; }
+.account-workspace .account-technical-session { margin-top:24px; padding-top:16px; border-top:1px solid var(--admin-border); color:var(--admin-muted); font-size:12px; }
+.account-workspace .account-technical-session summary { cursor:pointer; color:var(--admin-ink); font-weight:600; }
+.account-workspace .account-technical-session p { margin-block:10px; font-size:12px; line-height:1.7; }
+.account-workspace .account-technical-label { display:block; margin-top:12px; }
+.account-workspace .account-technical-session code { display:block; margin-block:8px 12px; overflow-wrap:anywhere; color:var(--admin-ink); }
+.account-workspace .account-sessions-header { display:flex; flex-wrap:wrap; justify-content:space-between; gap:14px; align-items:start; }
+.account-workspace .account-session-actions { display:flex; flex-wrap:wrap; gap:8px; }
+.account-workspace .account-session-list { list-style:none; margin:0; padding:0; }
+.account-workspace .account-session-list > li { display:flex; flex-wrap:wrap; align-items:start; justify-content:space-between; gap:14px; padding:16px 12px; border-top:1px solid var(--admin-border); }
+.account-workspace .account-session-list > li[data-current='true'] { background:var(--admin-mint); }
+.account-workspace .account-session-list > li[data-revoked='true'] { background:var(--admin-subtle); }
+.account-workspace .account-session-content { flex:1 1 320px; min-width:0; }
+.account-workspace .account-session-device { display:flex; flex-wrap:wrap; align-items:center; gap:8px; }
+.account-workspace .account-session-device h4 { color:var(--admin-ink); font-size:13px; font-weight:600; overflow-wrap:anywhere; }
+.account-workspace .account-session-device span { padding:3px 7px; border:1px solid var(--admin-border); border-radius:var(--admin-control-radius); font-size:11px; color:var(--admin-accent-ink); }
+.account-workspace .account-session-content dl { display:grid; grid-template-columns:minmax(0,1fr); gap:10px; margin-top:12px; font-size:11px; }
+.account-workspace .account-session-content dt { color:var(--admin-muted); }
+.account-workspace .account-session-content dd { margin-top:4px; color:var(--admin-ink); overflow-wrap:anywhere; }
+.account-workspace .account-session-empty, .account-workspace .account-session-loading { margin-block:12px; color:var(--admin-muted); font-size:13px; }
+.account-workspace .account-danger { color:#b91c1c; }
+html.dark .eureka-admin .account-workspace .account-danger { color:#fecaca; }
+@container account-workspace (min-width:650px) {
+ .account-workspace .account-profile-fields { grid-template-columns:repeat(2,minmax(0,1fr)); }
+ .account-workspace .account-session-content dl { grid-template-columns:repeat(3,minmax(0,1fr)); }
+}
+@container account-workspace (min-width:950px) {
+ .account-workspace .account-main-grid { grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr); }
+}
+@media (max-width:599px) {
+ .account-workspace .account-panel { padding:14px; }
+ .account-workspace .account-identity-copy { flex-basis:180px; }
+}

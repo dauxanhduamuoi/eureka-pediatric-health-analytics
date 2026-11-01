@@ -1,0 +1,835 @@
+import { useCallback, useEffect, useRef, useState } from 'react';
+import {
+  BookCheck, BookOpenText, Bot, ChevronDown, FileSearch, Library,
+  Loader2, Settings2, Sparkles, X,
+} from 'lucide-react';
+import { useAuth } from '@/app/contexts/AuthContext';
+import {
+  getMedicalKnowledgeOptions,
+  getMedicalEvidenceProviderSettings,
+  getMedicalKnowledgeTopicSources,
+  importPubMedSources,
+  importMedicalEvidenceProviderSources,
+  lookupPubMedByPmid,
+  directPmidErrorMessage,
+  isTopicSourceAiReadable,
+  MEDICAL_KNOWLEDGE_MAX_DRAFT_SOURCES,
+  medicalEvidenceImportErrorMessage,
+  medicalKnowledgeErrorMessage,
+  searchPubMed,
+  searchMedicalEvidenceProviders,
+  type MedicalKnowledgeOptions,
+  type DiseaseGroupOption,
+  type PubMedSearchResponse,
+  type MedicalEvidenceProviderSetting,
+  type ReviewedProviderSearchResponse,
+  type TopicSourceLibrary,
+  type TopicSourceLibraryItem,
+  evidenceContentLabel,
+} from '@/lib/medicalKnowledgeApi';
+import {
+  factorIsComplete,
+  factorLabel,
+  factorTopicKey,
+  type MedicalFactorSelector,
+} from '@/lib/medicalKnowledgeFactors';
+import PubMedResults from './PubMedResults';
+import PubMedSearchForm from './PubMedSearchForm';
+import WhoExactLookup from './WhoExactLookup';
+import MedicalDraftWorkspace from './MedicalDraftWorkspace';
+import ServiceConfigurationPanel from './ServiceConfigurationPanel';
+import MedicalTopicSourceLibrary from './MedicalTopicSourceLibrary';
+import AutoMedicalKnowledgePanel from './AutoMedicalKnowledgePanel';
+import MedicalTopicSelector from './MedicalTopicSelector';
+
+export const KNOWLEDGE_VIEW_QUERY_KEY = 'knowledgeView';
+export type KnowledgeView = 'reviewed' | 'auto';
+type ReviewedSourceView = 'search' | 'library' | 'selection';
+
+export function resolveKnowledgeView(search: string): KnowledgeView {
+  return new URLSearchParams(search).get(KNOWLEDGE_VIEW_QUERY_KEY) === 'auto' ? 'auto' : 'reviewed';
+}
+
+export function canResearchMedicalKnowledge(role: string | null | undefined): boolean {
+  return role === 'admin' || role === 'staff';
+}
+
+export function getDefaultPubMedDiseaseKeyword(
+  diseaseGroup: DiseaseGroupOption | undefined,
+): string | null {
+  if (!diseaseGroup) return null;
+  const structuredEnglishName = diseaseGroup.english_name?.trim();
+  if (structuredEnglishName) return structuredEnglishName;
+
+  const separatorIndex = diseaseGroup.name.indexOf(' - ');
+  if (separatorIndex < 0) return null;
+  const parsedEnglishName = diseaseGroup.name.slice(separatorIndex + 3).trim();
+  return parsedEnglishName || null;
+}
+
+export function omitRejectedReviewedResults(
+  response: ReviewedProviderSearchResponse,
+): ReviewedProviderSearchResponse {
+  return {
+    ...response,
+    results: response.results.filter((item) => item.relevance !== 'REJECT'),
+    providers: response.providers.map((group) => ({
+      ...group,
+      results: group.results.filter((item) => item.relevance !== 'REJECT'),
+    })),
+  };
+}
+
+export default function MedicalKnowledgeResearchPage() {
+  const { user } = useAuth();
+  const [options, setOptions] = useState<MedicalKnowledgeOptions | null>(null);
+  const [optionsLoading, setOptionsLoading] = useState(true);
+  const [diseaseGroupId, setDiseaseGroupId] = useState('');
+  const [factor, setFactor] = useState<MedicalFactorSelector | null>(null);
+  const [pubmedSearchMode, setPubmedSearchMode] = useState<'GUIDED' | 'FREE'>('GUIDED');
+  const [freeQuery, setFreeQuery] = useState('');
+  const [diseaseTerms, setDiseaseTerms] = useState<string[]>([]);
+  const [maxResults, setMaxResults] = useState<10 | 15 | 20 | 25>(10);
+  const [yearFrom, setYearFrom] = useState<number | null>(null);
+  const [yearTo, setYearTo] = useState<number | null>(null);
+  const [searchResult, setSearchResult] = useState<PubMedSearchResponse | null>(null);
+  const [providerSettings, setProviderSettings] = useState<MedicalEvidenceProviderSetting[]>([]);
+  const [selectedProviders, setSelectedProviders] = useState<Set<string>>(new Set(['PUBMED']));
+  const [providerSearchResult, setProviderSearchResult] = useState<ReviewedProviderSearchResponse | null>(null);
+  const [activeProviderId, setActiveProviderId] = useState<string | null>(null);
+  const [selectedProviderSources, setSelectedProviderSources] = useState<Set<string>>(new Set());
+  const [resultMode, setResultMode] = useState<'keyword' | 'pmid'>('keyword');
+  const [pmid, setPmid] = useState('');
+  const [selectedImportPmids, setSelectedImportPmids] = useState<Set<string>>(new Set());
+  const [topicLibrary, setTopicLibrary] = useState<TopicSourceLibrary | null>(null);
+  const [libraryLoading, setLibraryLoading] = useState(false);
+  const [selectedDraftSourceIds, setSelectedDraftSourceIds] = useState<Set<number>>(new Set());
+  const [selectionNotice, setSelectionNotice] = useState<string | null>(null);
+  const [searching, setSearching] = useState(false);
+  const [pmidSearching, setPmidSearching] = useState(false);
+  const [whoExactBusy, setWhoExactBusy] = useState(false);
+  const [exactLookupEpoch, setExactLookupEpoch] = useState(0);
+  const [importing, setImporting] = useState(false);
+  const [error, setError] = useState<string | null>(null);
+  const [success, setSuccess] = useState<string | null>(null);
+  const [knowledgeView, setKnowledgeView] = useState<KnowledgeView>(() => resolveKnowledgeView(window.location.search));
+  const [sourceView, setSourceView] = useState<ReviewedSourceView>('search');
+  const currentTopicKey = factorTopicKey(diseaseGroupId, factor);
+  const currentTopicKeyRef = useRef(currentTopicKey);
+  currentTopicKeyRef.current = currentTopicKey;
+
+  const authorized = canResearchMedicalKnowledge(user?.role);
+
+  useEffect(() => {
+    const syncKnowledgeView = () => setKnowledgeView(resolveKnowledgeView(window.location.search));
+    window.addEventListener('popstate', syncKnowledgeView);
+    return () => window.removeEventListener('popstate', syncKnowledgeView);
+  }, []);
+
+  const navigateKnowledgeView = useCallback((view: KnowledgeView) => {
+    const url = new URL(window.location.href);
+    url.searchParams.set(KNOWLEDGE_VIEW_QUERY_KEY, view);
+    window.history.pushState(window.history.state, '', url);
+    setKnowledgeView(view);
+  }, []);
+
+  useEffect(() => {
+    if (!authorized) {
+      setOptionsLoading(false);
+      return;
+    }
+    let cancelled = false;
+    getMedicalKnowledgeOptions()
+      .then((value) => {
+        if (!cancelled) setOptions(value);
+      })
+      .catch((reason) => {
+        if (!cancelled) setError(medicalKnowledgeErrorMessage(reason));
+      })
+      .finally(() => {
+        if (!cancelled) setOptionsLoading(false);
+      });
+    return () => {
+      cancelled = true;
+    };
+  }, [authorized]);
+
+  useEffect(() => {
+    if (!authorized) return;
+    let cancelled = false;
+    getMedicalEvidenceProviderSettings()
+      .then((response) => {
+        if (cancelled) return;
+        const enabled = response.providers.filter((item) => item.workflow === 'REVIEWED' && item.enabled);
+        setProviderSettings(enabled);
+        setSelectedProviders((current) => {
+          const available = new Set(enabled.map((item) => item.provider_id));
+          const next = new Set([...current].filter((item) => available.has(item)));
+          if (next.size === 0 && available.has('PUBMED')) next.add('PUBMED');
+          return next;
+        });
+      })
+      .catch(() => setProviderSettings([]));
+    return () => { cancelled = true; };
+  }, [authorized]);
+
+  useEffect(() => {
+    setTopicLibrary(null);
+    setSelectedDraftSourceIds(new Set());
+    setSelectionNotice(null);
+    if (!authorized || !diseaseGroupId || !factorIsComplete(factor)) return;
+    let cancelled = false;
+    setLibraryLoading(true);
+    getMedicalKnowledgeTopicSources(diseaseGroupId, factor)
+      .then((library) => {
+        if (!cancelled) setTopicLibrary(library);
+      })
+      .catch((reason) => {
+        if (!cancelled) setError(medicalKnowledgeErrorMessage(reason));
+      })
+      .finally(() => {
+        if (!cancelled) setLibraryLoading(false);
+      });
+    return () => { cancelled = true; };
+  }, [authorized, diseaseGroupId, factor?.factor_type, factor?.factor_key, factor?.factor_value]);
+
+  async function refreshTopicLibrary(expectedTopicKey = currentTopicKey) {
+    if (!factorIsComplete(factor)) return;
+    const library = await getMedicalKnowledgeTopicSources(diseaseGroupId, factor);
+    if (currentTopicKeyRef.current !== expectedTopicKey) return;
+    setTopicLibrary(library);
+    setSelectedDraftSourceIds((current) => {
+      const usableIds = new Set(
+        library.sources.filter(isTopicSourceAiReadable).map((source) => source.source_id),
+      );
+      const next = new Set([...current].filter((sourceId) => usableIds.has(sourceId)));
+      const removed = current.size - next.size;
+      if (removed > 0) {
+        setSelectionNotice(
+          `${removed} nguồn đã được bỏ khỏi bản nháp vì AI không còn nội dung khả dụng để đọc.`,
+        );
+      }
+      return next;
+    });
+  }
+
+  function clearResearchResult() {
+    setExactLookupEpoch(value => value + 1);
+    setSearchResult(null);
+    setProviderSearchResult(null);
+    setActiveProviderId(null);
+    setSelectedImportPmids(new Set());
+    setSelectedProviderSources(new Set());
+    setError(null);
+    setSuccess(null);
+  }
+
+  function changeDiseaseGroup(value: string) {
+    currentTopicKeyRef.current = factorTopicKey(value, factor);
+    setDiseaseGroupId(value);
+    const defaultKeyword = getDefaultPubMedDiseaseKeyword(
+      options?.disease_groups.find((group) => group.id === value),
+    );
+    setDiseaseTerms(defaultKeyword ? [defaultKeyword] : []);
+    setSelectedDraftSourceIds(new Set());
+    setSelectionNotice(null);
+    clearResearchResult();
+  }
+
+  function changeFactor(value: MedicalFactorSelector | null) {
+    currentTopicKeyRef.current = factorTopicKey(diseaseGroupId, value);
+    setFactor(value);
+    setSelectedDraftSourceIds(new Set());
+    setSelectionNotice(null);
+    clearResearchResult();
+  }
+
+  async function runSearch() {
+    if (!factorIsComplete(factor)) return;
+    setExactLookupEpoch(value => value + 1);
+    const requestTopicKey = currentTopicKey;
+    setSearching(true);
+    setError(null);
+    setSuccess(null);
+    setSearchResult(null);
+    setProviderSearchResult(null);
+    setSelectedImportPmids(new Set());
+    try {
+      // Guided search always uses the provider-neutral Reviewed orchestration,
+      // including a PubMed-only selection. Only PubMed FREE syntax remains on
+      // the legacy endpoint because it is not a Reviewed relevance workflow.
+      const useLegacyPubMed = pubmedSearchMode === 'FREE';
+      if (!useLegacyPubMed) {
+        const response = await searchMedicalEvidenceProviders({
+          disease_group_id: diseaseGroupId,
+          ...factor,
+          disease_terms: diseaseTerms,
+          provider_ids: [...selectedProviders],
+          max_results: maxResults,
+          year_from: yearFrom,
+          year_to: yearTo,
+        });
+        if (currentTopicKeyRef.current !== requestTopicKey) return;
+        setProviderSearchResult(omitRejectedReviewedResults(response));
+        setSelectedProviderSources(new Set());
+        setActiveProviderId(
+          response.providers.find((group) => group.status !== 'PROVIDER_ERROR')?.provider_id
+          ?? response.providers[0]?.provider_id
+          ?? null,
+        );
+        return;
+      }
+      const response = await searchPubMed({
+        disease_group_id: diseaseGroupId,
+        ...factor,
+        search_mode: 'FREE',
+        disease_terms: [],
+        free_query: freeQuery,
+        max_results: maxResults,
+        year_from: yearFrom,
+        year_to: yearTo,
+      });
+      if (currentTopicKeyRef.current !== requestTopicKey) return;
+      setResultMode('keyword');
+      setSearchResult(response);
+    } catch (reason) {
+      setError(medicalKnowledgeErrorMessage(reason));
+    } finally {
+      setSearching(false);
+    }
+  }
+
+  function providerSourceKey(providerId: string, externalId: string) {
+    return `${providerId}:${externalId}`;
+  }
+
+  async function importSelectedProviderSources() {
+    if (!factorIsComplete(factor) || !providerSearchResult) return;
+    const sources = providerSearchResult.providers.flatMap((group) => group.results)
+      .filter((item) => selectedProviderSources.has(providerSourceKey(item.provider_id, item.external_id)))
+      .map((item) => ({
+        provider_id: item.provider_id,
+        external_id: item.external_id,
+        canonical_url: item.url,
+        source_kind: item.source_kind,
+        title: item.title,
+        authors: item.authors,
+        publisher_or_journal: item.publisher_or_journal,
+        publication_date: item.publication_date,
+        publication_year: item.publication_year,
+        doi: item.doi,
+      }));
+    if (!sources.length) return;
+    const requestTopicKey = currentTopicKey;
+    setImporting(true);
+    setError(null);
+    setSuccess(null);
+    try {
+      const response = await importMedicalEvidenceProviderSources(diseaseGroupId, factor, sources);
+      if (currentTopicKeyRef.current !== requestTopicKey) return;
+      const successful = new Map(
+        response.sources
+          .filter((item) => item.outcome !== 'REJECTED_INVALID' && item.outcome !== 'PROVIDER_ERROR')
+          .map((item) => [providerSourceKey(item.provider_id, item.external_id), item]),
+      );
+      setSelectedProviderSources((current) => new Set(
+        [...current].filter((key) => !successful.has(key)),
+      ));
+      setProviderSearchResult((current) => current ? {
+        ...current,
+        results: current.results.map((item) => {
+          const imported = successful.get(providerSourceKey(item.provider_id, item.external_id));
+          return imported ? {
+            ...item,
+            source_id: imported.source_id,
+            in_topic_library: true,
+            usable_for_draft: imported.usable_for_draft,
+            usability: imported.usable_for_draft ? 'USABLE_FOR_DRAFT' : 'METADATA_ONLY',
+          } : item;
+        }),
+        providers: current.providers.map((group) => ({
+          ...group,
+          results: group.results.map((item) => {
+            const imported = successful.get(providerSourceKey(item.provider_id, item.external_id));
+            return imported ? {
+              ...item,
+              source_id: imported.source_id,
+              in_topic_library: true,
+              usable_for_draft: imported.usable_for_draft,
+              usability: imported.usable_for_draft ? 'USABLE_FOR_DRAFT' : 'METADATA_ONLY',
+            } : item;
+          }),
+        })),
+      } : current);
+      if (response.count > 0) await refreshTopicLibrary(requestTopicKey);
+      if (response.failed_count > 0) {
+        if (response.count > 0) {
+          setSuccess(`Đã thêm ${response.added_count}/${response.requested_count} tài liệu. ${response.failed_count} tài liệu không thể thêm.`);
+        } else {
+          setError('Không thể thêm các tài liệu đã chọn. Nguồn không hợp lệ hoặc nhà cung cấp tạm thời không khả dụng.');
+        }
+      } else if (response.reference_only_count > 0) {
+        setSuccess(`Đã thêm ${response.added_count} tài liệu; ${response.reference_only_count} nguồn được lưu để tham khảo và chưa dùng cho AI Draft.`);
+      } else if (response.added_count > 0) {
+        setSuccess(`Đã thêm ${response.added_count} tài liệu vào kho nguồn của chủ đề.`);
+      } else {
+        setSuccess(`${response.already_exists_count} tài liệu đã có trong kho nguồn của chủ đề.`);
+      }
+    } catch (reason) {
+      setError(medicalEvidenceImportErrorMessage(reason));
+    } finally {
+      setImporting(false);
+    }
+  }
+
+  async function runPmidLookup() {
+    if (!factorIsComplete(factor)) return;
+    setExactLookupEpoch(value => value + 1);
+    const normalized = pmid.trim();
+    const requestTopicKey = currentTopicKey;
+    setPmidSearching(true);
+    setError(null);
+    setSuccess(null);
+    setSearchResult(null);
+    setProviderSearchResult(null);
+    setSelectedProviderSources(new Set());
+    setSelectedImportPmids(new Set());
+    try {
+      const response = await lookupPubMedByPmid(normalized, diseaseGroupId, factor);
+      if (currentTopicKeyRef.current !== requestTopicKey) return;
+      if (response.pmid !== normalized || response.result.pmid !== normalized) {
+        throw new Error('Exact PMID identity mismatch');
+      }
+      setPmid(normalized);
+      setResultMode('pmid');
+      setSearchResult({
+        disease_group_id: diseaseGroupId,
+        ...factor,
+        search_mode: 'GUIDED',
+        query: `PMID: ${response.pmid}`,
+        count: 1,
+        results: [response.result],
+      });
+    } catch (reason) {
+      if (currentTopicKeyRef.current === requestTopicKey) setError(directPmidErrorMessage(reason));
+    } finally {
+      setPmidSearching(false);
+    }
+  }
+
+  function togglePmid(pmid: string) {
+    setSelectedImportPmids((current) => {
+      const next = new Set(current);
+      if (next.has(pmid)) next.delete(pmid);
+      else next.add(pmid);
+      return next;
+    });
+  }
+
+  function toggleAll() {
+    if (!searchResult) return;
+    const importable = searchResult.results.filter((paper) => !paper.in_topic_library);
+    const allSelected = importable.length > 0 && importable.every((paper) => selectedImportPmids.has(paper.pmid));
+    setSelectedImportPmids(allSelected ? new Set() : new Set(importable.map((paper) => paper.pmid)));
+  }
+
+  function toggleAllProviderGroup(providerId: string) {
+    const group = providerSearchResult?.providers.find((item) => item.provider_id === providerId);
+    if (!group) return;
+    const importableKeys = group.results
+      .filter((item) => !item.in_topic_library)
+      .map((item) => providerSourceKey(item.provider_id, item.external_id));
+    const allSelected = importableKeys.length > 0
+      && importableKeys.every((key) => selectedProviderSources.has(key));
+    setSelectedProviderSources((current) => {
+      const next = new Set(current);
+      for (const key of importableKeys) {
+        if (allSelected) next.delete(key);
+        else next.add(key);
+      }
+      return next;
+    });
+  }
+
+  async function importSelected() {
+    if (!factorIsComplete(factor)) return;
+    const pmids = Array.from(selectedImportPmids);
+    if (pmids.length === 0) return;
+    const requestTopicKey = currentTopicKey;
+    setImporting(true);
+    setError(null);
+    setSuccess(null);
+    try {
+      const response = await importPubMedSources(diseaseGroupId, factor, pmids);
+      if (currentTopicKeyRef.current !== requestTopicKey) return;
+      const byPmid = new Map(response.sources.map((source) => [source.pmid, source]));
+      setSearchResult((current) => current ? {
+        ...current,
+        results: current.results.map((paper) => {
+          const imported = byPmid.get(paper.pmid);
+          return imported ? {
+            ...paper,
+            source_id: imported.id,
+            stored_globally: true,
+            in_topic_library: true,
+            content_kind: imported.content_kind,
+            pmcid: imported.pmcid ?? paper.pmcid,
+          } : paper;
+        }),
+      } : current);
+      setSelectedImportPmids(new Set());
+      await refreshTopicLibrary(requestTopicKey);
+      const parts = [`Đã thêm ${response.count} tài liệu vào kho chủ đề.`];
+      if (response.created_count > 0) parts.push(`${response.created_count} tài liệu mới đã được lưu.`);
+      if (response.reused_count > 0) parts.push(`${response.reused_count} tài liệu đã có sẵn nên được sử dụng lại.`);
+      parts.push('Hãy chọn nguồn ở phần "Kho nguồn của chủ đề" nếu muốn AI sử dụng.');
+      setSuccess(parts.join(' '));
+    } catch (reason) {
+      setError(medicalKnowledgeErrorMessage(reason));
+    } finally {
+      setImporting(false);
+    }
+  }
+
+  function toggleDraftSource(sourceId: number) {
+    const source = topicLibrary?.sources.find((item) => item.source_id === sourceId);
+    if (!source || !isTopicSourceAiReadable(source)) return;
+    setSelectedDraftSourceIds((current) => {
+      const next = new Set(current);
+      if (next.has(sourceId)) {
+        next.delete(sourceId);
+        setSelectionNotice(null);
+      } else if (next.size >= MEDICAL_KNOWLEDGE_MAX_DRAFT_SOURCES) {
+        setSelectionNotice('Một bản nháp hiện hỗ trợ tối đa 10 nguồn.');
+      } else {
+        next.add(sourceId);
+        setSelectionNotice(null);
+      }
+      return next;
+    });
+  }
+
+  function selectAllUsableDraftSources() {
+    const usableSources = (topicLibrary?.sources ?? []).filter(isTopicSourceAiReadable);
+    setSelectedDraftSourceIds(new Set(
+      usableSources
+        .slice(0, MEDICAL_KNOWLEDGE_MAX_DRAFT_SOURCES)
+        .map((source) => source.source_id),
+    ));
+    setSelectionNotice(
+      usableSources.length > MEDICAL_KNOWLEDGE_MAX_DRAFT_SOURCES
+        ? `Đã chọn 10 nguồn đầu tiên theo thứ tự trong kho. Có ${usableSources.length} nguồn AI đọc được; hãy bỏ chọn để thay nguồn nếu cần.`
+        : null,
+    );
+  }
+
+  const selectedDraftSources = (topicLibrary?.sources ?? []).filter((source) => (
+    isTopicSourceAiReadable(source) && selectedDraftSourceIds.has(source.source_id)
+  ));
+  const activeProviderGroup = providerSearchResult?.providers.find(
+    (group) => group.provider_id === activeProviderId,
+  ) ?? providerSearchResult?.providers[0] ?? null;
+
+  function SelectedDraftSources({ sources }: { sources: TopicSourceLibraryItem[] }) {
+    return (
+      <section aria-labelledby="selected-draft-sources-heading" className="rounded-2xl border border-violet-200 bg-white p-4 shadow-sm sm:p-5">
+        <div className="flex items-start justify-between gap-3">
+          <div>
+            <h2 id="selected-draft-sources-heading" className="flex items-center gap-2 font-bold text-slate-950"><Sparkles size={18} className="text-violet-700" /> Nguồn AI sẽ đọc</h2>
+            <p className="mt-1 text-sm leading-6 text-slate-600">Chỉ các nguồn được chọn ở đây được gửi vào lần tạo bản nháp tiếp theo.</p>
+          </div>
+          <span className="shrink-0 rounded-full bg-violet-100 px-3 py-1 text-xs font-bold text-violet-800">{sources.length} / {MEDICAL_KNOWLEDGE_MAX_DRAFT_SOURCES}</span>
+        </div>
+        {sources.length ? (
+          <ul className="mt-4 space-y-2">
+            {sources.map((source) => (
+              <li key={source.source_id} className="flex items-start justify-between gap-3 rounded-xl border border-slate-200 bg-slate-50/70 p-3">
+                <div className="min-w-0">
+                  <p className="line-clamp-2 text-sm font-semibold text-slate-900">{source.title}</p>
+                  <p className="mt-1 text-xs text-slate-500">{source.pmid ? `PMID ${source.pmid}` : `Source #${source.source_id}`} · {evidenceContentLabel(source.content_kind)}</p>
+                </div>
+                <button type="button" onClick={() => toggleDraftSource(source.source_id)} aria-label={`Bỏ nguồn ${source.pmid ?? source.title}`} className="inline-flex shrink-0 items-center gap-1 rounded-lg border border-slate-300 bg-white px-2.5 py-1.5 text-xs font-semibold text-slate-700 hover:border-red-200 hover:text-red-700"><X size={13} /> Bỏ</button>
+              </li>
+            ))}
+          </ul>
+        ) : (
+          <div className="mt-4 rounded-xl border border-dashed border-slate-300 bg-slate-50 px-4 py-8 text-center">
+            <Library size={22} className="mx-auto text-slate-400" />
+            <p className="mt-2 text-sm font-semibold text-slate-700">Chưa chọn nguồn cho AI</p>
+            <p className="mt-1 text-xs text-slate-500">Mở tab “Kho nguồn” và chọn từ 1 đến 10 tài liệu AI đọc được.</p>
+          </div>
+        )}
+      </section>
+    );
+  }
+
+  if (!authorized) {
+    return (
+      <div role="alert" className="rounded-2xl border border-red-200 bg-red-50 p-5 text-sm text-red-700">
+        Bạn không có quyền sử dụng chức năng này.
+      </div>
+    );
+  }
+
+  return (
+    <div className="mx-auto w-full max-w-[1440px] space-y-5">
+      <header className="overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-sm">
+        <div className="flex flex-col gap-5 bg-gradient-to-r from-slate-950 via-blue-950 to-slate-900 p-5 text-white sm:p-7 lg:flex-row lg:items-center lg:justify-between">
+          <div className="flex items-start gap-3">
+            <div className="rounded-2xl bg-white/10 p-3 ring-1 ring-white/15"><BookOpenText size={25} /></div>
+            <div>
+              <p className="text-xs font-bold uppercase tracking-[0.2em] text-cyan-200">Medical Knowledge Admin</p>
+              <h1 className="mt-1 text-2xl font-bold sm:text-3xl">Kho kiến thức y khoa</h1>
+              <p className="mt-2 max-w-3xl text-sm leading-6 text-slate-300">Hai luồng nội dung được tách rõ: kiến thức do nhân viên kiểm duyệt và kiến thức tự động chưa qua kiểm duyệt y khoa.</p>
+            </div>
+          </div>
+          {knowledgeView === 'reviewed' && (
+            <div className="grid grid-cols-2 gap-2 text-center text-xs sm:min-w-64">
+              <div className="rounded-xl bg-white/10 px-3 py-2 ring-1 ring-white/10"><strong className="block text-lg text-white">{topicLibrary?.sources.length ?? 0}</strong><span className="text-slate-300">nguồn trong chủ đề</span></div>
+              <div className="rounded-xl bg-white/10 px-3 py-2 ring-1 ring-white/10"><strong className="block text-lg text-white">{selectedDraftSourceIds.size}</strong><span className="text-slate-300">nguồn AI đọc</span></div>
+            </div>
+          )}
+        </div>
+        <nav aria-label="Không gian quản trị kiến thức" className="grid grid-cols-2 gap-1 border-t border-slate-200 bg-slate-50 p-1.5 sm:flex">
+          {([
+            ['reviewed', 'Kiến thức đã kiểm duyệt', BookCheck, 'Nghiên cứu và quản lý revision'],
+            ['auto', 'Kiến thức tự động', Bot, 'Hàng đợi và nội dung chưa kiểm duyệt'],
+          ] as const).map(([value, label, Icon, description]) => (
+            <button key={value} type="button" aria-current={knowledgeView === value ? 'page' : undefined} onClick={() => navigateKnowledgeView(value)} className={`flex min-w-0 items-center gap-2 rounded-xl px-3 py-3 text-left transition sm:px-4 ${knowledgeView === value ? 'bg-white text-blue-800 shadow-sm ring-1 ring-slate-200' : 'text-slate-600 hover:bg-white/70 hover:text-slate-900'}`}>
+              <Icon size={18} className="shrink-0" />
+              <span className="min-w-0"><strong className="block truncate text-sm">{label}</strong><span className="hidden text-xs text-slate-500 md:block">{description}</span></span>
+            </button>
+          ))}
+        </nav>
+      </header>
+
+      <details className="group rounded-2xl border border-slate-200 bg-white shadow-sm">
+        <summary className="flex cursor-pointer list-none items-center justify-between gap-3 px-4 py-3.5 sm:px-5">
+          <span className="flex items-center gap-2 text-sm font-semibold text-slate-800"><Settings2 size={17} /> Cấu hình dịch vụ <span className="hidden font-normal text-slate-500 sm:inline">· PubMed và AI draft provider</span></span>
+          <ChevronDown size={17} className="text-slate-500 transition group-open:rotate-180" />
+        </summary>
+        <div className="border-t border-slate-200 p-3 sm:p-4"><ServiceConfigurationPanel showProviderSettings canManageProviders={user?.role === 'admin'} /></div>
+      </details>
+
+      {error && (
+        <div role="alert" aria-live="assertive" className="rounded-xl border border-red-200 bg-red-50 px-4 py-3 text-sm text-red-700">
+          {error}
+        </div>
+      )}
+      {success && (
+        <div role="status" aria-live="polite" className="rounded-xl border border-emerald-200 bg-emerald-50 px-4 py-3 text-sm text-emerald-800">
+          {success}
+        </div>
+      )}
+
+      {knowledgeView === 'auto' ? (
+        <AutoMedicalKnowledgePanel
+          canManage={user?.role === 'admin'}
+          canManageVisibility={user?.role === 'admin' || user?.role === 'staff'}
+        />
+      ) : optionsLoading ? (
+        <div role="status" className="flex items-center justify-center gap-2 rounded-2xl border border-slate-200 bg-white p-10 text-sm text-slate-500">
+          <Loader2 size={18} className="animate-spin" /> Đang tải danh mục nghiên cứu…
+        </div>
+      ) : options ? (
+        <div className="space-y-5">
+          <MedicalTopicSelector diseaseGroups={options.disease_groups} factorOptions={options.explanation_factors} diseaseGroupId={diseaseGroupId} factor={factor} onDiseaseGroupChange={changeDiseaseGroup} onFactorChange={changeFactor} />
+
+          <div className="grid gap-5 xl:grid-cols-[minmax(0,1.08fr)_minmax(420px,0.92fr)] xl:items-start">
+            <section aria-labelledby="reviewed-source-workspace-heading" className="min-w-0 space-y-4">
+              <div className="rounded-2xl border border-slate-200 bg-white p-2 shadow-sm">
+                <div className="px-2 pb-2 pt-1">
+                  <h2 id="reviewed-source-workspace-heading" className="font-bold text-slate-950">Không gian nguồn bằng chứng</h2>
+                  <p className="mt-1 text-sm text-slate-500">Tìm, lưu và chủ động chọn nguồn theo từng bước.</p>
+                </div>
+                <div role="tablist" aria-label="Các bước quản lý nguồn" className="grid grid-cols-3 gap-1 rounded-xl bg-slate-100 p-1">
+                  {([
+                    ['search', 'Tìm tài liệu', FileSearch],
+                    ['library', 'Kho nguồn', Library],
+                    ['selection', 'Nguồn AI sẽ đọc', Sparkles],
+                  ] as const).map(([value, label, Icon]) => (
+                    <button key={value} id={`source-tab-${value}`} type="button" role="tab" aria-selected={sourceView === value} aria-controls={`source-panel-${value}`} onClick={() => setSourceView(value)} className={`inline-flex min-w-0 items-center justify-center gap-1.5 rounded-lg px-2 py-2.5 text-xs font-semibold transition sm:text-sm ${sourceView === value ? 'bg-white text-blue-800 shadow-sm' : 'text-slate-600 hover:text-slate-900'}`}>
+                      <Icon size={15} className="hidden shrink-0 sm:block" /><span className="truncate">{label}</span>{value === 'selection' && selectedDraftSourceIds.size > 0 ? <span className="rounded-full bg-violet-100 px-1.5 py-0.5 text-[10px] text-violet-800">{selectedDraftSourceIds.size}</span> : null}
+                    </button>
+                  ))}
+                </div>
+              </div>
+
+              <div className="relative">
+                <div id="source-panel-search" role="tabpanel" aria-labelledby="source-tab-search" className={sourceView === 'search' ? 'space-y-4' : 'pointer-events-none absolute inset-x-0 top-0 max-h-0 overflow-hidden opacity-0'}>
+                    <section aria-labelledby="reviewed-provider-selector" className="rounded-2xl border border-slate-200 bg-white p-4 shadow-sm">
+                      <h3 id="reviewed-provider-selector" className="text-sm font-bold text-slate-900">Nguồn tìm kiếm</h3>
+                      <p className="mt-1 text-xs text-slate-500">Chỉ các nguồn được bật cho luồng Đã kiểm duyệt mới có thể chọn. PubMed là mặc định.</p>
+                      <div className="mt-3 flex flex-wrap gap-2">
+                        {providerSettings.map((setting) => {
+                          const checked = selectedProviders.has(setting.provider_id);
+                          const disabled = pubmedSearchMode === 'FREE' && setting.provider_id !== 'PUBMED';
+                          return (
+                            <label key={setting.provider_id} className={`inline-flex items-center gap-2 rounded-full border px-3 py-2 text-sm font-semibold ${disabled ? 'cursor-not-allowed opacity-50' : 'cursor-pointer'} ${checked ? 'border-blue-300 bg-blue-50 text-blue-900' : 'border-slate-200 text-slate-600'}`}>
+                              <input type="checkbox" checked={checked && !disabled} disabled={disabled} onChange={() => {
+                                setSelectedProviders((current) => {
+                                  const next = new Set(current);
+                                  if (next.has(setting.provider_id)) {
+                                    if (next.size > 1) next.delete(setting.provider_id);
+                                  } else next.add(setting.provider_id);
+                                  return next;
+                                });
+                                clearResearchResult();
+                              }} />
+                              {setting.display_name}
+                            </label>
+                          );
+                        })}
+                      </div>
+                      {pubmedSearchMode === 'FREE' && <p className="mt-2 text-xs text-amber-700">Truy vấn tự do dùng cú pháp PubMed nên chỉ chạy trên PubMed.</p>}
+                    </section>
+                    <PubMedSearchForm
+                      showTopicSelector={false}
+                      diseaseGroups={options.disease_groups}
+                      factorOptions={options.explanation_factors}
+                      diseaseGroupId={diseaseGroupId}
+                      factor={factor}
+                      searchMode={pubmedSearchMode}
+                      freeQuery={freeQuery}
+                      diseaseTerms={diseaseTerms}
+                      defaultDiseaseTerm={getDefaultPubMedDiseaseKeyword(options.disease_groups.find((group) => group.id === diseaseGroupId))}
+                      maxResults={maxResults}
+                      selectedProviderCount={pubmedSearchMode === 'FREE' ? 1 : selectedProviders.size}
+                      yearFrom={yearFrom}
+                      yearTo={yearTo}
+                      loading={searching || whoExactBusy}
+                      pmid={pmid}
+                      pmidLoading={pmidSearching}
+                      onDiseaseGroupChange={changeDiseaseGroup}
+                      onFactorChange={changeFactor}
+                      onSearchModeChange={(value) => { setPubmedSearchMode(value); clearResearchResult(); }}
+                      onFreeQueryChange={setFreeQuery}
+                      onDiseaseTermsChange={setDiseaseTerms}
+                      onMaxResultsChange={setMaxResults}
+                      onYearFromChange={setYearFrom}
+                      onYearToChange={setYearTo}
+                      onSubmit={runSearch}
+                      onPmidChange={setPmid}
+                      onPmidLookup={runPmidLookup}
+                    />
+                    {factorIsComplete(factor) && providerSettings.some(item => item.provider_id === 'WHO' && item.workflow === 'REVIEWED' && item.enabled) && (
+                      <WhoExactLookup key={`${currentTopicKey}:${exactLookupEpoch}`}
+                        diseaseGroupId={diseaseGroupId} factor={factor}
+                        disabled={searching || pmidSearching || importing}
+                        onBusyChange={setWhoExactBusy}
+                        onStart={() => { setSearchResult(null); setProviderSearchResult(null); setSelectedImportPmids(new Set()); setSelectedProviderSources(new Set()); setError(null); setSuccess(null); }}
+                        onImported={() => refreshTopicLibrary()}
+                      />
+                    )}
+                    {searchResult && <PubMedResults response={searchResult} mode={resultMode} selectedPmids={selectedImportPmids} importing={importing} onToggle={togglePmid} onToggleAll={toggleAll} onImport={importSelected} />}
+                    {providerSearchResult && (
+                      <section aria-labelledby="provider-search-results" className="rounded-2xl border border-slate-200 bg-white p-4 shadow-sm sm:p-5">
+                        <div className="flex flex-wrap items-center justify-between gap-3">
+                          <div><h3 id="provider-search-results" className="font-bold text-slate-900">Kết quả theo nguồn</h3><p className="mt-1 text-xs text-slate-500">{providerSearchResult.count} kết quả · {providerSearchResult.unique_count} bằng chứng duy nhất</p></div>
+                          <span className="rounded-full bg-blue-50 px-3 py-1 text-sm font-semibold text-blue-800">Đã chọn {selectedProviderSources.size} tài liệu</span>
+                        </div>
+                        <div role="tablist" aria-label="Kết quả theo nguồn" className="mt-4 flex gap-2 overflow-x-auto border-b border-slate-200 pb-2">
+                          {providerSearchResult.providers.map((group) => {
+                            const selectedInGroup = group.results.filter((item) => selectedProviderSources.has(providerSourceKey(item.provider_id, item.external_id))).length;
+                            const statusLabel = group.status === 'PROVIDER_ERROR'
+                              ? 'Tạm thời không khả dụng'
+                              : `${group.returned_count} kết quả phù hợp${group.warning ? ' · một lượt tìm bị lỗi' : ''}`;
+                            return (
+                              <button key={group.provider_id} type="button" role="tab" aria-selected={activeProviderGroup?.provider_id === group.provider_id} onClick={() => setActiveProviderId(group.provider_id)} className={`min-w-fit rounded-lg px-3 py-2 text-left text-sm transition ${activeProviderGroup?.provider_id === group.provider_id ? 'bg-blue-700 text-white shadow-sm' : 'bg-slate-100 text-slate-700 hover:bg-slate-200'}`}>
+                                <span className="block font-bold">{group.display_name}</span>
+                                <span className={`block text-xs ${activeProviderGroup?.provider_id === group.provider_id ? 'text-blue-100' : group.status === 'PROVIDER_ERROR' ? 'text-amber-700' : 'text-slate-500'}`}>{statusLabel}{selectedInGroup > 0 ? ` · ${selectedInGroup} đã chọn` : ''}</span>
+                              </button>
+                            );
+                          })}
+                        </div>
+                        {activeProviderGroup && (
+                          <div role="tabpanel" aria-label={activeProviderGroup.display_name} className="mt-4">
+                            <div className="mb-3 flex flex-wrap items-center justify-between gap-2 text-xs text-slate-500">
+                              <span>Yêu cầu {activeProviderGroup.requested_count} · {activeProviderGroup.direct_count} trực tiếp · {activeProviderGroup.related_count} liên quan</span>
+                              {activeProviderGroup.status === 'SUCCESS' && activeProviderGroup.results.some((item) => !item.in_topic_library) && (
+                                <button type="button" onClick={() => toggleAllProviderGroup(activeProviderGroup.provider_id)} className="font-semibold text-blue-700">Chọn tất cả trong {activeProviderGroup.display_name}</button>
+                              )}
+                            </div>
+                            {activeProviderGroup.status === 'PROVIDER_ERROR' && (
+                              <p role="status" className="rounded-xl border border-amber-200 bg-amber-50 px-4 py-5 text-sm text-amber-900"><strong>{activeProviderGroup.display_name}</strong> — Tạm thời không khả dụng; kết quả từ nguồn khác vẫn được giữ.</p>
+                            )}
+                            {activeProviderGroup.status === 'NO_RESULTS' && (
+                              <p role="status" className="rounded-xl border border-slate-200 bg-slate-50 px-4 py-8 text-center text-sm text-slate-600">
+                                {activeProviderGroup.provider_id === 'WHO'
+                                  ? `Đã kiểm tra ${activeProviderGroup.raw_candidates_examined} kết quả WHO nhưng chưa tìm thấy tài liệu đồng thời phù hợp với bệnh và yếu tố.`
+                                  : 'Không tìm thấy tài liệu phù hợp từ nguồn này.'}
+                              </p>
+                            )}
+                            {activeProviderGroup.warning && activeProviderGroup.status !== 'PROVIDER_ERROR' && (
+                              <p role="status" className="mb-3 rounded-xl border border-amber-200 bg-amber-50 px-4 py-3 text-sm text-amber-900">Một lượt tìm mở rộng tạm thời không khả dụng; các kết quả đã tìm thấy vẫn được giữ.</p>
+                            )}
+                            {activeProviderGroup.status === 'SUCCESS' && <div className="space-y-3">
+                          {activeProviderGroup.results.map((item) => {
+                            const key = providerSourceKey(item.provider_id, item.external_id);
+                            const savedLabel = item.in_topic_library
+                              ? item.usable_for_draft
+                                ? 'Đã có trong kho · AI có thể sử dụng'
+                                : 'Đã lưu để tham khảo'
+                              : item.usable_for_draft
+                                ? 'Có nội dung AI đọc được'
+                                : 'Chỉ metadata · lưu để tham khảo';
+                            return (
+                              <label key={key} className={`flex items-start gap-3 rounded-xl border border-slate-200 p-3 ${item.in_topic_library ? 'cursor-default bg-slate-50' : 'cursor-pointer hover:border-blue-300'}`}>
+                                <input type="checkbox" className="mt-1" disabled={item.in_topic_library} checked={item.in_topic_library || selectedProviderSources.has(key)} onChange={() => setSelectedProviderSources((current) => { const next = new Set(current); if (next.has(key)) next.delete(key); else next.add(key); return next; })} />
+                                <span className="min-w-0"><span className="block font-semibold text-slate-900">{item.title}</span><span className="mt-1 flex flex-wrap gap-2 text-xs text-slate-500"><span>{item.source_kind}</span>{item.publication_year && <span>Năm {item.publication_year}</span>}</span><span className="mt-2 flex flex-wrap gap-2"><span className={`inline-flex rounded-full px-2 py-1 text-xs font-semibold ${item.relevance === 'DIRECT_TOPIC' ? 'bg-cyan-100 text-cyan-900' : 'bg-violet-100 text-violet-900'}`}>{item.relevance === 'DIRECT_TOPIC' ? 'Bằng chứng trực tiếp' : 'Tài liệu liên quan'}</span><span className={`inline-flex rounded-full px-2 py-1 text-xs font-semibold ${item.in_topic_library ? 'bg-blue-100 text-blue-800' : item.usable_for_draft ? 'bg-emerald-100 text-emerald-800' : 'bg-amber-100 text-amber-900'}`}>{savedLabel}</span></span></span>
+                              </label>
+                            );
+                          })}
+                            </div>}
+                            <details className="mt-4 rounded-lg border border-slate-200 bg-slate-50 text-xs text-slate-600">
+                              <summary className="cursor-pointer px-3 py-2 font-semibold text-slate-700">Chi tiết kỹ thuật tìm kiếm</summary>
+                              <div className="space-y-2 border-t border-slate-200 px-3 py-3">
+                                <p>Provider: {activeProviderGroup.display_name} · Đã gọi: {activeProviderGroup.provider_invoked ? 'có' : 'không'} · Trạng thái provider: {activeProviderGroup.provider_status}</p>
+                                <p>Mục tiêu phù hợp {activeProviderGroup.requested_relevant_count} · tổng từ nhà cung cấp {activeProviderGroup.provider_total_available ?? 'không rõ'} · số trang {activeProviderGroup.pages_fetched} · đã kiểm tra {activeProviderGroup.raw_candidates_examined} · chuẩn hóa {activeProviderGroup.normalized_candidates} · trực tiếp {activeProviderGroup.direct_count} · liên quan {activeProviderGroup.related_count} · loại {activeProviderGroup.rejected_count} · trả về {activeProviderGroup.returned_count}</p>
+                                <p>Lý do dừng: <code>{activeProviderGroup.stop_reason}</code> · hết dữ liệu nhà cung cấp: {activeProviderGroup.provider_exhausted ? 'có' : 'không'} · hết ngân sách: {activeProviderGroup.budget_exhausted ? 'có' : 'không'}</p>
+                                {activeProviderGroup.budget_exhausted && <p>Đã dừng khi đạt ngân sách ứng viên an toàn.</p>}
+                                {activeProviderGroup.warning && <p>Mã lỗi an toàn: <code>{activeProviderGroup.warning.code}</code></p>}
+                                <ol className="space-y-2">
+                                  {activeProviderGroup.query_attempts.map((attempt) => (
+                                    <li key={`${attempt.level}:${attempt.query}`}><strong>{attempt.level}</strong> · {attempt.status} · trang {attempt.pages_fetched} · tìm thấy {attempt.provider_match_count} · lấy {attempt.fetched_count} · chuẩn hóa {attempt.normalized_count} · trực tiếp {attempt.direct_count} · liên quan {attempt.related_count} · loại {attempt.rejected_count} · dừng <code>{attempt.stop_reason}</code>{attempt.warning && <> · lỗi <code>{attempt.warning.code}</code></>}<details className="mt-1"><summary className="cursor-pointer">Xem truy vấn</summary><code className="mt-1 block whitespace-pre-wrap break-words rounded bg-white p-2">{attempt.query}</code></details></li>
+                                  ))}
+                                </ol>
+                              </div>
+                            </details>
+                          </div>
+                        )}
+                        <button type="button" disabled={importing || selectedProviderSources.size === 0} onClick={() => void importSelectedProviderSources()} className="mt-4 rounded-lg bg-blue-800 px-4 py-2 text-sm font-bold text-white disabled:cursor-not-allowed disabled:opacity-50">{importing ? 'Đang thêm…' : `Thêm ${selectedProviderSources.size} nguồn vào kho`}</button>
+                      </section>
+                    )}
+                </div>
+                <div id="source-panel-library" role="tabpanel" aria-labelledby="source-tab-library" className={sourceView === 'library' ? '' : 'pointer-events-none absolute inset-x-0 top-0 max-h-0 overflow-hidden opacity-0'}>
+                {diseaseGroupId && factorIsComplete(factor) && (
+                  <MedicalTopicSourceLibrary diseaseName={options.disease_groups.find((group) => group.id === diseaseGroupId)?.name ?? diseaseGroupId} factorLabel={factorLabel(factor)} library={topicLibrary} loading={libraryLoading} selectedSourceIds={selectedDraftSourceIds} onToggle={toggleDraftSource} onSelectAllUsable={selectAllUsableDraftSources} selectionNotice={selectionNotice} />
+                )}
+                {(!diseaseGroupId || !factorIsComplete(factor)) && (
+                  <div className="rounded-2xl border border-dashed border-slate-300 bg-white px-5 py-12 text-center text-sm text-slate-500">Chọn đầy đủ nhóm bệnh và yếu tố để mở không gian nguồn.</div>
+                )}
+                </div>
+                <div id="source-panel-selection" role="tabpanel" aria-labelledby="source-tab-selection" className={sourceView === 'selection' ? '' : 'pointer-events-none absolute inset-x-0 top-0 max-h-0 overflow-hidden opacity-0'}>
+                  <SelectedDraftSources sources={selectedDraftSources} />
+                </div>
+              </div>
+            </section>
+
+            <aside aria-label="Không gian revision y khoa" className="min-w-0 xl:sticky xl:top-4">
+              <div className="mb-3 flex items-center justify-between gap-3 px-1">
+                <div><h2 className="font-bold text-slate-950">Revision & kiểm duyệt</h2><p className="mt-1 text-sm text-slate-500">Tạo, biên tập và quản lý vòng đời nội dung.</p></div>
+                <BookCheck size={20} className="text-blue-700" />
+              </div>
+              {diseaseGroupId && factorIsComplete(factor) ? (
+                <MedicalDraftWorkspace diseaseGroupId={diseaseGroupId} factor={factor} selectedSources={selectedDraftSources} onRemoveSelectedSource={toggleDraftSource} onInvalidSelection={() => { setSelectedDraftSourceIds(new Set()); setSelectionNotice(null); }} llmAvailable={options.llm_draft_generation_available} canApprove={user?.role === 'staff' || user?.role === 'admin'} canPublish={user?.role === 'staff' || user?.role === 'admin'} canUnpublish={user?.role === 'staff' || user?.role === 'admin'} compactSourceSummary />
+              ) : (
+                <div className="rounded-2xl border border-dashed border-slate-300 bg-white px-5 py-14 text-center"><BookCheck size={25} className="mx-auto text-slate-400" /><p className="mt-3 font-semibold text-slate-700">Chưa có chủ đề để review</p><p className="mt-1 text-sm text-slate-500">Chọn nhóm bệnh và yếu tố ở phía trên để xem revision.</p></div>
+              )}
+            </aside>
+          </div>
+        </div>
+      ) : null}
+    </div>
+  );
+}

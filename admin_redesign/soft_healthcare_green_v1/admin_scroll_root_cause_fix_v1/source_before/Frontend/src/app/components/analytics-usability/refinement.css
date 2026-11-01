@@ -1,0 +1,40 @@
+/* Limited to Seasonal, Monthly and Trend. Existing tokens and Gender are untouched. */
+.admin-seasonal-content, .analytics-mode-monthly, .analytics-mode-trend { min-width:0; }
+:is(.admin-seasonal-content,.analytics-mode-monthly,.analytics-mode-trend) .a-pagination { display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:10px 16px; margin-top:12px; color:var(--admin-ink); font-size:13px; }
+:is(.admin-seasonal-content,.analytics-mode-monthly,.analytics-mode-trend) .a-pagination :is(div,label) { display:flex; flex-wrap:wrap; align-items:center; gap:8px; }
+:is(.admin-seasonal-content,.analytics-mode-monthly,.analytics-mode-trend) .a-pagination :is(button,select) { min-height:36px; padding:6px 10px; background:var(--admin-surface); color:var(--admin-ink); border:1px solid var(--admin-border); border-radius:var(--admin-control-radius); }
+:is(.admin-seasonal-content,.analytics-mode-monthly,.analytics-mode-trend) .a-pagination button:disabled { opacity:.5; cursor:not-allowed; }
+:is(.admin-seasonal-content,.analytics-mode-monthly,.analytics-mode-trend) :is(.a-pagination button,.a-pagination select,.a-table-scroll,.a-bar-viewport):focus-visible { outline:2px solid var(--admin-primary); outline-offset:3px; }
+:is(.admin-seasonal-content,.analytics-mode-monthly,.analytics-mode-trend) .a-table-scroll { min-width:0; max-width:100%; overflow-x:auto; margin-top:16px; }
+:is(.admin-seasonal-content,.analytics-mode-monthly,.analytics-mode-trend) .a-table-scroll table { width:100%; min-width:620px; border-collapse:collapse; font-size:13px; }
+:is(.admin-seasonal-content,.analytics-mode-monthly,.analytics-mode-trend) .a-table-scroll :is(th,td) { padding:10px 12px; text-align:start; vertical-align:top; overflow-wrap:anywhere; }
+:is(.admin-seasonal-content,.analytics-mode-monthly,.analytics-mode-trend) .a-table-scroll thead { background:var(--admin-subtle); color:var(--admin-ink); font-weight:600; }
+:is(.admin-seasonal-content,.analytics-mode-monthly,.analytics-mode-trend) .a-table-scroll tbody th { min-width:160px; max-width:320px; font-weight:500; }
+:is(.admin-seasonal-content,.analytics-mode-monthly,.analytics-mode-trend) .a-table-scroll tbody tr + tr { border-top:1px solid var(--admin-border); }
+:is(.admin-seasonal-content,.analytics-mode-monthly,.analytics-mode-trend) .a-table-scroll .a-number { text-align:right; font-variant-numeric:tabular-nums; }
+:is(.admin-seasonal-content,.analytics-mode-trend) .a-series-legend .admin-chart-legend { max-height:none; overflow:visible; grid-template-columns:repeat(auto-fit,minmax(min(220px,100%),1fr)); }
+.admin-seasonal-content .a-top-scope { padding:12px 16px; border-inline-start:3px solid var(--admin-primary); background:var(--admin-subtle); color:var(--admin-ink); font-size:13px; line-height:1.7; }
+.admin-seasonal-content .a-empty { padding-block:16px; color:var(--admin-muted); }
+.analytics-mode-monthly .a-bar-viewport { max-height:420px; overflow-y:auto; overflow-x:hidden; }
+.analytics-mode-monthly .analytics-value-legend { margin-top:12px; }
+.analytics-mode-monthly .analytics-value-legend li { font-size:13px; }
+.analytics-mode-monthly .monthly-distribution > section { align-self:start; }
+.analytics-workspace.analytics-mode-trend .analytics-selected-diseases { grid-column:1 / -1; align-items:start; margin:0; }
+.analytics-workspace.analytics-mode-trend .analytics-selected-diseases > span { flex:0 1 auto; width:fit-content; max-width:min(100%,340px); }
+.analytics-mode-trend .analytics-selected-diseases small { display:block; }
+.analytics-mode-trend .a-selected-toggle { min-height:36px; padding:6px 10px; border:1px solid var(--admin-border); border-radius:var(--admin-control-radius); background:var(--admin-surface); color:var(--admin-ink); }
+.analytics-workspace.analytics-mode-trend .trend-focus-list { max-height:none; overflow:visible; }
+.analytics-mode-trend .trend-focus-panel { padding:12px; }
+.analytics-mode-trend .trend-focus-panel .a-pagination { font-size:12px; gap:6px; }
+@container advanced-analytics (min-width:800px) {
+ .analytics-workspace.analytics-mode-trend .trend-analysis-grid { grid-template-columns:minmax(0,1fr) minmax(240px,.45fr); }
+}
+@container advanced-analytics (min-width:650px) {
+ .analytics-workspace.analytics-mode-trend .trend-filter-band { grid-template-columns:minmax(0,.8fr) minmax(0,1.4fr); }
+}
+#root .eureka-admin :is(.admin-seasonal-content,.analytics-mode-monthly,.analytics-mode-trend) :is(.admin-chart-caption,.analytics-panel-heading p,.analytics-control-note,.analytics-filter-band > label > span,.analytics-picker > span,.a-series-legend strong) { color:var(--admin-ink); font-size:13px; font-weight:500; }
+#root .eureka-admin :is(.admin-seasonal-content,.analytics-mode-monthly,.analytics-mode-trend) :is(.a-table-scroll small,.a-series-legend small,.analytics-value-legend small) { color:var(--admin-muted); font-size:12px; }
+#root .eureka-admin :is(.admin-seasonal-content,.analytics-mode-monthly,.analytics-mode-trend) .recharts-cartesian-axis-tick-value { fill:var(--admin-ink); }
+@media (max-width:599px) {
+ .analytics-workspace.analytics-mode-trend .analytics-selected-diseases > span { max-width:100%; }
+}

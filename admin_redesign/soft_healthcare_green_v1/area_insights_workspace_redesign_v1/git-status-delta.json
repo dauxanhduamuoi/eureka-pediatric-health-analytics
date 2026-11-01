@@ -1,0 +1,8 @@
+{
+  "method": "Both snapshots use git --no-optional-locks status --short with default directory grouping. Hash checks are the preservation proof for existing files.",
+  "newStatusEntries": [
+    "?? Frontend/src/app/components/AreaInsights.test.tsx",
+    "?? Frontend/src/app/components/areas/"
+  ],
+  "removedStatusEntries": []
+}

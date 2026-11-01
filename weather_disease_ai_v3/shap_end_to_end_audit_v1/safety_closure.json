@@ -1,0 +1,15 @@
+{
+  "changed_protected_files": [],
+  "changed_tables_excluding_live_login_sessions": [],
+  "table_count": 32,
+  "real_db_file_unchanged": true,
+  "real_db_before": "7f4587a89c2667813009ccc6c37ad09cb61376e472de8ac08dbf5d519a7ce602",
+  "real_db_after": "7f4587a89c2667813009ccc6c37ad09cb61376e472de8ac08dbf5d519a7ce602",
+  "readonly_connection_changes": [
+    0,
+    0
+  ],
+  "head_unchanged": true,
+  "index_unchanged": true,
+  "head": "6a69d26e7b07188f7def6cd7bcf9481f8e2eb649"
+}

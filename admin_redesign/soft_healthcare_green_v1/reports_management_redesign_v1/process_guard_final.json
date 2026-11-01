@@ -1,0 +1,23 @@
+﻿{
+    "started_stopped_restarted":  false,
+    "source_changed":  true,
+    "backend_processes":  [
+
+                          ],
+    "reused_old_pids":  [
+                            {
+                                "Id":  45724,
+                                "ProcessName":  "chrome"
+                            },
+                            {
+                                "Id":  32864,
+                                "ProcessName":  "node"
+                            }
+                        ],
+    "status":  "SAFE_BACKEND_STOPPED",
+    "production_db_sql_access":  false,
+    "port_8000_listeners":  [
+
+                            ],
+    "checked_at":  "2026-10-30T11:46:18.9910584+07:00"
+}

@@ -1,0 +1,33 @@
+{
+  "baseline_files_checked": 503,
+  "changed_baseline_files": [
+    "Frontend/src/lib/reports.ts",
+    "Frontend/src/app/components/Reports.tsx",
+    "Frontend/src/app/components/admin/AdminPageTitles.test.tsx",
+    "Frontend/src/app/components/admin/AdminWorkflows.content.test.tsx",
+    "seasonal_disease_backend/app/routers/reports.py",
+    "seasonal_disease_backend/requirements.txt"
+  ],
+  "unexpected_baseline_changes": [],
+  "missing_baseline_files": [],
+  "new_source_files": [
+    "Frontend/src/app/components/Reports.test.tsx",
+    "Frontend/src/app/components/reports/ReportForm.tsx",
+    "Frontend/src/app/components/reports/ReportPreview.tsx",
+    "Frontend/src/app/components/reports/reports.css",
+    "Frontend/src/lib/reports.test.ts",
+    "seasonal_disease_backend/app/assets/report_fonts/Nunito-Bold.ttf",
+    "seasonal_disease_backend/app/assets/report_fonts/Nunito-Regular.ttf",
+    "seasonal_disease_backend/app/assets/report_fonts/Nunito-Variable.ttf",
+    "seasonal_disease_backend/app/assets/report_fonts/OFL.txt",
+    "seasonal_disease_backend/app/assets/report_fonts/README.md",
+    "seasonal_disease_backend/app/report_schemas.py",
+    "seasonal_disease_backend/app/services/report_data.py",
+    "seasonal_disease_backend/app/services/report_export.py",
+    "seasonal_disease_backend/app/services/report_store.py"
+  ],
+  "head_unchanged": true,
+  "git_index_unchanged": true,
+  "models_checked": 221,
+  "protected_db_and_env_unchanged": true
+}

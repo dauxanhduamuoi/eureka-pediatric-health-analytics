@@ -1,0 +1,40 @@
+{
+  "protected_files_before": 508,
+  "modified_existing_files": [
+    "Frontend\\src\\app\\App.navigation.test.tsx",
+    "Frontend\\src\\app\\AppPages.tsx",
+    "Frontend\\src\\app\\navigation.ts",
+    "Frontend\\src\\app\\useAdminSectionNavigation.ts",
+    "Frontend\\src\\i18n\\locales\\en.ts",
+    "Frontend\\src\\i18n\\locales\\vi.ts",
+    "Frontend\\src\\app\\components\\AdminMainNavigation.tsx",
+    "Frontend\\src\\app\\components\\DashboardOverview.tsx",
+    "Frontend\\src\\app\\components\\Forecast.tsx",
+    "Frontend\\src\\app\\components\\LoginPage.tsx",
+    "Frontend\\src\\app\\components\\NotificationsPanel.tsx",
+    "Frontend\\src\\app\\components\\Reports.tsx",
+    "Frontend\\src\\app\\components\\SeasonalAnalysis.tsx",
+    "Frontend\\src\\app\\components\\Settings.tsx",
+    "Frontend\\src\\app\\components\\admin\\admin.css",
+    "Frontend\\src\\app\\components\\admin\\AdminLayout.tsx",
+    "Frontend\\src\\app\\components\\admin\\AdminPages.regression.test.tsx"
+  ],
+  "added_files_in_protected_paths": [
+    "Frontend\\src\\app\\components\\PermissionsPage.test.tsx",
+    "Frontend\\src\\app\\components\\PermissionsPage.tsx",
+    "Frontend\\src\\app\\components\\admin\\AdminSection.tsx",
+    "Frontend\\src\\app\\components\\admin\\BrandingVietnamese.test.tsx",
+    "Frontend\\src\\app\\components\\admin\\permissions\\PermissionControls.tsx",
+    "Frontend\\src\\app\\components\\admin\\permissions\\PermissionDialogs.tsx",
+    "Frontend\\src\\app\\components\\admin\\permissions\\UserAccountForms.tsx",
+    "Frontend\\src\\app\\components\\admin\\permissions\\useUserAdministration.ts"
+  ],
+  "changed_tables": [],
+  "table_count": 32,
+  "read_only_total_changes": 0,
+  "head_unchanged": true,
+  "git_index_unchanged": true,
+  "real_db_file_hash_unchanged": false,
+  "real_db_hash_before": "3d3548044b4f6e2b7c034864c1ce66d9d6c673bad11f0b930e059eac97a87443",
+  "real_db_hash_after": "5b53e19c15803c2978ce3cf1d807edb100909a2b95585180dadc7e9bea5bc7a0"
+}

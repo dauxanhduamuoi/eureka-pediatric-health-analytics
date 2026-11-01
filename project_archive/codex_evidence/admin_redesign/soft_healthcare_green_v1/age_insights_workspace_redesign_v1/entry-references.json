@@ -1,0 +1,11 @@
+{
+  "oldEntryImportScanExit": 1,
+  "oldEntryImports": "",
+  "newEntryConsumers": [
+    "AppPages.tsx",
+    "admin/AdminPages.regression.test.tsx",
+    "admin/ChartVisuals.test.tsx",
+    "age-insights/AgeInsightsWorkspace.test.tsx"
+  ],
+  "oldEntryExists": false
+}

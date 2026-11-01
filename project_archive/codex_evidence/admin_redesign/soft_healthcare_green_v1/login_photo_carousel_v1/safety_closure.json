@@ -1,0 +1,44 @@
+{
+  "status": "PASS_WITH_FINDINGS",
+  "baseline_files": 495,
+  "changed_existing_files": [
+    "Frontend/src/app/components/login.css",
+    "Frontend/src/app/components/LoginPage.test.tsx",
+    "Frontend/src/app/components/LoginPage.tsx"
+  ],
+  "added_source_files": [
+    "Frontend/src/app/components/LoginVisualCarousel.tsx",
+    "Frontend/src/app/components/LoginVisualCarousel.test.tsx",
+    "Frontend/src/app/components/loginSlides.ts"
+  ],
+  "added_runtime_assets": [
+    "Frontend/public/assets/login/pediatric-consultation.webp",
+    "Frontend/public/assets/login/parent-child-lounge.webp",
+    "Frontend/public/assets/login/pediatric-clinic.webp"
+  ],
+  "non_target_baseline_unchanged": true,
+  "backend_auth_context_api_parent_admin_other_pages_fonts_models_env_unchanged": true,
+  "database_file_hashes_unchanged": true,
+  "login_handleSubmit_exactly_preserved": true,
+  "runtime_image_count": 3,
+  "image_sources": "1 user ZIP asset + 2 built-in image_gen originals",
+  "runtime_image_total_bytes": 223350,
+  "reference_mockup_inspected": true,
+  "mockup_screenshot_used_as_asset": false,
+  "frontend_tests": 47,
+  "typecheck": "PASS",
+  "build": "PASS",
+  "diff_check": "PASS",
+  "untracked_source_whitespace": "PASS",
+  "head_unchanged": true,
+  "index_hash_unchanged": true,
+  "staged_diff_empty": true,
+  "browser": "NOT VERIFIED: native pipe and browser host unavailable",
+  "visual_viewports_1440_1280_768_390": "NOT VERIFIED",
+  "native_Enter_in_real_browser": "NOT VERIFIED; native form/requestSubmit path tested in JSDOM",
+  "external_runtime_images": false,
+  "network": "Built-in image generation for fictional scenes only; no project data/patient data/credentials sent",
+  "forbidden_git_operations": "None",
+  "db_migrations_account_changes_backend_restarts": "None",
+  "built_runtime_asset_hashes_match": true
+}

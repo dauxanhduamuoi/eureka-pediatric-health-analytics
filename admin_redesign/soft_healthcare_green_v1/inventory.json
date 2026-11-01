@@ -1,0 +1,395 @@
+[
+  {
+    "route": "/?section=dashboard",
+    "component": "Frontend/src/app/components/DashboardOverview.tsx",
+    "permission": "feature.dashboard",
+    "api_methods": [
+      "getCasesByYear",
+      "getForecastGroupSummary",
+      "getForecastResults",
+      "getMonthlyStatistics",
+      "getOverview",
+      "getTopDiseaseGroups",
+      "runForecast"
+    ],
+    "endpoints": [
+      "/api/dashboard/cases-by-year",
+      "/api/dashboard/monthly-statistics?data_type=${encodeURIComponent(dataType)}",
+      "/api/dashboard/overview?data_type=${encodeURIComponent(dataType)}",
+      "/api/dashboard/top-disease-groups?data_type=${encodeURIComponent(dataType)}&limit=${limit}",
+      "/api/forecast/group-summary${qs}",
+      "/api/forecast/results${qs}",
+      "/api/forecast/run?${qs.toString()}"
+    ],
+    "handlers": [
+      "handleRunForecast"
+    ],
+    "design": "Shared scoped tokens, white surfaces, green actions; retain all existing controls and data mappings"
+  },
+  {
+    "route": "/?section=data-import",
+    "component": "Frontend/src/app/components/DataImport.tsx",
+    "permission": "feature.data_import",
+    "api_methods": [
+      "getDiseaseCodesStatus",
+      "getPatientDataStatus",
+      "getActiveImportJob",
+      "runImportJob"
+    ],
+    "endpoints": [
+      "/api/import/disease-codes/status",
+      "/api/import/patient-data/status"
+    ],
+    "handlers": [
+      "handleImport"
+    ],
+    "design": "Shared scoped tokens, white surfaces, green actions; retain all existing controls and data mappings"
+  },
+  {
+    "route": "/?section=seasonal",
+    "component": "Frontend/src/app/components/SeasonalAnalysis.tsx",
+    "permission": "feature.seasonal",
+    "api_methods": [
+      "getDiseaseSeasonComparison",
+      "getMonthlyStatistics",
+      "getSeasonalPeak",
+      "getSeasonalSummary"
+    ],
+    "endpoints": [
+      "/api/dashboard/disease-season-comparison?${qs.toString()}",
+      "/api/dashboard/monthly-statistics?data_type=${encodeURIComponent(dataType)}",
+      "/api/dashboard/seasonal-peak?limit=${limit}",
+      "/api/dashboard/seasonal-summary?${qs.toString()}"
+    ],
+    "handlers": [],
+    "design": "Shared scoped tokens, white surfaces, green actions; retain all existing controls and data mappings"
+  },
+  {
+    "route": "/?section=age-analysis",
+    "component": "Frontend/src/app/components/AgeAnalysis.tsx",
+    "permission": "feature.age_analysis",
+    "api_methods": [
+      "getCasesByAgeRange",
+      "getDashboardPeriods",
+      "getDiseaseByAgeRange"
+    ],
+    "endpoints": [
+      "/api/dashboard/cases-by-age-range?${qs.toString()}",
+      "/api/dashboard/disease-by-age-range?${qs.toString()}",
+      "/api/dashboard/periods"
+    ],
+    "handlers": [],
+    "design": "Shared scoped tokens, white surfaces, green actions; retain all existing controls and data mappings"
+  },
+  {
+    "route": "/?section=monthly-disease-analysis",
+    "component": "Frontend/src/app/components/AdvancedAnalytics.tsx",
+    "permission": "feature.monthly_disease",
+    "api_methods": [
+      "getCasesByGender",
+      "getDashboardDiseaseGroups",
+      "getDashboardPeriods",
+      "getDiseaseByGender",
+      "getDiseasePercentageByMonth",
+      "getDiseaseTrend",
+      "getMonthlyComparison",
+      "getSummaryCard",
+      "getTopDiseaseGroupsByMonth",
+      "getYearOverYear",
+      "searchDisease",
+      "searchPeriod"
+    ],
+    "endpoints": [
+      "/api/dashboard/cases-by-gender${suffix}",
+      "/api/dashboard/disease-by-gender?${qs.toString()}",
+      "/api/dashboard/disease-groups",
+      "/api/dashboard/disease-percentage-by-month?period=${encodeURIComponent(period)}&limit=${limit}",
+      "/api/dashboard/disease-trend?${qs.toString()}",
+      "/api/dashboard/monthly-comparison?period=${encodeURIComponent(period)}&limit=${limit}",
+      "/api/dashboard/periods",
+      "/api/dashboard/summary-card?period=${encodeURIComponent(period)}",
+      "/api/dashboard/top-disease-groups-by-month?period=${encodeURIComponent(period)}&limit=${limit}",
+      "/api/dashboard/year-over-year?${qs.toString()}"
+    ],
+    "handlers": [],
+    "design": "Shared scoped tokens, white surfaces, green actions; retain all existing controls and data mappings"
+  },
+  {
+    "route": "/?section=gender-analysis",
+    "component": "Frontend/src/app/components/AdvancedAnalytics.tsx",
+    "permission": "feature.gender_analysis",
+    "api_methods": [
+      "getCasesByGender",
+      "getDashboardDiseaseGroups",
+      "getDashboardPeriods",
+      "getDiseaseByGender",
+      "getDiseasePercentageByMonth",
+      "getDiseaseTrend",
+      "getMonthlyComparison",
+      "getSummaryCard",
+      "getTopDiseaseGroupsByMonth",
+      "getYearOverYear",
+      "searchDisease",
+      "searchPeriod"
+    ],
+    "endpoints": [
+      "/api/dashboard/cases-by-gender${suffix}",
+      "/api/dashboard/disease-by-gender?${qs.toString()}",
+      "/api/dashboard/disease-groups",
+      "/api/dashboard/disease-percentage-by-month?period=${encodeURIComponent(period)}&limit=${limit}",
+      "/api/dashboard/disease-trend?${qs.toString()}",
+      "/api/dashboard/monthly-comparison?period=${encodeURIComponent(period)}&limit=${limit}",
+      "/api/dashboard/periods",
+      "/api/dashboard/summary-card?period=${encodeURIComponent(period)}",
+      "/api/dashboard/top-disease-groups-by-month?period=${encodeURIComponent(period)}&limit=${limit}",
+      "/api/dashboard/year-over-year?${qs.toString()}"
+    ],
+    "handlers": [],
+    "design": "Shared scoped tokens, white surfaces, green actions; retain all existing controls and data mappings"
+  },
+  {
+    "route": "/?section=disease-trend-analysis",
+    "component": "Frontend/src/app/components/AdvancedAnalytics.tsx",
+    "permission": "feature.disease_trend",
+    "api_methods": [
+      "getCasesByGender",
+      "getDashboardDiseaseGroups",
+      "getDashboardPeriods",
+      "getDiseaseByGender",
+      "getDiseasePercentageByMonth",
+      "getDiseaseTrend",
+      "getMonthlyComparison",
+      "getSummaryCard",
+      "getTopDiseaseGroupsByMonth",
+      "getYearOverYear",
+      "searchDisease",
+      "searchPeriod"
+    ],
+    "endpoints": [
+      "/api/dashboard/cases-by-gender${suffix}",
+      "/api/dashboard/disease-by-gender?${qs.toString()}",
+      "/api/dashboard/disease-groups",
+      "/api/dashboard/disease-percentage-by-month?period=${encodeURIComponent(period)}&limit=${limit}",
+      "/api/dashboard/disease-trend?${qs.toString()}",
+      "/api/dashboard/monthly-comparison?period=${encodeURIComponent(period)}&limit=${limit}",
+      "/api/dashboard/periods",
+      "/api/dashboard/summary-card?period=${encodeURIComponent(period)}",
+      "/api/dashboard/top-disease-groups-by-month?period=${encodeURIComponent(period)}&limit=${limit}",
+      "/api/dashboard/year-over-year?${qs.toString()}"
+    ],
+    "handlers": [],
+    "design": "Shared scoped tokens, white surfaces, green actions; retain all existing controls and data mappings"
+  },
+  {
+    "route": "/?section=forecast",
+    "component": "Frontend/src/app/components/Forecast.tsx",
+    "permission": "feature.forecast",
+    "api_methods": [
+      "getForecastGroupSummary",
+      "getForecastResults",
+      "runForecast"
+    ],
+    "endpoints": [
+      "/api/forecast/group-summary${qs}",
+      "/api/forecast/results${qs}",
+      "/api/forecast/run?${qs.toString()}"
+    ],
+    "handlers": [
+      "handleExport",
+      "handleRun"
+    ],
+    "design": "Shared scoped tokens, white surfaces, green actions; retain all existing controls and data mappings"
+  },
+  {
+    "route": "/?section=weather-risk",
+    "component": "Frontend/src/app/components/WeatherRisk.tsx",
+    "permission": "feature.weather_risk",
+    "api_methods": [
+      "getWeatherAIOptions",
+      "getWeatherAIStatus",
+      "listAreaProvinces",
+      "predictWeatherAIRisk",
+      "weatherAIErrorMessage"
+    ],
+    "endpoints": [
+      "/api/areas/provinces",
+      "/api/weather-ai/options",
+      "/api/weather-ai/predict-risk",
+      "/api/weather-ai/status"
+    ],
+    "handlers": [
+      "handleLocationModeChange"
+    ],
+    "design": "Shared scoped tokens, white surfaces, green actions; retain all existing controls and data mappings"
+  },
+  {
+    "route": "/?section=parent-disease-visibility",
+    "component": "Frontend/src/app/components/ParentDiseaseVisibilitySettings.tsx",
+    "permission": "feature.parent_disease_visibility",
+    "api_methods": [
+      "getParentDiseaseVisibility",
+      "updateParentDiseaseVisibility"
+    ],
+    "endpoints": [
+      "/api/admin/parent-disease-visibility",
+      "/api/admin/parent-disease-visibility/${encodeURIComponent(diseaseGroupId)}"
+    ],
+    "handlers": [],
+    "design": "Shared scoped tokens, white surfaces, green actions; retain all existing controls and data mappings"
+  },
+  {
+    "route": "/?section=medical-knowledge",
+    "component": "Frontend/src/app/components/medical-knowledge/MedicalKnowledgeResearchPage.tsx",
+    "permission": "Admin/Staff role",
+    "api_methods": [
+      "getMedicalEvidenceProviderSettings",
+      "getMedicalKnowledgeOptions",
+      "getMedicalKnowledgeTopicSources",
+      "importMedicalEvidenceProviderSources",
+      "importPubMedSources",
+      "lookupPubMedByPmid",
+      "searchMedicalEvidenceProviders",
+      "searchPubMed"
+    ],
+    "endpoints": [
+      "/api/medical-knowledge/options",
+      "/api/medical-knowledge/providers/import",
+      "/api/medical-knowledge/providers/search",
+      "/api/medical-knowledge/providers/settings",
+      "/api/medical-knowledge/pubmed/import",
+      "/api/medical-knowledge/pubmed/lookup",
+      "/api/medical-knowledge/pubmed/search",
+      "/api/medical-knowledge/topic-sources?${query.toString()}"
+    ],
+    "handlers": [],
+    "design": "Shared scoped tokens, white surfaces, green actions; retain all existing controls and data mappings"
+  },
+  {
+    "route": "/?section=areas",
+    "component": "Frontend/src/app/components/AreaInsights.tsx",
+    "permission": "feature.areas",
+    "api_methods": [
+      "getAreaCaseSummary",
+      "getAreaDiseaseSummary",
+      "getAreaLocalRisks",
+      "getAreaRecommendations",
+      "listAreaProvinces",
+      "syncDefaultAreas"
+    ],
+    "endpoints": [
+      "/api/areas/case-summary?${qs.toString()}",
+      "/api/areas/disease-summary?${qs.toString()}",
+      "/api/areas/local-risks?${qs.toString()}",
+      "/api/areas/provinces",
+      "/api/areas/recommendations${suffix}",
+      "/api/areas/sync-defaults"
+    ],
+    "handlers": [
+      "handleSyncDefaults"
+    ],
+    "design": "Shared scoped tokens, white surfaces, green actions; retain all existing controls and data mappings"
+  },
+  {
+    "route": "/?section=reports",
+    "component": "Frontend/src/app/components/Reports.tsx",
+    "permission": "feature.reports",
+    "api_methods": [
+      "getForecastGroupSummary",
+      "getMonthlyStatistics",
+      "getReportByAgeMonths",
+      "getReportByMonthYear",
+      "getTopDiseaseGroups"
+    ],
+    "endpoints": [
+      "/api/dashboard/monthly-statistics?data_type=${encodeURIComponent(dataType)}",
+      "/api/dashboard/top-disease-groups?data_type=${encodeURIComponent(dataType)}&limit=${limit}",
+      "/api/forecast/group-summary${qs}",
+      "/api/reports/by-age-months${suffix}",
+      "/api/reports/by-month-year?data_type=${encodeURIComponent(dataType)}"
+    ],
+    "handlers": [
+      "handleApplyTemplate",
+      "handleDelete",
+      "handleGenerate"
+    ],
+    "design": "Shared scoped tokens, white surfaces, green actions; retain all existing controls and data mappings"
+  },
+  {
+    "route": "/?section=notifications",
+    "component": "Frontend/src/app/components/NotificationsPanel.tsx",
+    "permission": "authenticated",
+    "api_methods": [],
+    "endpoints": [],
+    "handlers": [
+      "handleClear",
+      "handleMarkAll",
+      "handleRead",
+      "handleRefresh",
+      "handleRemove"
+    ],
+    "design": "Shared scoped tokens, white surfaces, green actions; retain all existing controls and data mappings"
+  },
+  {
+    "route": "/?section=settings",
+    "component": "Frontend/src/app/components/Settings.tsx",
+    "permission": "authenticated; user admin actions additionally guarded",
+    "api_methods": [
+      "bulkCreateUsers",
+      "createUser",
+      "deleteUser",
+      "listPermissions",
+      "listRoles",
+      "listUsers",
+      "resetUserPassword",
+      "updateUserActive",
+      "updateUserPermissions",
+      "updateUserRole",
+      "savePreferences"
+    ],
+    "endpoints": [
+      "/api/admin/permissions",
+      "/api/admin/roles",
+      "/api/admin/users",
+      "/api/admin/users/${userId}",
+      "/api/admin/users/${userId}/active",
+      "/api/admin/users/${userId}/permissions",
+      "/api/admin/users/${userId}/reset-password",
+      "/api/admin/users/${userId}/role",
+      "/api/admin/users/bulk"
+    ],
+    "handlers": [
+      "handleBulkCreate",
+      "handleCreateUser",
+      "handleReset",
+      "handleResetPassword",
+      "handleSave"
+    ],
+    "design": "Shared scoped tokens, white surfaces, green actions; retain all existing controls and data mappings"
+  },
+  {
+    "route": "/?section=account",
+    "component": "Frontend/src/app/components/Account.tsx",
+    "permission": "authenticated",
+    "api_methods": [
+      "changePassword",
+      "listSessions",
+      "revokeOtherSessions",
+      "revokeSession",
+      "updateProfile"
+    ],
+    "endpoints": [
+      "/api/auth/change-password",
+      "/api/auth/profile",
+      "/api/auth/sessions",
+      "/api/auth/sessions/${id}/revoke",
+      "/api/auth/sessions/revoke-others"
+    ],
+    "handlers": [
+      "handleChangePassword",
+      "handleRevoke",
+      "handleRevokeOthers",
+      "handleSaveProfile"
+    ],
+    "design": "Shared scoped tokens, white surfaces, green actions; retain all existing controls and data mappings"
+  }
+]

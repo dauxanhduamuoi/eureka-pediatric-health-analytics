@@ -1,0 +1,58 @@
+{
+  "status": "PASS_WITH_FINDINGS",
+  "baseline_files": 492,
+  "changed_existing_source_files": [
+    "Frontend/src/app/components/AreaInsights.tsx",
+    "Frontend/src/app/components/DashboardOverview.tsx",
+    "Frontend/src/app/components/Forecast.tsx",
+    "Frontend/src/app/components/LoginPage.tsx",
+    "Frontend/src/app/components/admin/admin.css",
+    "Frontend/src/app/components/admin/permissions/UserTable.tsx"
+  ],
+  "new_source_files": [
+    "Frontend/src/app/components/login.css",
+    "Frontend/src/app/components/LoginPage.test.tsx",
+    "Frontend/src/app/components/admin/typography-controls.css"
+  ],
+  "non_target_baseline_files_unchanged": true,
+  "backend_changed": false,
+  "database_file_hashes_unchanged": true,
+  "font_family_changed": false,
+  "font": "Local Nunito, existing normal and italic assets preserved",
+  "parent_source_and_logic_unchanged": true,
+  "models_unchanged": true,
+  "auth_context_api_and_permissions_unchanged": true,
+  "slideshow": false,
+  "new_dependencies": false,
+  "network_requests_this_task": false,
+  "browser": "NOT VERIFIED: native pipe and browser host unavailable",
+  "frontend_tests": 118,
+  "font_glyph_tests": 3,
+  "typecheck": "PASS",
+  "build": "PASS",
+  "diff_check": "PASS",
+  "index_unchanged_by_sha256": true,
+  "head_unchanged": true,
+  "staged_diff_empty": true,
+  "contrast_calculation_light_tokens": {
+    "#172b22 / #ffffff": 14.95,
+    "#607268 / #ffffff": 5.12,
+    "#607268 / #f5f9f6": 4.82,
+    "#ffffff / #15803d": 5.02
+  },
+  "forbidden_git_operations": "None",
+  "backend_started_restarted_or_killed": false,
+  "db_or_account_writes_migrations_retraining": "None",
+  "untracked_source_whitespace_check": "PASS",
+  "final_source_hashes": {
+    "Frontend/src/app/components/AreaInsights.tsx": "0286e6aae9350ebd870ec4331bc73eaa3df85a29db188a43ae5c24215bc23f84",
+    "Frontend/src/app/components/DashboardOverview.tsx": "9925a951aaf32495ecbb9b469db22cb30645b01783375768237d79d4ee195f6c",
+    "Frontend/src/app/components/Forecast.tsx": "2126879a3501a322e445334ee5e8ae695c8f113756a6e9e147d0c5280594fab3",
+    "Frontend/src/app/components/LoginPage.tsx": "cdc6cdf9fce3aa255f05d51f2567df966bde146a975dd23e6c767acd6b4d5d37",
+    "Frontend/src/app/components/admin/admin.css": "ce4944c5f04ce216569752218929d8e4b71c4a1e904dde3de737cd61fe6cf6c3",
+    "Frontend/src/app/components/admin/permissions/UserTable.tsx": "aac0a1e1d6c55309e42ed1f50f06011d75639bc63d71aef4c095006c84261f7a",
+    "Frontend/src/app/components/login.css": "727cd9c325634807bed23fc18d74f94438694104bf14b8831ed2a1e67a81c0a5",
+    "Frontend/src/app/components/LoginPage.test.tsx": "1caa3144aff160465080e66393ca9e8137280bc5dd3abfdf1cfa52c6d5872e30",
+    "Frontend/src/app/components/admin/typography-controls.css": "de8b29e93923ed188cd3182c5bf145eb5977fd0b48556edd4ab66f5193ea8a45"
+  }
+}

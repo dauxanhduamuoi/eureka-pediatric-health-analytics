@@ -1,0 +1,571 @@
+{
+  "checks": {
+    "full_grouping_primary_summary_unchanged": true,
+    "selectors_unchanged": true,
+    "all_groups_preserved": true,
+    "max_three_per_type": true
+  },
+  "selector_count": 44,
+  "predictions": [
+    {
+      "disease_id": "169",
+      "full_counts": [
+        1,
+        6,
+        9
+      ],
+      "default_counts": [
+        1,
+        3,
+        3
+      ],
+      "toggle": true,
+      "selected": [
+        [
+          {
+            "key": "demographic:age",
+            "magnitude": 3.193126458866094
+          }
+        ],
+        [
+          {
+            "key": "weather:TEMPERATURE:7D",
+            "magnitude": 0.2768320422650535
+          },
+          {
+            "key": "weather:PRECIPITATION:7D",
+            "magnitude": 0.19734391644288873
+          },
+          {
+            "key": "weather:WEATHER_CONDITION:CURRENT",
+            "magnitude": 0.15661856429307786
+          }
+        ],
+        [
+          {
+            "key": "weather:WIND:3D",
+            "magnitude": 0.4987985791387784
+          },
+          {
+            "key": "seasonal:time-of-year",
+            "magnitude": 0.21075323219607373
+          },
+          {
+            "key": "weather:HUMIDITY:7D",
+            "magnitude": 0.19043131251880235
+          }
+        ]
+      ]
+    },
+    {
+      "disease_id": "6",
+      "full_counts": [
+        3,
+        5,
+        7
+      ],
+      "default_counts": [
+        3,
+        3,
+        3
+      ],
+      "toggle": true,
+      "selected": [
+        [
+          {
+            "key": "demographic:age",
+            "magnitude": 3.47015917909519
+          },
+          {
+            "key": "demographic:gender",
+            "magnitude": 0.0818645043363021
+          },
+          {
+            "key": "weather:HUMIDITY:CURRENT",
+            "magnitude": 0.007116433279926539
+          }
+        ],
+        [
+          {
+            "key": "weather:WIND:3D",
+            "magnitude": 0.4916974845815372
+          },
+          {
+            "key": "weather:WEATHER_CONDITION:CURRENT",
+            "magnitude": 0.2198369828301907
+          },
+          {
+            "key": "weather:PRECIPITATION:7D",
+            "magnitude": 0.1981557076150382
+          }
+        ],
+        [
+          {
+            "key": "seasonal:time-of-year",
+            "magnitude": 0.717035857213849
+          },
+          {
+            "key": "weather:HUMIDITY:7D",
+            "magnitude": 0.40496427690302744
+          },
+          {
+            "key": "weather:WIND:7D",
+            "magnitude": 0.3400120941614322
+          }
+        ]
+      ]
+    },
+    {
+      "disease_id": "32",
+      "full_counts": [
+        3,
+        5,
+        8
+      ],
+      "default_counts": [
+        3,
+        3,
+        3
+      ],
+      "toggle": true,
+      "selected": [
+        [
+          {
+            "key": "demographic:age",
+            "magnitude": 1.7716223776487243
+          },
+          {
+            "key": "weather:WIND:CURRENT",
+            "magnitude": 0.006174448102786126
+          },
+          {
+            "key": "weather:HUMIDITY:CURRENT",
+            "magnitude": 0.0023406796409593
+          }
+        ],
+        [
+          {
+            "key": "weather:WEATHER_CONDITION:CURRENT",
+            "magnitude": 0.046123688889646415
+          },
+          {
+            "key": "weather:HUMIDITY:3D",
+            "magnitude": 0.04158172304572503
+          },
+          {
+            "key": "demographic:gender",
+            "magnitude": 0.022873109454979747
+          }
+        ],
+        [
+          {
+            "key": "seasonal:time-of-year",
+            "magnitude": 0.9957792364385653
+          },
+          {
+            "key": "weather:HUMIDITY:7D",
+            "magnitude": 0.4109818521011224
+          },
+          {
+            "key": "weather:TEMPERATURE:7D",
+            "magnitude": 0.1743171988472023
+          }
+        ]
+      ]
+    },
+    {
+      "disease_id": "41",
+      "full_counts": [
+        4,
+        4,
+        8
+      ],
+      "default_counts": [
+        3,
+        3,
+        3
+      ],
+      "toggle": true,
+      "selected": [
+        [
+          {
+            "key": "demographic:age",
+            "magnitude": 3.152378230789253
+          },
+          {
+            "key": "demographic:gender",
+            "magnitude": 0.048861024670921425
+          },
+          {
+            "key": "weather:WIND:CURRENT",
+            "magnitude": 0.007690022592549685
+          }
+        ],
+        [
+          {
+            "key": "weather:WEATHER_CONDITION:CURRENT",
+            "magnitude": 0.26444824252102944
+          },
+          {
+            "key": "weather:TEMPERATURE:3D",
+            "magnitude": 0.02024363209032271
+          },
+          {
+            "key": "weather:PRECIPITATION:CURRENT",
+            "magnitude": 0.0173314026373985
+          }
+        ],
+        [
+          {
+            "key": "seasonal:time-of-year",
+            "magnitude": 0.5155996066897968
+          },
+          {
+            "key": "weather:WIND:7D",
+            "magnitude": 0.35335885124213234
+          },
+          {
+            "key": "weather:WIND:3D",
+            "magnitude": 0.29399089895879876
+          }
+        ]
+      ]
+    },
+    {
+      "disease_id": "190",
+      "full_counts": [
+        3,
+        2,
+        10
+      ],
+      "default_counts": [
+        3,
+        2,
+        3
+      ],
+      "toggle": true,
+      "selected": [
+        [
+          {
+            "key": "demographic:age",
+            "magnitude": 3.4611064459162852
+          },
+          {
+            "key": "weather:TEMPERATURE:7D",
+            "magnitude": 0.30140419714427186
+          },
+          {
+            "key": "demographic:gender",
+            "magnitude": 0.22479748880883954
+          }
+        ],
+        [
+          {
+            "key": "weather:WEATHER_CONDITION:CURRENT",
+            "magnitude": 0.17136493006665898
+          },
+          {
+            "key": "weather:TEMPERATURE:CURRENT",
+            "magnitude": 0.05573937221957682
+          }
+        ],
+        [
+          {
+            "key": "weather:WIND:7D",
+            "magnitude": 0.35861814845642825
+          },
+          {
+            "key": "seasonal:time-of-year",
+            "magnitude": 0.34418610818808204
+          },
+          {
+            "key": "weather:HUMIDITY:7D",
+            "magnitude": 0.33595373847660015
+          }
+        ]
+      ]
+    },
+    {
+      "disease_id": "165",
+      "full_counts": [
+        4,
+        2,
+        9
+      ],
+      "default_counts": [
+        3,
+        2,
+        3
+      ],
+      "toggle": true,
+      "selected": [
+        [
+          {
+            "key": "demographic:age",
+            "magnitude": 2.218242590513072
+          },
+          {
+            "key": "demographic:gender",
+            "magnitude": 0.026518870663616693
+          },
+          {
+            "key": "weather:HUMIDITY:CURRENT",
+            "magnitude": 0.0012370522223777577
+          }
+        ],
+        [
+          {
+            "key": "weather:WEATHER_CONDITION:CURRENT",
+            "magnitude": 0.10085272208236346
+          },
+          {
+            "key": "weather:TEMPERATURE:CURRENT",
+            "magnitude": 0.021013799216821356
+          }
+        ],
+        [
+          {
+            "key": "weather:WIND:7D",
+            "magnitude": 0.2907373924655941
+          },
+          {
+            "key": "weather:PRECIPITATION:7D",
+            "magnitude": 0.25281398373392827
+          },
+          {
+            "key": "seasonal:time-of-year",
+            "magnitude": 0.2464700792090493
+          }
+        ]
+      ]
+    },
+    {
+      "disease_id": "80",
+      "full_counts": [
+        5,
+        5,
+        5
+      ],
+      "default_counts": [
+        3,
+        3,
+        3
+      ],
+      "toggle": true,
+      "selected": [
+        [
+          {
+            "key": "demographic:age",
+            "magnitude": 3.2018670507736635
+          },
+          {
+            "key": "seasonal:time-of-year",
+            "magnitude": 0.39831786132848157
+          },
+          {
+            "key": "demographic:gender",
+            "magnitude": 0.05011695942041728
+          }
+        ],
+        [
+          {
+            "key": "weather:HUMIDITY:7D",
+            "magnitude": 0.1894734121214824
+          },
+          {
+            "key": "weather:HUMIDITY:3D",
+            "magnitude": 0.024587383272905966
+          },
+          {
+            "key": "weather:TEMPERATURE:CURRENT",
+            "magnitude": 0.0221689340670924
+          }
+        ],
+        [
+          {
+            "key": "weather:PRECIPITATION:7D",
+            "magnitude": 0.24009222172852027
+          },
+          {
+            "key": "weather:WIND:3D",
+            "magnitude": 0.1361172292961154
+          },
+          {
+            "key": "weather:WIND:7D",
+            "magnitude": 0.09703751958655733
+          }
+        ]
+      ]
+    },
+    {
+      "disease_id": "170",
+      "full_counts": [
+        3,
+        3,
+        9
+      ],
+      "default_counts": [
+        3,
+        3,
+        3
+      ],
+      "toggle": true,
+      "selected": [
+        [
+          {
+            "key": "demographic:age",
+            "magnitude": 2.7560376537600906
+          },
+          {
+            "key": "demographic:gender",
+            "magnitude": 0.09766691744844563
+          },
+          {
+            "key": "weather:HUMIDITY:CURRENT",
+            "magnitude": 0.0012470383490485034
+          }
+        ],
+        [
+          {
+            "key": "seasonal:time-of-year",
+            "magnitude": 0.22020772032794045
+          },
+          {
+            "key": "weather:HUMIDITY:7D",
+            "magnitude": 0.2077125032457381
+          },
+          {
+            "key": "weather:WEATHER_CONDITION:CURRENT",
+            "magnitude": 0.07189802264339278
+          }
+        ],
+        [
+          {
+            "key": "weather:WIND:3D",
+            "magnitude": 0.4783596321019609
+          },
+          {
+            "key": "weather:TEMPERATURE:7D",
+            "magnitude": 0.3820127044103612
+          },
+          {
+            "key": "weather:WIND:7D",
+            "magnitude": 0.17807552427419268
+          }
+        ]
+      ]
+    },
+    {
+      "disease_id": "87",
+      "full_counts": [
+        5,
+        2,
+        9
+      ],
+      "default_counts": [
+        3,
+        2,
+        3
+      ],
+      "toggle": true,
+      "selected": [
+        [
+          {
+            "key": "demographic:age",
+            "magnitude": 2.2825956211311693
+          },
+          {
+            "key": "demographic:gender",
+            "magnitude": 0.05921785076200578
+          },
+          {
+            "key": "weather:WIND:CURRENT",
+            "magnitude": 0.02857224838085424
+          }
+        ],
+        [
+          {
+            "key": "weather:WEATHER_CONDITION:CURRENT",
+            "magnitude": 0.25262021975436383
+          },
+          {
+            "key": "weather:PRECIPITATION:3D",
+            "magnitude": 0.001018205964549892
+          }
+        ],
+        [
+          {
+            "key": "weather:HUMIDITY:7D",
+            "magnitude": 1.1297682136574514
+          },
+          {
+            "key": "seasonal:time-of-year",
+            "magnitude": 0.906006886246512
+          },
+          {
+            "key": "weather:WIND:3D",
+            "magnitude": 0.25796676191811224
+          }
+        ]
+      ]
+    },
+    {
+      "disease_id": "187",
+      "full_counts": [
+        4,
+        3,
+        9
+      ],
+      "default_counts": [
+        3,
+        3,
+        3
+      ],
+      "toggle": true,
+      "selected": [
+        [
+          {
+            "key": "demographic:age",
+            "magnitude": 2.5344990136444925
+          },
+          {
+            "key": "demographic:gender",
+            "magnitude": 0.5080295209828457
+          },
+          {
+            "key": "seasonal:time-of-year",
+            "magnitude": 0.12797513057394586
+          }
+        ],
+        [
+          {
+            "key": "weather:WEATHER_CONDITION:CURRENT",
+            "magnitude": 0.3024943554130125
+          },
+          {
+            "key": "weather:TEMPERATURE:CURRENT",
+            "magnitude": 0.08069257715612944
+          },
+          {
+            "key": "weather:PRECIPITATION:3D",
+            "magnitude": 0.015807741056454272
+          }
+        ],
+        [
+          {
+            "key": "weather:HUMIDITY:7D",
+            "magnitude": 0.46584058142727974
+          },
+          {
+            "key": "weather:WIND:7D",
+            "magnitude": 0.4122632034518927
+          },
+          {
+            "key": "weather:WIND:3D",
+            "magnitude": 0.32052261312549185
+          }
+        ]
+      ]
+    }
+  ]
+}

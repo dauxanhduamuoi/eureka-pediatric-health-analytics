@@ -1,0 +1,131 @@
+--- before/Forecast.tsx
++++ after/Forecast.tsx
+@@ -1,6 +1,6 @@
+ import StatCard from './admin/AdminStatCard';
+ import AdminPageHeading from './admin/AdminPageHeading';
+-import { useCallback, useEffect, useMemo, useState, Fragment } from 'react';
++import { useCallback, useEffect, useMemo, useRef, useState, Fragment } from 'react';
+ import {
+   TrendingUp,
+   Loader2,
+@@ -93,6 +93,8 @@
+   const [loading, setLoading] = useState(false);
+   const [running, setRunning] = useState(false);
+   const [error, setError] = useState<string | null>(null);
++  const requestVersion = useRef(0);
++  const [previousResult, setPreviousResult] = useState(Boolean(cachedForecast));
+   const [toast, setToast] = useState<{ type: 'success' | 'error'; message: string } | null>(null);
+ 
+   // Chỉ chạy dự báo 1 tháng — đã bỏ tuỳ chọn 2/3 tháng theo yêu cầu.
+@@ -127,16 +129,19 @@
+   };
+ 
+   const load = useCallback(async () => {
++    const version = ++requestVersion.current;
+     setLoading(true);
+     setError(null);
+     try {
+       const [s, d] = await Promise.all([
+-        api.getForecastGroupSummary().catch(() => [] as api.ForecastGroupSummary[]),
+-        api.getForecastResults().catch(() => [] as api.ForecastResult[]),
++        api.getForecastGroupSummary(),
++        api.getForecastResults(),
+       ]);
++      if (version !== requestVersion.current) return;
+       setSummary(s);
+       setDetails(d);
+       setHasLoadedForecast(true);
++      setPreviousResult(false);
+       saveChartDataCache<ForecastCacheState>('forecast', {
+         summary: s,
+         details: d,
+@@ -149,29 +154,41 @@
+         summaryCustomSize,
+       });
+     } catch (e) {
+-      setError(e instanceof Error ? e.message : String(e));
++      if (version === requestVersion.current) {
++        setError(e instanceof Error ? e.message : String(e));
++        setPreviousResult(true);
++      }
+     } finally {
+-      setLoading(false);
++      if (version === requestVersion.current) setLoading(false);
+     }
+   }, []);
+ 
+   useEffect(() => {
+     load();
++    return () => { requestVersion.current += 1; };
+   }, [load]);
+ 
+   const handleRun = async () => {
++    if (running) return;
++    const version = ++requestVersion.current;
+     setRunning(true);
++    setLoading(false);
++    setError(null);
++    setToast(null);
+     try {
+       await api.runForecast('auto', horizon);
++      if (version !== requestVersion.current) return;
+       // Lấy dữ liệu mới trực tiếp từ API thay vì đọc state `summary` cũ
+       // (setSummary trong load() là async nên closure này thấy giá trị trước đó).
+       const [s, d] = await Promise.all([
+-        api.getForecastGroupSummary().catch(() => [] as api.ForecastGroupSummary[]),
+-        api.getForecastResults().catch(() => [] as api.ForecastResult[]),
++        api.getForecastGroupSummary(),
++        api.getForecastResults(),
+       ]);
++      if (version !== requestVersion.current) return;
+       setSummary(s);
+       setDetails(d);
+       setHasLoadedForecast(true);
++      setPreviousResult(false);
+       saveChartDataCache<ForecastCacheState>('forecast', {
+         summary: s,
+         details: d,
+@@ -192,16 +209,18 @@
+       });
+       showToast('success', t('forecast.done'));
+     } catch (e) {
++      if (version !== requestVersion.current) return;
+       const msg = e instanceof Error ? e.message : String(e);
++      setError(msg);
++      setPreviousResult(true);
+       addNotification({
+         type: 'forecast',
+         severity: 'critical',
+         title: t('forecast.failed'),
+         description: msg,
+       });
+-      showToast('error', msg);
+     } finally {
+-      setRunning(false);
++      if (version === requestVersion.current) setRunning(false);
+     }
+   };
+ 
+@@ -429,7 +448,7 @@
+ 
+         <button
+           onClick={load}
+-          disabled={loading}
++          disabled={loading || running}
+           className="inline-flex items-center gap-2 px-3 py-2 rounded-lg bg-white border border-slate-200 text-sm text-slate-700 hover:bg-slate-50 disabled:opacity-60"
+         >
+           {loading ? <Loader2 size={16} className="animate-spin" /> : <RefreshCcw size={16} />}
+@@ -451,6 +470,13 @@
+           <AlertTriangle size={16} className="mt-0.5 shrink-0" />
+           <span>{error}</span>
+         </div>
++      )}
++
++      {hasLoadedForecast && (previousResult || loading || running) && (
++        <p role="status" className="bg-amber-50 border border-amber-200 text-amber-800 rounded-xl px-4 py-3 text-sm">
++          Dữ liệu bên dưới thuộc kết quả trước đó, chưa phải kết quả vừa cập nhật.
++          {loading || running ? ' Đang chờ kết quả mới.' : ' Bấm Làm mới hoặc Chạy dự báo để thử lại.'}
++        </p>
+       )}
+ 
+       {isEmpty && !loading && (

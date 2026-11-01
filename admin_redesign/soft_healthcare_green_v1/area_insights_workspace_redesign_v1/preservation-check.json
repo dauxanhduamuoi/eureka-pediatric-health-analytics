@@ -1,0 +1,23 @@
+{
+  "mainNonPresentationStatementsUnchanged": true,
+  "comparedMainStatements": 44,
+  "helpersConstantsTypesUnchanged": true,
+  "comparedTopLevelDeclarations": 20,
+  "excludedPresentationChanges": [
+    "Imports",
+    "AreaInsights outer JSX return",
+    "Obsolete provincePickerOpen state",
+    "Pagination button type and accessible names"
+  ],
+  "protectedInventoryCount": 580,
+  "changedBaselineFiles": [
+    {
+      "path": "Frontend/src/app/components/AreaInsights.tsx",
+      "before": "4a1dd78b04c6f63b294368406b8ca7421631fdb46a87fe5dc95bd04ae1367c01",
+      "after": "10b3d9d7d477023830c1c1dce30a494f94f86c6c04bac63e6a00d063c1bf00cf"
+    }
+  ],
+  "missingBaselineFiles": [],
+  "outsideAllowedFileChanges": [],
+  "note": "Real database files are excluded. New page-specific source and evidence files are audited separately."
+}

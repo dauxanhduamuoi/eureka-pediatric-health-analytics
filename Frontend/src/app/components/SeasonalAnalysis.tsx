@@ -1,0 +1,637 @@
+import AdminSection from './admin/AdminSection';
+import AdminDetails from './admin/AdminDetails';
+import SeasonalSummary from './admin/SeasonalSummary';
+import { SeasonalTrendChart, SeasonalDistributionChart } from './admin/SeasonalCharts';
+import { SEASON_BY_MONTH, observedMonthsForYear, type Season } from './admin/seasonalPresentation';
+import AdminPageHeading from './admin/AdminPageHeading';
+import { ADMIN_CHART_COLORS } from './admin/chartPalette';
+import { useCallback, useEffect, useMemo, useState, type ReactNode } from 'react';
+import {
+  BarChart,
+  Bar,
+  XAxis,
+  YAxis,
+  CartesianGrid,
+  Tooltip,
+  Legend,
+  ResponsiveContainer,
+} from 'recharts';
+import { Calendar, Loader2, RefreshCcw, Search } from 'lucide-react';
+import * as api from '@/lib/api';
+import { loadChartDataCache, saveChartDataCache } from '@/lib/chartDataCache';
+import { useT } from '@/lib/i18n';
+import { ensureBilingualMap, splitDiseaseLabel } from '@/lib/disease';
+import DiseaseLabelCell from './common/DiseaseLabelCell';
+import { useAdminChartAnimation } from './admin/useAdminChartAnimation';
+import { ClientPagination, useClientPage } from './analytics-usability/ClientPagination';
+import { count } from './advanced-analytics/AnalyticsPrimitives';
+import './analytics-usability/refinement.css';
+
+
+interface SeasonalCacheState {
+  data: api.MonthlyStat[];
+  selectedYear: number | null;
+  selectedSeason: Season;
+  seasonalLimit: number;
+  seasonalSummary: api.SeasonalSummaryRow[];
+  seasonCompare: api.DiseaseSeasonComparisonRow[];
+  seasonPeak: api.SeasonalPeakRow[];
+  seasonSummarySearch: string;
+  seasonCompareSearch: string;
+  seasonPeakSearch: string;
+}
+
+const SEASONS: Season[] = ['dry', 'rainy'];
+
+// Đúng với backend và khí hậu miền Nam/TP.HCM:
+// Mùa khô: tháng 12, 1, 2, 3, 4. Mùa mưa: tháng 5-11.
+
+const DISEASE_COLORS = ADMIN_CHART_COLORS;
+
+function parsePeriod(p: string): { year: number; month: number } {
+  const [y, m] = p.split('-');
+  return { year: parseInt(y, 10), month: parseInt(m, 10) };
+}
+
+function monthLabel(month: number): string {
+  return `T${month}`;
+}
+
+function backendSeasonLabel(season: Season): string {
+  return season === 'dry' ? 'Mùa khô' : 'Mùa mưa';
+}
+
+function EmptyChart({ loading, label, t }: { loading: boolean; label: string; t: (k: string) => string }) {
+  return (
+    <div className="h-[300px] flex items-center justify-center text-slate-400 text-sm">
+      {loading ? (
+        <span className="inline-flex items-center gap-2">
+          <Loader2 size={16} className="animate-spin" /> {t('common.loading')}
+        </span>
+      ) : (
+        label
+      )}
+    </div>
+  );
+}
+
+function normalizeSearchText(value: string): string {
+  return value
+    .normalize('NFD')
+    .replace(/[\u0300-\u036f]/g, '')
+    .toLocaleLowerCase('vi')
+    .trim();
+}
+
+function matchesDiseaseGroup(raw: string, query: string, bilingualMap: Record<string, string>): boolean {
+  const normalizedQuery = normalizeSearchText(query);
+  if (!normalizedQuery) return true;
+  const label = splitDiseaseLabel(raw, bilingualMap);
+  return normalizeSearchText(`${raw} ${label.vi} ${label.en ?? ''}`).includes(normalizedQuery);
+}
+
+export default function SeasonalAnalysis() {
+  const chartAnimation = useAdminChartAnimation();
+  const t = useT();
+  const [cachedSeasonal] = useState(() => loadChartDataCache<SeasonalCacheState>('seasonal_analysis'));
+  const [hasLoadedSeasonal, setHasLoadedSeasonal] = useState(Boolean(cachedSeasonal));
+  const [data, setData] = useState<api.MonthlyStat[]>(cachedSeasonal?.data ?? []);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState<string | null>(null);
+  const [selectedYear, setSelectedYear] = useState<number | null>(cachedSeasonal?.selectedYear ?? null);
+  const [selectedSeason, setSelectedSeason] = useState<Season>(cachedSeasonal?.selectedSeason ?? 'rainy');
+  const [seasonalLimit, setSeasonalLimit] = useState(cachedSeasonal?.seasonalLimit ?? 10);
+  const [seasonalSummary, setSeasonalSummary] = useState<api.SeasonalSummaryRow[]>(cachedSeasonal?.seasonalSummary ?? []);
+  const [seasonCompare, setSeasonCompare] = useState<api.DiseaseSeasonComparisonRow[]>(cachedSeasonal?.seasonCompare ?? []);
+  const [seasonPeak, setSeasonPeak] = useState<api.SeasonalPeakRow[]>(cachedSeasonal?.seasonPeak ?? []);
+  const [bilingualMap, setBilingualMap] = useState<Record<string, string>>({});
+  const [seasonSummarySearch, setSeasonSummarySearch] = useState(cachedSeasonal?.seasonSummarySearch ?? '');
+  const [seasonCompareSearch, setSeasonCompareSearch] = useState(cachedSeasonal?.seasonCompareSearch ?? '');
+  const [seasonPeakSearch, setSeasonPeakSearch] = useState(cachedSeasonal?.seasonPeakSearch ?? '');
+
+  const seasonLabel = useCallback((s: Season) => t(`season.${s}`), [t]);
+
+  useEffect(() => {
+    ensureBilingualMap().then(setBilingualMap).catch(() => undefined);
+  }, []);
+
+  const load = useCallback(async () => {
+    setLoading(true);
+    setError(null);
+    try {
+      // Dashboard backend phân tích nguồn predict_current. Gọi predict_current để frontend rõ nghĩa.
+      const [rows, summaryRows, compareRows, peakRows] = await Promise.all([
+        api.getMonthlyStatistics('predict_current'),
+        api.getSeasonalSummary(backendSeasonLabel(selectedSeason), seasonalLimit),
+        api.getDiseaseSeasonComparison(undefined, seasonalLimit),
+        api.getSeasonalPeak(seasonalLimit),
+      ]);
+      setData(rows);
+      setSeasonalSummary(summaryRows);
+      setSeasonCompare(compareRows);
+      setSeasonPeak(peakRows);
+      setHasLoadedSeasonal(true);
+      saveChartDataCache<SeasonalCacheState>('seasonal_analysis', {
+        data: rows,
+        selectedYear,
+        selectedSeason,
+        seasonalLimit,
+        seasonalSummary: summaryRows,
+        seasonCompare: compareRows,
+        seasonPeak: peakRows,
+        seasonSummarySearch,
+        seasonCompareSearch,
+        seasonPeakSearch,
+      });
+    } catch (e) {
+      setError(e instanceof Error ? e.message : String(e));
+    } finally {
+      setLoading(false);
+    }
+  }, [selectedSeason, seasonalLimit]);
+
+  useEffect(() => {
+    load();
+  }, [load]);
+
+  useEffect(() => {
+    if (!hasLoadedSeasonal) return;
+    saveChartDataCache<SeasonalCacheState>('seasonal_analysis', {
+      data,
+      selectedYear,
+      selectedSeason,
+      seasonalLimit,
+      seasonalSummary,
+      seasonCompare,
+      seasonPeak,
+      seasonSummarySearch,
+      seasonCompareSearch,
+      seasonPeakSearch,
+    });
+  }, [
+    data,
+    hasLoadedSeasonal,
+    seasonCompare,
+    seasonCompareSearch,
+    seasonPeak,
+    seasonPeakSearch,
+    seasonSummarySearch,
+    seasonalLimit,
+    seasonalSummary,
+    selectedSeason,
+    selectedYear,
+  ]);
+
+  const years = useMemo(() => {
+    const ys = new Set<number>();
+    for (const r of data) ys.add(parsePeriod(r.period).year);
+    return Array.from(ys).sort((a, b) => a - b);
+  }, [data]);
+
+  useEffect(() => {
+    if (years.length > 0 && (selectedYear === null || !years.includes(selectedYear))) {
+      setSelectedYear(years[years.length - 1]);
+    }
+  }, [years, selectedYear]);
+
+  const topDiseases = useMemo(() => {
+    const sum = new Map<string, number>();
+    for (const r of data) sum.set(r.disease_group, (sum.get(r.disease_group) ?? 0) + r.case_count);
+    return Array.from(sum.entries())
+      .sort((a, b) => b[1] - a[1])
+      .slice(0, 5)
+      .map(([name]) => name);
+  }, [data]);
+
+  const monthlyChartData = useMemo(() => {
+    if (selectedYear === null) return [];
+    const rows: Array<Record<string, number | string>> = Array.from({ length: 12 }, (_, i) => {
+      const m = i + 1;
+      const row: Record<string, number | string> = {
+        month: monthLabel(m),
+        season: seasonLabel(SEASON_BY_MONTH[m]),
+      };
+      for (const d of topDiseases) row[d] = 0;
+      return row;
+    });
+
+    for (const r of data) {
+      const { year, month } = parsePeriod(r.period);
+      if (year !== selectedYear) continue;
+      if (!topDiseases.includes(r.disease_group)) continue;
+      const row = rows[month - 1];
+      row[r.disease_group] = (row[r.disease_group] as number) + r.case_count;
+    }
+
+    return rows;
+  }, [data, selectedYear, topDiseases, seasonLabel]);
+
+  const seasonDiseaseData = useMemo(() => {
+    const byDisease = new Map<string, Record<string, number | string>>();
+    for (const disease of topDiseases) {
+      byDisease.set(disease, {
+        disease,
+        [seasonLabel('dry')]: 0,
+        [seasonLabel('rainy')]: 0,
+      });
+    }
+
+    for (const r of data) {
+      if (!topDiseases.includes(r.disease_group)) continue;
+      const { month } = parsePeriod(r.period);
+      const season = seasonLabel(SEASON_BY_MONTH[month]);
+      const row = byDisease.get(r.disease_group);
+      if (!row) continue;
+      row[season] = (row[season] as number) + r.case_count;
+    }
+
+    return Array.from(byDisease.values());
+  }, [data, topDiseases, seasonLabel]);
+
+  const comparativeData = useMemo(() => {
+    const rows = SEASONS.map((s) => {
+      const row: Record<string, number | string> = { season: seasonLabel(s) };
+      for (const y of years) row[String(y)] = 0;
+      return row;
+    });
+    const rowBySeason = new Map<string, Record<string, number | string>>();
+    rows.forEach((r) => rowBySeason.set(r.season as string, r));
+
+    for (const r of data) {
+      const { year, month } = parsePeriod(r.period);
+      const season = seasonLabel(SEASON_BY_MONTH[month]);
+      const row = rowBySeason.get(season);
+      if (!row) continue;
+      row[String(year)] = (row[String(year)] as number) + r.case_count;
+    }
+
+    return rows;
+  }, [data, years, seasonLabel]);
+  const showEmptyLoading = loading && !hasLoadedSeasonal;
+
+  const insights = useMemo(() => {
+    if (data.length === 0 || selectedYear === null) return null;
+
+    const byMonth = new Map<number, number>();
+    for (const r of data) {
+      const { year, month } = parsePeriod(r.period);
+      if (year !== selectedYear) continue;
+      byMonth.set(month, (byMonth.get(month) ?? 0) + r.case_count);
+    }
+    if (byMonth.size === 0) return null;
+
+    const [peakMonth, peakCases] = Array.from(byMonth.entries()).sort((a, b) => b[1] - a[1])[0];
+    const peakSeason = SEASON_BY_MONTH[peakMonth];
+
+    const sumSeasonYear = (year: number, season: Season) => {
+      let total = 0;
+      for (const r of data) {
+        const { year: yr, month } = parsePeriod(r.period);
+        if (yr === year && SEASON_BY_MONTH[month] === season) total += r.case_count;
+      }
+      return total;
+    };
+
+    const curr = sumSeasonYear(selectedYear, selectedSeason);
+    const prev = sumSeasonYear(selectedYear - 1, selectedSeason);
+    let deltaLabel = t('seasonal.noPrevYear');
+    if (prev > 0) {
+      const pct = ((curr - prev) / prev) * 100;
+      deltaLabel = `${pct >= 0 ? '+' : ''}${pct.toFixed(1)}%`;
+    } else if (curr > 0) {
+      deltaLabel = t('seasonal.mewlySeason');
+    }
+
+    return {
+      peakMonth,
+      peakSeason,
+      peakCases,
+      deltaLabel,
+      currSeasonCases: curr,
+    };
+  }, [data, selectedYear, selectedSeason, t]);
+
+  const seasonTopDiseases = useMemo(() => {
+    const sum = new Map<string, number>();
+    for (const r of data) {
+      const { month } = parsePeriod(r.period);
+      if (SEASON_BY_MONTH[month] !== selectedSeason) continue;
+      sum.set(r.disease_group, (sum.get(r.disease_group) ?? 0) + r.case_count);
+    }
+    return Array.from(sum.entries())
+      .sort((a, b) => b[1] - a[1])
+      .slice(0, 3);
+  }, [data, selectedSeason]);
+
+  const filteredSeasonalSummary = useMemo(
+    () => seasonalSummary.filter((row) => matchesDiseaseGroup(row.disease_group, seasonSummarySearch, bilingualMap)),
+    [seasonalSummary, seasonSummarySearch, bilingualMap],
+  );
+
+  const filteredSeasonCompare = useMemo(
+    () => seasonCompare.filter((row) => matchesDiseaseGroup(row.disease_group, seasonCompareSearch, bilingualMap)),
+    [seasonCompare, seasonCompareSearch, bilingualMap],
+  );
+
+  const filteredSeasonPeak = useMemo(
+    () => seasonPeak.filter((row) => matchesDiseaseGroup(row.disease_group, seasonPeakSearch, bilingualMap)),
+    [seasonPeak, seasonPeakSearch, bilingualMap],
+  );
+
+  const empty = data.length === 0;
+
+  return (
+    <div className="admin-page-stack admin-seasonal-content">
+      <AdminPageHeading icon={Calendar} title={t('sidebar.seasonal')} description={t('admin.description.seasonal')} />
+      <div className="admin-toolbar" role="group" aria-label={t('seasonal.filters')}>
+        <div className="contents">
+          <div className="flex items-center gap-2">
+            <Calendar size={20} className="text-slate-500" />
+            <span className="text-sm font-medium text-slate-700">{t('seasonal.filters')}</span>
+          </div>
+          <div className="flex items-center gap-2">
+            <span className="text-sm text-slate-500">{t('content.seasonFilter')}:</span>
+            <select
+              value={selectedSeason}
+              aria-label={t('content.seasonFilter')}
+              onChange={(e) => setSelectedSeason(e.target.value as Season)}
+              className="px-3 py-2 text-sm rounded-lg border border-slate-200 bg-white focus:outline-none focus:ring-2 focus:ring-blue-500"
+            >
+              {SEASONS.map((season) => (
+                <option key={season} value={season}>
+                  {seasonLabel(season)}
+                </option>
+              ))}
+            </select>
+          </div>
+          <div className="flex items-center gap-2">
+            <span className="text-sm text-slate-500">{t('content.yearFilter')}:</span>
+            {years.length === 0 ? (
+              <span className="text-sm text-slate-400 italic">{t('seasonal.noYear')}</span>
+            ) : (
+              <select
+                value={selectedYear ?? ''}
+                aria-label={t('content.yearFilter')}
+                onChange={(e) => setSelectedYear(Number(e.target.value))}
+                className="px-3 py-2 text-sm rounded-lg border border-slate-200 bg-white focus:outline-none focus:ring-2 focus:ring-emerald-500"
+              >
+                {years.map((y) => (
+                  <option key={y} value={y}>
+                    {y}
+                  </option>
+                ))}
+              </select>
+            )}
+          </div>
+          <label className="flex items-center gap-2">
+            <span className="text-sm text-slate-500">{t('content.tableLimit')}:</span>
+            <select
+              value={seasonalLimit}
+              onChange={(e) => setSeasonalLimit(Number(e.target.value))}
+              className="px-3 py-2 text-sm rounded-lg border border-slate-200 bg-white focus:outline-none focus:ring-2 focus:ring-blue-500"
+            >
+              {[5, 10, 15, 20, 30].map((n) => (
+                <option key={n} value={n}>
+                  Top {n}
+                </option>
+              ))}
+            </select>
+          </label>
+          <button
+            onClick={load}
+            disabled={loading}
+            className="ml-auto inline-flex items-center gap-2 px-3 py-2 rounded-lg bg-white border border-slate-200 text-sm text-slate-700 hover:bg-slate-50 disabled:opacity-60"
+          >
+            {loading ? <Loader2 size={16} className="animate-spin" /> : <RefreshCcw size={16} />}
+            {t('common.refresh')}
+          </button>
+        </div>
+      </div>
+
+      {error && <div className="bg-red-50 border border-red-200 text-red-700 rounded-xl px-4 py-3 text-sm">{error}</div>}
+
+      {empty && !loading && (
+        <div className="bg-amber-50 border border-amber-200 text-amber-800 rounded-xl px-4 py-3 text-sm">
+          {t('seasonal.noHistory')}
+        </div>
+      )}
+
+      <SeasonalSummary data={data} year={selectedYear} season={selectedSeason} insights={insights} seasonLabel={seasonLabel} />
+
+      <p className="a-top-scope">Top nhóm trong bảng áp dụng cho ba bảng mùa vụ phía dưới, theo số nhóm thực tế API trả về. Hai biểu đồ chính giữ 5 nhóm có tổng ca cao nhất trên toàn bộ dữ liệu; năm chỉ áp dụng cho đồ thị xu hướng. Thẻ nổi bật trong mùa giữ 3 nhóm.</p>
+
+      <div className="admin-season-charts">
+        <AdminSection title={`${t('seasonal.monthlyTrend')} (${selectedYear ?? '\u2014'})`}>
+          {monthlyChartData.length === 0 || topDiseases.length === 0
+            ? <EmptyChart loading={showEmptyLoading} label={t('seasonal.noYearData')} t={t} />
+            : <SeasonalTrendChart rows={monthlyChartData} diseases={topDiseases} observed={observedMonthsForYear(data, selectedYear)} bilingualMap={bilingualMap} animate={chartAnimation} />}
+        </AdminSection>
+        <AdminSection title={t('seasonal.distribution')} subtitle={t('content.allData')}>
+          {seasonDiseaseData.length === 0
+            ? <EmptyChart loading={showEmptyLoading} label={t('common.noData')} t={t} />
+            : <SeasonalDistributionChart rows={seasonDiseaseData} dryLabel={seasonLabel('dry')} rainyLabel={seasonLabel('rainy')} bilingualMap={bilingualMap} animate={chartAnimation} />}
+        </AdminSection>
+      </div>
+
+      <AdminDetails title={t('content.seasonHistory')}>
+      {years.some((year) => observedMonthsForYear(data, year).size < 12) && <p className="admin-scope-note">
+        Có năm chưa đủ 12 tháng có bản ghi. Các tổng trong biểu đồ lịch sử giữ phép cộng hiện có; tổng 0 ở tổ hợp mùa/năm thiếu bản ghi không xác nhận 0 ca bệnh. Các bảng dưới đây dùng toàn bộ dữ liệu, không giới hạn theo năm xu hướng.
+      </p>}
+      <div className="admin-surface bg-white rounded-xl p-6 border border-slate-200 shadow-sm">
+        <h3 className="text-lg font-semibold text-slate-800 mb-4">{t('seasonal.comparison')}</h3>
+        {years.length === 0 ? (
+          <EmptyChart loading={showEmptyLoading} label={t('common.noData')} t={t} />
+        ) : (
+          <ResponsiveContainer width="100%" height={260}>
+            <BarChart data={comparativeData}>
+              <CartesianGrid strokeDasharray="3 3" />
+              <XAxis dataKey="season" />
+              <YAxis />
+              <Tooltip formatter={(value: number) => Number(value).toLocaleString()} />
+              <Legend />
+              {years.map((y, i) => (
+                <Bar
+                  key={y}
+                  dataKey={String(y)}
+                  fill={DISEASE_COLORS[i % DISEASE_COLORS.length]}
+                  name={String(y)}
+                  isAnimationActive={chartAnimation}
+                />
+              ))}
+            </BarChart>
+          </ResponsiveContainer>
+        )}
+      </div>
+
+      <div className="admin-surface bg-white rounded-xl p-6 border border-slate-200 shadow-sm">
+        <h3 className="text-lg font-semibold text-slate-800 mb-4">
+          {t('seasonal.topOfSeason')} {seasonLabel(selectedSeason)} {t('seasonal.historyTotal')}
+        </h3>
+        {seasonTopDiseases.length === 0 ? (
+          <p className="text-sm text-slate-500">{t('seasonal.noSeasonData')}</p>
+        ) : (
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+            {seasonTopDiseases.map(([disease, cases], i) => {
+              const color = DISEASE_COLORS[i % DISEASE_COLORS.length];
+              const lbl = splitDiseaseLabel(disease, bilingualMap);
+              return (
+                <div key={disease} className="p-4 rounded-lg border border-slate-200 bg-slate-50">
+                  <div className="flex items-start gap-2 mb-2">
+                    <span className="w-2.5 h-2.5 rounded-full mt-1 shrink-0" style={{ backgroundColor: color }} />
+                    <div className="min-w-0 leading-tight">
+                      <div className="font-medium text-slate-800" title={lbl.vi}>
+                        {lbl.vi}
+                      </div>
+                      {lbl.en && (
+                        <div className="text-[11px] italic text-slate-500" title={lbl.en}>
+                          {lbl.en}
+                        </div>
+                      )}
+                    </div>
+                  </div>
+                  <p className="text-2xl font-bold text-slate-700">{cases.toLocaleString()}</p>
+                  <p className="text-xs text-slate-500">
+                    {t('seasonal.inSeason')} {seasonLabel(selectedSeason)}
+                  </p>
+                </div>
+              );
+            })}
+          </div>
+        )}
+      </div>
+
+      <section className="space-y-4 admin-surface rounded-xl border border-slate-200 bg-white p-6 shadow-sm">
+        <div>
+          <h3 className="text-lg font-semibold text-slate-800">Phân tích mùa vụ chi tiết</h3>
+          <p className="mt-1 text-sm text-slate-500">
+            Các bảng này dùng trực tiếp API mùa vụ: seasonal-summary, disease-season-comparison và seasonal-peak.
+          </p>
+        </div>
+
+        <div className="grid grid-cols-1 gap-6 xl:grid-cols-2">
+          <SeasonPanel title={`Nhóm bệnh nổi bật trong ${seasonLabel(selectedSeason)}`}>
+            <SeasonSearchInput value={seasonSummarySearch} onChange={setSeasonSummarySearch} />
+            <SeasonDataTable
+              label="Nhóm bệnh nổi bật theo mùa" source={filteredSeasonalSummary}
+              empty={filteredSeasonalSummary.length === 0}
+              loading={showEmptyLoading}
+              headers={['Nhóm bệnh', 'Số ca']}
+              rows={filteredSeasonalSummary.map((row) => [
+                <DiseaseLabelCell key="dg" raw={row.disease_group} map={bilingualMap} />,
+                count(row.case_count),
+              ])}
+            />
+          </SeasonPanel>
+
+          <SeasonPanel title="Mùa chiếm ưu thế theo nhóm bệnh">
+            <SeasonSearchInput value={seasonCompareSearch} onChange={setSeasonCompareSearch} />
+            <SeasonDataTable
+              label="Mùa chiếm ưu thế theo nhóm bệnh" source={filteredSeasonCompare}
+              empty={filteredSeasonCompare.length === 0}
+              loading={showEmptyLoading}
+              headers={['Nhóm bệnh', 'Mùa trội', 'Mùa khô', 'Mùa mưa', 'Tổng']}
+              rows={filteredSeasonCompare.map((row) => [
+                <DiseaseLabelCell key="dg" raw={row.disease_group} map={bilingualMap} />,
+                row.dominant_season ?? '—',
+                count(row.dry_season_cases),
+                count(row.rainy_season_cases),
+                count(row.total_cases),
+              ])}
+            />
+          </SeasonPanel>
+        </div>
+
+        <SeasonPanel title="Tháng đỉnh theo nhóm bệnh">
+          <SeasonSearchInput value={seasonPeakSearch} onChange={setSeasonPeakSearch} />
+          <SeasonDataTable
+            label="Tháng đỉnh theo nhóm bệnh" source={filteredSeasonPeak}
+            empty={filteredSeasonPeak.length === 0}
+            loading={showEmptyLoading}
+            headers={['Nhóm bệnh', 'Tháng đỉnh', 'Mùa', 'Trung bình ca']}
+            rows={filteredSeasonPeak.map((row) => [
+              <DiseaseLabelCell key="dg" raw={row.disease_group} map={bilingualMap} />,
+              count(row.peak_month),
+              row.season ?? '—',
+              count(row.avg_cases),
+            ])}
+          />
+        </SeasonPanel>
+      </section>
+      </AdminDetails>
+    </div>
+  );
+}
+
+function SeasonPanel({ title, children }: { title: string; children: ReactNode }) {
+  return (
+    <div className="rounded-xl border border-slate-200 p-4">
+      <h4 className="mb-3 font-semibold text-slate-800">{title}</h4>
+      {children}
+    </div>
+  );
+}
+
+function SeasonSearchInput({ value, onChange }: { value: string; onChange: (value: string) => void }) {
+  return (
+    <label className="relative mb-3 block max-w-md">
+      <Search size={16} className="pointer-events-none absolute left-3 top-1/2 -translate-y-1/2 text-slate-400" />
+      <input
+        value={value}
+        onChange={(event) => onChange(event.target.value)}
+        placeholder="Tìm nhóm bệnh..."
+        aria-label="Tìm kiếm nhóm bệnh"
+        className="h-10 w-full rounded-lg border border-slate-200 bg-white pl-9 pr-3 text-sm text-slate-700 outline-none transition focus:border-sky-400 focus:ring-2 focus:ring-sky-100"
+      />
+    </label>
+  );
+}
+
+function SeasonDataTable({
+  label,
+  source,
+  headers,
+  rows,
+  empty,
+  loading,
+}: {
+  label: string;
+  source: unknown;
+  headers: string[];
+  rows: Array<Array<ReactNode>>;
+  empty: boolean;
+  loading: boolean;
+}) {
+  const paging = useClientPage(rows, source, 5);
+  const numeric = (idx: number) => !['Nhóm bệnh', 'Mùa trội', 'Mùa'].includes(headers[idx]);
+  if (empty) return <p className="a-empty" role={loading ? 'status' : undefined}>{loading ? 'Đang tải dữ liệu...' : 'Chưa có dữ liệu'}</p>;
+
+  return (
+    <>
+    <div className="a-table-scroll" role="region" aria-label={label} tabIndex={0}>
+      <table className="w-full min-w-[680px] text-xs">
+        <thead className="sticky top-0 z-10 bg-white">
+          <tr className="border-b border-slate-200 text-left text-slate-500">
+            {headers.map((header, idx) => (
+              <th scope="col" key={header} className={numeric(idx) ? 'a-number' : ''}>
+                {header}
+              </th>
+            ))}
+          </tr>
+        </thead>
+        <tbody>
+          {paging.rows.map((row, rowIdx) => (
+            <tr key={rowIdx} className="border-b border-slate-100 align-top last:border-0">
+              {row.map((cell, idx) => (
+                <td key={idx} className={numeric(idx) ? 'a-number' : ''}>
+                  {cell}
+                </td>
+              ))}
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+    <ClientPagination label={label} paging={paging} />
+    </>
+  );
+}

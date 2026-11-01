@@ -1,0 +1,47 @@
+{
+  "candidate_root": "C:\\Users\\LENOVO\\AppData\\Local\\Temp\\eureka-permissions-review-m38c67zv",
+  "status": "APPLIED_VALIDATED_PASS_WITH_FINDINGS",
+  "files": [
+    {
+      "target": "seasonal_disease_backend/app/routers/admin.py",
+      "sha256_candidate": "ac96cd620153cbd36099c242dc899566dff5d1f22f1d288d4d60b0ffe3ef9ca7",
+      "applied_to_workspace": true
+    },
+    {
+      "target": "seasonal_disease_backend/app/routers/reports.py",
+      "sha256_candidate": "43ad051a9ed5b6d275bddb379c535d4dbeaf594f1d2e5e95bbf723f555521875",
+      "applied_to_workspace": true
+    },
+    {
+      "target": "seasonal_disease_backend/app/permissions.py",
+      "sha256_candidate": "139da2ffc5386267059336dc4fd9e51a4640e77369c47168467dcec1d50afb65",
+      "applied_to_workspace": true
+    },
+    {
+      "target": "seasonal_disease_backend/app/schemas.py",
+      "sha256_candidate": "8e2a2d035f19b6ea254197abcfc2320e853eab9f225c646e73bef68469ad1a71",
+      "applied_to_workspace": true
+    },
+    {
+      "target": "seasonal_disease_backend/app/services/user_administration.py",
+      "sha256_candidate": "59d22e612f50ed03bb12cff52a49cdb00d53eab6ae5aff1e7d8a6eedf64e4816",
+      "applied_to_workspace": true
+    },
+    {
+      "target": "seasonal_disease_backend/app/user_administration_schemas.py",
+      "sha256_candidate": "f34bc90a002316915c7b2883d40af85e767676ebfb8645aa62513b4e37a37d70",
+      "applied_to_workspace": true
+    },
+    {
+      "target": "seasonal_disease_backend/tests/test_user_administration.py",
+      "sha256_candidate": "eaccafea7ba2b1e36cc222a27642f22250475d06df5f10f573cbf9b22f7d791d",
+      "applied_to_workspace": true
+    }
+  ],
+  "excluded_test_stubs": [
+    "app/database.py",
+    "app/config.py"
+  ],
+  "tests": "Workspace: 35 user-administration + 13 visibility tests passed on isolated SQLite; frontend 81 passed; typecheck/build/diff-check passed",
+  "browser": "NOT VERIFIED"
+}

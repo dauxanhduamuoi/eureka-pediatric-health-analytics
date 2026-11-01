@@ -1,0 +1,10 @@
+{
+  "status": "BROWSER NOT VERIFIED",
+  "viewportsNotVisuallyVerified": [1440, 1280, 768, 390],
+  "inventory": {"apps": [], "browsers": []},
+  "errors": ["Computer Use native pipe is unavailable (os error 2)", "The browser access host is unavailable"],
+  "screenshots": false,
+  "domHierarchyVerified": true,
+  "pixelLayoutVerified": false,
+  "realApiRequests": false
+}

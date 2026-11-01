@@ -1,0 +1,20 @@
+{
+  "baseline_files": 485,
+  "changed_files": [
+    "Frontend/src/app/components/DashboardOverview.test.tsx",
+    "Frontend/src/app/components/DashboardOverview.tsx",
+    "Frontend/src/app/components/admin/content.css"
+  ],
+  "added_source_files": [],
+  "unchanged_dashboard_content": {
+    "all_logic_before_render_unchanged": true,
+    "details_unchanged": true,
+    "dashboard-monthly-title_content_unchanged": true,
+    "dashboard-top-title_content_unchanged": true,
+    "dashboard-yearly-title_content_unchanged": true
+  },
+  "head_unchanged": true,
+  "index_unchanged": true,
+  "database": "Not opened or written",
+  "browser_visual": "NOT VERIFIED: The browser access host is unavailable"
+}

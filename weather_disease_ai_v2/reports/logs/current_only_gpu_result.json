@@ -1,0 +1,121 @@
+{
+  "config": {
+    "allow_writing_files": false,
+    "depth": 8,
+    "device": "GPU",
+    "early_stopping_rounds": 80,
+    "eval_metric": "MultiClass",
+    "gpu_id": "0",
+    "iterations": 1000,
+    "learning_rate": 0.05,
+    "loss_function": "MultiClass",
+    "random_seed": 42,
+    "verbose": 50
+  },
+  "feature_columns": [
+    "age_group",
+    "gender",
+    "month",
+    "season",
+    "day_of_year_sin",
+    "day_of_year_cos",
+    "weather_code",
+    "temperature_mean_1d",
+    "temperature_max_1d",
+    "temperature_min_1d",
+    "humidity_mean_1d",
+    "humidity_max_1d",
+    "humidity_min_1d",
+    "precipitation_sum_1d",
+    "rain_sum_1d",
+    "rain_days_1d",
+    "rain_max_daily_1d",
+    "wind_speed_mean_1d",
+    "wind_speed_max_1d",
+    "wind_gust_max_1d"
+  ],
+  "result": {
+    "best_iteration": 160,
+    "categorical_features": [
+      "age_group",
+      "gender",
+      "season",
+      "weather_code"
+    ],
+    "early_stopping_validation_rows": 28382,
+    "elapsed_display": "7m 21s",
+    "elapsed_seconds": 441.0,
+    "experiment": "current_only",
+    "experiment_label": "A = current_only",
+    "feature_columns": [
+      "age_group",
+      "gender",
+      "month",
+      "season",
+      "day_of_year_sin",
+      "day_of_year_cos",
+      "weather_code",
+      "temperature_mean_1d",
+      "temperature_max_1d",
+      "temperature_min_1d",
+      "humidity_mean_1d",
+      "humidity_max_1d",
+      "humidity_min_1d",
+      "precipitation_sum_1d",
+      "rain_sum_1d",
+      "rain_days_1d",
+      "rain_max_daily_1d",
+      "wind_speed_mean_1d",
+      "wind_speed_max_1d",
+      "wind_gust_max_1d"
+    ],
+    "feature_count": 20,
+    "finished_at": "2026-08-07T11:58:51+07:00",
+    "numeric_features": [
+      "month",
+      "day_of_year_sin",
+      "day_of_year_cos",
+      "temperature_mean_1d",
+      "temperature_max_1d",
+      "temperature_min_1d",
+      "humidity_mean_1d",
+      "humidity_max_1d",
+      "humidity_min_1d",
+      "precipitation_sum_1d",
+      "rain_sum_1d",
+      "rain_days_1d",
+      "rain_max_daily_1d",
+      "wind_speed_mean_1d",
+      "wind_speed_max_1d",
+      "wind_gust_max_1d"
+    ],
+    "recovered_from_saved_candidate": true,
+    "started_at": "2026-08-07T11:51:30+07:00",
+    "train_rows": 92742,
+    "tree_count": 161,
+    "validation_metrics": {
+      "case_weighted": {
+        "macro_f1": 0.00485654222543759,
+        "multiclass_log_loss": 3.800231769026819,
+        "top_10_accuracy": 0.5304423639798227,
+        "top_1_accuracy": 0.12710439457787556,
+        "top_3_accuracy": 0.27064953397131175,
+        "top_5_accuracy": 0.3698337242853881,
+        "weighted_f1": 0.05482417219354316
+      },
+      "unweighted": {
+        "macro_f1": 0.002860312478017862,
+        "multiclass_log_loss": 4.3693340666460365,
+        "top_10_accuracy": 0.36703922395613664,
+        "top_1_accuracy": 0.04720230563756502,
+        "top_3_accuracy": 0.13521017854632364,
+        "top_5_accuracy": 0.21323632785041474,
+        "weighted_f1": 0.014832498644507693
+      }
+    },
+    "validation_rows": 28452,
+    "windows": [
+      1
+    ]
+  }
+}

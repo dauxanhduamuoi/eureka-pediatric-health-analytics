@@ -1,0 +1,17 @@
+{
+  "status": "LIVE_PROVIDER_INPUT_PASS",
+  "source": "open_meteo",
+  "anchor_date": "2026-10-31",
+  "timezone": "Asia/Ho_Chi_Minh",
+  "feature_count": 45,
+  "all_finite": true,
+  "weather": {
+    "temperature_mean_current": 27.0375,
+    "humidity_mean_current": 87.625,
+    "rain_sum_current": 1.6,
+    "wind_speed_max_current": 14.3
+  },
+  "real_model_prediction": false,
+  "db_access": false,
+  "coordinates": "public Ho Chi Minh City center, not device location"
+}

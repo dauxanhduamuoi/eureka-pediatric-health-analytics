@@ -1,0 +1,14 @@
+{
+  "all_six_match_prior_backups": true,
+  "four_snapshots_match_baseline": true,
+  "no_other_protected_changes": true,
+  "explicit_user_authorized_discard_of_later_conflict_edits": true,
+  "approved_source_paths": [
+    "Frontend/src/app/components/admin/AdminContent.regression.test.tsx",
+    "Frontend/src/app/components/DashboardOverview.test.tsx",
+    "Frontend/src/app/components/DashboardOverview.tsx",
+    "Frontend/src/app/components/SeasonalAnalysis.tsx",
+    "Frontend/src/app/components/admin/analytics-workspace.css",
+    "Frontend/src/app/components/admin/AnalyticsContext.tsx"
+  ]
+}

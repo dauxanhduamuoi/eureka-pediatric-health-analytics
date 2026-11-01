@@ -1,0 +1,92 @@
+[
+  {
+    "file": "Frontend\\src\\lib\\api.ts",
+    "line": 182,
+    "text": "return request<OverviewResponse>(`/api/dashboard/overview?data_type=${encodeURIComponent(dataType)}`);",
+    "classification": "valid_url_query"
+  },
+  {
+    "file": "Frontend\\src\\lib\\api.ts",
+    "line": 202,
+    "text": "`/api/dashboard/monthly-statistics?data_type=${encodeURIComponent(dataType)}`,",
+    "classification": "valid_url_query"
+  },
+  {
+    "file": "Frontend\\src\\lib\\api.ts",
+    "line": 217,
+    "text": "`/api/dashboard/top-disease-groups?data_type=${encodeURIComponent(dataType)}&limit=${limit}`,",
+    "classification": "valid_url_query"
+  },
+  {
+    "file": "Frontend\\src\\lib\\api.ts",
+    "line": 654,
+    "text": "`/api/reports/by-month-year?data_type=${encodeURIComponent(dataType)}`,",
+    "classification": "valid_url_query"
+  },
+  {
+    "file": "Frontend\\src\\lib\\api.ts",
+    "line": 1084,
+    "text": "return request<SummaryCardResponse>(`/api/dashboard/summary-card?period=${encodeURIComponent(period)}`);",
+    "classification": "valid_url_query"
+  },
+  {
+    "file": "Frontend\\src\\lib\\api.ts",
+    "line": 1089,
+    "text": "`/api/dashboard/top-disease-groups-by-month?period=${encodeURIComponent(period)}&limit=${limit}`,",
+    "classification": "valid_url_query"
+  },
+  {
+    "file": "Frontend\\src\\lib\\api.ts",
+    "line": 1095,
+    "text": "`/api/dashboard/disease-percentage-by-month?period=${encodeURIComponent(period)}&limit=${limit}`,",
+    "classification": "valid_url_query"
+  },
+  {
+    "file": "Frontend\\src\\lib\\api.ts",
+    "line": 1107,
+    "text": "`/api/dashboard/monthly-comparison?period=${encodeURIComponent(period)}&limit=${limit}`,",
+    "classification": "valid_url_query"
+  },
+  {
+    "file": "Frontend\\src\\lib\\api.ts",
+    "line": 1163,
+    "text": "return request<SeasonalPeakRow[]>(`/api/dashboard/seasonal-peak?limit=${limit}`);",
+    "classification": "valid_url_query"
+  },
+  {
+    "file": "Frontend\\src\\app\\components\\DashboardOverview.tsx",
+    "line": 375,
+    "text": "<AdminPageHeading icon={Activity} title={t('sidebar.dashboard')} description=\"T?ng h?p d? li?u, di?n bi?n nh?m b?nh v? k?t qu? d? b?o.\" />",
+    "classification": "corrupted_display_text"
+  },
+  {
+    "file": "Frontend\\src\\app\\components\\Forecast.tsx",
+    "line": 398,
+    "text": "<AdminPageHeading icon={Activity} title={t('sidebar.forecast')} description=\"Theo d?i k?t qu? d? b?o v? chi ti?t theo t?ng nh?m b?nh.\" />",
+    "classification": "corrupted_display_text"
+  },
+  {
+    "file": "Frontend\\src\\app\\components\\NotificationsPanel.tsx",
+    "line": 107,
+    "text": "<AdminPageHeading icon={Bell} title={t('sidebar.notifications')} description=\"Theo d?i c?p nh?t h? th?ng v? c?c th?ng b?o ?ang c?.\" />",
+    "classification": "corrupted_display_text"
+  },
+  {
+    "file": "Frontend\\src\\app\\components\\Reports.tsx",
+    "line": 599,
+    "text": "<AdminPageHeading icon={FileText} title={t('sidebar.reports')} description=\"T?o, xem tr??c v? t?i b?o c?o t? d? li?u hi?n c?.\" />",
+    "classification": "corrupted_display_text"
+  },
+  {
+    "file": "Frontend\\src\\app\\components\\SeasonalAnalysis.tsx",
+    "line": 409,
+    "text": "<AdminPageHeading icon={Calendar} title={t('sidebar.seasonal')} description=\"So s?nh di?n bi?n theo m?a v? th?i ?i?m ghi nh?n.\" />",
+    "classification": "corrupted_display_text"
+  },
+  {
+    "file": "Frontend\\src\\app\\components\\Settings.tsx",
+    "line": 331,
+    "text": "<AdminPageHeading icon={SettingsIcon} title={t('sidebar.settings')} description=\"T?y ch?nh giao di?n, c?u h?nh v? qu?n l? quy?n truy c?p.\" />",
+    "classification": "corrupted_display_text"
+  }
+]

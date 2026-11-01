@@ -1,0 +1,7 @@
+{
+  "runtimeCredentialMarkersFound": [],
+  "realCredentialsRead": false,
+  "realSessionsModified": false,
+  "tokenFixtureUsed": false,
+  "note": "Checks only runtime synthetic markers in logs; not a general secret scanner. No password/token values recorded."
+}

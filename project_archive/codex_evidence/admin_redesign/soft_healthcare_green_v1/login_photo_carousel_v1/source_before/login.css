@@ -1,0 +1,43 @@
+/* Login presentation only; authentication remains in the existing context. */
+.login-page { display: grid; place-items: center; width: 100%; min-height: 100dvh; padding: 40px 32px; }
+.login-shell { display: grid; grid-template-columns: 1.05fr 1fr; width: min(1180px, 100%); min-width: 0; border: 1px solid var(--admin-border); border-radius: 24px; background: var(--admin-surface); box-shadow: 0 18px 64px rgb(23 43 34 / 6%); overflow: hidden; }
+.login-shell > section { min-width: 0; }
+.login-visual { display: flex; flex-direction: column; padding: 36px; background: linear-gradient(145deg, var(--admin-mint), var(--admin-subtle)); color: var(--admin-accent-ink); }
+.login-brand { display: flex; align-items: center; gap: 12px; }
+.login-brand .admin-brand-mark { width: 44px; height: 44px; background: var(--admin-surface); border: 1px solid var(--admin-border); }
+#root .eureka-admin .login-brand h1 { font-size: 17px; line-height: 1.45; letter-spacing: 0; }
+#root .eureka-admin .login-brand p { font-size: var(--admin-font-meta); color: var(--admin-muted); margin-top: 2px; }
+.login-visual-copy { margin-top: 40px; }
+.login-eyebrow { display: block; margin-bottom: 14px; font-size: var(--admin-font-meta); font-weight: 600; letter-spacing: .04em; }
+#root .eureka-admin .login-visual-copy h2 { font-size: clamp(28px, 2.7vw, 36px); line-height: 1.25; font-weight: 600; letter-spacing: -.025em; }
+.login-illustration { display: block; width: 100%; max-width: 400px; height: auto; margin: 16px auto 0; flex-shrink: 0; }
+#root .eureka-admin .login-visual-caption { display: flex; align-items: center; gap: 14px; margin-top: auto; padding-top: 20px; font-size: var(--admin-font-meta); color: var(--admin-muted); }
+.login-visual-caption span { color: var(--admin-border); }
+.login-form-panel { display: flex; align-items: center; justify-content: center; padding: 56px 48px; }
+.login-form-content { width: 100%; max-width: 360px; }
+#root .eureka-admin .login-form-content > h2 { margin-bottom: 32px; font-size: 28px; font-weight: 700; }
+.login-form { display: grid; gap: 20px; }
+.login-field { display: grid; gap: 8px; }
+#root .eureka-admin .login-field > label { font-size: var(--admin-font-body); font-weight: 600; color: var(--admin-ink); }
+#root .eureka-admin .login-input { width: 100%; min-height: 46px; padding: 11px 14px; border-radius: 10px; }
+#root .eureka-admin .login-submit { display: flex; align-items: center; justify-content: center; gap: 10px; width: 100%; min-height: 46px; margin-top: 4px; padding: 11px 16px; border-radius: 10px; background: var(--admin-primary); color: #fff; font-size: var(--admin-font-body); transition: background-color .15s; }
+#root .eureka-admin .login-submit:not(:disabled):hover { background: var(--admin-hover); }
+.login-submit:disabled { opacity: .65; cursor: not-allowed; }
+.login-error { padding: 10px 12px; border: 1px solid #fecaca; border-radius: 9px; background: #fff1f2; color: #9f1239; font-size: var(--admin-font-label); line-height: 1.6; overflow-wrap: anywhere; }
+.login-parent-link { display: flex; align-items: center; gap: 10px; margin-top: 32px; border-top: 1px solid var(--admin-border); padding-top: 24px; font-size: var(--admin-font-label); color: var(--admin-muted); }
+.login-parent-link > span { flex: 1; }
+.login-parent-link > svg { flex-shrink: 0; }
+.login-parent-link:hover { color: var(--admin-accent-ink); }
+@media (max-width: 900px) {
+  .login-page { padding: 24px; }
+  .login-visual { padding: 32px; }
+  .login-form-panel { padding: 40px 32px; }
+}
+@media (max-width: 767px) {
+  .login-page { padding: 20px 16px; }
+  .login-shell { grid-template-columns: minmax(0, 1fr); max-width: 480px; border-radius: 18px; }
+  .login-visual { padding: 24px; }
+  .login-visual-copy, .login-illustration, .login-visual-caption { display: none !important; }
+  .login-form-panel { padding: 32px 24px; }
+  #root .eureka-admin .login-form-content > h2 { font-size: 24px; margin-bottom: 24px; }
+}

@@ -1,0 +1,118 @@
+/* Shared Admin + Login type/control system. Scoped adapters win over legacy
+   utilities and page styles without changing Parent or semantic status colours. */
+.eureka-admin {
+  --admin-font-family: 'Nunito', 'Segoe UI', Arial, sans-serif;
+  --admin-font-title: 24px;
+  --admin-font-section: 16px;
+  --admin-font-body: 14px;
+  --admin-font-label: 13px;
+  --admin-font-meta: 12px;
+  --admin-leading-body: 1.6;
+  --admin-leading-heading: 1.35;
+  --admin-control-height: 40px;
+}
+
+#root .eureka-admin {
+  font-family: var(--admin-font-family);
+  font-size: var(--admin-font-body);
+  font-weight: 400;
+  line-height: var(--admin-leading-body);
+}
+#root .eureka-admin :is(input, select, textarea, button) { font-family: inherit; }
+#root .eureka-admin :is(h1, h2, h3, h4) { line-height: var(--admin-leading-heading); letter-spacing: -.02em; font-weight: 700; }
+#root .eureka-admin .admin-page h2 { font-size: var(--admin-font-section); font-weight: 600; }
+#root .eureka-admin :is(.admin-topbar h1, .admin-heading-copy h2) { font-size: var(--admin-font-title); }
+#root .eureka-admin :is(.admin-section-header h3, .admin-page h3) { font-size: var(--admin-font-section); font-weight: 600; }
+#root .eureka-admin .admin-page h4 { font-size: var(--admin-font-body); font-weight: 600; }
+#root .eureka-admin :is(.text-sm, .text-base) { font-size: var(--admin-font-body); line-height: var(--admin-leading-body); }
+#root .eureka-admin :is(.text-xs, .text-\[10px\], .text-\[11px\], small) { font-size: var(--admin-font-meta); line-height: 1.5; }
+#root .eureka-admin :is(.font-medium, .font-semibold) { font-weight: 600; }
+#root .eureka-admin :is(.font-extrabold, .font-black) { font-weight: 700; }
+#root .eureka-admin :is(.admin-page-group, .admin-nav-caption, .admin-brand-caption, .admin-account-label small, .admin-account-identity > span) {
+  font-size: var(--admin-font-meta); line-height: 1.5; letter-spacing: 0;
+}
+#root .eureka-admin .admin-page-group { font-weight: 500; }
+#root .eureka-admin .admin-nav-caption { text-transform: none; font-weight: 600; }
+#root .eureka-admin :is(.admin-nav-item, .admin-account-menu > button, .admin-account-label strong) { font-size: var(--admin-font-body); line-height: 1.5; font-weight: 600; }
+#root .eureka-admin .admin-nav-item[aria-current='page'] { font-weight: 700; }
+#root .eureka-admin .admin-avatar { font-weight: 700; }
+#root .eureka-admin :is(.admin-page-context > p, .admin-heading-copy > p, .admin-section-header p, .admin-chart-caption, .admin-scope-note, .admin-user-dialog-body > p) {
+  font-size: var(--admin-font-label); line-height: var(--admin-leading-body);
+}
+#root .eureka-admin :is(.admin-chart-legend, .admin-dashboard-rank, .admin-dashboard-rank-label small, .admin-dashboard-rank-value small) {
+  font-size: var(--admin-font-meta); line-height: 1.5;
+}
+#root .eureka-admin :is(.admin-dashboard-rank-heading, .admin-dashboard-donut-tooltip) {
+  font-size: var(--admin-font-body); line-height: var(--admin-leading-body);
+}
+#root .eureka-admin :is(.recharts-text, .recharts-cartesian-axis-tick text) { font-family: var(--admin-font-family); font-size: var(--admin-font-meta); }
+
+/* Keep label colour semantic (including validation warnings) and let long labels wrap. */
+#root .eureka-admin :is(label, .admin-user-field-label, .admin-toolbar-label) { font-size: var(--admin-font-label); line-height: 1.5; font-weight: 500; }
+#root .eureka-admin :is(input:not([type='checkbox']):not([type='radio']):not([type='range']):not([type='file']), select, textarea) {
+  min-height: var(--admin-control-height);
+  min-width: 0;
+  border: 1px solid var(--admin-border);
+  border-radius: var(--admin-control-radius);
+  padding-block: 8px;
+  font-size: var(--admin-font-body);
+  line-height: 1.5;
+  font-weight: 400;
+}
+#root .eureka-admin input::placeholder, #root .eureka-admin textarea::placeholder { color: var(--admin-muted); opacity: 1; }
+/* A local SVG caret avoids native padding differences. Multiple/list selects
+   retain their native presentation and scrolling. Search input left padding is untouched. */
+#root .eureka-admin select:not([multiple]):not([size]) {
+  appearance: none;
+  padding-inline: 12px 34px;
+  /* Existing theme adapters use an !important background shorthand. */
+  background: var(--admin-surface) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%23607268' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E") right 10px center / 16px 16px no-repeat !important;
+}
+html.dark #root .eureka-admin select:not([multiple]):not([size]) {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%23b2c6b8' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E") !important;
+}
+#root .eureka-admin button { font-size: var(--admin-font-label); line-height: 1.5; font-weight: 600; }
+#root .eureka-admin button:not(.admin-toggle):not(.admin-nav-item):not(.admin-account-button) { min-height: var(--admin-control-height); }
+#root .eureka-admin :is(.admin-toolbar, .admin-section-actions, .admin-heading-actions) { gap: 12px; }
+#root .eureka-admin :is(.admin-toolbar > label, .admin-filter-field) { flex-wrap: wrap; gap: 8px; }
+#root .eureka-admin .admin-dashboard-chart-toggle > button { min-height: 32px; font-size: var(--admin-font-meta); }
+#root .eureka-admin :is(input, select, textarea, button, a, summary, [tabindex]):focus-visible { outline: 2px solid var(--admin-primary); outline-offset: 3px; }
+#root .eureka-admin :is(input, select, textarea):disabled { cursor: not-allowed; opacity: .65; }
+
+/* Table figures remain tabular; titles/identifiers may wrap without breaking rows. */
+#root .eureka-admin th { font-size: var(--admin-font-meta); line-height: 1.5; font-weight: 600; letter-spacing: 0; text-transform: none; }
+#root .eureka-admin td { font-size: var(--admin-font-body); line-height: var(--admin-leading-body); }
+#root .eureka-admin :is(th, td) { padding-block: 14px; }
+#root .eureka-admin :is(.admin-user-role-badge, .admin-user-status, .admin-status-badge) { font-size: var(--admin-font-meta); line-height: 1.5; font-weight: 500; padding: 4px 9px; }
+#root .eureka-admin .admin-user-row-actions { gap: 8px; }
+#root .eureka-admin :is(.admin-user-row-actions button, .admin-user-more summary) { padding: 8px 10px; font-size: var(--admin-font-label); line-height: 1.5; }
+#root .eureka-admin .admin-user-more summary { display: flex; align-items: center; min-height: var(--admin-control-height); }
+#root .eureka-admin :is(.admin-user-notice, .admin-user-error, .admin-permission-checklist-heading, .admin-permission-group-toggle, .admin-permission-options > label) { font-size: var(--admin-font-label); line-height: 1.6; }
+#root .eureka-admin .admin-user-dialog > header h2 { font-size: 20px; }
+
+/* Same presentation across existing page-size handlers. No data/state logic here. */
+#root .eureka-admin .admin-page-controls,
+#root .eureka-admin .admin-pagination {
+  display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap;
+  gap: 12px 20px; font-size: var(--admin-font-label); line-height: 1.5; color: var(--admin-muted);
+}
+#root .eureka-admin .admin-page-controls { padding-top: 0; }
+#root .eureka-admin .admin-page-controls.border-t { padding-top: 16px; }
+#root .eureka-admin .admin-page-controls > div { display: flex; align-items: center; flex-wrap: wrap; gap: 12px; }
+#root .eureka-admin .admin-page-size {
+  display: inline-flex; align-items: center; flex-wrap: wrap; gap: 8px;
+  max-width: 100%; margin: 0; font-size: var(--admin-font-label); font-weight: 500; white-space: nowrap;
+}
+#root .eureka-admin .admin-page-size select { width: auto; min-width: 72px; font-variant-numeric: tabular-nums; }
+#root .eureka-admin .admin-pagination > div { display: flex; align-items: center; flex-wrap: wrap; gap: 6px; }
+#root .eureka-admin .admin-pagination button { display: inline-flex; align-items: center; justify-content: center; min-width: 40px; padding: 8px 10px; border: 1px solid var(--admin-border); border-radius: var(--admin-control-radius); }
+#root .eureka-admin .admin-pagination button:not(:disabled):hover { background: var(--admin-mint); color: var(--admin-accent-ink); }
+#root .eureka-admin .admin-pagination button:disabled { opacity: .4; }
+#root .eureka-admin .admin-pagination span { font-variant-numeric: tabular-nums; }
+@media (max-width: 639px) {
+  #root .eureka-admin { --admin-font-title: 20px; }
+  #root .eureka-admin .admin-page-controls > div { width: 100%; }
+}
+@media (forced-colors: active) {
+  #root .eureka-admin select:not([multiple]):not([size]) { appearance: auto; background-image: none !important; padding-inline-end: 8px; }
+}

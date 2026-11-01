@@ -1,0 +1,17 @@
+{
+  "status": "PASS_WITH_FINDINGS",
+  "movedFiles": 553,
+  "movedGroups": 67,
+  "allMovedHashesMatch": true,
+  "sourceConfigDocsAssetHashesUnchanged": 1395,
+  "newDocumentationLinksChecked": 110,
+  "newBrokenLinks": 0,
+  "unrelatedGitStatusChanges": 0,
+  "gitIndexUnchanged": true,
+  "rootReadmesUnchanged": 4,
+  "reviewRequiredBundlesRetained": 23,
+  "activeFixtureBundleRetained": 1,
+  "fullTestsOrBuildRequired": false,
+  "gitDiffCheckExit": 0,
+  "report": "project_archive/HOUSEKEEPING_REPORT.md"
+}

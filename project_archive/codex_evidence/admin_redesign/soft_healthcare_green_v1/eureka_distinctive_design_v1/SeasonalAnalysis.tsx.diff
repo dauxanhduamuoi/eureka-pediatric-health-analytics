@@ -1,0 +1,60 @@
+--- before/Frontend/src/app/components/SeasonalAnalysis.tsx
++++ after/Frontend/src/app/components/SeasonalAnalysis.tsx
+@@ -1,3 +1,4 @@
++import AnalyticsContext from './admin/AnalyticsContext';
+ import AdminSection from './admin/AdminSection';
+ import AdminDetails from './admin/AdminDetails';
+ import SeasonalSummary from './admin/SeasonalSummary';
+@@ -338,8 +339,14 @@
+   const empty = data.length === 0;
+ 
+   return (
+-    <div className="admin-page-stack admin-seasonal-content">
++    <div className="admin-page-stack admin-seasonal-content eureka-analytics">
+       <AdminPageHeading icon={Calendar} title={t('sidebar.seasonal')} description={t('admin.description.seasonal')} />
++      <AnalyticsContext title="Nhìn rõ nhịp mùa, đọc đúng phạm vi"
++        description="Năm được chọn áp dụng cho biểu đồ xu hướng. So sánh hai mùa và các bảng lịch sử vẫn dùng toàn bộ dữ liệu hiện có."
++        scope={<>Năm xu hướng: {selectedYear ?? 'Chưa có năm dữ liệu'}</>}
++        links={[{ id: 'analytics-season-trend', label: 'Xu hướng theo năm' }, { id: 'analytics-season-distribution', label: 'So sánh hai mùa' }, { id: 'analytics-season-records', label: 'Đối chiếu lịch sử' }]} />
++      <div className="analytics-season-layout">
++      <aside className="analytics-season-context" aria-label="Bộ lọc và phạm vi mùa vụ">
+       <div className="admin-toolbar" role="group" aria-label={t('seasonal.filters')}>
+         <div className="contents">
+           <div className="flex items-center gap-2">
+@@ -415,19 +422,28 @@
+ 
+       <SeasonalSummary data={data} year={selectedYear} season={selectedSeason} insights={insights} seasonLabel={seasonLabel} />
+ 
++      </aside>
++      <div className="analytics-season-visuals">
+       <div className="admin-season-charts">
++        <div id="analytics-season-trend" tabIndex={-1}>
+         <AdminSection title={`${t('seasonal.monthlyTrend')} (${selectedYear ?? '\u2014'})`}>
+           {monthlyChartData.length === 0 || topDiseases.length === 0
+             ? <EmptyChart loading={showEmptyLoading} label={t('seasonal.noYearData')} t={t} />
+             : <SeasonalTrendChart rows={monthlyChartData} diseases={topDiseases} observed={observedMonthsForYear(data, selectedYear)} bilingualMap={bilingualMap} animate={chartAnimation} />}
+         </AdminSection>
++        </div>
++        <div id="analytics-season-distribution" tabIndex={-1}>
+         <AdminSection title={t('seasonal.distribution')} subtitle={t('content.allData')}>
+           {seasonDiseaseData.length === 0
+             ? <EmptyChart loading={showEmptyLoading} label={t('common.noData')} t={t} />
+             : <SeasonalDistributionChart rows={seasonDiseaseData} dryLabel={seasonLabel('dry')} rainyLabel={seasonLabel('rainy')} bilingualMap={bilingualMap} animate={chartAnimation} />}
+         </AdminSection>
++        </div>
+       </div>
+ 
++      </div>
++      </div>
++      <div id="analytics-season-records" tabIndex={-1}>
+       <AdminDetails title={t('content.seasonHistory')}>
+       {years.some((year) => observedMonthsForYear(data, year).size < 12) && <p className="admin-scope-note">
+         Có năm chưa đủ 12 tháng có bản ghi. Các tổng trong biểu đồ lịch sử giữ phép cộng hiện có; tổng 0 ở tổ hợp mùa/năm thiếu bản ghi không xác nhận 0 ca bệnh. Các bảng dưới đây dùng toàn bộ dữ liệu, không giới hạn theo năm xu hướng.
+@@ -550,6 +566,7 @@
+         </SeasonPanel>
+       </section>
+       </AdminDetails>
++      </div>
+     </div>
+   );
+ }

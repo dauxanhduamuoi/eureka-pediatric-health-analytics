@@ -1,0 +1,423 @@
+{
+  "pdf": "D:\\OS_C\\Bài học trên trường\\Thực tập\\Fullstack_2\\ThucTap-main\\admin_redesign\\soft_healthcare_green_v1\\final_demo_readiness_v1\\pdf-validation\\eureka-final-demo-readiness.pdf",
+  "pages": 8,
+  "reports": [
+    {
+      "template": "overview",
+      "first_page": 1,
+      "pages": 1,
+      "rows": 4,
+      "chart_series": [
+        {
+          "title": "Số ca theo nhóm (tối đa 12 nhóm trong bảng)",
+          "kind": "bar",
+          "labels": [
+            "Nhóm bệnh kiểm thử - không phải dữ liệu bệnh nhân",
+            "Bệnh dị ứng & phản ứng miễn dịch <nhóm kiểm thử>",
+            "Rối loạn tiêu hóa, dinh dưỡng và chuyển hóa ở trẻ em",
+            "Viêm phổi và các bệnh đường hô hấp có tên dài cần xuống dòng tự nhiên"
+          ],
+          "series": [
+            {
+              "key": "case_count",
+              "label": "Số ca",
+              "color": "#15803d",
+              "values": [
+                27,
+                24,
+                21,
+                18
+              ]
+            }
+          ]
+        }
+      ],
+      "summary": [
+        {
+          "label": "Tổng số ca trong phạm vi",
+          "value": 90
+        },
+        {
+          "label": "Tháng có bản ghi",
+          "value": 3
+        },
+        {
+          "label": "Nhóm bệnh có bản ghi",
+          "value": 4
+        }
+      ]
+    },
+    {
+      "template": "seasonal",
+      "first_page": 2,
+      "pages": 1,
+      "rows": 2,
+      "chart_series": [
+        {
+          "title": "Số ca theo mùa trong phạm vi đã lọc",
+          "kind": "bar",
+          "labels": [
+            "Mùa khô",
+            "Mùa mưa"
+          ],
+          "series": [
+            {
+              "key": "case_count",
+              "label": "Số ca",
+              "color": "#15803d",
+              "values": [
+                60,
+                30
+              ]
+            }
+          ]
+        }
+      ],
+      "summary": [
+        {
+          "label": "Tổng số ca trong phạm vi",
+          "value": 90
+        },
+        {
+          "label": "Tháng có bản ghi",
+          "value": 3
+        },
+        {
+          "label": "Nhóm bệnh có bản ghi",
+          "value": 4
+        }
+      ]
+    },
+    {
+      "template": "disease",
+      "first_page": 3,
+      "pages": 1,
+      "rows": 12,
+      "chart_series": [
+        {
+          "title": "Tổng ca Top 12 nhóm trong bảng",
+          "kind": "bar",
+          "labels": [
+            "Nhóm bệnh kiểm thử - không phải dữ liệu bệnh nhân",
+            "Bệnh dị ứng & phản ứng miễn dịch <nhóm kiểm thử>",
+            "Rối loạn tiêu hóa, dinh dưỡng và chuyển hóa ở trẻ em",
+            "Viêm phổi và các bệnh đường hô hấp có tên dài cần xuống dòng tự nhiên"
+          ],
+          "series": [
+            {
+              "key": "case_count",
+              "label": "Số ca",
+              "color": "#15803d",
+              "values": [
+                27,
+                24,
+                21,
+                18
+              ]
+            }
+          ]
+        }
+      ],
+      "summary": [
+        {
+          "label": "Tổng số ca trong phạm vi",
+          "value": 90
+        },
+        {
+          "label": "Tháng có bản ghi",
+          "value": 3
+        },
+        {
+          "label": "Nhóm bệnh có bản ghi",
+          "value": 4
+        }
+      ]
+    },
+    {
+      "template": "forecast",
+      "first_page": 4,
+      "pages": 1,
+      "rows": 4,
+      "chart_series": [
+        {
+          "title": "Dự báo và số ca kỳ trước (tối đa 12 nhóm)",
+          "kind": "bar",
+          "labels": [
+            "Nhóm bệnh kiểm thử - không phải dữ liệu bệnh nhân",
+            "Bệnh dị ứng & phản ứng miễn dịch <nhóm kiểm thử>",
+            "Rối loạn tiêu hóa, dinh dưỡng và chuyển hóa ở trẻ em",
+            "Viêm phổi và các bệnh đường hô hấp có tên dài cần xuống dòng tự nhiên"
+          ],
+          "series": [
+            {
+              "key": "previous_cases",
+              "label": "Số ca kỳ trước",
+              "color": "#64748b",
+              "values": [
+                9,
+                8,
+                7,
+                6
+              ]
+            },
+            {
+              "key": "predicted_cases",
+              "label": "Số ca dự báo",
+              "color": "#15803d",
+              "values": [
+                15,
+                14,
+                13,
+                12
+              ]
+            }
+          ]
+        }
+      ],
+      "summary": [
+        {
+          "label": "Số nhóm trong báo cáo",
+          "value": 4
+        },
+        {
+          "label": "Tổng số ca dự báo",
+          "value": 54
+        }
+      ]
+    },
+    {
+      "template": "age_months",
+      "first_page": 5,
+      "pages": 2,
+      "rows": 24,
+      "chart_series": [
+        {
+          "title": "Phân bố số ca theo tháng tuổi",
+          "kind": "bar",
+          "labels": [
+            "0-1 tháng",
+            "1-6 tháng",
+            "6-12 tháng",
+            "12-24 tháng",
+            "2-5 tuổi",
+            "Trên 5 tuổi"
+          ],
+          "series": [
+            {
+              "key": "case_count",
+              "label": "Số ca",
+              "color": "#15803d",
+              "values": [
+                4,
+                4,
+                4,
+                4,
+                4,
+                4
+              ]
+            }
+          ]
+        }
+      ],
+      "summary": [
+        {
+          "label": "Tổng ca có tuổi hợp lệ",
+          "value": 24
+        },
+        {
+          "label": "Số dòng",
+          "value": 24
+        }
+      ]
+    },
+    {
+      "template": "month_year",
+      "first_page": 7,
+      "pages": 1,
+      "rows": 6,
+      "chart_series": [
+        {
+          "title": "Xu hướng theo tháng (tối đa 36 kỳ cuối trong bảng)",
+          "kind": "line",
+          "labels": [
+            "2025-01",
+            "2025-02",
+            "2025-03",
+            "2025-04",
+            "2025-05",
+            "2025-06"
+          ],
+          "series": [
+            {
+              "key": "case_count",
+              "label": "Số ca",
+              "color": "#15803d",
+              "values": [
+                54,
+                null,
+                6,
+                null,
+                null,
+                30
+              ]
+            }
+          ]
+        }
+      ],
+      "summary": [
+        {
+          "label": "Tổng số ca trong phạm vi",
+          "value": 90
+        },
+        {
+          "label": "Tháng có bản ghi",
+          "value": 3
+        },
+        {
+          "label": "Nhóm bệnh có bản ghi",
+          "value": 4
+        }
+      ]
+    },
+    {
+      "template": "custom",
+      "first_page": 8,
+      "pages": 1,
+      "rows": 4,
+      "chart_series": [
+        {
+          "title": "Số ca theo nhóm (tối đa 12 nhóm trong bảng)",
+          "kind": "bar",
+          "labels": [
+            "Nhóm bệnh kiểm thử - không phải dữ liệu bệnh nhân",
+            "Bệnh dị ứng & phản ứng miễn dịch <nhóm kiểm thử>",
+            "Rối loạn tiêu hóa, dinh dưỡng và chuyển hóa ở trẻ em",
+            "Viêm phổi và các bệnh đường hô hấp có tên dài cần xuống dòng tự nhiên"
+          ],
+          "series": [
+            {
+              "key": "case_count",
+              "label": "Số ca",
+              "color": "#15803d",
+              "values": [
+                27,
+                24,
+                21,
+                18
+              ]
+            }
+          ]
+        }
+      ],
+      "summary": [
+        {
+          "label": "Tổng số ca trong phạm vi",
+          "value": 90
+        },
+        {
+          "label": "Tháng có bản ghi",
+          "value": 3
+        },
+        {
+          "label": "Nhóm bệnh có bản ghi",
+          "value": 4
+        }
+      ]
+    }
+  ],
+  "exports": [
+    {
+      "template": "overview",
+      "rows": 4,
+      "snapshot_unchanged": true,
+      "csv_sha256": "ce4db4adbc62ff8ec35264a95107b13ae7479d1c41833298dab2ebfe94b5ae26"
+    },
+    {
+      "template": "seasonal",
+      "rows": 2,
+      "snapshot_unchanged": true,
+      "csv_sha256": "1899e2020953b461e1544e95c1c74ee0e62a84448a8d260898e1973baa2730b3"
+    },
+    {
+      "template": "disease",
+      "rows": 12,
+      "snapshot_unchanged": true,
+      "csv_sha256": "ae123d7eab92fbbadcb11f988cb56e589d691636ef4fb7eee7b050e4c0f5ecaf"
+    },
+    {
+      "template": "forecast",
+      "rows": 4,
+      "snapshot_unchanged": true,
+      "csv_sha256": "29cdd0abe67d34b90144081086ebb3bde1bada79696170a9b1e6937242f9ab4f"
+    },
+    {
+      "template": "age_months",
+      "rows": 24,
+      "snapshot_unchanged": true,
+      "csv_sha256": "37a405df1c7f8cf97b6228d9612a2fccbe0de0722463b17d81189143866eb3f2"
+    },
+    {
+      "template": "month_year",
+      "rows": 6,
+      "snapshot_unchanged": true,
+      "csv_sha256": "5d86d39f7ded51d5393c3ec914ac6560aa3b0670e39794becdc86d480ab1d277"
+    },
+    {
+      "template": "custom",
+      "rows": 4,
+      "snapshot_unchanged": true,
+      "csv_sha256": "ce4db4adbc62ff8ec35264a95107b13ae7479d1c41833298dab2ebfe94b5ae26"
+    }
+  ],
+  "page_checks": [
+    {
+      "page": 1,
+      "text_characters": 1380,
+      "a4": true,
+      "text_within_horizontal_margins": true
+    },
+    {
+      "page": 2,
+      "text_characters": 923,
+      "a4": true,
+      "text_within_horizontal_margins": true
+    },
+    {
+      "page": 3,
+      "text_characters": 1776,
+      "a4": true,
+      "text_within_horizontal_margins": true
+    },
+    {
+      "page": 4,
+      "text_characters": 1457,
+      "a4": true,
+      "text_within_horizontal_margins": true
+    },
+    {
+      "page": 5,
+      "text_characters": 1532,
+      "a4": true,
+      "text_within_horizontal_margins": true
+    },
+    {
+      "page": 6,
+      "text_characters": 978,
+      "a4": true,
+      "text_within_horizontal_margins": true
+    },
+    {
+      "page": 7,
+      "text_characters": 871,
+      "a4": true,
+      "text_within_horizontal_margins": true
+    },
+    {
+      "page": 8,
+      "text_characters": 1622,
+      "a4": true,
+      "text_within_horizontal_margins": true
+    }
+  ],
+  "source": "synthetic isolated fixture, not production DB"
+}

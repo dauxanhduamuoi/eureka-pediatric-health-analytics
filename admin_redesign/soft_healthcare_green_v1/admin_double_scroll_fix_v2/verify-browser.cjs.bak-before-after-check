@@ -1,0 +1,123 @@
+const fs = require('node:fs'), path = require('node:path'), http = require('node:http');
+const assert = require('node:assert/strict');
+const phase = process.argv[2];
+if (!['before', 'after'].includes(phase)) throw new Error('Choose before or after');
+const dist = path.join(__dirname, 'browser-dist-' + phase), root = path.resolve(__dirname, '../../..');
+const requests = [], failures = [], result = { phase, scope: 'Real AdminLayout and shipped CSS; synthetic content/public fixtures and deliberate external overflow probe; no live page controllers or APIs', checks: [] };
+const mime = { '.js': 'text/javascript', '.css': 'text/css', '.html': 'text/html', '.ttf': 'font/ttf', '.woff2': 'font/woff2', '.svg': 'image/svg+xml' };
+const server = http.createServer((req, res) => {
+  const pathname = decodeURIComponent(new URL(req.url, 'http://127.0.0.1').pathname);
+  requests.push(pathname);
+  if (pathname.startsWith('/api')) { failures.push(pathname); res.writeHead(503); res.end('No API in this fixture'); return; }
+  const candidates = [dist, path.join(root, 'Frontend/public')].map(base => ({ base, file: path.resolve(base, '.' + (pathname === '/' ? '/index.html' : pathname)) }));
+  const found = candidates.find(({ base, file }) => file.startsWith(base + path.sep) && fs.existsSync(file) && fs.statSync(file).isFile());
+  if (!found) { res.writeHead(404); res.end('Not found'); return; }
+  res.writeHead(200, { 'Content-Type': mime[path.extname(found.file)] || 'application/octet-stream' }); fs.createReadStream(found.file).pipe(res);
+});
+const delay = milliseconds => new Promise(resolve => setTimeout(resolve, milliseconds));
+(async () => {
+  await new Promise(resolve => server.listen(0, '127.0.0.1', resolve));
+  const browser = await require('./chrome-session.cjs')();
+  try {
+    const { sessionId, evaluate } = browser;
+    result.browser = browser.version.product;
+    const cdp = (method, params) => browser.send(method, params, sessionId);
+    async function until(expression) {
+      const start = Date.now(); while (!(await evaluate(expression))) { if (Date.now() - start > 10000) throw new Error('Timeout: ' + expression); await delay(50); }
+    }
+    async function screenshot(name) {
+      const { data } = await cdp('Page.captureScreenshot', { format: 'png' });
+      fs.writeFileSync(path.join(__dirname, name + '.png'), Buffer.from(data, 'base64'));
+    }
+    async function open(width, height) {
+      await cdp('Emulation.setDeviceMetricsOverride', { width, height, deviceScaleFactor: 1, mobile: false });
+      await cdp('Page.navigate', { url: `http://127.0.0.1:${server.address().port}/` });
+      await until('!!window.fixtureControl && !!document.querySelector(".admin-content")');
+      await evaluate('document.fonts.ready'); await delay(150);
+    }
+    const read = () => evaluate(`(() => {
+      const main = document.querySelector('.admin-content'), shell = document.querySelector('.eureka-admin'), last = document.getElementById('last-fixture-content');
+      return { windowY: scrollY, htmlOverflow: getComputedStyle(document.documentElement).overflowY, bodyOverflow: getComputedStyle(document.body).overflowY,
+        shellTop: shell?.getBoundingClientRect().top, shellBottom: shell?.getBoundingClientRect().bottom,
+        main: main && { top: main.scrollTop, height: main.clientHeight, scrollHeight: main.scrollHeight, overflow: getComputedStyle(main).overflowY, bottom: main.getBoundingClientRect().bottom },
+        last: last && { top: last.getBoundingClientRect().top, bottom: last.getBoundingClientRect().bottom },
+        font: shell && getComputedStyle(shell).fontFamily, width: innerWidth, documentWidth: document.documentElement.clientWidth };
+    })()`);
+    await open(1440, 900);
+    result.initial = await read();
+    await cdp('Input.dispatchMouseEvent', { type: 'mouseWheel', x: 1100, y: 20, deltaX: 0, deltaY: 500 }); await delay(250);
+    result.afterOuterWheel = await read();
+    if (phase === 'before') {
+      assert.ok(result.afterOuterWheel.windowY > 0, 'Controlled external overflow must reproduce outer scroll before lock');
+      await screenshot('chrome-before-external-overflow-1440');
+      result.checks.push('BEFORE: deliberate outside-shell overflow reproduces outer wheel scrolling and displaced shell');
+    } else {
+      assert.equal(result.afterOuterWheel.windowY, 0); assert.equal(result.afterOuterWheel.shellTop, 0);
+      assert.equal(result.initial.htmlOverflow, 'hidden'); assert.equal(result.initial.bodyOverflow, 'hidden');
+      result.checks.push('AFTER: outside-shell overflow cannot wheel-scroll document or displace topbar');
+      result.widths = [];
+      for (const [width, height] of [[1440, 900], [1280, 800], [768, 1024], [390, 844]]) {
+        await open(width, height);
+        await evaluate('document.querySelector(".admin-content").scrollTop = 0');
+        await cdp('Input.dispatchMouseEvent', { type: 'mouseWheel', x: width - 80, y: height - 90, deltaX: 0, deltaY: 360 }); await delay(150);
+        assert.ok((await read()).main.top > 0, 'Main content must receive real wheel scrolling');
+        await evaluate('document.querySelector(".admin-content").scrollTop = 1e9'); await delay(100);
+        const end = await read(); assert.equal(end.windowY, 0); assert.equal(end.shellTop, 0);
+        assert.ok(end.last.top < end.main.bottom && end.last.bottom <= end.main.bottom + 1, 'Last row/footer reachable');
+        assert.ok(end.main.bottom - end.last.bottom <= 45, 'Only existing bottom padding, no gray tail inside main');
+        assert.equal(end.documentWidth, width, 'No outer horizontal overflow');
+        assert.ok(end.main.height > 100); assert.equal(end.main.overflow, 'auto');
+        await screenshot(`chrome-after-main-end-${width}`);
+        await evaluate('document.querySelector(".admin-content").scrollTop = 0');
+        for (const selector of ['#province-fixture', '#chart-fixture']) {
+          const inner = await evaluate(`(() => { const e=document.querySelector('${selector}'); e.scrollTop=10000; return { top:e.scrollTop,height:e.clientHeight,scrollHeight:e.scrollHeight }; })()`);
+          assert.ok(inner.top > 0); assert.ok(inner.scrollHeight > inner.height);
+        }
+        if (width < 1024) {
+          await evaluate('document.querySelector(".admin-sidebar-toggle").click()');
+          await until('!!document.querySelector("#admin-sidebar[role=dialog]")');
+        }
+        const sidebar = await evaluate(`(() => { const e=document.querySelector('.admin-navigation');e.scrollTop=1e9;return {height:e.clientHeight,scrollHeight:e.scrollHeight,top:e.scrollTop,overflow:getComputedStyle(e).overflowY}; })()`);
+        assert.equal(sidebar.overflow, 'auto');
+        if (sidebar.scrollHeight > sidebar.height) assert.ok(sidebar.top > 0);
+        if (width < 1024) await evaluate('document.querySelector("#admin-sidebar button").click()');
+        result.widths.push({ width, height, end, sidebar });
+      }
+      await open(1440, 900);
+      result.routes = [];
+      for (const section of ['areas', 'monthly-disease-analysis', 'disease-trend-analysis', 'seasonal-analysis', 'dashboard', 'age-analysis', 'gender-analysis', 'forecast']) {
+        await evaluate(`window.fixtureControl.setSection(${JSON.stringify(section)})`); await delay(80);
+        await evaluate('document.querySelector(".admin-content").scrollTop=1e9');
+        const state = await read(); assert.equal(state.windowY, 0); assert.equal(state.shellTop, 0); assert.ok(state.last.bottom <= state.main.bottom + 1);
+        result.routes.push({ section, ...state });
+      }
+      await evaluate('window.fixtureControl.setRows(180)'); await delay(100);
+      await evaluate('document.querySelector(".admin-content").scrollTop=1e9');
+      assert.ok(await evaluate('document.getElementById("last-fixture-content").textContent.includes("180")'));
+      await evaluate('window.fixtureControl.setDialog(true)'); await until('!!document.getElementById("fixture-dialog")');
+      assert.ok(await evaluate('document.getElementById("fixture-dialog").contains(document.activeElement)'));
+      await screenshot('chrome-after-portal-dialog-1440');
+      await evaluate('document.querySelector("#fixture-dialog button").click()'); await until('!document.getElementById("fixture-dialog")');
+      const account = await evaluate(`(() => { const b=document.querySelector('.admin-account-button'); if(!b)return false;b.click();return true; })()`);
+      assert.ok(account, 'Real Admin account dropdown trigger exists'); await delay(80);
+      assert.ok(await evaluate('!!document.querySelector(".admin-account-menu")'));
+      result.publicTransitions = [];
+      for (const mode of ['login', 'parent', 'admin', 'parent', 'admin', 'login']) {
+        await evaluate(`window.fixtureControl.setMode(${JSON.stringify(mode)})`); await delay(100);
+        const state = await read();
+        if (mode === 'admin') { assert.equal(state.htmlOverflow, 'hidden'); assert.equal(state.bodyOverflow, 'hidden'); }
+        else {
+          assert.notEqual(state.htmlOverflow, 'hidden'); assert.notEqual(state.bodyOverflow, 'hidden');
+          await cdp('Input.dispatchMouseEvent', { type: 'mouseWheel', x: 1000, y: 400, deltaX: 0, deltaY: 500 }); await delay(150);
+          assert.ok(await evaluate('scrollY > 0'), 'Public document scroll returns after Admin unmount');
+          await evaluate('window.scrollTo(0,0)');
+        }
+        result.publicTransitions.push({ mode, state });
+      }
+      result.checks.push('AFTER: four viewport sizes, main wheel/end, bounded inner scrolls, sidebar/drawer, eight shell section switches, dynamic content, portal dialog/account dropdown, six Admin/public transitions');
+    }
+    assert.equal(failures.length, 0, 'No API requests allowed');
+    result.apiRequests = failures; result.requestPaths = [...new Set(requests)]; result.status = 'PASS';
+  } finally { await browser.close(); await new Promise(resolve => server.close(resolve)); fs.writeFileSync(path.join(__dirname, `browser-${phase}.json`), JSON.stringify(result, null, 2) + '\n'); }
+  console.log(JSON.stringify({ phase, status: result.status, checks: result.checks, widths: result.widths?.length, apiRequests: failures.length }));
+})().catch(error => { console.error(error); server.close(); process.exitCode = 1; });

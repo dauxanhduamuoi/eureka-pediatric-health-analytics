@@ -1,0 +1,46 @@
+{
+  "head": "6a69d26e7b07188f7def6cd7bcf9481f8e2eb649",
+  "source_test_model_data_env_changed_files": [],
+  "changed_tables_excluding_live_login_sessions": [],
+  "table_count": 32,
+  "real_db_file_changed": true,
+  "baseline_db_sha256": "5c494a5cfb17ec6e8319e289e634231bbfc9d8e49fa2aedc3a7bba851972af7a",
+  "current_db_sha256": "05f90213c5d3e4c774e0e27e216b386f371e46cf046c9f459cfac09af182a1c8",
+  "read_only_total_changes": [
+    0,
+    0,
+    0
+  ],
+  "index_unchanged": true,
+  "head_unchanged": true,
+  "auto_settings": [
+    1,
+    "REVIEWED_WITH_AUTO_FALLBACK"
+  ],
+  "job_status_counts": [
+    [
+      "FAILED",
+      5
+    ],
+    [
+      "INSUFFICIENT",
+      233
+    ],
+    [
+      "READY",
+      23
+    ]
+  ],
+  "guidance_unchanged_since_exact_mapping_audit": true,
+  "tests": {
+    "frontend": 379,
+    "frontend_files": 17,
+    "backend": 72,
+    "backend_warnings": 161,
+    "typecheck": "PASS",
+    "build": "PASS"
+  },
+  "external_network_used": false,
+  "browser": "NOT VERIFIED: native Computer Use stopped because current Chrome URL could not be determined confidently. Isolated mock server stopped; no production UI/API requests.",
+  "code_modified": false
+}

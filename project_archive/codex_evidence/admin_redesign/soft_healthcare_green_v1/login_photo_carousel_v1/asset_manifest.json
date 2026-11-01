@@ -1,0 +1,29 @@
+[
+  {
+    "path": "Frontend/public/assets/login/pediatric-consultation.webp",
+    "width": 1122,
+    "height": 1402,
+    "bytes": 70306,
+    "sha256": "ad840303e8201e9bfb7af3ef0dd19cb6dfca3166df8f0e19fe1318bef4c4f84e",
+    "source_generated_file": null,
+    "source": "User-supplied ZIP: assets/pediatric_consultation_slide_01.webp; copied unmodified; photo-style illustration, not actual system patients"
+  },
+  {
+    "path": "Frontend/public/assets/login/parent-child-lounge.webp",
+    "width": 960,
+    "height": 1200,
+    "bytes": 81428,
+    "sha256": "4437380ce3f22a38eafb2b343b197f7ebd1ac3719021b50c9414e1136a4c0757",
+    "source_generated_file": "C:\\Users\\LENOVO\\.codex\\generated_images\\01a06cbd-2f3f-7c73-a45f-4d8286001390\\exec-26a68b2b-a401-49af-b35d-2f912993fd4a.png",
+    "source": "Created with built-in image_gen during this task; fictional illustrative scene; not actual system patients"
+  },
+  {
+    "path": "Frontend/public/assets/login/pediatric-clinic.webp",
+    "width": 960,
+    "height": 1200,
+    "bytes": 71616,
+    "sha256": "ee2a843f8e32cb6f382df52da74b8d9fd242d1fada488cfd252c3d6538dada6f",
+    "source_generated_file": "C:\\Users\\LENOVO\\.codex\\generated_images\\01a06cbd-2f3f-7c73-a45f-4d8286001390\\exec-24b9c8dd-b322-42de-8d93-5e60a47134b1.png",
+    "source": "Created with built-in image_gen during this task; fictional illustrative scene; not actual system patients"
+  }
+]

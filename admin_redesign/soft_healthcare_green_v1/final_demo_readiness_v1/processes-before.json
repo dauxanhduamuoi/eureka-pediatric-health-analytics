@@ -1,0 +1,23 @@
+﻿[
+    {
+        "ProcessId":  27640,
+        "ParentProcessId":  1240,
+        "Name":  "python.exe",
+        "Reload":  true,
+        "ExecutablePath":  "D:\\Users\\LENOVO\\anaconda3\\envs\\seasonal_backend\\python.exe"
+    },
+    {
+        "ProcessId":  48008,
+        "ParentProcessId":  27640,
+        "Name":  "python.exe",
+        "Reload":  false,
+        "ExecutablePath":  "D:\\Users\\LENOVO\\anaconda3\\envs\\seasonal_backend\\python.exe"
+    },
+    {
+        "ProcessId":  24564,
+        "ParentProcessId":  9716,
+        "Name":  "node.exe",
+        "Reload":  false,
+        "ExecutablePath":  "D:\\Program Files\\nodejs\\node.exe"
+    }
+]

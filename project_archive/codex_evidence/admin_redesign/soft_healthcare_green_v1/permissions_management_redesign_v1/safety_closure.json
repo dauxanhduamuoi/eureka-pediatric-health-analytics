@@ -1,0 +1,69 @@
+{
+  "status": "PASS_WITH_FINDINGS",
+  "baseline_files": 528,
+  "changed_existing_files": [
+    "Frontend/src/lib/api.ts",
+    "Frontend/src/app/components/PermissionsPage.test.tsx",
+    "Frontend/src/app/components/PermissionsPage.tsx",
+    "Frontend/src/app/components/admin/permissions/PermissionControls.tsx",
+    "Frontend/src/app/components/admin/permissions/PermissionDialogs.tsx",
+    "Frontend/src/app/components/admin/permissions/UserAccountForms.tsx",
+    "Frontend/src/app/components/admin/permissions/useUserAdministration.ts",
+    "seasonal_disease_backend/app/permissions.py",
+    "seasonal_disease_backend/app/schemas.py",
+    "seasonal_disease_backend/app/routers/admin.py",
+    "seasonal_disease_backend/app/routers/reports.py"
+  ],
+  "added_source_files": [
+    "Frontend/src/app/components/admin/permissions/UserManagementDialog.tsx",
+    "Frontend/src/app/components/admin/permissions/UserTable.tsx",
+    "Frontend/src/app/components/admin/permissions/permissions.css",
+    "seasonal_disease_backend/app/services/user_administration.py",
+    "seasonal_disease_backend/app/user_administration_schemas.py",
+    "seasonal_disease_backend/tests/test_user_administration.py"
+  ],
+  "applied_backend_candidate_files": 7,
+  "candidate_hashes_match": true,
+  "all_frontend_src_unchanged_since_completion_checkpoint": true,
+  "all_non_target_baseline_files_unchanged": true,
+  "real_database_file_hashes_unchanged": true,
+  "database_connections_test_only": {
+    "allowed": 49,
+    "blocked": 0,
+    "pytest_exit_code": 0,
+    "app_main_imported": false
+  },
+  "process_guard": {
+    "target_pids": [
+      37800,
+      20368
+    ],
+    "checked_at": "2026-10-29T22:35:40.9299813+07:00",
+    "port_8000_listeners": [],
+    "safe": true,
+    "matching_backend_processes": []
+  },
+  "server_started_or_restarted": false,
+  "head_unchanged": true,
+  "staged_diff_empty": true,
+  "index_sha256_final": "86caf5d7d7440fc7ccef50f524bcb679a11611eb5d63f41e2780478d0ac2e4af",
+  "index_unchanged": null,
+  "index_baseline_finding": "Old baseline index fingerprint is SHA256 of empty bytes; insufficient evidence for original index byte comparison. No staging commands performed; final staged diff empty.",
+  "frontend_tests": 81,
+  "backend_workspace_tests": 48,
+  "backend_user_administration_tests": 35,
+  "backend_visibility_regression_tests": 13,
+  "typecheck": "PASS",
+  "build": "PASS",
+  "git_diff_check": "PASS (LF/CRLF warnings only)",
+  "browser": "NOT VERIFIED: browser access host unavailable",
+  "findings": [
+    "Browser visual/E2E not verified",
+    "Existing geographic legacy/public policy boundary unchanged; see 17-section matrix",
+    "Revision optional for backward compatibility; old clients without token lack stale-snapshot protection",
+    "Original index byte fingerprint unreliable; final staged diff verified empty"
+  ],
+  "network_this_resumed_validation": "Offline; no external requests or data export",
+  "protected_areas": "No real DB writes/migration/account changes; no changes to Parent/models/Weather AI/Forecast AI/SHAP/Medical Knowledge business/Graduation/.env/Excel",
+  "git_forbidden_operations": "None"
+}

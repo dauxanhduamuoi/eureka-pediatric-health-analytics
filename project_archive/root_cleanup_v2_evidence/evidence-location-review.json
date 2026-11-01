@@ -1,0 +1,29 @@
+[
+  {
+    "group": "admin_redesign/soft_healthcare_green_v1/advanced_analytics_notifications_batch_v1",
+    "decision": "SAFE_TO_ARCHIVE",
+    "cwd": "repository root",
+    "dependencyBase": "Frontend/node_modules under cwd",
+    "snapshotBase": "bundle __dirname/source_before",
+    "scriptEdited": false,
+    "execution": "Not run; verification scripts write historical results and assertions refer to their original task"
+  },
+  {
+    "group": "admin_redesign/soft_healthcare_green_v1/age_insights_workspace_redesign_v1",
+    "decision": "SAFE_TO_ARCHIVE",
+    "cwd": "repository root",
+    "dependencyBase": "Frontend/node_modules under cwd",
+    "snapshotBase": "bundle __dirname/source_before",
+    "scriptEdited": false,
+    "execution": "Not run; verification scripts write historical results and assertions refer to their original task"
+  },
+  {
+    "group": "admin_redesign/soft_healthcare_green_v1/forecast_account_redesign_batch_v1",
+    "decision": "SAFE_TO_ARCHIVE",
+    "cwd": "repository root",
+    "dependencyBase": "Frontend/node_modules under cwd",
+    "snapshotBase": "bundle __dirname/source_before",
+    "scriptEdited": false,
+    "execution": "Not run; verification scripts write historical results and assertions refer to their original task"
+  }
+]

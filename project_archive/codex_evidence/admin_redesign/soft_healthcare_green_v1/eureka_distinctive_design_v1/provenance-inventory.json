@@ -1,0 +1,290 @@
+{
+  "old_snapshot_commit": "2f2eec70db444ef177fbdc5d4d325a1e17db8855",
+  "method": "Per-file UTF-8/CRLF-normalized equality; binary bytes where needed. Not an originality percentage or legal clearance.",
+  "tracked_historical_files": [
+    {
+      "path": "Frontend/src/app/App.tsx",
+      "status": "changed_since_local_historical_snapshot"
+    },
+    {
+      "path": "Frontend/src/app/AppPages.tsx",
+      "status": "changed_since_local_historical_snapshot"
+    },
+    {
+      "path": "Frontend/src/app/components/Account.tsx",
+      "status": "changed_since_local_historical_snapshot"
+    },
+    {
+      "path": "Frontend/src/app/components/AdvancedAnalytics.tsx",
+      "status": "changed_since_local_historical_snapshot"
+    },
+    {
+      "path": "Frontend/src/app/components/AgeAnalysis.tsx",
+      "status": "changed_since_local_historical_snapshot"
+    },
+    {
+      "path": "Frontend/src/app/components/AreaInsights.tsx",
+      "status": "changed_since_local_historical_snapshot"
+    },
+    {
+      "path": "Frontend/src/app/components/DashboardOverview.tsx",
+      "status": "changed_since_local_historical_snapshot"
+    },
+    {
+      "path": "Frontend/src/app/components/DataImport.tsx",
+      "status": "changed_since_local_historical_snapshot"
+    },
+    {
+      "path": "Frontend/src/app/components/DiseaseCodesManager.tsx",
+      "status": "inherited_identical_normalized_text"
+    },
+    {
+      "path": "Frontend/src/app/components/Forecast.tsx",
+      "status": "changed_since_local_historical_snapshot"
+    },
+    {
+      "path": "Frontend/src/app/components/LoadingFallback.tsx",
+      "status": "inherited_identical_normalized_text"
+    },
+    {
+      "path": "Frontend/src/app/components/LoginPage.tsx",
+      "status": "changed_since_local_historical_snapshot"
+    },
+    {
+      "path": "Frontend/src/app/components/NotificationsPanel.tsx",
+      "status": "changed_since_local_historical_snapshot"
+    },
+    {
+      "path": "Frontend/src/app/components/ParentGuideManager.tsx",
+      "status": "inherited_identical_normalized_text"
+    },
+    {
+      "path": "Frontend/src/app/components/ParentPortal.tsx",
+      "status": "changed_since_local_historical_snapshot"
+    },
+    {
+      "path": "Frontend/src/app/components/ParentPortalDecor.tsx",
+      "status": "changed_since_local_historical_snapshot"
+    },
+    {
+      "path": "Frontend/src/app/components/ProvinceRegionsManager.tsx",
+      "status": "inherited_identical_normalized_text"
+    },
+    {
+      "path": "Frontend/src/app/components/Reports.tsx",
+      "status": "changed_since_local_historical_snapshot"
+    },
+    {
+      "path": "Frontend/src/app/components/SeasonalAnalysis.tsx",
+      "status": "changed_since_local_historical_snapshot"
+    },
+    {
+      "path": "Frontend/src/app/components/Settings.tsx",
+      "status": "changed_since_local_historical_snapshot"
+    },
+    {
+      "path": "Frontend/src/app/components/WeatherRisk.tsx",
+      "status": "changed_since_local_historical_snapshot"
+    },
+    {
+      "path": "Frontend/src/app/components/common/DiseaseLabelCell.tsx",
+      "status": "inherited_identical_normalized_text"
+    },
+    {
+      "path": "Frontend/src/app/contexts/AuthContext.tsx",
+      "status": "inherited_identical_normalized_text"
+    },
+    {
+      "path": "Frontend/src/app/hooks/useUnreadNotifications.ts",
+      "status": "inherited_identical_normalized_text"
+    },
+    {
+      "path": "Frontend/src/app/navigation.ts",
+      "status": "changed_since_local_historical_snapshot"
+    },
+    {
+      "path": "Frontend/src/i18n/README.md",
+      "status": "inherited_identical_normalized_text"
+    },
+    {
+      "path": "Frontend/src/i18n/locales/en.ts",
+      "status": "changed_since_local_historical_snapshot"
+    },
+    {
+      "path": "Frontend/src/i18n/locales/vi.ts",
+      "status": "changed_since_local_historical_snapshot"
+    },
+    {
+      "path": "Frontend/src/i18n/resources.ts",
+      "status": "inherited_identical_normalized_text"
+    },
+    {
+      "path": "Frontend/src/i18n/types.ts",
+      "status": "inherited_identical_normalized_text"
+    },
+    {
+      "path": "Frontend/src/lib/age.ts",
+      "status": "inherited_identical_normalized_text"
+    },
+    {
+      "path": "Frontend/src/lib/api.ts",
+      "status": "changed_since_local_historical_snapshot"
+    },
+    {
+      "path": "Frontend/src/lib/areaInsightsCache.ts",
+      "status": "inherited_identical_normalized_text"
+    },
+    {
+      "path": "Frontend/src/lib/chartDataCache.ts",
+      "status": "inherited_identical_normalized_text"
+    },
+    {
+      "path": "Frontend/src/lib/disease.ts",
+      "status": "changed_since_local_historical_snapshot"
+    },
+    {
+      "path": "Frontend/src/lib/i18n.ts",
+      "status": "changed_since_local_historical_snapshot"
+    },
+    {
+      "path": "Frontend/src/lib/importJobs.ts",
+      "status": "inherited_identical_normalized_text"
+    },
+    {
+      "path": "Frontend/src/lib/notifications.ts",
+      "status": "inherited_identical_normalized_text"
+    },
+    {
+      "path": "Frontend/src/lib/preferences.ts",
+      "status": "inherited_identical_normalized_text"
+    },
+    {
+      "path": "Frontend/src/lib/provinceRegions.ts",
+      "status": "inherited_identical_normalized_text"
+    },
+    {
+      "path": "Frontend/src/lib/reports.ts",
+      "status": "changed_since_local_historical_snapshot"
+    },
+    {
+      "path": "Frontend/src/lib/theme.ts",
+      "status": "inherited_identical_normalized_text"
+    },
+    {
+      "path": "Frontend/src/lib/useMinimalTheme.ts",
+      "status": "inherited_identical_normalized_text"
+    },
+    {
+      "path": "Frontend/src/lib/weatherRiskCache.ts",
+      "status": "changed_since_local_historical_snapshot"
+    },
+    {
+      "path": "Frontend/src/main.tsx",
+      "status": "inherited_identical_normalized_text"
+    },
+    {
+      "path": "Frontend/src/styles/fonts.css",
+      "status": "changed_since_local_historical_snapshot"
+    },
+    {
+      "path": "Frontend/src/styles/globals.css",
+      "status": "inherited_identical_normalized_text"
+    },
+    {
+      "path": "Frontend/src/styles/index.css",
+      "status": "changed_since_local_historical_snapshot"
+    },
+    {
+      "path": "Frontend/src/styles/tailwind.css",
+      "status": "inherited_identical_normalized_text"
+    },
+    {
+      "path": "Frontend/src/styles/theme.css",
+      "status": "inherited_identical_normalized_text"
+    },
+    {
+      "path": "Frontend/src/vite-env.d.ts",
+      "status": "inherited_identical_normalized_text"
+    }
+  ],
+  "dependency_metadata": [
+    {
+      "package": "react",
+      "installed_version": "18.3.1",
+      "declared_license": "MIT",
+      "local_license_files": [
+        "LICENSE"
+      ]
+    },
+    {
+      "package": "react-dom",
+      "installed_version": "18.3.1",
+      "declared_license": "MIT",
+      "local_license_files": [
+        "LICENSE"
+      ]
+    },
+    {
+      "package": "recharts",
+      "installed_version": "2.15.2",
+      "declared_license": "MIT",
+      "local_license_files": [
+        "LICENSE"
+      ]
+    },
+    {
+      "package": "lucide-react",
+      "installed_version": "0.487.0",
+      "declared_license": "ISC",
+      "local_license_files": [
+        "LICENSE"
+      ]
+    },
+    {
+      "package": "tailwindcss",
+      "installed_version": "4.1.12",
+      "declared_license": "MIT",
+      "local_license_files": [
+        "LICENSE"
+      ]
+    },
+    {
+      "package": "i18next",
+      "installed_version": "26.3.0",
+      "declared_license": "MIT",
+      "local_license_files": [
+        "LICENSE"
+      ]
+    },
+    {
+      "package": "react-i18next",
+      "installed_version": "17.0.8",
+      "declared_license": "MIT",
+      "local_license_files": [
+        "LICENSE"
+      ]
+    }
+  ],
+  "login_assets_unchanged": [
+    {
+      "path": "Frontend/public/assets/login/pediatric-consultation.webp",
+      "documented_source": "User-supplied ZIP: assets/pediatric_consultation_slide_01.webp; copied unmodified; photo-style illustration, not actual system patients",
+      "matches_prior_manifest_sha256": true,
+      "rights_limit": "Local provenance record is not independent proof of third-party ownership/license."
+    },
+    {
+      "path": "Frontend/public/assets/login/parent-child-lounge.webp",
+      "documented_source": "Created with built-in image_gen during this task; fictional illustrative scene; not actual system patients",
+      "matches_prior_manifest_sha256": true,
+      "rights_limit": "Local provenance record is not independent proof of third-party ownership/license."
+    },
+    {
+      "path": "Frontend/public/assets/login/pediatric-clinic.webp",
+      "documented_source": "Created with built-in image_gen during this task; fictional illustrative scene; not actual system patients",
+      "matches_prior_manifest_sha256": true,
+      "rights_limit": "Local provenance record is not independent proof of third-party ownership/license."
+    }
+  ],
+  "app_level_license_files": [],
+  "attribution_readme_preserved": true
+}

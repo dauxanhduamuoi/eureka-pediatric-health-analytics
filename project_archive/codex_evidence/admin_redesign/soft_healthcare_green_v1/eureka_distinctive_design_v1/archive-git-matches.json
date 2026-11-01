@@ -1,0 +1,30 @@
+[
+  {
+    "path": "Frontend/src/app/App.tsx",
+    "zip_sha256": "ad7a38d9ce75339e5cf501a84e6a4f8b3e818e0ae8acaea5ad0ba178f0d19f42",
+    "matching_git_revisions": [
+      "82e53468fb30fe76629ac9bb31f879f22f3eebbc"
+    ]
+  },
+  {
+    "path": "Frontend/src/app/components/DashboardOverview.tsx",
+    "zip_sha256": "09014b8f3684d4cbc830cb0f540a158549fdeed995364b2a751096c1cccf93ed",
+    "matching_git_revisions": [
+      "2f2eec70db444ef177fbdc5d4d325a1e17db8855"
+    ]
+  },
+  {
+    "path": "Frontend/src/app/components/SeasonalAnalysis.tsx",
+    "zip_sha256": "856e17843d6cd7827d5781017a270217a19a01cee184d6e40ece322c5d853edf",
+    "matching_git_revisions": [
+      "2f2eec70db444ef177fbdc5d4d325a1e17db8855"
+    ]
+  },
+  {
+    "path": "Frontend/src/styles/index.css",
+    "zip_sha256": "eec049e00cdc1a35eaf5eacb810b1f425166fd4cdaf3c6267bd6f103a23dd33a",
+    "matching_git_revisions": [
+      "916756e7ee9934f05b810d793bcf43616e3b7541"
+    ]
+  }
+]

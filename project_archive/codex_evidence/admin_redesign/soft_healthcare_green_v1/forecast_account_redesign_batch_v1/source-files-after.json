@@ -1,0 +1,31 @@
+{
+  "newSourceFiles": [
+    "Frontend/src/app/components/Account.test.tsx",
+    "Frontend/src/app/components/Forecast.workspace.test.tsx",
+    "Frontend/src/app/components/account-workspace/account.css",
+    "Frontend/src/app/components/account-workspace/AccountProfile.tsx",
+    "Frontend/src/app/components/account-workspace/AccountSecurity.tsx",
+    "Frontend/src/app/components/account-workspace/AccountSessions.tsx",
+    "Frontend/src/app/components/forecast-workspace/forecast.css",
+    "Frontend/src/app/components/forecast-workspace/ForecastAnalysis.tsx",
+    "Frontend/src/app/components/forecast-workspace/ForecastControls.tsx",
+    "Frontend/src/app/components/forecast-workspace/ForecastSummaryTable.tsx",
+    "Frontend/src/app/components/forecast-workspace/useForecastWorkspace.ts"
+  ],
+  "hashes": {
+    "Frontend/src/app/components/Forecast.tsx": "21081bb994069625b6f6709d932008bfa9beb7e1110f30725a99396697053fd5",
+    "Frontend/src/app/components/Account.tsx": "fb1c5631c0d14aa78c9d6d81a3edea3babacb415ca86ca4301d92100fc11ce6a",
+    "Frontend/src/app/components/Account.test.tsx": "e84c3fb42ef79f3a36de4174c89806159da3d97a010b0c5e81b988179f533b0d",
+    "Frontend/src/app/components/Forecast.workspace.test.tsx": "3c0b83d7207087dfbc7508bc7db8714c9a55484dfa712fe0a2dbcae6979a1231",
+    "Frontend/src/app/components/account-workspace/account.css": "a30528ed3edd4fe15ecb0c519f33fb6bedd5114d2c45ec94853f7f39c8d493e1",
+    "Frontend/src/app/components/account-workspace/AccountProfile.tsx": "3a51467b154e43d23f4710cd9b4f3340947b1fdbaed9cbc9d9325b0a0743b772",
+    "Frontend/src/app/components/account-workspace/AccountSecurity.tsx": "f572bcb4e91a2ca0c733c3276770473f52fec45be18229a248ccc92603644412",
+    "Frontend/src/app/components/account-workspace/AccountSessions.tsx": "a89b297fc498dce4d19c9834195f59eccdba01ff0d9555fefc35a0a016816393",
+    "Frontend/src/app/components/forecast-workspace/forecast.css": "2cba80e6e2b5c7492fe0348b09a3c2afb622756004b13152f03f4d047dd2ca77",
+    "Frontend/src/app/components/forecast-workspace/ForecastAnalysis.tsx": "d5a650c821a704fa77752bf153153b0b3eed5e93d11c1a418e112a84d049491f",
+    "Frontend/src/app/components/forecast-workspace/ForecastControls.tsx": "ed11378632abb36f5bf8ee62adc31f8344adf9ebb4bdfb0d06781ae18f73b337",
+    "Frontend/src/app/components/forecast-workspace/ForecastSummaryTable.tsx": "c6d3ce036dcd9c9c4c763bc4242c10d21f81d3a728f063741b6479b663bc6f8d",
+    "Frontend/src/app/components/forecast-workspace/useForecastWorkspace.ts": "01e7c127996cef313968757ff76870224976b555e5752823aa2db2e454f40ae3"
+  },
+  "trailingWhitespace": []
+}

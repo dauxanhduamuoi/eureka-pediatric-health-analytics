@@ -1,0 +1,8 @@
+﻿{
+    "qa_frontend_port":  5197,
+    "error":  "Computer Use stopped because it could not determine the current browser URL on Windows with enough confidence to enforce policy.",
+    "qa_frontend_stopped":  true,
+    "browser_status":  "NOT_VERIFIED",
+    "real_api_used":  false,
+    "browser_actions_after_stop":  0
+}

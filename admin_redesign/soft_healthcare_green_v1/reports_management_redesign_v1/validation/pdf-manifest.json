@@ -1,0 +1,328 @@
+{
+  "file": "D:\\OS_C\\Bài học trên trường\\Thực tập\\Fullstack_2\\ThucTap-main\\output\\pdf\\eureka-reports-validation.pdf",
+  "pages": 10,
+  "reports": [
+    {
+      "template": "overview",
+      "first_page": 1,
+      "pages": 1,
+      "rows": 4,
+      "chart_series": [
+        {
+          "title": "Số ca theo nhóm (tối đa 12 nhóm trong bảng)",
+          "kind": "bar",
+          "labels": [
+            "Nhóm bệnh kiểm thử - không phải dữ liệu bệnh nhân",
+            "Bệnh dị ứng & phản ứng miễn dịch <nhóm kiểm thử>",
+            "Rối loạn tiêu hóa, dinh dưỡng và chuyển hóa ở trẻ em",
+            "Viêm phổi và các bệnh đường hô hấp có tên dài cần xuống dòng tự nhiên"
+          ],
+          "series": [
+            {
+              "key": "case_count",
+              "label": "Số ca",
+              "color": "#15803d",
+              "values": [
+                27,
+                24,
+                21,
+                18
+              ]
+            }
+          ]
+        }
+      ],
+      "summary": [
+        {
+          "label": "Tổng số ca trong phạm vi",
+          "value": 90
+        },
+        {
+          "label": "Tháng có bản ghi",
+          "value": 3
+        },
+        {
+          "label": "Nhóm bệnh có bản ghi",
+          "value": 4
+        }
+      ]
+    },
+    {
+      "template": "seasonal",
+      "first_page": 2,
+      "pages": 1,
+      "rows": 2,
+      "chart_series": [
+        {
+          "title": "Số ca theo mùa trong phạm vi đã lọc",
+          "kind": "bar",
+          "labels": [
+            "Mùa khô",
+            "Mùa mưa"
+          ],
+          "series": [
+            {
+              "key": "case_count",
+              "label": "Số ca",
+              "color": "#15803d",
+              "values": [
+                60,
+                30
+              ]
+            }
+          ]
+        }
+      ],
+      "summary": [
+        {
+          "label": "Tổng số ca trong phạm vi",
+          "value": 90
+        },
+        {
+          "label": "Tháng có bản ghi",
+          "value": 3
+        },
+        {
+          "label": "Nhóm bệnh có bản ghi",
+          "value": 4
+        }
+      ]
+    },
+    {
+      "template": "disease",
+      "first_page": 3,
+      "pages": 2,
+      "rows": 12,
+      "chart_series": [
+        {
+          "title": "Tổng ca Top 12 nhóm trong bảng",
+          "kind": "bar",
+          "labels": [
+            "Nhóm bệnh kiểm thử - không phải dữ liệu bệnh nhân",
+            "Bệnh dị ứng & phản ứng miễn dịch <nhóm kiểm thử>",
+            "Rối loạn tiêu hóa, dinh dưỡng và chuyển hóa ở trẻ em",
+            "Viêm phổi và các bệnh đường hô hấp có tên dài cần xuống dòng tự nhiên"
+          ],
+          "series": [
+            {
+              "key": "case_count",
+              "label": "Số ca",
+              "color": "#15803d",
+              "values": [
+                27,
+                24,
+                21,
+                18
+              ]
+            }
+          ]
+        }
+      ],
+      "summary": [
+        {
+          "label": "Tổng số ca trong phạm vi",
+          "value": 90
+        },
+        {
+          "label": "Tháng có bản ghi",
+          "value": 3
+        },
+        {
+          "label": "Nhóm bệnh có bản ghi",
+          "value": 4
+        }
+      ]
+    },
+    {
+      "template": "forecast",
+      "first_page": 5,
+      "pages": 1,
+      "rows": 4,
+      "chart_series": [
+        {
+          "title": "Dự báo và số ca kỳ trước (tối đa 12 nhóm)",
+          "kind": "bar",
+          "labels": [
+            "Nhóm bệnh kiểm thử - không phải dữ liệu bệnh nhân",
+            "Bệnh dị ứng & phản ứng miễn dịch <nhóm kiểm thử>",
+            "Rối loạn tiêu hóa, dinh dưỡng và chuyển hóa ở trẻ em",
+            "Viêm phổi và các bệnh đường hô hấp có tên dài cần xuống dòng tự nhiên"
+          ],
+          "series": [
+            {
+              "key": "previous_cases",
+              "label": "Số ca kỳ trước",
+              "color": "#64748b",
+              "values": [
+                9,
+                8,
+                7,
+                6
+              ]
+            },
+            {
+              "key": "predicted_cases",
+              "label": "Số ca dự báo",
+              "color": "#15803d",
+              "values": [
+                15,
+                14,
+                13,
+                12
+              ]
+            }
+          ]
+        }
+      ],
+      "summary": [
+        {
+          "label": "Số nhóm trong báo cáo",
+          "value": 4
+        },
+        {
+          "label": "Tổng số ca dự báo",
+          "value": 54
+        }
+      ]
+    },
+    {
+      "template": "age_months",
+      "first_page": 6,
+      "pages": 2,
+      "rows": 24,
+      "chart_series": [
+        {
+          "title": "Phân bố số ca theo tháng tuổi",
+          "kind": "bar",
+          "labels": [
+            "0-1 tháng",
+            "1-6 tháng",
+            "6-12 tháng",
+            "12-24 tháng",
+            "2-5 tuổi",
+            "Trên 5 tuổi"
+          ],
+          "series": [
+            {
+              "key": "case_count",
+              "label": "Số ca",
+              "color": "#15803d",
+              "values": [
+                4,
+                4,
+                4,
+                4,
+                4,
+                4
+              ]
+            }
+          ]
+        }
+      ],
+      "summary": [
+        {
+          "label": "Tổng ca có tuổi hợp lệ",
+          "value": 24
+        },
+        {
+          "label": "Số dòng",
+          "value": 24
+        }
+      ]
+    },
+    {
+      "template": "month_year",
+      "first_page": 8,
+      "pages": 1,
+      "rows": 6,
+      "chart_series": [
+        {
+          "title": "Xu hướng theo tháng (tối đa 36 kỳ cuối trong bảng)",
+          "kind": "line",
+          "labels": [
+            "2025-01",
+            "2025-02",
+            "2025-03",
+            "2025-04",
+            "2025-05",
+            "2025-06"
+          ],
+          "series": [
+            {
+              "key": "case_count",
+              "label": "Số ca",
+              "color": "#15803d",
+              "values": [
+                54,
+                null,
+                6,
+                null,
+                null,
+                30
+              ]
+            }
+          ]
+        }
+      ],
+      "summary": [
+        {
+          "label": "Tổng số ca trong phạm vi",
+          "value": 90
+        },
+        {
+          "label": "Tháng có bản ghi",
+          "value": 3
+        },
+        {
+          "label": "Nhóm bệnh có bản ghi",
+          "value": 4
+        }
+      ]
+    },
+    {
+      "template": "custom",
+      "first_page": 9,
+      "pages": 2,
+      "rows": 4,
+      "chart_series": [
+        {
+          "title": "Số ca theo nhóm (tối đa 12 nhóm trong bảng)",
+          "kind": "bar",
+          "labels": [
+            "Nhóm bệnh kiểm thử - không phải dữ liệu bệnh nhân",
+            "Bệnh dị ứng & phản ứng miễn dịch <nhóm kiểm thử>",
+            "Rối loạn tiêu hóa, dinh dưỡng và chuyển hóa ở trẻ em",
+            "Viêm phổi và các bệnh đường hô hấp có tên dài cần xuống dòng tự nhiên"
+          ],
+          "series": [
+            {
+              "key": "case_count",
+              "label": "Số ca",
+              "color": "#15803d",
+              "values": [
+                27,
+                24,
+                21,
+                18
+              ]
+            }
+          ]
+        }
+      ],
+      "summary": [
+        {
+          "label": "Tổng số ca trong phạm vi",
+          "value": 90
+        },
+        {
+          "label": "Tháng có bản ghi",
+          "value": 3
+        },
+        {
+          "label": "Nhóm bệnh có bản ghi",
+          "value": 4
+        }
+      ]
+    }
+  ]
+}

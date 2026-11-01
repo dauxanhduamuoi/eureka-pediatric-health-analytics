@@ -1,0 +1,59 @@
+{
+  "phase": "before",
+  "scope": "Real AdminLayout and shipped CSS; synthetic content/public fixtures and deliberate external overflow probe; no live page controllers or APIs",
+  "checks": [
+    "BEFORE: deliberate outside-shell overflow reproduces outer wheel scrolling and displaced shell"
+  ],
+  "browser": "Chrome/156.0.8078.74",
+  "initial": {
+    "windowY": 0,
+    "htmlOverflow": "visible",
+    "bodyOverflow": "visible",
+    "shellTop": 0,
+    "shellBottom": 900,
+    "main": {
+      "top": 0,
+      "height": 818,
+      "scrollHeight": 7176,
+      "overflow": "auto",
+      "bottom": 900
+    },
+    "last": {
+      "top": 7195.859375,
+      "bottom": 7218.25
+    },
+    "font": "Nunito, \"Segoe UI\", Arial, sans-serif",
+    "width": 1440,
+    "documentWidth": 1425
+  },
+  "afterOuterWheel": {
+    "windowY": 500,
+    "htmlOverflow": "visible",
+    "bodyOverflow": "visible",
+    "shellTop": -500,
+    "shellBottom": 400,
+    "main": {
+      "top": 0,
+      "height": 818,
+      "scrollHeight": 7176,
+      "overflow": "auto",
+      "bottom": 400
+    },
+    "last": {
+      "top": 6695.859375,
+      "bottom": 6718.25
+    },
+    "font": "Nunito, \"Segoe UI\", Arial, sans-serif",
+    "width": 1440,
+    "documentWidth": 1425
+  },
+  "apiRequests": [],
+  "requestPaths": [
+    "/",
+    "/assets/index-Dyphu3xT.css",
+    "/assets/index-DF1ncSoh.js",
+    "/assets/fonts/nunito/Nunito-Variable.ttf",
+    "/favicon.ico"
+  ],
+  "status": "PASS"
+}

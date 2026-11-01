@@ -1,0 +1,80 @@
+/* Scoped only to Data Import and its three management workspaces. */
+.data-management-scope { container:data-management / inline-size; min-width:0; color:var(--admin-ink); }
+.data-management-scope .dm-panel { min-width:0; padding:20px; border:1px solid var(--admin-border); border-radius:var(--admin-radius); background:var(--admin-surface); }
+.data-management-scope .dm-panel-header { display:flex; flex-wrap:wrap; align-items:start; justify-content:space-between; gap:14px; margin-bottom:18px; }
+.data-management-scope .dm-panel-header > div { min-width:0; }
+.data-management-scope .dm-panel-header p { max-width:80ch; margin-top:7px; font-size:12px; line-height:1.7; color:var(--admin-muted); }
+.data-management-scope button { display:inline-flex; align-items:center; justify-content:center; gap:7px; min-height:38px; padding:8px 12px; border:1px solid var(--admin-border); border-radius:var(--admin-control-radius); background:var(--admin-surface); color:var(--admin-ink); font-size:12px; }
+.data-management-scope button.dm-primary { color:white; background:var(--admin-primary); border-color:var(--admin-primary); }
+.data-management-scope button:disabled { opacity:.55; cursor:not-allowed; }
+.data-management-scope :is(button,input,select,summary,[tabindex]):focus-visible { outline:2px solid var(--admin-primary); outline-offset:3px; }
+.data-management-scope .dm-actions { display:flex; flex-wrap:wrap; align-items:center; gap:8px; }
+.data-management-scope .dm-facts { display:grid; grid-template-columns:minmax(0,1fr); gap:12px; padding:14px; border-radius:var(--admin-control-radius); background:var(--admin-subtle); }
+.data-management-scope .dm-facts > div { min-width:0; }
+.data-management-scope .dm-facts dt { color:var(--admin-muted); font-size:11px; }
+.data-management-scope .dm-facts dd { margin-top:6px; color:var(--admin-ink); font-size:14px; font-weight:600; overflow-wrap:anywhere; }
+.data-management-scope .dm-feedback { margin-block:12px; padding:11px 13px; border-inline-start:3px solid var(--admin-primary); border-radius:var(--admin-control-radius); color:var(--admin-ink); background:var(--admin-subtle); font-size:13px; line-height:1.7; overflow-wrap:anywhere; }
+.data-management-scope .dm-feedback[data-kind='error'] { border-inline-start-color:#b91c1c; }
+.data-management-scope .dm-upload-sources { display:grid; grid-template-columns:minmax(0,1fr); gap:18px; }
+.data-management-scope .dm-import-order { margin-bottom:16px; }
+.data-management-scope .dm-import-order p { margin-top:7px; color:var(--admin-muted); font-size:12px; line-height:1.7; }
+.data-management-scope .dm-upload-source { min-width:0; display:flex; flex-direction:column; gap:14px; padding:20px; border:1px solid var(--admin-border); border-radius:var(--admin-radius); background:var(--admin-surface); }
+.data-management-scope .dm-upload-source header { display:flex; flex-wrap:wrap; align-items:start; justify-content:space-between; gap:8px; }
+.data-management-scope .dm-upload-source h4 { font-weight:700; font-size:15px; }
+.data-management-scope .dm-upload-identity { min-width:0; }
+.data-management-scope .dm-upload-identity > p { margin-top:9px; color:var(--admin-muted); font-size:13px; line-height:1.7; }
+.data-management-scope .dm-upload-source dl { display:grid; gap:9px; margin-top:auto; padding:12px; background:var(--admin-subtle); border-radius:var(--admin-control-radius); font-size:12px; }
+.data-management-scope .dm-upload-source dt { color:var(--admin-muted); font-size:11px; }
+.data-management-scope .dm-upload-source dd { margin-top:4px; overflow-wrap:anywhere; }
+.data-management-scope .dm-source-state { padding:4px 7px; background:var(--admin-mint); color:var(--admin-accent-ink); border-radius:var(--admin-control-radius); font-size:11px; }
+.data-management-scope .dm-active-job { display:flex; align-items:start; gap:10px; margin-top:16px; padding:16px; border:1px solid var(--admin-border); border-radius:var(--admin-radius); background:var(--admin-mint); font-size:13px; }
+.data-management-scope .dm-active-job svg { flex-shrink:0; }
+.data-management-scope .dm-active-job p { margin-top:6px; line-height:1.7; overflow-wrap:anywhere; }
+.data-management-scope .dm-filter-bar { display:flex; flex-wrap:wrap; align-items:end; gap:12px; margin-block:18px; }
+.data-management-scope .dm-filter-bar > label { display:grid; min-width:0; gap:6px; font-size:12px; color:var(--admin-muted); }
+.data-management-scope .dm-filter-bar .dm-search { flex:1 1 280px; }
+.data-management-scope .dm-filter-bar .dm-checkbox { display:flex; align-items:center; flex-wrap:wrap; }
+.data-management-scope .dm-filter-bar :is(input:not([type='checkbox']),select) { min-width:0; max-width:100%; min-height:40px; padding:9px; border:1px solid var(--admin-border); border-radius:var(--admin-control-radius); background:var(--admin-surface); color:var(--admin-ink); font:inherit; font-size:13px; }
+.data-management-scope .dm-filter-bar input[type='checkbox'] { accent-color:var(--admin-primary); }
+.data-management-scope .dm-table-scroll { max-width:100%; overflow-x:auto; margin-top:16px; }
+.data-management-scope .dm-table-scroll table { width:100%; min-width:760px; border-collapse:collapse; font-size:13px; }
+.data-management-scope .dm-table-scroll :is(td,th) { padding:12px; text-align:start; vertical-align:top; overflow-wrap:anywhere; }
+.data-management-scope .dm-table-scroll thead { background:var(--admin-subtle); color:var(--admin-muted); font-size:11px; }
+.data-management-scope .dm-table-scroll tbody tr + tr { border-top:1px solid var(--admin-border); }
+.data-management-scope .dm-table-scroll td { min-width:120px; max-width:350px; white-space:pre-wrap; }
+.data-management-scope .dm-pagination { display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:12px; margin-top:16px; font-size:12px; color:var(--admin-muted); }
+.data-management-scope .dm-pagination > div { display:flex; flex-wrap:wrap; align-items:center; gap:5px; }
+.data-management-scope .dm-badge { padding:4px 7px; border:1px solid var(--admin-border); border-radius:var(--admin-control-radius); font-size:11px; white-space:nowrap; }
+.data-management-scope .dm-file-review { margin-top:18px; padding:18px; border:1px solid var(--admin-border); border-radius:var(--admin-radius); background:var(--admin-subtle); }
+.data-management-scope .dm-file-review > header { display:flex; flex-wrap:wrap; justify-content:space-between; align-items:start; gap:12px; margin-bottom:14px; }
+.data-management-scope .dm-file-review h4 { font-size:14px; font-weight:700; }
+.data-management-scope .dm-file-review header p { margin-top:7px; color:var(--admin-muted); font-size:12px; overflow-wrap:anywhere; }
+.data-management-scope .dm-format-note { margin-top:14px; padding-inline-start:12px; border-inline-start:3px solid var(--admin-primary); color:var(--admin-muted); font-size:12px; line-height:1.8; }
+.data-management-scope .dm-empty { padding-block:20px; font-size:13px; color:var(--admin-muted); }
+.data-management-scope .dm-source-file { margin-top:9px; color:var(--admin-muted); font-size:12px; overflow-wrap:anywhere; }
+.data-management-scope .dm-regions-config { display:grid; grid-template-columns:minmax(0,1fr); gap:18px; }
+.data-management-scope .dm-region-status .dm-facts { grid-template-columns:minmax(0,1fr); }
+.data-management-scope .dm-file-tools { min-width:0; padding:16px; border:1px solid var(--admin-border); border-radius:var(--admin-control-radius); }
+.data-management-scope .dm-file-tools h4 { margin-bottom:14px; font-size:13px; font-weight:600; }
+.data-management-scope .dm-guide-reading-heading { display:flex; flex-wrap:wrap; align-items:start; justify-content:space-between; gap:14px; margin-top:22px; padding-top:18px; border-top:1px solid var(--admin-border); }
+.data-management-scope .dm-guide-reading-heading h4 { font-weight:700; font-size:14px; }
+.data-management-scope .dm-guide-reading-heading p { max-width:70ch; margin-top:7px; color:var(--admin-muted); font-size:12px; line-height:1.7; }
+.data-management-scope .dm-guide-cards { display:grid; gap:18px; }
+.data-management-scope .dm-guide-card { min-width:0; padding:18px; border:1px solid var(--admin-border); border-radius:var(--admin-control-radius); }
+.data-management-scope .dm-guide-card h4 { font-size:14px; font-weight:700; padding-bottom:12px; border-bottom:1px solid var(--admin-border); overflow-wrap:anywhere; }
+.data-management-scope .dm-guide-card dl { display:grid; grid-template-columns:minmax(0,1fr); gap:18px; margin-top:14px; }
+.data-management-scope .dm-guide-card dl > div { min-width:0; }
+.data-management-scope .dm-guide-card dt { margin-bottom:7px; color:var(--admin-accent-ink); font-size:12px; font-weight:600; }
+.data-management-scope .dm-guide-card dd { color:var(--admin-ink); font-size:13px; line-height:1.8; white-space:pre-wrap; overflow-wrap:anywhere; }
+@container data-management (min-width:950px) {
+ .data-management-scope .dm-guide-card dl { grid-template-columns:repeat(3,minmax(0,1fr)); }
+ .data-management-scope .dm-upload-source { display:grid; grid-template-columns:minmax(0,1.3fr) minmax(0,1fr) auto; align-items:center; }
+ .data-management-scope .dm-upload-source dl { margin-top:0; }
+}
+@container data-management (min-width:700px) {
+ .data-management-scope .dm-regions-config { grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr); }
+ .data-management-scope .dm-facts { grid-template-columns:repeat(3,minmax(0,1fr)); }
+}
+@media (max-width:599px) {
+ .data-management-scope .dm-panel, .data-management-scope .dm-file-review, .data-management-scope .dm-upload-source { padding:14px; }
+}

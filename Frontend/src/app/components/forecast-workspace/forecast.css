@@ -1,0 +1,55 @@
+/* Forecast only. F01/F02 and all data transformations remain controller-owned. */
+.forecast-workspace { container: forecast-workspace / inline-size; }
+.forecast-workspace .forecast-workspace-grid { display:grid; grid-template-columns:minmax(0,1fr); gap:20px; align-items:start; }
+.forecast-workspace .forecast-controls { min-width:0; padding:18px; background:var(--admin-subtle); border:1px solid var(--admin-border); border-radius:var(--admin-radius); }
+.forecast-workspace .forecast-controls > p { margin-top:10px; color:var(--admin-muted); font-size:12px; line-height:1.7; }
+.forecast-workspace .forecast-horizon { display:flex; justify-content:space-between; gap:12px; padding-block:16px; color:var(--admin-ink); font-size:13px; }
+.forecast-workspace .forecast-horizon dd { font-weight:700; }
+.forecast-workspace .forecast-run-actions { display:grid; gap:8px; margin:14px 0 20px; }
+.forecast-workspace .forecast-run-actions button, .forecast-workspace .forecast-export { display:inline-flex; align-items:center; justify-content:center; gap:7px; min-height:40px; padding:8px 12px; border:1px solid var(--admin-border); border-radius:var(--admin-control-radius); background:var(--admin-surface); color:var(--admin-ink); font-size:13px; }
+.forecast-workspace .forecast-run-actions .forecast-primary { background:var(--admin-primary); color:white; border-color:var(--admin-primary); }
+.forecast-workspace .forecast-filter-fields { display:grid; gap:18px; border-top:1px solid var(--admin-border); padding-top:18px; }
+.forecast-workspace .forecast-filter-fields label { display:grid; gap:7px; min-width:0; }
+.forecast-workspace .forecast-filter-fields :is(label > span,legend) { color:var(--admin-muted); font-size:12px; font-weight:600; }
+.forecast-workspace .forecast-filter-fields :is(input,select) { min-width:0; width:100%; min-height:40px; padding:9px; background:var(--admin-surface); color:var(--admin-ink); border:1px solid var(--admin-border); border-radius:var(--admin-control-radius); font:inherit; font-size:13px; }
+.forecast-workspace .forecast-filter-fields fieldset { min-width:0; margin:0; padding:0; border:0; }
+.forecast-workspace .forecast-risk-buttons { display:flex; flex-wrap:wrap; gap:6px; margin-top:8px; }
+.forecast-workspace .forecast-risk-buttons button { padding:7px 10px; background:var(--admin-surface); color:var(--admin-muted); border:1px solid var(--admin-border); border-radius:var(--admin-control-radius); font-size:12px; }
+.forecast-workspace .forecast-risk-buttons button[aria-pressed='true'] { background:var(--admin-mint); border-color:var(--admin-primary); color:var(--admin-accent-ink); font-weight:700; }
+.forecast-workspace :is(button,input,select,[tabindex]):focus-visible { outline:2px solid var(--admin-primary); outline-offset:3px; }
+.forecast-workspace button:disabled { opacity:.55; cursor:not-allowed; }
+.forecast-workspace .forecast-analysis { min-width:0; display:grid; gap:18px; }
+.forecast-workspace .forecast-overview { min-width:0; border:1px solid var(--admin-border); border-radius:var(--admin-radius); background:var(--admin-surface); }
+.forecast-workspace .forecast-overview > p { padding:12px 16px 0; font-size:11px; color:var(--admin-muted); }
+.forecast-workspace .forecast-overview dl { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); }
+.forecast-workspace .forecast-overview dl > div { min-width:0; padding:14px 16px; }
+.forecast-workspace .forecast-overview dt { font-size:12px; color:var(--admin-muted); }
+.forecast-workspace .forecast-overview dd { margin-top:6px; font-size:24px; font-weight:700; color:var(--admin-ink); font-variant-numeric:tabular-nums; }
+.forecast-workspace .forecast-panel { min-width:0; padding:20px; border:1px solid var(--admin-border); border-radius:var(--admin-radius); background:var(--admin-surface); }
+.forecast-workspace .forecast-chart-panel header p { margin-block:8px 12px; font-size:12px; line-height:1.7; color:var(--admin-muted); }
+.forecast-workspace .forecast-chart-panel h3 span { font-size:12px; font-weight:400; color:var(--admin-muted); }
+.forecast-workspace .forecast-risk-legend { display:flex; flex-wrap:wrap; gap:12px; margin-bottom:12px; color:var(--admin-muted); font-size:12px; }
+.forecast-workspace .forecast-risk-legend span { display:inline-flex; align-items:center; gap:6px; }
+.forecast-workspace .forecast-risk-legend i { width:11px; height:11px; border:1px solid; border-radius:3px; }
+.forecast-workspace .forecast-chart-scroll { max-width:100%; overflow-x:auto; }
+.forecast-workspace .forecast-chart-canvas { min-width:640px; }
+.forecast-workspace .forecast-table-scroll { max-width:100%; overflow-x:auto; }
+.forecast-workspace .forecast-table-scroll > table { min-width:850px; }
+.forecast-workspace .forecast-results-table input { max-width:100%; }
+.forecast-workspace .forecast-table-scroll th, .forecast-workspace .forecast-table-scroll td { padding-block:12px; }
+.forecast-workspace .forecast-table-scroll [aria-expanded] { display:inline-flex; align-items:center; justify-content:center; width:30px; height:30px; border-radius:var(--admin-control-radius); }
+.forecast-workspace .forecast-table-scroll td:nth-child(3) { min-width:180px; max-width:340px; overflow-wrap:anywhere; }
+.forecast-workspace .forecast-error, .forecast-workspace .forecast-previous-result { padding:12px 14px; border:1px solid var(--admin-border); border-inline-start:3px solid #b91c1c; border-radius:var(--admin-control-radius); background:var(--admin-subtle); color:var(--admin-ink); font-size:13px; line-height:1.7; overflow-wrap:anywhere; }
+.forecast-workspace .forecast-previous-result { border-inline-start-color:#ca8a04; }
+.forecast-workspace .forecast-period-note { color:var(--admin-muted); font-size:12px; }
+.forecast-workspace .forecast-period-note strong { color:var(--admin-accent-ink); font-weight:600; }
+.forecast-workspace .forecast-toast { display:flex; align-items:start; gap:8px; padding:12px 14px; border:1px solid var(--admin-border); border-radius:var(--admin-control-radius); background:var(--admin-mint); color:var(--admin-accent-ink); font-size:13px; }
+.forecast-workspace .forecast-empty { min-height:240px; display:flex; align-items:center; justify-content:center; padding:24px; color:var(--admin-muted); font-size:13px; }
+.forecast-workspace .forecast-empty span { display:inline-flex; align-items:center; gap:8px; }
+@container forecast-workspace (min-width:950px) {
+ .forecast-workspace .forecast-workspace-grid { grid-template-columns:250px minmax(0,1fr); }
+ .forecast-workspace .forecast-overview dl { grid-template-columns:repeat(4,minmax(0,1fr)); }
+}
+@media (max-width:599px) {
+ .forecast-workspace .forecast-panel, .forecast-workspace .forecast-controls { padding:14px; }
+}

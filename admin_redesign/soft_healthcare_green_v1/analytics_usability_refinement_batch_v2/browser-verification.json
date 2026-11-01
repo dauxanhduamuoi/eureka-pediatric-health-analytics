@@ -1,0 +1,9 @@
+{
+  "status": "BROWSER NOT VERIFIED",
+  "viewports": [1440, 1280, 768, 390],
+  "apps": [],
+  "browsers": [],
+  "errors": ["Computer Use native pipe is unavailable (os error 2)", "The browser access host is unavailable"],
+  "screenshots": false,
+  "realApiRequests": false
+}

@@ -1,0 +1,23 @@
+{
+  "stage": "Frontend completed; backend patch NOT applied while uvicorn --reload remains active",
+  "changed_files": [
+    "Frontend\\src\\lib\\api.ts",
+    "Frontend\\src\\app\\components\\ParentPortal.test.tsx",
+    "Frontend\\src\\app\\components\\parent\\ParentDiseaseCard.tsx",
+    "Frontend\\src\\app\\components\\weather-ai\\tier1Presentation.ts",
+    "Frontend\\src\\app\\components\\weather-ai\\WeatherAIResults.test.tsx",
+    "Frontend\\src\\app\\components\\weather-ai\\WeatherAIResults.tsx",
+    "Frontend\\src\\app\\components\\weather-ai\\tier1Presentation.test.tsx",
+    "seasonal_disease_backend\\tests\\fixtures\\shap_explanation_before.json"
+  ],
+  "changed_tables_excluding_login_sessions": [],
+  "real_db_file_unchanged": true,
+  "real_db_before": "73104ff3fd09825edc65be53f4304f92c0a653fa16a9dbee5292c45951522401",
+  "real_db_after": "73104ff3fd09825edc65be53f4304f92c0a653fa16a9dbee5292c45951522401",
+  "readonly_total_changes": [
+    0,
+    0
+  ],
+  "head_unchanged": true,
+  "index_unchanged": true
+}

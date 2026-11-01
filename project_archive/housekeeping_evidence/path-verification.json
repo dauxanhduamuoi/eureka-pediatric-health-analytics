@@ -1,0 +1,3574 @@
+{
+  "frontendImports": [
+    {
+      "source": "Frontend/src/main.tsx",
+      "path": "./app/App.tsx",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/main.tsx",
+      "path": "./styles/index.css",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/main.tsx",
+      "path": "./lib/theme",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/main.tsx",
+      "path": "./lib/i18n",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/App.navigation.test.tsx",
+      "path": "@/lib/api",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/App.navigation.test.tsx",
+      "path": "@/lib/i18n",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/App.navigation.test.tsx",
+      "path": "./App",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/App.navigation.test.tsx",
+      "path": "./components/ParentDiseaseVisibilityPage",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/App.tsx",
+      "path": "./AppPages",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/App.tsx",
+      "path": "./components/LoginPage",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/App.tsx",
+      "path": "./components/LoadingFallback",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/App.tsx",
+      "path": "./components/admin/AdminLayout",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/App.tsx",
+      "path": "./contexts/AuthContext",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/App.tsx",
+      "path": "./hooks/useUnreadNotifications",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/App.tsx",
+      "path": "./navigation",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/App.tsx",
+      "path": "./useAdminSectionNavigation",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/App.tsx",
+      "path": "@/lib/i18n",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/AppPages.tsx",
+      "path": "./components/LoadingFallback",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/AppPages.tsx",
+      "path": "./navigation",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/AppPages.tsx",
+      "path": "./components/admin/content.css",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/AppPages.tsx",
+      "path": "./components/DashboardOverview",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/AppPages.tsx",
+      "path": "./components/DataImport",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/AppPages.tsx",
+      "path": "./components/SeasonalAnalysis",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/AppPages.tsx",
+      "path": "./components/age-insights/AgeInsightsWorkspace",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/AppPages.tsx",
+      "path": "./components/AdvancedAnalytics",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/AppPages.tsx",
+      "path": "./components/Forecast",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/AppPages.tsx",
+      "path": "./components/WeatherRisk",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/AppPages.tsx",
+      "path": "./components/ParentDiseaseVisibilityPage",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/AppPages.tsx",
+      "path": "./components/AreaInsights",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/AppPages.tsx",
+      "path": "./components/Reports",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/AppPages.tsx",
+      "path": "./components/NotificationsPanel",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/AppPages.tsx",
+      "path": "./components/Settings",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/AppPages.tsx",
+      "path": "./components/PermissionsPage",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/AppPages.tsx",
+      "path": "./components/Account",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/AppPages.tsx",
+      "path": "./components/medical-knowledge/MedicalKnowledgeResearchPage",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/AppPages.tsx",
+      "path": "./components/ParentPortal",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/navigation.test.ts",
+      "path": "@/lib/api",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/navigation.test.ts",
+      "path": "./navigation",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/navigation.ts",
+      "path": "@/lib/api",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/useAdminSectionNavigation.test.tsx",
+      "path": "@/lib/api",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/useAdminSectionNavigation.test.tsx",
+      "path": "./useAdminSectionNavigation",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/useAdminSectionNavigation.ts",
+      "path": "@/lib/api",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/useAdminSectionNavigation.ts",
+      "path": "./navigation",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/components/Account.test.tsx",
+      "path": "@/lib/i18n",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/components/Account.test.tsx",
+      "path": "@/lib/api",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/components/Account.test.tsx",
+      "path": "@/i18n/locales/vi",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/components/Account.test.tsx",
+      "path": "./Account",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/components/Account.test.tsx",
+      "path": "@/lib/api",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/components/Account.tsx",
+      "path": "../contexts/AuthContext",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/components/Account.tsx",
+      "path": "@/lib/api",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/components/Account.tsx",
+      "path": "@/lib/api",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/components/Account.tsx",
+      "path": "@/lib/i18n",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/components/Account.tsx",
+      "path": "./account-workspace/AccountProfile",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/components/Account.tsx",
+      "path": "./account-workspace/AccountSecurity",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/components/Account.tsx",
+      "path": "./account-workspace/AccountSessions",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/components/Account.tsx",
+      "path": "./account-workspace/account.css",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/components/AdminMainNavigation.tsx",
+      "path": "@/lib/i18n",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/components/AdminMainNavigation.tsx",
+      "path": "../navigation",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/components/AdvancedAnalytics.test.tsx",
+      "path": "@/lib/api",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/components/AdvancedAnalytics.test.tsx",
+      "path": "./AdvancedAnalytics",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/components/AdvancedAnalytics.test.tsx",
+      "path": "@/lib/api",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/components/AdvancedAnalytics.tsx",
+      "path": "./admin/AdminPageHeading",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/components/AdvancedAnalytics.tsx",
+      "path": "./advanced-analytics/useAdvancedAnalytics",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/components/AdvancedAnalytics.tsx",
+      "path": "./advanced-analytics/MonthlyWorkspace",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/components/AdvancedAnalytics.tsx",
+      "path": "./advanced-analytics/GenderWorkspace",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/components/AdvancedAnalytics.tsx",
+      "path": "./advanced-analytics/TrendWorkspace",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/components/AdvancedAnalytics.tsx",
+      "path": "./advanced-analytics/analytics.css",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/components/AreaInsights.test.tsx",
+      "path": "@/lib/api",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/components/AreaInsights.test.tsx",
+      "path": "@/lib/provinceRegions",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/components/AreaInsights.test.tsx",
+      "path": "@/lib/areaInsightsCache",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/components/AreaInsights.test.tsx",
+      "path": "./AreaInsights",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/components/AreaInsights.test.tsx",
+      "path": "./areas/AreaResults",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/components/AreaInsights.test.tsx",
+      "path": "@/lib/api",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/components/AreaInsights.tsx",
+      "path": "./areas/AreaFilterPanel",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/components/AreaInsights.tsx",
+      "path": "./areas/AreaResults",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/components/AreaInsights.tsx",
+      "path": "./areas/AreaInsights.css",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/components/AreaInsights.tsx",
+      "path": "./admin/AdminPageHeading",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/components/AreaInsights.tsx",
+      "path": "./admin/chartPalette",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/components/AreaInsights.tsx",
+      "path": "@/lib/api",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/components/AreaInsights.tsx",
+      "path": "@/lib/provinceRegions",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/components/AreaInsights.tsx",
+      "path": "@/lib/areaInsightsCache",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/components/AreaInsights.tsx",
+      "path": "../contexts/AuthContext",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/components/AreaInsights.tsx",
+      "path": "./admin/useAdminChartAnimation",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/components/DashboardOverview.test.tsx",
+      "path": "@/lib/i18n",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/components/DashboardOverview.test.tsx",
+      "path": "@/lib/api",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/components/DashboardOverview.test.tsx",
+      "path": "@/i18n/locales/vi",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/components/DashboardOverview.test.tsx",
+      "path": "./DashboardOverview",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/components/DashboardOverview.test.tsx",
+      "path": "@/lib/api",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/components/DashboardOverview.tsx",
+      "path": "./admin/AdminDetails",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/components/DashboardOverview.tsx",
+      "path": "./admin/DiseaseChartLegend",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/components/DashboardOverview.tsx",
+      "path": "./admin/AdminStatCard",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/components/DashboardOverview.tsx",
+      "path": "./admin/chartPalette",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/components/DashboardOverview.tsx",
+      "path": "./admin/AdminPageHeading",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/components/DashboardOverview.tsx",
+      "path": "./admin/DashboardTopGroupsChart",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/components/DashboardOverview.tsx",
+      "path": "@/lib/api",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/components/DashboardOverview.tsx",
+      "path": "@/lib/chartDataCache",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/components/DashboardOverview.tsx",
+      "path": "@/lib/notifications",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/components/DashboardOverview.tsx",
+      "path": "@/lib/i18n",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/components/DashboardOverview.tsx",
+      "path": "./common/DiseaseLabelCell",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/components/DashboardOverview.tsx",
+      "path": "@/lib/disease",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/components/DashboardOverview.tsx",
+      "path": "@/lib/age",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/components/DashboardOverview.tsx",
+      "path": "./admin/useAdminChartAnimation",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/components/DataImport.test.tsx",
+      "path": "@/lib/api",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/components/DataImport.test.tsx",
+      "path": "@/lib/importJobs",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/components/DataImport.test.tsx",
+      "path": "./DataImport",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/components/DataImport.test.tsx",
+      "path": "@/lib/api",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/components/DataImport.tsx",
+      "path": "./admin/AdminDetails",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/components/DataImport.tsx",
+      "path": "./admin/AdminPageHeading",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/components/DataImport.tsx",
+      "path": "@/lib/importJobs",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/components/DataImport.tsx",
+      "path": "@/lib/api",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/components/DataImport.tsx",
+      "path": "./DiseaseCodesManager",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/components/DataImport.tsx",
+      "path": "./ParentGuideManager",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/components/DataImport.tsx",
+      "path": "./ProvinceRegionsManager",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/components/DataImport.tsx",
+      "path": "./data-management/ImportWorkspace",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/components/DataImport.tsx",
+      "path": "./data-management/data-management.css",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/components/DiseaseCodesManager.tsx",
+      "path": "./data-management/useCatalogManagers",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/components/DiseaseCodesManager.tsx",
+      "path": "./data-management/DiseaseCodesWorkspace",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/components/DiseaseCodesManager.tsx",
+      "path": "./data-management/data-management.css",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/components/Forecast.test.tsx",
+      "path": "@/lib/i18n",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/components/Forecast.test.tsx",
+      "path": "@/lib/api",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/components/Forecast.test.tsx",
+      "path": "@/lib/notifications",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/components/Forecast.test.tsx",
+      "path": "./Forecast",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/components/Forecast.test.tsx",
+      "path": "@/lib/api",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/components/Forecast.tsx",
+      "path": "./admin/AdminPageHeading",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/components/Forecast.tsx",
+      "path": "./forecast-workspace/useForecastWorkspace",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/components/Forecast.tsx",
+      "path": "./forecast-workspace/ForecastControls",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/components/Forecast.tsx",
+      "path": "./forecast-workspace/ForecastAnalysis",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/components/Forecast.tsx",
+      "path": "./forecast-workspace/ForecastSummaryTable",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/components/Forecast.tsx",
+      "path": "./forecast-workspace/forecast.css",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/components/Forecast.workspace.test.tsx",
+      "path": "@/lib/i18n",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/components/Forecast.workspace.test.tsx",
+      "path": "@/lib/api",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/components/Forecast.workspace.test.tsx",
+      "path": "@/lib/notifications",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/components/Forecast.workspace.test.tsx",
+      "path": "@/lib/reports",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/components/Forecast.workspace.test.tsx",
+      "path": "./Forecast",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/components/Forecast.workspace.test.tsx",
+      "path": "@/i18n/locales/vi",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/components/Forecast.workspace.test.tsx",
+      "path": "@/lib/api",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/components/Forecast.workspace.test.tsx",
+      "path": "@/lib/reports",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/components/LoadingFallback.tsx",
+      "path": "@/lib/i18n",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/components/LoginPage.test.tsx",
+      "path": "@/lib/i18n",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/components/LoginPage.test.tsx",
+      "path": "@/i18n/locales/vi",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/components/LoginPage.test.tsx",
+      "path": "./LoginPage",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/components/LoginPage.tsx",
+      "path": "../contexts/AuthContext",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/components/LoginPage.tsx",
+      "path": "@/lib/i18n",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/components/LoginPage.tsx",
+      "path": "./LoginVisualCarousel",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/components/LoginPage.tsx",
+      "path": "./login.css",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/components/LoginVisualCarousel.test.tsx",
+      "path": "./LoginVisualCarousel",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/components/LoginVisualCarousel.test.tsx",
+      "path": "./loginSlides",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/components/LoginVisualCarousel.test.tsx",
+      "path": "@/lib/i18n",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/components/LoginVisualCarousel.test.tsx",
+      "path": "./LoginPage",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/components/LoginVisualCarousel.tsx",
+      "path": "./loginSlides",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/components/NotificationsPanel.test.tsx",
+      "path": "@/lib/i18n",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/components/NotificationsPanel.test.tsx",
+      "path": "@/lib/notifications",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/components/NotificationsPanel.test.tsx",
+      "path": "@/lib/api",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/components/NotificationsPanel.test.tsx",
+      "path": "./NotificationsPanel",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/components/NotificationsPanel.test.tsx",
+      "path": "@/lib/notifications",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/components/NotificationsPanel.test.tsx",
+      "path": "@/lib/notifications",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/components/NotificationsPanel.tsx",
+      "path": "./admin/AdminPageHeading",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/components/NotificationsPanel.tsx",
+      "path": "@/lib/notifications",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/components/NotificationsPanel.tsx",
+      "path": "@/lib/i18n",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/components/NotificationsPanel.tsx",
+      "path": "./notifications/NotificationInbox",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/components/NotificationsPanel.tsx",
+      "path": "./notifications/notifications.css",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/components/ParentDiseaseVisibilityPage.tsx",
+      "path": "../navigation",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/components/ParentDiseaseVisibilityPage.tsx",
+      "path": "../contexts/AuthContext",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/components/ParentDiseaseVisibilityPage.tsx",
+      "path": "@/lib/i18n",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/components/ParentDiseaseVisibilityPage.tsx",
+      "path": "./ParentDiseaseVisibilitySettings",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/components/ParentDiseaseVisibilitySettings.test.tsx",
+      "path": "@/lib/api",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/components/ParentDiseaseVisibilitySettings.test.tsx",
+      "path": "./ParentDiseaseVisibilitySettings",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/components/ParentDiseaseVisibilitySettings.test.tsx",
+      "path": "@/lib/api",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/components/ParentDiseaseVisibilitySettings.tsx",
+      "path": "./admin/AdminPageHeading",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/components/ParentDiseaseVisibilitySettings.tsx",
+      "path": "@/lib/api",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/components/ParentGuideManager.tsx",
+      "path": "./data-management/useCatalogManagers",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/components/ParentGuideManager.tsx",
+      "path": "./data-management/GuidesWorkspace",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/components/ParentGuideManager.tsx",
+      "path": "./data-management/data-management.css",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/components/ParentPortal.test.tsx",
+      "path": "@/lib/api",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/components/ParentPortal.test.tsx",
+      "path": "@/lib/i18n",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/components/ParentPortal.test.tsx",
+      "path": "@/lib/api",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/components/ParentPortal.test.tsx",
+      "path": "./ParentPortal",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/components/ParentPortal.test.tsx",
+      "path": "../../../../weather_disease_ai_v3/shap_explanation_fix_v1/backend_after.json",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/components/ParentPortal.test.tsx",
+      "path": "@/lib/api",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/components/ParentPortal.tsx",
+      "path": "./ParentPortalDecor",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/components/ParentPortal.tsx",
+      "path": "@/lib/api",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/components/ParentPortal.tsx",
+      "path": "@/lib/disease",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/components/ParentPortal.tsx",
+      "path": "./weather-ai/WeatherAIResults",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/components/ParentPortal.tsx",
+      "path": "./weather-ai/publishedMedicalKnowledge",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/components/ParentPortal.tsx",
+      "path": "./parent/ParentDiseaseCard",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/components/PermissionsPage.test.tsx",
+      "path": "@/lib/i18n",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/components/PermissionsPage.test.tsx",
+      "path": "@/lib/api",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/components/PermissionsPage.test.tsx",
+      "path": "@/i18n/locales/vi",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/components/PermissionsPage.test.tsx",
+      "path": "./PermissionsPage",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/components/PermissionsPage.test.tsx",
+      "path": "@/lib/api",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/components/PermissionsPage.tsx",
+      "path": "@/lib/api",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/components/PermissionsPage.tsx",
+      "path": "@/lib/i18n",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/components/PermissionsPage.tsx",
+      "path": "../contexts/AuthContext",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/components/PermissionsPage.tsx",
+      "path": "../navigation",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/components/PermissionsPage.tsx",
+      "path": "./admin/AdminPageHeading",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/components/PermissionsPage.tsx",
+      "path": "./admin/AdminSection",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/components/PermissionsPage.tsx",
+      "path": "./admin/permissions/PermissionControls",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/components/PermissionsPage.tsx",
+      "path": "./admin/permissions/UserAccountForms",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/components/PermissionsPage.tsx",
+      "path": "./admin/permissions/PermissionDialogs",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/components/PermissionsPage.tsx",
+      "path": "./admin/permissions/UserManagementDialog",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/components/PermissionsPage.tsx",
+      "path": "./admin/permissions/UserTable",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/components/PermissionsPage.tsx",
+      "path": "./admin/permissions/useUserAdministration",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/components/PermissionsPage.tsx",
+      "path": "./admin/permissions/permissions.css",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/components/ProvinceRegionsManager.tsx",
+      "path": "./data-management/useCatalogManagers",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/components/ProvinceRegionsManager.tsx",
+      "path": "./data-management/RegionsWorkspace",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/components/ProvinceRegionsManager.tsx",
+      "path": "./data-management/data-management.css",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/components/Reports.test.tsx",
+      "path": "@/lib/i18n",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/components/Reports.test.tsx",
+      "path": "@/lib/reports",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/components/Reports.test.tsx",
+      "path": "@/lib/api",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/components/Reports.test.tsx",
+      "path": "./Reports",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/components/Reports.test.tsx",
+      "path": "@/lib/reports",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/components/Reports.tsx",
+      "path": "../contexts/AuthContext",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/components/Reports.tsx",
+      "path": "../navigation",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/components/Reports.tsx",
+      "path": "@/lib/i18n",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/components/Reports.tsx",
+      "path": "@/lib/reports",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/components/Reports.tsx",
+      "path": "@/lib/reports",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/components/Reports.tsx",
+      "path": "./admin/AdminPageHeading",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/components/Reports.tsx",
+      "path": "./reports/ReportForm",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/components/Reports.tsx",
+      "path": "./reports/ReportPreview",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/components/Reports.tsx",
+      "path": "./reports/reports.css",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/components/SeasonalAnalysis.tsx",
+      "path": "./admin/AdminSection",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/components/SeasonalAnalysis.tsx",
+      "path": "./admin/AdminDetails",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/components/SeasonalAnalysis.tsx",
+      "path": "./admin/SeasonalSummary",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/components/SeasonalAnalysis.tsx",
+      "path": "./admin/SeasonalCharts",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/components/SeasonalAnalysis.tsx",
+      "path": "./admin/seasonalPresentation",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/components/SeasonalAnalysis.tsx",
+      "path": "./admin/AdminPageHeading",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/components/SeasonalAnalysis.tsx",
+      "path": "./admin/chartPalette",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/components/SeasonalAnalysis.tsx",
+      "path": "@/lib/api",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/components/SeasonalAnalysis.tsx",
+      "path": "@/lib/chartDataCache",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/components/SeasonalAnalysis.tsx",
+      "path": "@/lib/i18n",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/components/SeasonalAnalysis.tsx",
+      "path": "@/lib/disease",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/components/SeasonalAnalysis.tsx",
+      "path": "./common/DiseaseLabelCell",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/components/SeasonalAnalysis.tsx",
+      "path": "./admin/useAdminChartAnimation",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/components/SeasonalAnalysis.tsx",
+      "path": "./analytics-usability/ClientPagination",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/components/SeasonalAnalysis.tsx",
+      "path": "./advanced-analytics/AnalyticsPrimitives",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/components/SeasonalAnalysis.tsx",
+      "path": "./analytics-usability/refinement.css",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/components/Settings.parentDiseaseVisibility.test.tsx",
+      "path": "@/lib/i18n",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/components/Settings.parentDiseaseVisibility.test.tsx",
+      "path": "./Settings",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/components/Settings.parentDiseaseVisibility.test.tsx",
+      "path": "@/lib/api",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/components/Settings.tsx",
+      "path": "./admin/AdminDetails",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/components/Settings.tsx",
+      "path": "./admin/AdminSection",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/components/Settings.tsx",
+      "path": "./admin/AdminPageHeading",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/components/Settings.tsx",
+      "path": "@/lib/preferences",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/components/Settings.tsx",
+      "path": "@/lib/theme",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/components/Settings.tsx",
+      "path": "@/lib/i18n",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/components/Settings.tsx",
+      "path": "@/i18n/resources",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/components/WeatherRisk.test.tsx",
+      "path": "@/lib/i18n",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/components/WeatherRisk.test.tsx",
+      "path": "@/lib/api",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/components/WeatherRisk.test.tsx",
+      "path": "@/lib/weatherRiskCache",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/components/WeatherRisk.test.tsx",
+      "path": "./WeatherRisk",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/components/WeatherRisk.test.tsx",
+      "path": "../../../../weather_disease_ai_v3/shap_explanation_fix_v1/backend_after.json",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/components/WeatherRisk.test.tsx",
+      "path": "@/lib/api",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/components/WeatherRisk.tsx",
+      "path": "./admin/AdminPageHeading",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/components/WeatherRisk.tsx",
+      "path": "@/lib/api",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/components/WeatherRisk.tsx",
+      "path": "@/lib/weatherRiskCache",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/components/WeatherRisk.tsx",
+      "path": "./weather-ai/WeatherAIResults",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/components/WeatherRisk.tsx",
+      "path": "./admin/AdminWeatherAIResults",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/components/account-workspace/AccountProfile.tsx",
+      "path": "@/lib/api",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/components/account-workspace/AccountSessions.tsx",
+      "path": "@/lib/api",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/components/admin/AdminContent.regression.test.tsx",
+      "path": "@/lib/i18n",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/components/admin/AdminContent.regression.test.tsx",
+      "path": "@/lib/api",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/components/admin/AdminContent.regression.test.tsx",
+      "path": "@/i18n/locales/vi",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/components/admin/AdminContent.regression.test.tsx",
+      "path": "../DashboardOverview",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/components/admin/AdminContent.regression.test.tsx",
+      "path": "../SeasonalAnalysis",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/components/admin/AdminContent.regression.test.tsx",
+      "path": "./AdminPageHeading",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/components/admin/AdminContent.regression.test.tsx",
+      "path": "@/lib/api",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/components/admin/AdminLayout.test.tsx",
+      "path": "@/lib/i18n",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/components/admin/AdminLayout.test.tsx",
+      "path": "../../navigation",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/components/admin/AdminLayout.test.tsx",
+      "path": "./AdminLayout",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/components/admin/AdminLayout.test.tsx",
+      "path": "@/i18n/locales/vi",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/components/admin/AdminLayout.tsx",
+      "path": "@/lib/api",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/components/admin/AdminLayout.tsx",
+      "path": "@/lib/i18n",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/components/admin/AdminLayout.tsx",
+      "path": "../../navigation",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/components/admin/AdminLayout.tsx",
+      "path": "./AdminPageHeading",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/components/admin/AdminLayout.tsx",
+      "path": "../AdminMainNavigation",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/components/admin/AdminLayout.tsx",
+      "path": "./admin.css",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/components/admin/AdminPages.regression.test.tsx",
+      "path": "@/lib/i18n",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/components/admin/AdminPages.regression.test.tsx",
+      "path": "@/lib/api",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/components/admin/AdminPages.regression.test.tsx",
+      "path": "@/lib/importJobs",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/components/admin/AdminPages.regression.test.tsx",
+      "path": "@/lib/preferences",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/components/admin/AdminPages.regression.test.tsx",
+      "path": "../DataImport",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/components/admin/AdminPages.regression.test.tsx",
+      "path": "../age-insights/AgeInsightsWorkspace",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/components/admin/AdminPages.regression.test.tsx",
+      "path": "../Forecast",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/components/admin/AdminPages.regression.test.tsx",
+      "path": "../Settings",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/components/admin/AdminPages.regression.test.tsx",
+      "path": "./AdminPageHeading",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/components/admin/AdminPages.regression.test.tsx",
+      "path": "@/lib/api",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/components/admin/AdminPageTitles.test.tsx",
+      "path": "@/lib/i18n",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/components/admin/AdminPageTitles.test.tsx",
+      "path": "@/i18n/locales/vi",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/components/admin/AdminPageTitles.test.tsx",
+      "path": "../../AppPages",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/components/admin/AdminPageTitles.test.tsx",
+      "path": "../../navigation",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/components/admin/AdminPageTitles.test.tsx",
+      "path": "./AdminLayout",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/components/admin/AdminPageTitles.test.tsx",
+      "path": "./AdminPageHeading",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/components/admin/AdminPageTitles.test.tsx",
+      "path": "./AdminSection",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/components/admin/AdminPageTitles.test.tsx",
+      "path": "@/lib/api",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/components/admin/AdminPageTitles.test.tsx",
+      "path": "@/lib/medicalKnowledgeApi",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/components/admin/AdminPageTitles.test.tsx",
+      "path": "@/lib/reports",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/components/admin/AdminWeatherAIResults.test.tsx",
+      "path": "@/lib/api",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/components/admin/AdminWeatherAIResults.test.tsx",
+      "path": "../weather-ai/WeatherAIResults",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/components/admin/AdminWeatherAIResults.test.tsx",
+      "path": "./AdminWeatherAIResults",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/components/admin/AdminWeatherAIResults.test.tsx",
+      "path": "../../../../../weather_disease_ai_v3/shap_explanation_fix_v1/backend_after.json",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/components/admin/AdminWeatherAIResults.tsx",
+      "path": "@/lib/api",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/components/admin/AdminWeatherAIResults.tsx",
+      "path": "@/lib/disease",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/components/admin/AdminWeatherAIResults.tsx",
+      "path": "../weather-ai/WeatherAIResults",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/components/admin/AdminWorkflows.content.test.tsx",
+      "path": "@/lib/i18n",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/components/admin/AdminWorkflows.content.test.tsx",
+      "path": "@/lib/api",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/components/admin/AdminWorkflows.content.test.tsx",
+      "path": "@/lib/reports",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/components/admin/AdminWorkflows.content.test.tsx",
+      "path": "../WeatherRisk",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/components/admin/AdminWorkflows.content.test.tsx",
+      "path": "../Reports",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/components/admin/AdminWorkflows.content.test.tsx",
+      "path": "../../../../../weather_disease_ai_v3/shap_explanation_fix_v1/backend_after.json",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/components/admin/AdminWorkflows.content.test.tsx",
+      "path": "@/lib/api",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/components/admin/AdminWorkflows.content.test.tsx",
+      "path": "@/lib/reports",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/components/admin/BrandingVietnamese.test.tsx",
+      "path": "@/lib/i18n",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/components/admin/BrandingVietnamese.test.tsx",
+      "path": "@/i18n/locales/vi",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/components/admin/BrandingVietnamese.test.tsx",
+      "path": "./AdminLayout",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/components/admin/BrandingVietnamese.test.tsx",
+      "path": "./AdminPageHeading",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/components/admin/BrandingVietnamese.test.tsx",
+      "path": "../LoginPage",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/components/admin/ChartVisuals.test.tsx",
+      "path": "@/lib/i18n",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/components/admin/ChartVisuals.test.tsx",
+      "path": "@/lib/api",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/components/admin/ChartVisuals.test.tsx",
+      "path": "./chartPalette",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/components/admin/ChartVisuals.test.tsx",
+      "path": "./SeasonalCharts",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/components/admin/ChartVisuals.test.tsx",
+      "path": "./DashboardTopGroupsChart",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/components/admin/ChartVisuals.test.tsx",
+      "path": "../age-insights/AgeInsightsWorkspace",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/components/admin/ChartVisuals.test.tsx",
+      "path": "../AreaInsights",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/components/admin/ChartVisuals.test.tsx",
+      "path": "@/lib/api",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/components/admin/DashboardTopGroupsChart.tsx",
+      "path": "@/lib/i18n",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/components/admin/DashboardTopGroupsChart.tsx",
+      "path": "./chartPalette",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/components/admin/DiseaseAxisTick.tsx",
+      "path": "@/lib/disease",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/components/admin/DiseaseChartLegend.tsx",
+      "path": "@/lib/disease",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/components/admin/SeasonalCharts.tsx",
+      "path": "./DiseaseAxisTick",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/components/admin/SeasonalCharts.tsx",
+      "path": "@/lib/disease",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/components/admin/SeasonalCharts.tsx",
+      "path": "./chartPalette",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/components/admin/SeasonalCharts.tsx",
+      "path": "./DiseaseChartLegend",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/components/admin/SeasonalCharts.tsx",
+      "path": "../analytics-usability/ClientPagination",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/components/admin/SeasonalCharts.tsx",
+      "path": "./seasonalPresentation",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/components/admin/seasonalPresentation.test.tsx",
+      "path": "./seasonalPresentation",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/components/admin/seasonalPresentation.test.tsx",
+      "path": "./SeasonalSummary",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/components/admin/seasonalPresentation.test.tsx",
+      "path": "./DiseaseAxisTick",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/components/admin/seasonalPresentation.test.tsx",
+      "path": "./DiseaseChartLegend",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/components/admin/seasonalPresentation.test.tsx",
+      "path": "@/lib/api",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/components/admin/seasonalPresentation.ts",
+      "path": "@/lib/api",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/components/admin/SeasonalSummary.tsx",
+      "path": "@/lib/api",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/components/admin/SeasonalSummary.tsx",
+      "path": "./seasonalPresentation",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/components/admin/useAdminChartAnimation.test.tsx",
+      "path": "./useAdminChartAnimation",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/components/admin/useAdminChartAnimation.ts",
+      "path": "@/lib/useMinimalTheme",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/components/admin/permissions/PermissionControls.tsx",
+      "path": "@/lib/api",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/components/admin/permissions/PermissionDialogs.tsx",
+      "path": "./PermissionControls",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/components/admin/permissions/PermissionDialogs.tsx",
+      "path": "./UserManagementDialog",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/components/admin/permissions/PermissionDialogs.tsx",
+      "path": "./useUserAdministration",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/components/admin/permissions/UserAccountForms.tsx",
+      "path": "./PermissionControls",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/components/admin/permissions/UserAccountForms.tsx",
+      "path": "./useUserAdministration",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/components/admin/permissions/UserTable.tsx",
+      "path": "@/lib/api",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/components/admin/permissions/UserTable.tsx",
+      "path": "./useUserAdministration",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/components/admin/permissions/useUserAdministration.ts",
+      "path": "@/lib/api",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/components/admin/permissions/useUserAdministration.ts",
+      "path": "@/lib/i18n",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/components/admin/permissions/useUserAdministration.ts",
+      "path": "../../../contexts/AuthContext",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/components/advanced-analytics/AnalyticsControls.tsx",
+      "path": "@/lib/api",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/components/advanced-analytics/AnalyticsControls.tsx",
+      "path": "@/lib/disease",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/components/advanced-analytics/AnalyticsControls.tsx",
+      "path": "./useAdvancedAnalytics",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/components/advanced-analytics/GenderWorkspace.tsx",
+      "path": "../admin/chartPalette",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/components/advanced-analytics/GenderWorkspace.tsx",
+      "path": "./useAdvancedAnalytics",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/components/advanced-analytics/GenderWorkspace.tsx",
+      "path": "./AnalyticsControls",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/components/advanced-analytics/GenderWorkspace.tsx",
+      "path": "./AnalyticsPrimitives",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/components/advanced-analytics/MonthlyWorkspace.tsx",
+      "path": "@/lib/api",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/components/advanced-analytics/MonthlyWorkspace.tsx",
+      "path": "../admin/DiseaseAxisTick",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/components/advanced-analytics/MonthlyWorkspace.tsx",
+      "path": "../common/DiseaseLabelCell",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/components/advanced-analytics/MonthlyWorkspace.tsx",
+      "path": "../admin/chartPalette",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/components/advanced-analytics/MonthlyWorkspace.tsx",
+      "path": "./useAdvancedAnalytics",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/components/advanced-analytics/MonthlyWorkspace.tsx",
+      "path": "./AnalyticsControls",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/components/advanced-analytics/MonthlyWorkspace.tsx",
+      "path": "./AnalyticsPrimitives",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/components/advanced-analytics/MonthlyWorkspace.tsx",
+      "path": "../analytics-usability/ClientPagination",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/components/advanced-analytics/MonthlyWorkspace.tsx",
+      "path": "../analytics-usability/refinement.css",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/components/advanced-analytics/TrendInteractions.tsx",
+      "path": "./useAdvancedAnalytics",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/components/advanced-analytics/TrendInteractions.tsx",
+      "path": "../analytics-usability/ClientPagination",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/components/advanced-analytics/TrendWorkspace.tsx",
+      "path": "../admin/chartPalette",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/components/advanced-analytics/TrendWorkspace.tsx",
+      "path": "./useAdvancedAnalytics",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/components/advanced-analytics/TrendWorkspace.tsx",
+      "path": "./AnalyticsControls",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/components/advanced-analytics/TrendWorkspace.tsx",
+      "path": "./TrendInteractions",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/components/advanced-analytics/TrendWorkspace.tsx",
+      "path": "./AnalyticsPrimitives",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/components/advanced-analytics/TrendWorkspace.tsx",
+      "path": "../analytics-usability/ClientPagination",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/components/advanced-analytics/TrendWorkspace.tsx",
+      "path": "../analytics-usability/refinement.css",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/components/advanced-analytics/useAdvancedAnalytics.ts",
+      "path": "@/lib/api",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/components/advanced-analytics/useAdvancedAnalytics.ts",
+      "path": "@/lib/chartDataCache",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/components/advanced-analytics/useAdvancedAnalytics.ts",
+      "path": "@/lib/disease",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/components/advanced-analytics/useAdvancedAnalytics.ts",
+      "path": "../admin/chartPalette",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/components/advanced-analytics/useAdvancedAnalytics.ts",
+      "path": "../admin/useAdminChartAnimation",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/components/age-insights/AgeDataViews.tsx",
+      "path": "@/lib/api",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/components/age-insights/AgeDataViews.tsx",
+      "path": "@/lib/disease",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/components/age-insights/AgeDataViews.tsx",
+      "path": "../admin/DiseaseAxisTick",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/components/age-insights/AgeDataViews.tsx",
+      "path": "../common/DiseaseLabelCell",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/components/age-insights/AgeDataViews.tsx",
+      "path": "../admin/chartPalette",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/components/age-insights/AgeFilterPanel.tsx",
+      "path": "@/lib/api",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/components/age-insights/AgeInsightsWorkspace.test.tsx",
+      "path": "@/lib/api",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/components/age-insights/AgeInsightsWorkspace.test.tsx",
+      "path": "@/lib/chartDataCache",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/components/age-insights/AgeInsightsWorkspace.test.tsx",
+      "path": "./AgeInsightsWorkspace",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/components/age-insights/AgeInsightsWorkspace.test.tsx",
+      "path": "@/lib/api",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/components/age-insights/AgeInsightsWorkspace.tsx",
+      "path": "../admin/AdminPageHeading",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/components/age-insights/AgeInsightsWorkspace.tsx",
+      "path": "./AgeFilterPanel",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/components/age-insights/AgeInsightsWorkspace.tsx",
+      "path": "./AgeDataViews",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/components/age-insights/AgeInsightsWorkspace.tsx",
+      "path": "./useAgeInsights",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/components/age-insights/AgeInsightsWorkspace.tsx",
+      "path": "./AgeInsights.css",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/components/age-insights/useAgeInsights.ts",
+      "path": "@/lib/api",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/components/age-insights/useAgeInsights.ts",
+      "path": "@/lib/chartDataCache",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/components/age-insights/useAgeInsights.ts",
+      "path": "@/lib/disease",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/components/age-insights/useAgeInsights.ts",
+      "path": "../admin/chartPalette",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/components/age-insights/useAgeInsights.ts",
+      "path": "../admin/useAdminChartAnimation",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/components/analytics-usability/ClientPagination.test.tsx",
+      "path": "./ClientPagination",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/components/analytics-usability/ClientPagination.tsx",
+      "path": "../admin/DiseaseChartLegend",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/components/analytics-usability/Usability.regression.test.tsx",
+      "path": "@/lib/api",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/components/analytics-usability/Usability.regression.test.tsx",
+      "path": "@/lib/i18n",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/components/analytics-usability/Usability.regression.test.tsx",
+      "path": "../AdvancedAnalytics",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/components/analytics-usability/Usability.regression.test.tsx",
+      "path": "../SeasonalAnalysis",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/components/analytics-usability/Usability.regression.test.tsx",
+      "path": "../admin/SeasonalCharts",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/components/analytics-usability/Usability.regression.test.tsx",
+      "path": "@/lib/api",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/components/areas/AreaFilterPanel.tsx",
+      "path": "@/lib/api",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/components/areas/AreaFilterPanel.tsx",
+      "path": "@/lib/areaInsightsCache",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/components/areas/AreaResults.tsx",
+      "path": "@/lib/api",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/components/common/DiseaseLabelCell.tsx",
+      "path": "@/lib/disease",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/components/data-management/DataManagement.navigation.test.tsx",
+      "path": "@/lib/api",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/components/data-management/DataManagement.navigation.test.tsx",
+      "path": "../../navigation",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/components/data-management/DataManagement.navigation.test.tsx",
+      "path": "../../useAdminSectionNavigation",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/components/data-management/DataManagers.test.tsx",
+      "path": "@/lib/api",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/components/data-management/DataManagers.test.tsx",
+      "path": "../DiseaseCodesManager",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/components/data-management/DataManagers.test.tsx",
+      "path": "../ProvinceRegionsManager",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/components/data-management/DataManagers.test.tsx",
+      "path": "../ParentGuideManager",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/components/data-management/DataManagers.test.tsx",
+      "path": "@/lib/areaInsightsCache",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/components/data-management/DataManagers.test.tsx",
+      "path": "@/lib/chartDataCache",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/components/data-management/DataManagers.test.tsx",
+      "path": "@/lib/api",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/components/data-management/DiseaseCodesWorkspace.tsx",
+      "path": "./ManagementParts",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/components/data-management/DiseaseCodesWorkspace.tsx",
+      "path": "./useCatalogManagers",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/components/data-management/GuidesWorkspace.tsx",
+      "path": "./ManagementParts",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/components/data-management/GuidesWorkspace.tsx",
+      "path": "./useCatalogManagers",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/components/data-management/ImportWorkspace.tsx",
+      "path": "@/lib/api",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/components/data-management/ImportWorkspace.tsx",
+      "path": "@/lib/importJobs",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/components/data-management/ImportWorkspace.tsx",
+      "path": "./ManagementParts",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/components/data-management/RegionsWorkspace.tsx",
+      "path": "./ManagementParts",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/components/data-management/RegionsWorkspace.tsx",
+      "path": "./useCatalogManagers",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/components/data-management/useCatalogManagers.ts",
+      "path": "@/lib/api",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/components/data-management/useCatalogManagers.ts",
+      "path": "@/lib/areaInsightsCache",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/components/data-management/useCatalogManagers.ts",
+      "path": "@/lib/chartDataCache",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/components/forecast-workspace/ForecastAnalysis.tsx",
+      "path": "../admin/chartPalette",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/components/forecast-workspace/ForecastAnalysis.tsx",
+      "path": "./useForecastWorkspace",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/components/forecast-workspace/ForecastControls.tsx",
+      "path": "./useForecastWorkspace",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/components/forecast-workspace/ForecastSummaryTable.tsx",
+      "path": "@/lib/age",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/components/forecast-workspace/ForecastSummaryTable.tsx",
+      "path": "../common/DiseaseLabelCell",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/components/forecast-workspace/ForecastSummaryTable.tsx",
+      "path": "./useForecastWorkspace",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/components/forecast-workspace/useForecastWorkspace.ts",
+      "path": "@/lib/api",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/components/forecast-workspace/useForecastWorkspace.ts",
+      "path": "@/lib/chartDataCache",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/components/forecast-workspace/useForecastWorkspace.ts",
+      "path": "@/lib/notifications",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/components/forecast-workspace/useForecastWorkspace.ts",
+      "path": "@/lib/reports",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/components/forecast-workspace/useForecastWorkspace.ts",
+      "path": "@/lib/i18n",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/components/forecast-workspace/useForecastWorkspace.ts",
+      "path": "@/lib/disease",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/components/forecast-workspace/useForecastWorkspace.ts",
+      "path": "../admin/useAdminChartAnimation",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/components/medical-knowledge/AutoMedicalKnowledgePanel.test.tsx",
+      "path": "@/lib/medicalKnowledgeApi",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/components/medical-knowledge/AutoMedicalKnowledgePanel.test.tsx",
+      "path": "@/lib/medicalKnowledgeFactors",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/components/medical-knowledge/AutoMedicalKnowledgePanel.test.tsx",
+      "path": "./AutoMedicalKnowledgePanel",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/components/medical-knowledge/AutoMedicalKnowledgePanel.test.tsx",
+      "path": "@/lib/medicalKnowledgeApi",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/components/medical-knowledge/AutoMedicalKnowledgePanel.tsx",
+      "path": "@/lib/medicalKnowledgeApi",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/components/medical-knowledge/AutoMedicalKnowledgePanel.tsx",
+      "path": "@/lib/autoMedicalKnowledgePresentation",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/components/medical-knowledge/AutoMedicalKnowledgePanel.tsx",
+      "path": "@/lib/medicalKnowledgeFactors",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/components/medical-knowledge/MedicalDraftReviewForm.tsx",
+      "path": "@/lib/medicalKnowledgeApi",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/components/medical-knowledge/MedicalDraftReviewForm.tsx",
+      "path": "@/lib/medicalKnowledgeApi",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/components/medical-knowledge/MedicalDraftWorkspace.tsx",
+      "path": "@/lib/api",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/components/medical-knowledge/MedicalDraftWorkspace.tsx",
+      "path": "@/lib/medicalKnowledgeApi",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/components/medical-knowledge/MedicalDraftWorkspace.tsx",
+      "path": "./MedicalDraftReviewForm",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/components/medical-knowledge/MedicalDraftWorkspace.tsx",
+      "path": "@/lib/medicalKnowledgeFactors",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/components/medical-knowledge/MedicalKnowledgeGeneralFactors.test.tsx",
+      "path": "@/lib/medicalKnowledgeFactors",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/components/medical-knowledge/MedicalKnowledgeGeneralFactors.test.tsx",
+      "path": "./PubMedSearchForm",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/components/medical-knowledge/MedicalKnowledgeGeneralFactors.test.tsx",
+      "path": "./MedicalTopicSourceLibrary",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/components/medical-knowledge/MedicalKnowledgeResearchPage.test.tsx",
+      "path": "@/lib/api",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/components/medical-knowledge/MedicalKnowledgeResearchPage.test.tsx",
+      "path": "@/lib/medicalKnowledgeApi",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/components/medical-knowledge/MedicalKnowledgeResearchPage.test.tsx",
+      "path": "./MedicalKnowledgeResearchPage",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/components/medical-knowledge/MedicalKnowledgeResearchPage.test.tsx",
+      "path": "@/lib/medicalKnowledgeApi",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/components/medical-knowledge/MedicalKnowledgeResearchPage.tsx",
+      "path": "../admin/AdminPageHeading",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/components/medical-knowledge/MedicalKnowledgeResearchPage.tsx",
+      "path": "@/app/contexts/AuthContext",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/components/medical-knowledge/MedicalKnowledgeResearchPage.tsx",
+      "path": "@/lib/medicalKnowledgeApi",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/components/medical-knowledge/MedicalKnowledgeResearchPage.tsx",
+      "path": "@/lib/medicalKnowledgeFactors",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/components/medical-knowledge/MedicalKnowledgeResearchPage.tsx",
+      "path": "./PubMedResults",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/components/medical-knowledge/MedicalKnowledgeResearchPage.tsx",
+      "path": "./PubMedSearchForm",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/components/medical-knowledge/MedicalKnowledgeResearchPage.tsx",
+      "path": "./WhoExactLookup",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/components/medical-knowledge/MedicalKnowledgeResearchPage.tsx",
+      "path": "./MedicalDraftWorkspace",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/components/medical-knowledge/MedicalKnowledgeResearchPage.tsx",
+      "path": "./ServiceConfigurationPanel",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/components/medical-knowledge/MedicalKnowledgeResearchPage.tsx",
+      "path": "./MedicalTopicSourceLibrary",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/components/medical-knowledge/MedicalKnowledgeResearchPage.tsx",
+      "path": "./AutoMedicalKnowledgePanel",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/components/medical-knowledge/MedicalKnowledgeResearchPage.tsx",
+      "path": "./MedicalTopicSelector",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/components/medical-knowledge/MedicalTopicSelector.tsx",
+      "path": "@/lib/medicalKnowledgeApi",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/components/medical-knowledge/MedicalTopicSelector.tsx",
+      "path": "@/lib/medicalKnowledgeFactors",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/components/medical-knowledge/MedicalTopicSourceLibrary.tsx",
+      "path": "@/lib/medicalKnowledgeApi",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/components/medical-knowledge/PubMedResultCard.tsx",
+      "path": "@/lib/medicalKnowledgeApi",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/components/medical-knowledge/PubMedResults.tsx",
+      "path": "@/lib/medicalKnowledgeApi",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/components/medical-knowledge/PubMedResults.tsx",
+      "path": "./PubMedResultCard",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/components/medical-knowledge/PubMedSearchForm.tsx",
+      "path": "@/lib/medicalKnowledgeApi",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/components/medical-knowledge/PubMedSearchForm.tsx",
+      "path": "@/lib/medicalKnowledgeFactors",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/components/medical-knowledge/PubMedSearchForm.tsx",
+      "path": "./MedicalTopicSelector",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/components/medical-knowledge/ServiceConfigurationPanel.test.tsx",
+      "path": "@/lib/api",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/components/medical-knowledge/ServiceConfigurationPanel.test.tsx",
+      "path": "./ServiceConfigurationPanel",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/components/medical-knowledge/ServiceConfigurationPanel.test.tsx",
+      "path": "@/lib/medicalKnowledgeApi",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/components/medical-knowledge/ServiceConfigurationPanel.tsx",
+      "path": "@/lib/medicalKnowledgeApi",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/components/medical-knowledge/WhoExactLookup.test.tsx",
+      "path": "@/lib/api",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/components/medical-knowledge/WhoExactLookup.test.tsx",
+      "path": "@/lib/medicalKnowledgeFactors",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/components/medical-knowledge/WhoExactLookup.test.tsx",
+      "path": "./WhoExactLookup",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/components/medical-knowledge/WhoExactLookup.tsx",
+      "path": "@/lib/api",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/components/medical-knowledge/WhoExactLookup.tsx",
+      "path": "@/lib/medicalKnowledgeApi",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/components/notifications/NotificationInbox.tsx",
+      "path": "@/lib/notifications",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/components/notifications/NotificationInbox.tsx",
+      "path": "@/lib/i18n",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/components/parent/ParentDiseaseCard.tsx",
+      "path": "@/lib/api",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/components/parent/ParentDiseaseCard.tsx",
+      "path": "@/lib/disease",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/components/parent/ParentDiseaseCard.tsx",
+      "path": "../weather-ai/tier1Presentation",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/components/parent/ParentDiseaseCard.tsx",
+      "path": "../weather-ai/WeatherAIResults",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/components/reports/ReportForm.tsx",
+      "path": "@/lib/reports",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/components/reports/ReportPreview.tsx",
+      "path": "@/lib/reports",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/components/reports/ReportPreview.tsx",
+      "path": "../admin/chartPalette",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/components/weather-ai/publishedMedicalKnowledge.test.tsx",
+      "path": "@/lib/api",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/components/weather-ai/publishedMedicalKnowledge.test.tsx",
+      "path": "./WeatherAIResults",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/components/weather-ai/publishedMedicalKnowledge.test.tsx",
+      "path": "./publishedMedicalKnowledge",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/components/weather-ai/publishedMedicalKnowledge.ts",
+      "path": "@/lib/api",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/components/weather-ai/tier1Presentation.test.tsx",
+      "path": "@/lib/api",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/components/weather-ai/tier1Presentation.test.tsx",
+      "path": "@/lib/i18n",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/components/weather-ai/tier1Presentation.test.tsx",
+      "path": "../../../../../seasonal_disease_backend/tests/fixtures/shap_explanation_before.json",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/components/weather-ai/tier1Presentation.test.tsx",
+      "path": "../../../../../weather_disease_ai_v3/shap_explanation_fix_v1/backend_after.json",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/components/weather-ai/tier1Presentation.test.tsx",
+      "path": "../../../../../weather_disease_ai_v3/shap_explanation_fix_v1/medical_selectors_before.json",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/components/weather-ai/tier1Presentation.test.tsx",
+      "path": "./tier1Presentation",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/components/weather-ai/tier1Presentation.test.tsx",
+      "path": "./publishedMedicalKnowledge",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/components/weather-ai/tier1Presentation.test.tsx",
+      "path": "../parent/ParentDiseaseCard",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/components/weather-ai/tier1Presentation.test.tsx",
+      "path": "./WeatherAIResults",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/components/weather-ai/tier1Presentation.ts",
+      "path": "@/lib/api",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/components/weather-ai/WeatherAIResults.test.tsx",
+      "path": "@/lib/api",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/components/weather-ai/WeatherAIResults.test.tsx",
+      "path": "./WeatherAIResults",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/components/weather-ai/WeatherAIResults.test.tsx",
+      "path": "./tier1Presentation",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/components/weather-ai/WeatherAIResults.tsx",
+      "path": "@/lib/api",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/components/weather-ai/WeatherAIResults.tsx",
+      "path": "@/lib/medicalKnowledgeFactors",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/components/weather-ai/WeatherAIResults.tsx",
+      "path": "./tier1Presentation",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/contexts/AuthContext.tsx",
+      "path": "@/lib/api",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/app/hooks/useUnreadNotifications.ts",
+      "path": "@/lib/notifications",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/i18n/resources.ts",
+      "path": "./locales/en",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/i18n/resources.ts",
+      "path": "./locales/vi",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/i18n/resources.ts",
+      "path": "./types",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/i18n/resources.ts",
+      "path": "./types",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/i18n/locales/en.ts",
+      "path": "../types",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/i18n/locales/vi.ts",
+      "path": "../types",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/lib/api.medicalKnowledgeErrors.test.ts",
+      "path": "./api",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/lib/areaInsightsCache.ts",
+      "path": "./api",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/lib/areaInsightsCache.ts",
+      "path": "./provinceRegions",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/lib/autoMedicalKnowledgePresentation.ts",
+      "path": "./medicalKnowledgeApi",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/lib/disease.test.ts",
+      "path": "./api",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/lib/disease.test.ts",
+      "path": "./disease",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/lib/disease.ts",
+      "path": "./api",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/lib/i18n.ts",
+      "path": "./preferences",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/lib/i18n.ts",
+      "path": "@/i18n/resources",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/lib/i18n.ts",
+      "path": "@/i18n/types",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/lib/importJobs.ts",
+      "path": "./api",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/lib/importJobs.ts",
+      "path": "./areaInsightsCache",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/lib/importJobs.ts",
+      "path": "./chartDataCache",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/lib/importJobs.ts",
+      "path": "./notifications",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/lib/importJobs.ts",
+      "path": "./weatherRiskCache",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/lib/medicalKnowledgeApi.regenerate.test.ts",
+      "path": "./medicalKnowledgeApi",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/lib/medicalKnowledgeApi.ts",
+      "path": "./api",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/lib/medicalKnowledgeApi.ts",
+      "path": "./medicalKnowledgeFactors",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/lib/medicalKnowledgeApi.ts",
+      "path": "./medicalKnowledgeFactors",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/lib/notifications.ts",
+      "path": "./api",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/lib/notifications.ts",
+      "path": "./preferences",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/lib/preferences.ts",
+      "path": "@/i18n/resources",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/lib/publishedMedicalKnowledgeApi.test.ts",
+      "path": "./api",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/lib/reports.test.ts",
+      "path": "./api",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/lib/reports.test.ts",
+      "path": "./reports",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/lib/reports.ts",
+      "path": "./api",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/lib/theme.ts",
+      "path": "./preferences",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/lib/weatherAIError.test.ts",
+      "path": "./api",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/lib/weatherRiskCache.ts",
+      "path": "./api",
+      "resolved": true,
+      "existed_before": true
+    },
+    {
+      "source": "Frontend/src/styles/nunito.test.mjs",
+      "path": "./nunito.css",
+      "resolved": true,
+      "existed_before": true
+    }
+  ],
+  "markdownLinks": [
+    {
+      "source_before": "admin_redesign/soft_healthcare_green_v1/admin_chart_visual_refinement_v1/REPORT.md",
+      "source_after": "project_archive/codex_evidence/admin_redesign/soft_healthcare_green_v1/admin_chart_visual_refinement_v1/REPORT.md",
+      "target": "AUDIT.md",
+      "existed_before": true,
+      "exists_after": true
+    },
+    {
+      "source_before": "admin_redesign/soft_healthcare_green_v1/admin_chart_visual_refinement_v1/REPORT.md",
+      "source_after": "project_archive/codex_evidence/admin_redesign/soft_healthcare_green_v1/admin_chart_visual_refinement_v1/REPORT.md",
+      "target": "scoped.diff",
+      "existed_before": true,
+      "exists_after": true
+    },
+    {
+      "source_before": "admin_redesign/soft_healthcare_green_v1/admin_double_scroll_fix_v2/ADMIN_DOUBLE_SCROLL_FIX_V2_REPORT.md",
+      "source_after": "admin_redesign/soft_healthcare_green_v1/admin_double_scroll_fix_v2/ADMIN_DOUBLE_SCROLL_FIX_V2_REPORT.md",
+      "target": "chrome-before-external-overflow-1440.png",
+      "existed_before": true,
+      "exists_after": true
+    },
+    {
+      "source_before": "admin_redesign/soft_healthcare_green_v1/admin_double_scroll_fix_v2/ADMIN_DOUBLE_SCROLL_FIX_V2_REPORT.md",
+      "source_after": "admin_redesign/soft_healthcare_green_v1/admin_double_scroll_fix_v2/ADMIN_DOUBLE_SCROLL_FIX_V2_REPORT.md",
+      "target": "chrome-after-main-end-1440.png",
+      "existed_before": true,
+      "exists_after": true
+    },
+    {
+      "source_before": "admin_redesign/soft_healthcare_green_v1/admin_double_scroll_fix_v2/ADMIN_DOUBLE_SCROLL_FIX_V2_REPORT.md",
+      "source_after": "admin_redesign/soft_healthcare_green_v1/admin_double_scroll_fix_v2/ADMIN_DOUBLE_SCROLL_FIX_V2_REPORT.md",
+      "target": "chrome-after-main-end-1280.png",
+      "existed_before": true,
+      "exists_after": true
+    },
+    {
+      "source_before": "admin_redesign/soft_healthcare_green_v1/admin_double_scroll_fix_v2/ADMIN_DOUBLE_SCROLL_FIX_V2_REPORT.md",
+      "source_after": "admin_redesign/soft_healthcare_green_v1/admin_double_scroll_fix_v2/ADMIN_DOUBLE_SCROLL_FIX_V2_REPORT.md",
+      "target": "chrome-after-main-end-768.png",
+      "existed_before": true,
+      "exists_after": true
+    },
+    {
+      "source_before": "admin_redesign/soft_healthcare_green_v1/admin_double_scroll_fix_v2/ADMIN_DOUBLE_SCROLL_FIX_V2_REPORT.md",
+      "source_after": "admin_redesign/soft_healthcare_green_v1/admin_double_scroll_fix_v2/ADMIN_DOUBLE_SCROLL_FIX_V2_REPORT.md",
+      "target": "chrome-after-main-end-390.png",
+      "existed_before": true,
+      "exists_after": true
+    },
+    {
+      "source_before": "admin_redesign/soft_healthcare_green_v1/admin_double_scroll_fix_v2/ADMIN_DOUBLE_SCROLL_FIX_V2_REPORT.md",
+      "source_after": "admin_redesign/soft_healthcare_green_v1/admin_double_scroll_fix_v2/ADMIN_DOUBLE_SCROLL_FIX_V2_REPORT.md",
+      "target": "chrome-after-portal-dialog-1440.png",
+      "existed_before": true,
+      "exists_after": true
+    },
+    {
+      "source_before": "admin_redesign/soft_healthcare_green_v1/final_demo_readiness_v1/REPORT.md",
+      "source_after": "admin_redesign/soft_healthcare_green_v1/final_demo_readiness_v1/REPORT.md",
+      "target": "pdf-validation/eureka-final-demo-readiness.pdf",
+      "existed_before": true,
+      "exists_after": true
+    },
+    {
+      "source_before": "admin_redesign/soft_healthcare_green_v1/final_demo_readiness_v1/REPORT.md",
+      "source_after": "admin_redesign/soft_healthcare_green_v1/final_demo_readiness_v1/REPORT.md",
+      "target": "MANUAL_CHROME_CHECKLIST.md",
+      "existed_before": true,
+      "exists_after": true
+    },
+    {
+      "source_before": "admin_redesign/soft_healthcare_green_v1/login_photo_carousel_v1/REPORT.md",
+      "source_after": "project_archive/codex_evidence/admin_redesign/soft_healthcare_green_v1/login_photo_carousel_v1/REPORT.md",
+      "target": "IMAGE_PROMPTS.json",
+      "existed_before": true,
+      "exists_after": true
+    },
+    {
+      "source_before": "admin_redesign/soft_healthcare_green_v1/login_photo_carousel_v1/REPORT.md",
+      "source_after": "project_archive/codex_evidence/admin_redesign/soft_healthcare_green_v1/login_photo_carousel_v1/REPORT.md",
+      "target": "asset_manifest.json",
+      "existed_before": true,
+      "exists_after": true
+    },
+    {
+      "source_before": "admin_redesign/soft_healthcare_green_v1/login_photo_carousel_v1/REPORT.md",
+      "source_after": "project_archive/codex_evidence/admin_redesign/soft_healthcare_green_v1/login_photo_carousel_v1/REPORT.md",
+      "target": "scoped.diff",
+      "existed_before": true,
+      "exists_after": true
+    },
+    {
+      "source_before": "admin_redesign/soft_healthcare_green_v1/permissions_management_redesign_v1/PERMISSIONS_MANAGEMENT_REDESIGN_REPORT.md",
+      "source_after": "project_archive/codex_evidence/admin_redesign/soft_healthcare_green_v1/permissions_management_redesign_v1/PERMISSIONS_MANAGEMENT_REDESIGN_REPORT.md",
+      "target": "PERMISSION_MATRIX.md",
+      "existed_before": true,
+      "exists_after": true
+    },
+    {
+      "source_before": "admin_redesign/soft_healthcare_green_v1/typography_controls_login_v1/REPORT.md",
+      "source_after": "project_archive/codex_evidence/admin_redesign/soft_healthcare_green_v1/typography_controls_login_v1/REPORT.md",
+      "target": "AUDIT.md",
+      "existed_before": true,
+      "exists_after": true
+    },
+    {
+      "source_before": "admin_redesign/soft_healthcare_green_v1/typography_controls_login_v1/REPORT.md",
+      "source_after": "project_archive/codex_evidence/admin_redesign/soft_healthcare_green_v1/typography_controls_login_v1/REPORT.md",
+      "target": "scoped.diff",
+      "existed_before": true,
+      "exists_after": true
+    },
+    {
+      "source_before": "weather_disease_ai_v3/shap_end_to_end_audit_v1/SHAP_END_TO_END_AUDIT_REPORT.md",
+      "source_after": "weather_disease_ai_v3/shap_end_to_end_audit_v1/SHAP_END_TO_END_AUDIT_REPORT.md",
+      "target": "ID6_45_FEATURES.md",
+      "existed_before": true,
+      "exists_after": true
+    },
+    {
+      "source_before": "weather_disease_ai_v3/shap_end_to_end_audit_v1/SHAP_END_TO_END_AUDIT_REPORT.md",
+      "source_after": "weather_disease_ai_v3/shap_end_to_end_audit_v1/SHAP_END_TO_END_AUDIT_REPORT.md",
+      "target": "backend_evidence.json",
+      "existed_before": true,
+      "exists_after": true
+    },
+    {
+      "source_before": "weather_disease_ai_v3/shap_end_to_end_audit_v1/SHAP_END_TO_END_AUDIT_REPORT.md",
+      "source_after": "weather_disease_ai_v3/shap_end_to_end_audit_v1/SHAP_END_TO_END_AUDIT_REPORT.md",
+      "target": "frontend_evidence.json",
+      "existed_before": true,
+      "exists_after": true
+    },
+    {
+      "source_before": "weather_disease_ai_v3/shap_end_to_end_audit_v1/SHAP_END_TO_END_AUDIT_REPORT.md",
+      "source_after": "weather_disease_ai_v3/shap_end_to_end_audit_v1/SHAP_END_TO_END_AUDIT_REPORT.md",
+      "target": "presentation_findings.json",
+      "existed_before": true,
+      "exists_after": true
+    },
+    {
+      "source_before": "weather_disease_ai_v3/shap_end_to_end_audit_v1/SHAP_END_TO_END_AUDIT_REPORT.md",
+      "source_after": "weather_disease_ai_v3/shap_end_to_end_audit_v1/SHAP_END_TO_END_AUDIT_REPORT.md",
+      "target": "ID6_45_FEATURES.md",
+      "existed_before": true,
+      "exists_after": true
+    },
+    {
+      "source_before": "weather_disease_ai_v3/shap_end_to_end_audit_v1/SHAP_END_TO_END_AUDIT_REPORT.md",
+      "source_after": "weather_disease_ai_v3/shap_end_to_end_audit_v1/SHAP_END_TO_END_AUDIT_REPORT.md",
+      "target": "safety_closure.json",
+      "existed_before": true,
+      "exists_after": true
+    }
+  ]
+}

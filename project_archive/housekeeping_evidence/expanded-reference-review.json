@@ -1,0 +1,374 @@
+{
+  "activeFilesScanned": 1360,
+  "references": [
+    {
+      "source": "README.md",
+      "target_group": "weather_disease_ai_v3/reports"
+    },
+    {
+      "source": "admin_redesign/soft_healthcare_green_v1/ADMIN_REDESIGN_REPORT.md",
+      "target_group": "weather_disease_ai_v3/reports"
+    },
+    {
+      "source": "Frontend/src/app/AppPages.tsx",
+      "target_group": "weather_disease_ai_v3/reports"
+    },
+    {
+      "source": "Frontend/src/app/navigation.ts",
+      "target_group": "weather_disease_ai_v3/reports"
+    },
+    {
+      "source": "Frontend/src/app/useAdminSectionNavigation.test.tsx",
+      "target_group": "weather_disease_ai_v3/reports"
+    },
+    {
+      "source": "Frontend/src/app/useAdminSectionNavigation.ts",
+      "target_group": "weather_disease_ai_v3/reports"
+    },
+    {
+      "source": "Frontend/src/app/components/DashboardOverview.tsx",
+      "target_group": "weather_disease_ai_v3/reports"
+    },
+    {
+      "source": "Frontend/src/app/components/DataImport.test.tsx",
+      "target_group": "weather_disease_ai_v3/reports"
+    },
+    {
+      "source": "Frontend/src/app/components/Forecast.test.tsx",
+      "target_group": "weather_disease_ai_v3/reports"
+    },
+    {
+      "source": "Frontend/src/app/components/Forecast.workspace.test.tsx",
+      "target_group": "weather_disease_ai_v3/reports"
+    },
+    {
+      "source": "Frontend/src/app/components/ParentDiseaseVisibilitySettings.test.tsx",
+      "target_group": "weather_disease_ai_v3/reports"
+    },
+    {
+      "source": "Frontend/src/app/components/ParentPortal.test.tsx",
+      "target_group": "weather_disease_ai_v3/shap_explanation_fix_v1"
+    },
+    {
+      "source": "Frontend/src/app/components/Reports.test.tsx",
+      "target_group": "weather_disease_ai_v3/reports"
+    },
+    {
+      "source": "Frontend/src/app/components/Reports.test.tsx",
+      "target_group": "output/pdf"
+    },
+    {
+      "source": "Frontend/src/app/components/Reports.tsx",
+      "target_group": "weather_disease_ai_v3/reports"
+    },
+    {
+      "source": "Frontend/src/app/components/Reports.tsx",
+      "target_group": "output/pdf"
+    },
+    {
+      "source": "Frontend/src/app/components/WeatherRisk.test.tsx",
+      "target_group": "weather_disease_ai_v3/reports"
+    },
+    {
+      "source": "Frontend/src/app/components/WeatherRisk.test.tsx",
+      "target_group": "weather_disease_ai_v3/shap_explanation_fix_v1"
+    },
+    {
+      "source": "Frontend/src/app/components/admin/AdminPages.regression.test.tsx",
+      "target_group": "weather_disease_ai_v3/reports"
+    },
+    {
+      "source": "Frontend/src/app/components/admin/AdminPageTitles.test.tsx",
+      "target_group": "weather_disease_ai_v3/reports"
+    },
+    {
+      "source": "Frontend/src/app/components/admin/AdminWeatherAIResults.test.tsx",
+      "target_group": "weather_disease_ai_v3/shap_explanation_fix_v1"
+    },
+    {
+      "source": "Frontend/src/app/components/admin/AdminWorkflows.content.test.tsx",
+      "target_group": "weather_disease_ai_v3/reports"
+    },
+    {
+      "source": "Frontend/src/app/components/admin/AdminWorkflows.content.test.tsx",
+      "target_group": "weather_disease_ai_v3/shap_explanation_fix_v1"
+    },
+    {
+      "source": "Frontend/src/app/components/admin/AdminWorkflows.content.test.tsx",
+      "target_group": "output/pdf"
+    },
+    {
+      "source": "Frontend/src/app/components/admin/BrandingVietnamese.test.tsx",
+      "target_group": "weather_disease_ai_v3/reports"
+    },
+    {
+      "source": "Frontend/src/app/components/admin/permissions/PermissionControls.tsx",
+      "target_group": "weather_disease_ai_v3/reports"
+    },
+    {
+      "source": "Frontend/src/app/components/forecast-workspace/useForecastWorkspace.ts",
+      "target_group": "weather_disease_ai_v3/reports"
+    },
+    {
+      "source": "Frontend/src/app/components/medical-knowledge/MedicalKnowledgeResearchPage.test.tsx",
+      "target_group": "weather_disease_ai_v3/reports"
+    },
+    {
+      "source": "Frontend/src/app/components/medical-knowledge/WhoExactLookup.test.tsx",
+      "target_group": "weather_disease_ai_v3/reports"
+    },
+    {
+      "source": "Frontend/src/app/components/reports/ReportForm.tsx",
+      "target_group": "weather_disease_ai_v3/reports"
+    },
+    {
+      "source": "Frontend/src/app/components/reports/ReportForm.tsx",
+      "target_group": "output/pdf"
+    },
+    {
+      "source": "Frontend/src/app/components/reports/ReportPreview.tsx",
+      "target_group": "weather_disease_ai_v3/reports"
+    },
+    {
+      "source": "Frontend/src/app/components/reports/ReportPreview.tsx",
+      "target_group": "output/pdf"
+    },
+    {
+      "source": "Frontend/src/app/components/weather-ai/tier1Presentation.test.tsx",
+      "target_group": "weather_disease_ai_v3/shap_explanation_fix_v1"
+    },
+    {
+      "source": "Frontend/src/i18n/locales/en.ts",
+      "target_group": "weather_disease_ai_v3/reports"
+    },
+    {
+      "source": "Frontend/src/i18n/locales/en.ts",
+      "target_group": "output/pdf"
+    },
+    {
+      "source": "Frontend/src/i18n/locales/vi.ts",
+      "target_group": "weather_disease_ai_v3/reports"
+    },
+    {
+      "source": "Frontend/src/i18n/locales/vi.ts",
+      "target_group": "output/pdf"
+    },
+    {
+      "source": "Frontend/src/lib/api.ts",
+      "target_group": "weather_disease_ai_v3/reports"
+    },
+    {
+      "source": "Frontend/src/lib/disease.ts",
+      "target_group": "weather_disease_ai_v3/reports"
+    },
+    {
+      "source": "Frontend/src/lib/reports.test.ts",
+      "target_group": "weather_disease_ai_v3/reports"
+    },
+    {
+      "source": "Frontend/src/lib/reports.test.ts",
+      "target_group": "output/pdf"
+    },
+    {
+      "source": "Frontend/src/lib/reports.ts",
+      "target_group": "weather_disease_ai_v3/reports"
+    },
+    {
+      "source": "Frontend/src/lib/reports.ts",
+      "target_group": "output/pdf"
+    },
+    {
+      "source": "seasonal_disease_backend/app/auto_medical_knowledge_schemas.py",
+      "target_group": "weather_disease_ai_v3/reports"
+    },
+    {
+      "source": "seasonal_disease_backend/app/main.py",
+      "target_group": "weather_disease_ai_v3/reports"
+    },
+    {
+      "source": "seasonal_disease_backend/app/permissions.py",
+      "target_group": "weather_disease_ai_v3/reports"
+    },
+    {
+      "source": "seasonal_disease_backend/app/report_schemas.py",
+      "target_group": "output/pdf"
+    },
+    {
+      "source": "seasonal_disease_backend/app/routers/dashboard.py",
+      "target_group": "weather_disease_ai_v3/reports"
+    },
+    {
+      "source": "seasonal_disease_backend/app/routers/reports.py",
+      "target_group": "weather_disease_ai_v3/reports"
+    },
+    {
+      "source": "seasonal_disease_backend/app/routers/reports.py",
+      "target_group": "output/pdf"
+    },
+    {
+      "source": "seasonal_disease_backend/app/services/auto_medical_knowledge_prompt.py",
+      "target_group": "weather_disease_ai_v3/reports"
+    },
+    {
+      "source": "seasonal_disease_backend/app/services/medical_knowledge_prompt.py",
+      "target_group": "weather_disease_ai_v3/reports"
+    },
+    {
+      "source": "seasonal_disease_backend/app/services/report_export.py",
+      "target_group": "output/pdf"
+    },
+    {
+      "source": "seasonal_disease_backend/app/services/report_store.py",
+      "target_group": "output/pdf"
+    },
+    {
+      "source": "seasonal_disease_backend/tests/test_auto_medical_knowledge.py",
+      "target_group": "weather_disease_ai_v3/reports"
+    },
+    {
+      "source": "seasonal_disease_backend/tests/test_medical_knowledge_general_factors.py",
+      "target_group": "weather_disease_ai_v3/reports"
+    },
+    {
+      "source": "seasonal_disease_backend/tests/test_reports_management.py",
+      "target_group": "weather_disease_ai_v3/reports"
+    },
+    {
+      "source": "seasonal_disease_backend/tests/test_reports_management.py",
+      "target_group": "output/pdf"
+    },
+    {
+      "source": "seasonal_disease_backend/tests/test_reports_pdf_layout.py",
+      "target_group": "output/pdf"
+    },
+    {
+      "source": "seasonal_disease_backend/tests/test_shap_explanation_correctness.py",
+      "target_group": "weather_disease_ai_v3/shap_explanation_fix_v1"
+    },
+    {
+      "source": "seasonal_disease_backend/tests/test_user_administration.py",
+      "target_group": "weather_disease_ai_v3/reports"
+    },
+    {
+      "source": "weather_disease_ai_v2/README.md",
+      "target_group": "weather_disease_ai_v3/reports"
+    },
+    {
+      "source": "weather_disease_ai_v2/reports/DATA_PREPARATION_REPORT.md",
+      "target_group": "weather_disease_ai_v3/reports"
+    },
+    {
+      "source": "weather_disease_ai_v2/reports/MODEL_EVALUATION_SUMMARY.md",
+      "target_group": "weather_disease_ai_v3/reports"
+    },
+    {
+      "source": "weather_disease_ai_v2/reports/MODEL_TRAINING_REPORT.md",
+      "target_group": "weather_disease_ai_v3/reports"
+    },
+    {
+      "source": "weather_disease_ai_v2/scripts/02_audit_data.py",
+      "target_group": "weather_disease_ai_v3/reports"
+    },
+    {
+      "source": "weather_disease_ai_v2/scripts/04_train_model.py",
+      "target_group": "weather_disease_ai_v3/reports"
+    },
+    {
+      "source": "weather_disease_ai_v2/scripts/05_evaluate_model.py",
+      "target_group": "weather_disease_ai_v3/reports"
+    },
+    {
+      "source": "weather_disease_ai_v2/scripts/prepare_workspace.py",
+      "target_group": "weather_disease_ai_v3/reports"
+    },
+    {
+      "source": "weather_disease_ai_v3/benchmarks/pretrain_model_selection/benchmark_models.py",
+      "target_group": "weather_disease_ai_v3/reports"
+    },
+    {
+      "source": "weather_disease_ai_v3/benchmarks/pretrain_model_selection/BENCHMARK_REPORT.md",
+      "target_group": "weather_disease_ai_v3/reports"
+    },
+    {
+      "source": "weather_disease_ai_v3/experiments/h3_h14_full_train/train_h3_h14.py",
+      "target_group": "weather_disease_ai_v3/reports"
+    },
+    {
+      "source": "weather_disease_ai_v3/explainability/lightgbm_h14_final/build_explainability.py",
+      "target_group": "weather_disease_ai_v3/final_test"
+    },
+    {
+      "source": "weather_disease_ai_v3/explainability/lightgbm_h14_final/EXPLAINABILITY_REPORT.md",
+      "target_group": "weather_disease_ai_v3/final_test"
+    },
+    {
+      "source": "weather_disease_ai_v3/explainability/lightgbm_h14_final/runtime_deps/llvmlite/tests/test_binding.py",
+      "target_group": "weather_disease_ai_v3/reports"
+    },
+    {
+      "source": "weather_disease_ai_v3/explainability/lightgbm_h14_final/runtime_deps/numba/__init__.py",
+      "target_group": "weather_disease_ai_v3/reports"
+    },
+    {
+      "source": "weather_disease_ai_v3/explainability/lightgbm_h14_final/runtime_deps/numba/core/codegen.py",
+      "target_group": "output/pdf"
+    },
+    {
+      "source": "weather_disease_ai_v3/explainability/lightgbm_h14_final/runtime_deps/numba/core/controlflow.py",
+      "target_group": "output/pdf"
+    },
+    {
+      "source": "weather_disease_ai_v3/explainability/lightgbm_h14_final/runtime_deps/numba/core/ssa.py",
+      "target_group": "output/pdf"
+    },
+    {
+      "source": "weather_disease_ai_v3/explainability/lightgbm_h14_final/runtime_deps/numba/core/untyped_passes.py",
+      "target_group": "weather_disease_ai_v3/reports"
+    },
+    {
+      "source": "weather_disease_ai_v3/explainability/lightgbm_h14_final/runtime_deps/numba/cuda/cudadrv/devicearray.py",
+      "target_group": "weather_disease_ai_v3/reports"
+    },
+    {
+      "source": "weather_disease_ai_v3/explainability/lightgbm_h14_final/runtime_deps/numba/np/linalg.py",
+      "target_group": "weather_disease_ai_v3/reports"
+    },
+    {
+      "source": "weather_disease_ai_v3/explainability/lightgbm_h14_final/runtime_deps/numba/parfors/parfor.py",
+      "target_group": "weather_disease_ai_v3/reports"
+    },
+    {
+      "source": "weather_disease_ai_v3/explainability/lightgbm_h14_final/runtime_deps/numba/tests/test_caching.py",
+      "target_group": "weather_disease_ai_v3/reports"
+    },
+    {
+      "source": "weather_disease_ai_v3/explainability/lightgbm_h14_final/runtime_deps/numba/tests/test_parallel_backend.py",
+      "target_group": "weather_disease_ai_v3/reports"
+    },
+    {
+      "source": "weather_disease_ai_v3/explainability/lightgbm_h14_final/runtime_deps/numba/tests/test_parfors.py",
+      "target_group": "weather_disease_ai_v3/reports"
+    },
+    {
+      "source": "weather_disease_ai_v3/explainability/lightgbm_h14_final/runtime_deps/numba/tests/test_refop_pruning.py",
+      "target_group": "weather_disease_ai_v3/reports"
+    },
+    {
+      "source": "weather_disease_ai_v3/explainability/lightgbm_h14_final/runtime_deps/numba/tests/test_sys_monitoring.py",
+      "target_group": "weather_disease_ai_v3/reports"
+    },
+    {
+      "source": "weather_disease_ai_v3/explainability/lightgbm_h14_final/runtime_deps/numba/tests/test_target_extension.py",
+      "target_group": "weather_disease_ai_v3/reports"
+    },
+    {
+      "source": "weather_disease_ai_v3/explainability/lightgbm_h14_final/runtime_deps/shap/benchmark/plots.py",
+      "target_group": "output/pdf"
+    },
+    {
+      "source": "weather_disease_ai_v3/src/data_pipeline.py",
+      "target_group": "weather_disease_ai_v3/reports"
+    }
+  ],
+  "sensitiveMarkersPathsOnly": []
+}

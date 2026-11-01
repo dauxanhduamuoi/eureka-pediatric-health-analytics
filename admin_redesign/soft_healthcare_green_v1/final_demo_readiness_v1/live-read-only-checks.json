@@ -1,0 +1,91 @@
+{
+  "checks": [
+    {
+      "url": "http://127.0.0.1:8000/",
+      "status": 200,
+      "expected": 200,
+      "pass": true,
+      "ms": 43
+    },
+    {
+      "url": "http://127.0.0.1:8000/openapi.json",
+      "status": 200,
+      "expected": 200,
+      "pass": true,
+      "ms": 443
+    },
+    {
+      "url": "http://localhost:5173/",
+      "status": 200,
+      "expected": 200,
+      "pass": true,
+      "ms": 46
+    },
+    {
+      "url": "http://localhost:5173/phu-huynh",
+      "status": 200,
+      "expected": 200,
+      "pass": true,
+      "ms": 28
+    },
+    {
+      "url": "http://localhost:5173/?section=weather-risk",
+      "status": 200,
+      "expected": 200,
+      "pass": true,
+      "ms": 30
+    },
+    {
+      "url": "http://127.0.0.1:8000/api/auth/me",
+      "status": 401,
+      "expected": 401,
+      "pass": true,
+      "ms": 599
+    },
+    {
+      "url": "http://127.0.0.1:8000/api/admin/users",
+      "status": 401,
+      "expected": 401,
+      "pass": true,
+      "ms": 2
+    },
+    {
+      "url": "http://127.0.0.1:8000/api/dashboard/overview",
+      "status": 401,
+      "expected": 401,
+      "pass": true,
+      "ms": 20
+    },
+    {
+      "url": "http://127.0.0.1:8000/api/forecast/results",
+      "status": 401,
+      "expected": 401,
+      "pass": true,
+      "ms": 16
+    },
+    {
+      "url": "http://127.0.0.1:8000/api/import/job-status",
+      "status": 401,
+      "expected": 401,
+      "pass": true,
+      "ms": 15
+    },
+    {
+      "url": "http://127.0.0.1:8000/api/reports/options",
+      "status": 401,
+      "expected": 401,
+      "pass": true,
+      "ms": 15
+    },
+    {
+      "url": "http://127.0.0.1:8000/api/weather-ai/status",
+      "status": 401,
+      "expected": 401,
+      "pass": true,
+      "ms": 2
+    }
+  ],
+  "authenticated_requests": false,
+  "no_login_no_session_mutation": true,
+  "browser_e2e": false
+}

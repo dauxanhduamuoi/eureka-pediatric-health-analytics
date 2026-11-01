@@ -1,0 +1,179 @@
+/* Main content only. Shell, Parent and the selected font are intentionally outside this scope. */
+.eureka-admin .admin-page {
+  --content-gap: 20px;
+  --content-padding: 20px;
+}
+.admin-page-stack { display: flex; flex-direction: column; gap: var(--content-gap); }
+.admin-page-stack > * { margin-block: 0 !important; min-width: 0; }
+.admin-page-context { display: flex; flex-wrap: wrap; align-items: flex-start; justify-content: space-between; gap: 8px 16px; min-width: 0; }
+.admin-page-context > p { color: var(--admin-muted); font-size: 12px; line-height: 1.65; max-width: 80ch; }
+.eureka-admin .admin-page .admin-page-heading { margin-bottom: 0; align-items: center; gap: 11px; }
+.eureka-admin .admin-page .admin-heading-icon { width: 36px; height: 36px; border-radius: 10px; }
+.eureka-admin .admin-page .admin-heading-icon > svg { width: 19px; height: 19px; }
+.eureka-admin .admin-page .admin-heading-copy h2 { font-size: 21px; letter-spacing: -.25px; }
+.eureka-admin .admin-page .admin-heading-copy > p { margin-top: 4px; max-width: 80ch; font-size: 12px; }
+:root .eureka-admin .admin-page .admin-content-section { padding: var(--content-padding); }
+.admin-section-header { display: flex; gap: 10px; align-items: flex-start; flex-wrap: wrap; margin-bottom: 16px; }
+.admin-section-icon { display: grid; place-items: center; width: 30px; height: 30px; border-radius: 8px; background: var(--admin-mint); color: var(--admin-accent-ink); flex-shrink: 0; }
+.admin-section-header h3 { font-size: 15px; line-height: 1.5; }
+.admin-section-header p { margin-top: 3px; line-height: 1.6; max-width: 80ch; }
+.admin-section-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; }
+.admin-section-content { min-width: 0; }
+.admin-toolbar { display: flex; flex-wrap: wrap; align-items: center; gap: 10px 16px; padding: 12px 16px; background: var(--admin-surface); border: 1px solid var(--admin-border); border-radius: 12px; }
+.admin-toolbar > label, .admin-filter-field { display: flex; align-items: center; gap: 8px; font-size: 12px; color: var(--admin-muted); }
+.admin-toolbar :is(select, input) { font-size: 12px; }
+.admin-toolbar :is(select, input):not([type='checkbox']) { min-height: 34px; }
+.admin-toolbar-label { font-size: 12px; font-weight: 600; color: var(--admin-ink); }
+.admin-chart-caption { margin: 0 0 12px; color: var(--admin-muted); font-size: 12px; line-height: 1.65; max-width: 90ch; }
+.admin-chart-frame { min-width: 0; width: 100%; }
+.admin-chart-legend { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(190px, 100%), 1fr)); gap: 9px 16px; max-height: 128px; overflow-y: auto; padding: 12px 4px 3px; margin-top: 8px; border-top: 1px solid var(--admin-border); font-size: 11px; }
+.admin-chart-legend > li { display: flex; align-items: flex-start; gap: 7px; min-width: 0; }
+.admin-chart-legend li > span:not(.admin-legend-dot) { min-width: 0; overflow-wrap: anywhere; }
+.admin-legend-dot { width: 8px; height: 8px; margin-top: 4px; border-radius: 2px; flex-shrink: 0; }
+.admin-chart-legend strong { font-weight: 600; line-height: 1.5; }
+.admin-chart-legend small { display: block; font-size: 10px; line-height: 1.5; color: var(--admin-muted); }
+/* Only the refined chart legend grows naturally for five series; legacy dense
+   legends keep their existing scrolling behaviour. */
+.eureka-admin .admin-line-legend { grid-template-columns: repeat(auto-fit, minmax(min(180px, 100%), 1fr)); gap: 12px 18px; max-height: none; overflow: visible; padding: 14px 0 0; margin-top: 12px; }
+.eureka-admin .admin-line-sample { flex: 0 0 28px; margin-top: 4px; }
+.eureka-admin .admin-refined-chart { min-width: 0; }
+.eureka-admin .admin-refined-tooltip { max-width: 360px; padding: 12px 14px; border: 1px solid var(--admin-border); border-radius: 10px; background: var(--admin-surface); color: var(--admin-ink); box-shadow: var(--admin-shadow); white-space: normal; overflow-wrap: anywhere; font-size: var(--admin-font-label); line-height: 1.5; }
+.eureka-admin .admin-refined-tooltip ul { display: grid; gap: 10px; list-style: none; padding: 0; margin: 8px 0 0; }
+.eureka-admin .admin-refined-tooltip li { display: flex; align-items: flex-start; gap: 8px; }
+.eureka-admin .admin-refined-tooltip li > span { min-width: 0; }
+.eureka-admin .admin-refined-tooltip small { display: block; color: var(--admin-muted); }
+.eureka-admin .admin-refined-tooltip li strong { display: block; margin-top: 2px; font-weight: 600; }
+.admin-metric-strip { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); background: var(--admin-surface); border: 1px solid var(--admin-border); border-radius: 12px; overflow: hidden; }
+:root .eureka-admin .admin-page .admin-kpi { padding: 16px !important; }
+:root .eureka-admin .admin-page .admin-kpi p.text-2xl { font-size: 23px; font-weight: 700 !important; }
+.eureka-admin .admin-page .admin-kpi-icon { padding: 8px; border-radius: 8px; }
+:root .eureka-admin .admin-page .admin-metric-strip > .admin-kpi { border: 0 !important; border-radius: 0 !important; box-shadow: none !important; background: transparent !important; }
+.admin-metric-strip > .admin-kpi + .admin-kpi { box-shadow: inset 1px 0 var(--admin-border) !important; }
+.admin-metric-strip > .admin-kpi::before { display: none; }
+.admin-metric-strip .admin-kpi-icon { background: transparent; padding: 0; }
+.admin-dashboard-charts { gap: var(--content-gap); }
+.eureka-admin .admin-dashboard-content .admin-dashboard-charts { display: grid; grid-template-columns: minmax(0, 1fr); align-items: start; }
+.admin-dashboard-left-column { display: contents; }
+.admin-dashboard-period { order: 0; }
+.admin-dashboard-top { order: 1; }
+.admin-dashboard-year { order: 2; }
+.eureka-admin .admin-dashboard-ranking { display: grid; gap: 12px; list-style: none; margin: 0; padding: 0; }
+.admin-dashboard-ranking > li { display: flex; align-items: baseline; gap: 8px; min-width: 0; border-radius: 4px; }
+.admin-dashboard-rank { flex: 0 0 18px; color: var(--admin-muted); font-size: 11px; font-variant-numeric: tabular-nums; }
+.admin-dashboard-rank-content { flex: 1; min-width: 0; }
+.admin-dashboard-rank-heading { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: baseline; gap: 3px 12px; font-size: 12px; }
+.admin-dashboard-rank-label { flex: 1 1 150px; min-width: 0; overflow-wrap: anywhere; }
+.admin-dashboard-rank-label strong { font-weight: 600; line-height: 1.5; }
+.admin-dashboard-rank-label small { display: block; color: var(--admin-muted); line-height: 1.5; font-size: 10px; }
+.admin-dashboard-rank-value { color: var(--admin-ink); font-weight: 700; font-variant-numeric: tabular-nums; white-space: nowrap; }
+.admin-dashboard-rank-value small { color: var(--admin-muted); font-size: 10px; font-weight: 400; }
+.admin-dashboard-rank-track { height: 6px; margin-top: 5px; border-radius: 4px; background: var(--admin-subtle); overflow: hidden; }
+.admin-dashboard-rank-track > span { display: block; height: 100%; border-radius: inherit; background: var(--admin-primary); }
+.admin-dashboard-top-groups { container-type: inline-size; min-width: 0; }
+.admin-dashboard-top-header { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 10px; margin-bottom: 8px; }
+.admin-dashboard-chart-toggle { display: inline-flex; flex-wrap: wrap; gap: 2px; max-width: 100%; padding: 3px; border: 1px solid var(--admin-border); border-radius: 9px; background: var(--admin-subtle); }
+:root .eureka-admin .admin-dashboard-chart-toggle > button { min-height: 30px; padding: 4px 8px; border-radius: 6px; color: var(--admin-muted); font-size: 11px; line-height: 1.5; }
+:root .eureka-admin .admin-dashboard-chart-toggle > button:hover { color: var(--admin-ink); background: var(--admin-mint); }
+:root .eureka-admin .admin-dashboard-chart-toggle > button[aria-pressed='true'] { color: var(--admin-accent-ink); background: var(--admin-mint); font-weight: 700; }
+.admin-dashboard-donut-layout { display: grid; grid-template-columns: minmax(0, 1fr); gap: 12px; align-items: center; }
+.admin-dashboard-donut-layout > * { min-width: 0; }
+.admin-dashboard-donut-plot { width: 100%; min-width: 0; }
+.admin-dashboard-donut-layout .admin-dashboard-ranking { gap: 9px; }
+.admin-dashboard-donut-swatch { width: 8px; height: 8px; flex: 0 0 8px; border-radius: 2px; align-self: flex-start; margin-top: 5px; }
+.admin-dashboard-donut-tooltip { width: 250px; max-width: 100%; padding: 10px 12px; border: 1px solid var(--admin-border); border-radius: 10px; background: var(--admin-surface); color: var(--admin-ink); font-size: 12px; overflow-wrap: anywhere; }
+.admin-dashboard-donut-tooltip strong, .admin-dashboard-donut-tooltip small { display: block; line-height: 1.5; }
+.admin-dashboard-donut-tooltip small { color: var(--admin-muted); font-size: 10px; }
+.admin-dashboard-donut-tooltip p { margin-block: 5px; font-variant-numeric: tabular-nums; }
+.admin-dashboard-donut-unavailable { display: grid; place-items: center; width: 180px; height: 180px; max-width: 100%; margin: 25px auto; border: 26px solid var(--admin-subtle); border-radius: 50%; color: var(--admin-muted); }
+@container (min-width: 560px) {
+  .admin-dashboard-donut-layout { grid-template-columns: minmax(0, .85fr) minmax(0, 1.15fr); gap: 20px; }
+}
+@media (min-width: 1100px) {
+  .eureka-admin .admin-dashboard-content .admin-dashboard-charts { grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr); }
+  .admin-dashboard-left-column { display: flex; flex-direction: column; gap: var(--content-gap); min-width: 0; }
+}
+.admin-year-coverage-list { display: grid; gap: 5px; }
+.admin-year-coverage-list > div { display: flex; flex-wrap: wrap; gap: 4px 12px; padding: 4px 0; background: transparent; box-shadow: none; }
+.admin-year-coverage-list > div > div { margin-top: 0; font-size: var(--admin-font-label); }
+.admin-year-warning { display: flex; align-items: flex-start; gap: 10px; margin-top: 12px; padding: 10px 12px; font-size: var(--admin-font-label); line-height: var(--admin-leading-body); }
+.admin-year-warning > svg { flex-shrink: 0; margin-top: 3px; }
+.admin-year-warning > div { min-width: 0; overflow-wrap: anywhere; }
+.admin-year-warning h4 { margin-bottom: 4px; }
+.admin-dashboard-charts > *, .admin-analysis-charts > * { min-width: 0; }
+.admin-details { border: 1px solid var(--admin-border); border-radius: 12px; background: var(--admin-surface); min-width: 0; }
+.admin-details > summary { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 14px 18px; cursor: pointer; list-style: none; font-size: 13px; font-weight: 600; }
+.admin-details > summary::-webkit-details-marker { display: none; }
+.admin-details[open] > summary { border-bottom: 1px solid var(--admin-border); }
+.admin-details[open] > summary > svg { transform: rotate(180deg); }
+.admin-details-body { padding: 16px; min-width: 0; }
+.admin-details-body > .admin-surface { border: 0 !important; box-shadow: none !important; padding: 0 !important; }
+.admin-details-body > .admin-surface + .admin-surface { margin-top: 20px; }
+.admin-scope-note { padding: 10px 14px; border-left: 3px solid var(--admin-border); color: var(--admin-muted); background: var(--admin-subtle); font-size: 12px; line-height: 1.7; }
+.admin-season-summary { border: 1px solid var(--admin-border); border-radius: 12px; background: var(--admin-surface); overflow: hidden; }
+.admin-season-metrics { display: grid; grid-template-columns: 1.05fr 1.15fr 1fr; }
+.admin-season-metrics > div { padding: 17px 18px; }
+.admin-season-metrics > div + div { border-left: 1px solid var(--admin-border); }
+.admin-season-metrics dt { color: var(--admin-muted); font-size: 12px; line-height: 1.5; }
+.admin-season-metrics dd { margin-top: 9px; font-size: 23px; font-weight: 700; line-height: 1.3; }
+.admin-season-metrics dd small { font-size: 12px; font-weight: 400; color: var(--admin-muted); }
+.admin-season-metrics p { margin-top: 7px; font-size: 11px; color: var(--admin-muted); line-height: 1.6; }
+.admin-season-metrics .admin-unavailable-value { font-size: 16px; font-weight: 600; line-height: 1.6; }
+.admin-scope-warning { padding: 10px 16px; border-top: 1px solid #f5ddb6; background: #fffbeb; color: #854d0e; font-size: 12px; line-height: 1.65; }
+.admin-season-charts { display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr); gap: var(--content-gap); align-items: start; }
+.admin-analysis-filters .admin-page-heading { flex: 1; }
+.admin-analysis-filters .admin-heading-copy h2 { font-size: 20px; }
+.admin-analysis-charts { gap: var(--content-gap); }
+.admin-weather-workspace { display: grid; grid-template-columns: minmax(280px, .78fr) minmax(0, 1.45fr); gap: var(--content-gap); align-items: start; }
+.admin-weather-result { min-width: 0; display: flex; flex-direction: column; gap: 16px; }
+.admin-weather-inputs { min-width: 0; }
+.admin-weather-inputs .admin-input-title { font-size: 14px; font-weight: 600; margin-bottom: 16px; }
+.admin-weather-metrics { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
+.admin-visibility-toolbar { display: flex; flex-wrap: wrap; align-items: center; gap: 12px; padding-bottom: 14px; border-bottom: 1px solid var(--admin-border); }
+.admin-visibility-list { max-height: 65vh; overflow: auto; }
+.admin-visibility-row { padding: 14px 4px; }
+.admin-report-workspace { display: grid; grid-template-columns: minmax(0, 1.35fr) minmax(260px, .7fr); gap: var(--content-gap); align-items: start; }
+.admin-report-templates { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; }
+.admin-report-templates button { padding: 12px; }
+.admin-permissions-layout { display: grid; grid-template-columns: minmax(0, 1fr) minmax(260px, 320px); gap: 18px; align-items: start; }
+.admin-permissions-layout > :first-child { grid-column: auto; }
+.admin-permission-groups { display: grid; gap: 12px; }
+.admin-permission-groups > div { border: 1px solid var(--admin-border); border-radius: 9px; padding: 12px; }
+.admin-settings-layout { display: grid; grid-template-columns: minmax(0, 1.3fr) minmax(0, .9fr); gap: var(--content-gap); align-items: start; }
+.admin-settings-actions { padding: 12px 0; flex-wrap: wrap; }
+.admin-account-layout { gap: var(--content-gap); }
+.admin-research-workspace { display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(340px, .85fr); gap: 18px; align-items: start; }
+.admin-medical-content { container-type: inline-size; }
+.admin-medical-content .admin-medical-hero { padding: 18px; gap: 16px; }
+.admin-medical-content .admin-medical-hero h1 { font-size: 21px; }
+.admin-medical-content .admin-medical-hero .admin-heading-icon, .admin-medical-content .admin-medical-eyebrow { display: none; }
+.admin-medical-content .admin-medical-metric { padding: 8px 12px; }
+.admin-medical-content :is(article, section) { min-width: 0; }
+.admin-medical-content :is(p, a) { overflow-wrap: anywhere; }
+.admin-medical-content .admin-workspace-tabs { display: flex; flex-wrap: wrap; padding: 8px; gap: 6px; }
+.admin-medical-content .admin-workspace-tabs > button { flex: 1; }
+.admin-medical-content .admin-workspace-tabs strong { white-space: normal; }
+.admin-auto-knowledge { display: flex; flex-direction: column; gap: 16px; }
+.admin-auto-knowledge > * { margin-top: 0 !important; }
+.admin-auto-topic-metrics { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 10px; }
+.admin-auto-topic-metrics > div { padding: 12px; }
+.admin-auto-topic-metrics p { margin-top: 6px; }
+.admin-auto-queues { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; align-items: start; }
+@container (max-width: 1050px) {
+  .admin-research-workspace { grid-template-columns: minmax(0, 1fr); }
+}
+@media (max-width: 1279px) {
+  .admin-weather-workspace, .admin-season-charts, .admin-permissions-layout { grid-template-columns: minmax(0, 1fr); }
+  .admin-auto-queues { grid-template-columns: minmax(0, 1fr); }
+  .admin-report-templates { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 767px) {
+  .eureka-admin .admin-page { --content-padding: 16px; --content-gap: 16px; }
+  .admin-metric-strip { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .admin-season-metrics, .admin-settings-layout, .admin-report-workspace { grid-template-columns: minmax(0, 1fr); }
+  .admin-season-metrics > div + div { border-left: 0; border-top: 1px solid var(--admin-border); }
+  .admin-toolbar > label, .admin-toolbar > .admin-filter-field { flex: 1 1 140px; justify-content: space-between; }
+  .admin-toolbar > button { margin-left: 0; }
+  .admin-chart-legend { grid-template-columns: minmax(0, 1fr); }
+  .admin-report-templates { grid-template-columns: minmax(0, 1fr); }
+  .admin-auto-topic-metrics { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}

@@ -1,0 +1,35 @@
+{
+  "status": "PASS_WITH_FINDINGS",
+  "rootReadmes": [
+    "README.md"
+  ],
+  "protectedUnchanged": 2200,
+  "modelsUnchanged": 221,
+  "forecastModelHashUnchanged": true,
+  "v1ManifestUnchanged": true,
+  "v2ManifestRows": 81,
+  "movedFiles": 80,
+  "copiedHistoricalOriginals": 1,
+  "additionalEvidenceBundles": 3,
+  "additionalEvidenceFiles": 72,
+  "cacheFilesArchived": 5,
+  "documentLinksChecked": 145,
+  "newBrokenLinks": 0,
+  "frontendLocalImports": 569,
+  "backendModulesParsed": 94,
+  "backendLocalImports": 311,
+  "historicalScriptSyntaxChecks": 4,
+  "historicalScriptsExecuted": false,
+  "runtimeOrBusinessSourceChanged": false,
+  "gitIndexUnchanged": true,
+  "newTrackedDeletions": [
+    "README_RUN_FIXED.md",
+    "README_IMPORT_AND_MODEL_DATA.md",
+    "README_MODEL_TRAIN_EXCEL.md"
+  ],
+  "unrelatedGitStatusChanges": 0,
+  "fullTestsBuildOrBrowserRun": false,
+  "freshInstallVerified": false,
+  "remainingReviewBundlesOfV1": 19,
+  "activeFixtureAndDataReportBundlesRetained": 2
+}

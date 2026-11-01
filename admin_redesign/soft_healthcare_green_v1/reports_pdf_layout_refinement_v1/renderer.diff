@@ -1,0 +1,66 @@
+--- before/report_export.py
++++ after/report_export.py
+@@ -42,6 +42,13 @@
+     def __init__(self, chart, width=495):
+         super().__init__(); self.chart = chart; self.width = width; self.height = 195
+ 
++    def direct_labels(self):
++        # Use the actual plot slot, not character counts or the browser width.
++        slot = (self.width - 56) / max(len(self.chart['labels']), 1)
++        return self.chart['kind'] == 'line' or all(
++            '\n' not in label and pdfmetrics.stringWidth(label, 'ReportNunito', 8) <= slot - 12
++            for label in self.chart['labels'])
++
+     def draw(self):
+         c = self.canv; x0, y0, plot_w, plot_h = 44, 27, self.width - 56, 143
+         count = len(self.chart['labels']); series = self.chart['series']
+@@ -55,9 +62,10 @@
+             y = y0 + plot_h * step / 4; c.line(x0, y, x0 + plot_w, y)
+             c.setFillColor(INK); c.drawRightString(x0 - 7, y - 3, f'{maximum * step / 4:,.0f}')
+         slot = plot_w / max(count, 1)
++        direct_labels = self.direct_labels()
+         for index, label in enumerate(self.chart['labels']):
+             x = x0 + slot * (index + .5)
+-            text = label if self.chart['kind'] == 'line' else str(index + 1)
++            text = label if direct_labels else str(index + 1)
+             if count <= 12 or index in (0, count - 1) or index % max(1, count // 6) == 0:
+                 c.drawCentredString(x, y0 - 15, text)
+         for series_index, item in enumerate(series):
+@@ -83,9 +91,9 @@
+             pdfmetrics.registerFont(TTFont('ReportNunito', str(FONT_ROOT / 'Nunito-Regular.ttf')))
+             pdfmetrics.registerFont(TTFont('ReportNunitoBold', str(FONT_ROOT / 'Nunito-Bold.ttf')))
+         body = ParagraphStyle('ReportBody', fontName='ReportNunito', fontSize=9.3, leading=13.2, textColor=INK, spaceAfter=4, splitLongWords=True)
+-        heading = ParagraphStyle('ReportHeading', parent=body, fontName='ReportNunitoBold', fontSize=13, leading=18, textColor=PRIMARY, spaceBefore=10, spaceAfter=7, keepWithNext=True)
++        heading = ParagraphStyle('ReportHeading', parent=body, fontName='ReportNunitoBold', fontSize=13, leading=18, textColor=PRIMARY, spaceBefore=6, spaceAfter=4, keepWithNext=True)
+         title = ParagraphStyle('ReportTitle', parent=heading, fontSize=19, leading=25, spaceBefore=0, spaceAfter=10)
+-        tiny = ParagraphStyle('ReportTiny', parent=body, fontSize=8, leading=11, spaceAfter=3)
++        tiny = ParagraphStyle('ReportTiny', parent=body, fontSize=8, leading=11, spaceAfter=2)
+         header_style = ParagraphStyle('ReportHeader', parent=tiny, fontName='ReportNunitoBold', textColor=PRIMARY)
+         table_heading = ParagraphStyle('ReportTableHeading', parent=heading, keepWithNext=False)
+         paragraph = lambda text, style=body: Paragraph(escape(_text(text)).replace('\n', '<br/>'), style)
+@@ -106,9 +114,13 @@
+         if options.include_charts:
+             for chart in bundle['charts']:
+                 if not chart['labels']: continue
+-                story.append(KeepTogether([paragraph(chart['title'], heading), ReportChart(chart, doc.width)]))
+-                if chart['kind'] != 'line':
+-                    story.extend(paragraph(f'{index + 1}. {label}', tiny) for index, label in enumerate(chart['labels']))
++                graphic = ReportChart(chart, doc.width)
++                chart_content = [paragraph(chart['title'], heading), graphic]
++                if not graphic.direct_labels():
++                    # A wrapping caption retains every long name without a separate
++                    # paragraph margin for every numbered category.
++                    chart_content.append(paragraph(';  '.join(f'{index + 1}. {label}' for index, label in enumerate(chart['labels'])), tiny))
++                story.append(KeepTogether(chart_content))
+         if options.include_table:
+             story.extend([CondPageBreak(100), paragraph(f"Bảng dữ liệu ({len(bundle['rows'])} dòng)", table_heading)])
+             columns = bundle['columns']; names = [col['key'] for col in columns]
+@@ -120,7 +132,7 @@
+             table = LongTable(data, colWidths=widths, repeatRows=1, splitByRow=1, splitInRow=1, hAlign='LEFT')
+             table.setStyle(TableStyle([('VALIGN', (0, 0), (-1, -1), 'TOP'), ('BACKGROUND', (0, 0), (-1, 0), colors.HexColor('#e4f6e9')),
+                                        ('ROWBACKGROUNDS', (0, 1), (-1, -1), [colors.white, colors.HexColor('#f5f9f6')]),
+-                                       ('BOTTOMPADDING', (0, 0), (-1, -1), 7), ('TOPPADDING', (0, 0), (-1, -1), 7),
++                                       ('BOTTOMPADDING', (0, 0), (-1, -1), 4), ('TOPPADDING', (0, 0), (-1, -1), 4),
+                                        ('LINEBELOW', (0, 0), (-1, 0), .5, colors.HexColor('#dcece1'))]))
+             story.append(table)
+         if options.include_notes:

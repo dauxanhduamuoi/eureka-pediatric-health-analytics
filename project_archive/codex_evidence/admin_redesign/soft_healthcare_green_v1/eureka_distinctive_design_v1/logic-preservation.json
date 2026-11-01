@@ -1,0 +1,14 @@
+[
+  {
+    "component": "DashboardOverview",
+    "data_hooks_handlers_and_non_return_statements_identical": true,
+    "chart_and_summary_props_identical": true,
+    "chart_elements_checked": 21
+  },
+  {
+    "component": "SeasonalAnalysis",
+    "data_hooks_handlers_and_non_return_statements_identical": true,
+    "chart_and_summary_props_identical": true,
+    "chart_elements_checked": 10
+  }
+]

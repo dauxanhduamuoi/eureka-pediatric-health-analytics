@@ -1,0 +1,21 @@
+﻿{
+    "qa_port_5197_listeners":  [
+
+                               ],
+    "backend_processes":  [
+                              {
+                                  "ProcessId":  27640,
+                                  "ParentProcessId":  1240,
+                                  "Name":  "python.exe",
+                                  "CommandLine":  "python  -m uvicorn app.main:app --reload --port 8000"
+                              },
+                              {
+                                  "ProcessId":  48008,
+                                  "ParentProcessId":  27640,
+                                  "Name":  "python.exe",
+                                  "CommandLine":  "\"D:\\Users\\LENOVO\\anaconda3\\envs\\seasonal_backend\\python.exe\" \"-c\" \"from multiprocessing.spawn import spawn_main; spawn_main(parent_pid=27640, pipe_handle=716)\" \"--multiprocessing-fork\""
+                              }
+                          ],
+    "checked_at":  "2026-10-30T20:42:17.0484386+07:00",
+    "agent_restarted_backend":  false
+}

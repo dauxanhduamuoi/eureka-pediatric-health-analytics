@@ -1,0 +1,385 @@
+--- before/Frontend/src/app/App.navigation.test.tsx
++++ after/Frontend/src/app/App.navigation.test.tsx
+@@ -91,7 +91,7 @@
+       expect(await screen.findByText(page)).toBeVisible();
+       expect(weatherSubmenu().getByRole('button', { name: label })).toHaveAttribute('aria-current', 'page');
+       expect(new URLSearchParams(window.location.search).get('section')).toBe(section);
+-      expect(screen.getByRole('heading', { level: 2, name: label })).toBeVisible();
++      expect(screen.getByRole('heading', { level: 1, name: label })).toBeVisible();
+     }
+     fireEvent.click(weatherMenu());
+     expect(weatherMenu()).toHaveAttribute('aria-expanded', 'false');
+--- before/Frontend/src/app/components/AdminMainNavigation.tsx
++++ after/Frontend/src/app/components/AdminMainNavigation.tsx
+@@ -1,14 +1,7 @@
+ import { useEffect, useState } from 'react';
+ import { ChevronDown, CloudSun } from 'lucide-react';
+ import { useT } from '@/lib/i18n';
+-import type { NavItem, TabType } from '../navigation';
+-
+-const SECTIONS: { key: string; ids: readonly TabType[] }[] = [
+-  { key: 'overview', ids: ['dashboard'] },
+-  { key: 'analytics', ids: ['seasonal', 'age-analysis', 'monthly-disease-analysis', 'gender-analysis', 'disease-trend-analysis', 'areas'] },
+-  { key: 'ai', ids: ['forecast', 'weather-risk', 'parent-disease-visibility', 'medical-knowledge'] },
+-  { key: 'operations', ids: ['data-import', 'reports', 'permissions'] },
+-];
++import { ADMIN_NAV_SECTIONS, type NavItem, type TabType } from '../navigation';
+ 
+ export default function AdminMainNavigation({
+   items, activeTab, onNavigate, sidebarOpen, weatherLabel,
+@@ -39,7 +32,7 @@
+   }
+ 
+   return <nav aria-label={t('admin.navigation')} tabIndex={0} className="admin-navigation min-h-0 flex-1 overflow-y-auto overflow-x-hidden">
+-    {SECTIONS.map(({ key, ids }) => {
++    {ADMIN_NAV_SECTIONS.map(({ key, ids }) => {
+       const sectionItems = items.filter((item) => ids.includes(item.id));
+       if (!sectionItems.length) return null;
+       return <div className="admin-nav-group" key={key}>
+--- before/Frontend/src/app/components/AdvancedAnalytics.tsx
++++ after/Frontend/src/app/components/AdvancedAnalytics.tsx
+@@ -572,7 +572,7 @@
+     <div className="admin-page-stack admin-advancedanalytics-content">
+       <section className="relative z-40 admin-surface rounded-xl border border-slate-200 bg-white p-5 shadow-sm">
+         <div className="flex flex-col gap-4 xl:flex-row xl:items-start xl:justify-between">
+-          <AdminPageHeading icon={BarChart3} title={copy.title} description={copy.description} />
++          <AdminPageHeading keepDescription icon={BarChart3} title={copy.title} description={copy.description} />
+           <button
+             onClick={loadAnalysis}
+             disabled={loading || initLoading || !selectedPeriod}
+--- before/Frontend/src/app/components/AgeAnalysis.tsx
++++ after/Frontend/src/app/components/AgeAnalysis.tsx
+@@ -211,7 +211,7 @@
+     <div className="admin-page-stack admin-ageanalysis-content">
+       <section className="admin-analysis-filters admin-content-section admin-surface rounded-xl border border-slate-200 bg-white p-5 shadow-sm">
+         <div className="flex flex-col gap-4 xl:flex-row xl:items-start xl:justify-between">
+-          <AdminPageHeading icon={SlidersHorizontal} title={"Phân tích độ tuổi"} description={<>Thống kê nhóm bệnh theo khoảng tháng tuổi và thời điểm ghi nhận trong dữ liệu bệnh nhi đã import.</>} />
++          <AdminPageHeading keepDescription icon={SlidersHorizontal} title={"Phân tích độ tuổi"} description={<>Thống kê nhóm bệnh theo khoảng tháng tuổi và thời điểm ghi nhận trong dữ liệu bệnh nhi đã import.</>} />
+ 
+           <button
+             onClick={load}
+--- before/Frontend/src/app/components/AreaInsights.tsx
++++ after/Frontend/src/app/components/AreaInsights.tsx
+@@ -471,7 +471,7 @@
+         }`}
+       >
+         <div className="flex flex-col gap-5 xl:flex-row xl:items-start xl:justify-between">
+-          <AdminPageHeading icon={MapPin} title={"Thống kê theo tỉnh/thành phố"} description={<>Dữ liệu khu vực được lấy từ phần sau dấu phẩy cuối cùng của cột{' '}
++          <AdminPageHeading keepDescription icon={MapPin} title={"Thống kê theo tỉnh/thành phố"} description={<>Dữ liệu khu vực được lấy từ phần sau dấu phẩy cuối cùng của cột{' '}
+                 <span className="font-mono text-slate-700">full_address</span>. Các tỉnh/thành phố được tô màu riêng
+                 để dễ so sánh khi số lượng khu vực tăng. Bộ lọc Bắc/Trung/Nam chỉ hoạt động sau khi import file
+                 phân miền tỉnh/thành trong mục Import dữ liệu.</>} />
+--- before/Frontend/src/app/components/DataImport.tsx
++++ after/Frontend/src/app/components/DataImport.tsx
+@@ -114,7 +114,7 @@
+ 
+       <section className="admin-surface rounded-xl border border-slate-200 bg-white p-5 shadow-sm">
+         <div className="flex flex-col gap-4 lg:flex-row lg:items-start lg:justify-between">
+-          <AdminPageHeading icon={Database} title={"Import dữ liệu"} description={<>Tập trung các thao tác nạp dữ liệu: danh sách bệnh nhân, mã bệnh, phân miền khu vực và hướng dẫn phụ huynh.
++          <AdminPageHeading keepDescription icon={Database} title={"Import dữ liệu"} description={<>Tập trung các thao tác nạp dữ liệu: danh sách bệnh nhân, mã bệnh, phân miền khu vực và hướng dẫn phụ huynh.
+                 Hãy kiểm tra đúng file trước khi import để tránh ghi đè dữ liệu hiện tại.</>} />
+         </div>
+ 
+--- before/Frontend/src/app/components/ParentDiseaseVisibilitySettings.tsx
++++ after/Frontend/src/app/components/ParentDiseaseVisibilitySettings.tsx
+@@ -1,4 +1,5 @@
+-import { useEffect, useId, useMemo, useRef, useState, type KeyboardEvent } from 'react';
++import { useContext, useEffect, useId, useMemo, useRef, useState, type KeyboardEvent } from 'react';
++import { AdminPageTitleContext } from './admin/AdminPageHeading';
+ import { AlertTriangle, CheckCircle2, Eye, EyeOff, Loader2, RotateCcw, Search } from 'lucide-react';
+ import {
+   ApiError,
+@@ -21,6 +22,7 @@
+ type VisibilityFilter = typeof VISIBILITY_FILTERS[number]['value'];
+ 
+ export default function ParentDiseaseVisibilitySettings() {
++  const titleInTopbar = useContext(AdminPageTitleContext);
+   const [settings, setSettings] = useState<ParentDiseaseVisibilityResponse | null>(null);
+   const [search, setSearch] = useState('');
+   const [visibilityFilter, setVisibilityFilter] = useState<VisibilityFilter>('all');
+@@ -128,16 +130,16 @@
+   }
+ 
+   return (
+-    <section className="admin-surface rounded-xl border border-slate-200 bg-white p-6 shadow-sm" aria-labelledby="parent-disease-visibility-title">
++    <section className="admin-surface rounded-xl border border-slate-200 bg-white p-6 shadow-sm" aria-labelledby={titleInTopbar ? 'admin-page-title' : 'parent-disease-visibility-title'}>
+       <div className="mb-5 flex flex-wrap items-start justify-between gap-3">
+         <div className="flex items-start gap-3">
+-          <div className="rounded-lg bg-blue-50 p-2">
++          {!titleInTopbar && <div className="rounded-lg bg-blue-50 p-2">
+             <Eye size={18} className="text-blue-600" aria-hidden />
+-          </div>
++          </div>}
+           <div>
+-            <h3 id="parent-disease-visibility-title" className="text-lg font-semibold text-slate-800">
++            {!titleInTopbar && <h3 id="parent-disease-visibility-title" className="text-lg font-semibold text-slate-800">
+               Nhóm bệnh hiển thị trên Parent
+-            </h3>
++            </h3>}
+             <p className="mt-0.5 text-xs text-slate-500">
+               Mặc định các nhóm trong manifest V3 được bật. Tạm ẩn chỉ loại nhóm khỏi Parent Top K, không xóa model hay dữ liệu.
+             </p>
+--- before/Frontend/src/app/components/WeatherRisk.tsx
++++ after/Frontend/src/app/components/WeatherRisk.tsx
+@@ -348,7 +348,7 @@
+     <div className="admin-page-stack admin-weather-content">
+       <div className="admin-surface rounded-2xl border border-slate-200 bg-white p-5 shadow-sm">
+         <div className="flex flex-col gap-3 md:flex-row md:items-start md:justify-between">
+-          <AdminPageHeading icon={CloudSun} title={"Xếp hạng nhóm bệnh đáng lưu ý theo thời tiết"} description={<>Chọn vị trí, nhóm tuổi và giới tính. Hệ thống dùng thời tiết realtime để xếp hạng tương đối các nhóm bệnh.</>} />
++          <AdminPageHeading keepDescription icon={CloudSun} title={"Xếp hạng nhóm bệnh đáng lưu ý theo thời tiết"} description={<>Chọn vị trí, nhóm tuổi và giới tính. Hệ thống dùng thời tiết realtime để xếp hạng tương đối các nhóm bệnh.</>} />
+           <div className="rounded-xl border border-amber-200 bg-amber-50 px-3 py-2 text-xs text-amber-700 md:max-w-md">
+             Kết quả là thứ hạng hỗ trợ theo dõi, không phải xác suất mắc bệnh hay chẩn đoán cho từng trẻ.
+           </div>
+--- before/Frontend/src/app/components/admin/AdminContent.regression.test.tsx
++++ after/Frontend/src/app/components/admin/AdminContent.regression.test.tsx
+@@ -6,6 +6,7 @@
+ import viStrings from '@/i18n/locales/vi';
+ import DashboardOverview from '../DashboardOverview';
+ import SeasonalAnalysis from '../SeasonalAnalysis';
++import { AdminPageTitleContext } from './AdminPageHeading';
+ 
+ vi.mock('@/lib/api', async (original) => ({
+   ...await original<typeof import('@/lib/api')>(),
+@@ -29,7 +30,7 @@
+   { period: '2025-03', disease_group: 'Viêm phổi - Pneumonia', case_count: 7 },
+   { period: '2025-03', disease_group: 'Viêm mũi - Rhinitis', case_count: 3 },
+ ];
+-const mount = (children: ReactNode) => render(<I18nProvider>{children}</I18nProvider>);
++const mount = (children: ReactNode) => render(<I18nProvider><AdminPageTitleContext.Provider value={true}>{children}</AdminPageTitleContext.Provider></I18nProvider>);
+ beforeEach(() => {
+   vi.resetAllMocks(); localStorage.clear();
+   vi.mocked(api.getDiseaseBilingual).mockResolvedValue({});
+--- before/Frontend/src/app/components/admin/AdminLayout.tsx
++++ after/Frontend/src/app/components/admin/AdminLayout.tsx
+@@ -2,7 +2,8 @@
+ import { Activity, Bell, ChevronLeft, ChevronDown, LogOut, Menu, Settings, User, X } from 'lucide-react';
+ import type { CurrentUser } from '@/lib/api';
+ import { useT } from '@/lib/i18n';
+-import type { NavItem, TabType } from '../../navigation';
++import { getAdminPageGroup, type NavItem, type TabType } from '../../navigation';
++import { AdminPageTitleContext } from './AdminPageHeading';
+ import AdminMainNavigation from '../AdminMainNavigation';
+ import './admin.css';
+ 
+@@ -115,7 +116,7 @@
+         <header className="admin-topbar">
+           <div className="admin-topbar-title">
+             {mobile && <button ref={toggleRef} type="button" className="admin-icon-button" aria-label={t('sidebar.expand')} aria-expanded={drawerOpen} aria-controls="admin-sidebar" onClick={() => setDrawerOpen(true)}><Menu size={21} /></button>}
+-            <div className="min-w-0"><p className="admin-product-name">{t('brand.name')}</p><h2>{pageTitle}</h2></div>
++            <div className="admin-topbar-heading"><p className="admin-page-group">{getAdminPageGroup(activeTab, t)}</p><h1 id="admin-page-title">{pageTitle}</h1></div>
+           </div>
+           <div className="admin-topbar-actions">
+             <button type="button" className="admin-icon-button relative" aria-label={t('sidebar.notifications')} aria-current={activeTab === 'notifications' ? 'page' : undefined} onClick={() => navigate('notifications')}>
+@@ -134,7 +135,7 @@
+             </div>
+           </div>
+         </header>
+-        <main id="admin-content" tabIndex={-1} className="admin-content"><div className="admin-page" data-section={activeTab}>{children}</div></main>
++        <main id="admin-content" tabIndex={-1} className="admin-content"><div className="admin-page" data-section={activeTab}><AdminPageTitleContext.Provider value={true}>{children}</AdminPageTitleContext.Provider></div></main>
+       </div>
+     </div>
+   );
+--- before/Frontend/src/app/components/admin/AdminPageHeading.tsx
++++ after/Frontend/src/app/components/admin/AdminPageHeading.tsx
+@@ -1,13 +1,24 @@
+-import type { ReactNode } from 'react';
++import { createContext, useContext, type ReactNode } from 'react';
+ import type { LucideIcon } from 'lucide-react';
+ 
+-/** A page heading can share its existing filter surface without introducing new state. */
+-export default function AdminPageHeading({ icon: Icon, title, description, children }: {
++/** Only the Admin shell owns the main page title; standalone views keep their header. */
++export const AdminPageTitleContext = createContext(false);
++
++export default function AdminPageHeading({ icon: Icon, title, description, children, keepDescription = false }: {
+   icon: LucideIcon;
+   title: string;
+   description?: ReactNode;
+   children?: ReactNode;
++  keepDescription?: boolean;
+ }) {
++  const titleInTopbar = useContext(AdminPageTitleContext);
++  if (titleInTopbar) {
++    if ((!keepDescription || !description) && !children) return null;
++    return <div className="admin-page-context">
++      {keepDescription && description && <p>{description}</p>}
++      {children && <div className="admin-heading-actions">{children}</div>}
++    </div>;
++  }
+   return <div className="admin-page-heading">
+     <span className="admin-heading-icon"><Icon size={23} aria-hidden="true" /></span>
+     <div className="admin-heading-copy"><h2>{title}</h2>{description && <p>{description}</p>}</div>
+--- before/Frontend/src/app/components/admin/AdminPages.regression.test.tsx
++++ after/Frontend/src/app/components/admin/AdminPages.regression.test.tsx
+@@ -9,6 +9,7 @@
+ import AgeAnalysis from '../AgeAnalysis';
+ import Forecast from '../Forecast';
+ import Settings from '../Settings';
++import { AdminPageTitleContext } from './AdminPageHeading';
+ 
+ const auth = vi.hoisted(() => ({ role: 'staff' }));
+ vi.mock('../../contexts/AuthContext', () => ({ useAuth: () => ({ user: { id: 1, username: 'test', role: auth.role, permissions: [] } }) }));
+@@ -48,7 +49,7 @@
+   BarChart: ({ data }: { data: unknown[] }) => <div data-testid="bar-data">{JSON.stringify(data)}</div>,
+ }));
+ 
+-const mount = (children: ReactNode) => render(<I18nProvider>{children}</I18nProvider>);
++const mount = (children: ReactNode) => render(<I18nProvider><AdminPageTitleContext.Provider value={true}>{children}</AdminPageTitleContext.Provider></I18nProvider>);
+ beforeEach(() => {
+   vi.clearAllMocks();
+   localStorage.clear();
+--- before/Frontend/src/app/components/admin/BrandingVietnamese.test.tsx
++++ after/Frontend/src/app/components/admin/BrandingVietnamese.test.tsx
+@@ -12,18 +12,19 @@
+ const product = 'Theo dõi sức khỏe trẻ em';
+ beforeEach(async () => { window.innerWidth = 1440; await i18next.changeLanguage('vi'); });
+ 
+-it('uses the existing branding source in sidebar/topbar/title and keeps a labelled logo in the rail', () => {
++it('keeps the brand in sidebar/document title and makes the topbar identify the current page', () => {
+   render(<I18nProvider><AdminLayout user={{ id: 1, username: 'admin', full_name: null, role: 'admin', is_active: true, permissions: [] }}
+     items={[]} activeTab="dashboard" pageTitle="Tổng quan" unreadCount={0} onNavigate={vi.fn()} onLogout={vi.fn()}>
+     <p>Nội dung</p>
+   </AdminLayout></I18nProvider>);
+   expect(document.title).toBe(product);
+-  expect(screen.getAllByText(product)).toHaveLength(2);
++  expect(screen.getAllByText(product)).toHaveLength(1);
++  expect(screen.getByRole('heading', { level: 1, name: 'Tổng quan' })).toBeVisible();
+   expect(screen.queryByText(/Eureka/i)).not.toBeInTheDocument();
+   fireEvent.click(screen.getByRole('button', { name: 'Thu gọn' }));
+   expect(screen.getByRole('img', { name: product })).toHaveAttribute('title', `${product} · Hệ thống phân tích dữ liệu`);
+   expect(screen.getByText('Hệ thống phân tích dữ liệu')).toBeInTheDocument();
+-  expect(screen.getAllByText(product)).toHaveLength(2);
++  expect(screen.getAllByText(product)).toHaveLength(1);
+ });
+ 
+ it('uses the same name on login and preserves labelled username/password fields and the Parent link', () => {
+--- before/Frontend/src/app/components/admin/admin.css
++++ after/Frontend/src/app/components/admin/admin.css
+@@ -91,7 +91,7 @@
+ .admin-brand { display: flex; align-items: center; gap: 10px; min-height: 88px; padding: 18px 16px; flex-shrink: 0; }
+ .admin-brand-mark { display: grid; place-items: center; width: 36px; height: 38px; flex-shrink: 0; border-radius: 11px; background: var(--admin-mint); color: var(--admin-primary); }
+ #root .eureka-admin .admin-brand-name { font-size: 14px; font-weight: 700; line-height: 1.45; letter-spacing: 0; overflow-wrap: normal; text-wrap: balance; }
+-.admin-product-name { color: var(--admin-muted); font-size: 11px; margin-bottom: 3px; line-height: 1.5; }
++.admin-page-group { color: var(--admin-muted); font-size: 11px; margin-bottom: 3px; line-height: 1.5; }
+ .admin-brand-caption { margin-top: 4px; font-size: 10px; color: var(--admin-muted); }
+ .admin-navigation { padding: 8px 12px 18px; overscroll-behavior: contain; scrollbar-width: thin; scrollbar-color: var(--admin-scroll-thumb) var(--admin-scroll-track); }
+ .admin-navigation::-webkit-scrollbar { width: 5px; }
+@@ -133,10 +133,12 @@
+ :root .eureka-admin[data-sidebar='collapsed'] .admin-nav-submenu { margin-left: 0; padding-left: 0; border-left: 0; }
+ :root .eureka-admin[data-sidebar='collapsed'] .admin-nav-chevron { position: absolute; right: 1px; bottom: 3px; width: 10px; height: 10px; }
+ .admin-workspace { display: flex; flex: 1; flex-direction: column; min-width: 0; min-height: 0; }
+-:root .eureka-admin .admin-topbar { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 18px 32px; min-height: 90px; flex-shrink: 0; border-bottom: 1px solid var(--admin-border); background: var(--admin-surface); z-index: 60; }
++:root .eureka-admin .admin-topbar { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 14px 32px; min-height: 76px; flex-shrink: 0; border-bottom: 1px solid var(--admin-border); background: var(--admin-surface); z-index: 60; }
+ .admin-topbar-title, .admin-topbar-actions { display: flex; align-items: center; gap: 18px; min-width: 0; }
+ .admin-topbar-title { flex: 1; }
+-.admin-topbar h2 { font-size: 18px; font-weight: 700; line-height: 1.4; overflow-wrap: anywhere; }
++.admin-topbar-heading { flex: 1; min-width: 0; }
++.admin-topbar-actions { flex-shrink: 0; }
++.admin-topbar h1 { font-size: 22px; font-weight: 700; line-height: 1.35; overflow-wrap: anywhere; }
+ .admin-eyebrow { color: var(--admin-muted); font-size: 10px; margin-bottom: 3px; letter-spacing: .5px; }
+ :root .eureka-admin .admin-icon-button { display: inline-flex; align-items: center; justify-content: center; width: 40px; height: 40px; flex-shrink: 0; border: 1px solid var(--admin-border); border-radius: 11px; color: var(--admin-muted); background: var(--admin-surface); }
+ :root .eureka-admin .admin-icon-button:hover { background: var(--admin-mint); color: var(--admin-accent-ink); }
+@@ -153,7 +155,7 @@
+ .admin-account-identity { display: grid; gap: 3px; padding: 12px; margin-bottom: 4px; border-bottom: 1px solid var(--admin-border); overflow-wrap: anywhere; font-size: 13px; }
+ .admin-account-identity > span { color: var(--admin-muted); font-size: 11px; }
+ :root .eureka-admin .admin-logout { color: #b91c1c; }
+-.admin-content { flex: 1; min-width: 0; min-height: 0; overflow: auto; padding: 30px 32px 40px; scrollbar-gutter: stable; }
++.admin-content { flex: 1; min-width: 0; min-height: 0; overflow: auto; padding: 20px 32px 40px; scrollbar-gutter: stable; }
+ .admin-page { max-width: 1560px; margin: 0 auto; min-width: 0; }
+ .admin-page .grid > * { min-width: 0; }
+ .admin-page-heading { display: flex; align-items: flex-start; flex-wrap: wrap; gap: 13px; margin-bottom: var(--admin-space); }
+@@ -225,7 +227,7 @@
+   :root .eureka-admin { --admin-space: 16px; --admin-radius: 13px; }
+   :root .eureka-admin .admin-topbar { padding: 12px; gap: 8px; }
+   .admin-topbar-title, .admin-topbar-actions { gap: 9px; }
+-  .admin-topbar h2 { font-size: 14px; }
++  .admin-topbar h1 { font-size: 18px; }
+   .admin-eyebrow, .admin-account-label, .admin-account-button > svg { display: none; }
+   .admin-content { padding: 20px 12px 28px; }
+   .admin-page-heading { gap: 10px; margin-bottom: 20px; }
+--- before/Frontend/src/app/components/admin/content.css
++++ after/Frontend/src/app/components/admin/content.css
+@@ -5,6 +5,8 @@
+ }
+ .admin-page-stack { display: flex; flex-direction: column; gap: var(--content-gap); }
+ .admin-page-stack > * { margin-block: 0 !important; min-width: 0; }
++.admin-page-context { display: flex; flex-wrap: wrap; align-items: flex-start; justify-content: space-between; gap: 8px 16px; min-width: 0; }
++.admin-page-context > p { color: var(--admin-muted); font-size: 12px; line-height: 1.65; max-width: 80ch; }
+ .eureka-admin .admin-page .admin-page-heading { margin-bottom: 0; align-items: center; gap: 11px; }
+ .eureka-admin .admin-page .admin-heading-icon { width: 36px; height: 36px; border-radius: 10px; }
+ .eureka-admin .admin-page .admin-heading-icon > svg { width: 19px; height: 19px; }
+--- before/Frontend/src/app/components/medical-knowledge/MedicalKnowledgeResearchPage.tsx
++++ after/Frontend/src/app/components/medical-knowledge/MedicalKnowledgeResearchPage.tsx
+@@ -1,4 +1,5 @@
+-import { useCallback, useEffect, useRef, useState } from 'react';
++import { useCallback, useContext, useEffect, useRef, useState } from 'react';
++import { AdminPageTitleContext } from '../admin/AdminPageHeading';
+ import {
+   BookCheck, BookOpenText, Bot, ChevronDown, FileSearch, Library,
+   Loader2, Settings2, Sparkles, X,
+@@ -81,6 +82,7 @@
+ }
+ 
+ export default function MedicalKnowledgeResearchPage() {
++  const titleInTopbar = useContext(AdminPageTitleContext);
+   const { user } = useAuth();
+   const [options, setOptions] = useState<MedicalKnowledgeOptions | null>(null);
+   const [optionsLoading, setOptionsLoading] = useState(true);
+@@ -576,11 +578,11 @@
+       <header className="admin-surface overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-sm">
+         <div className="admin-medical-hero flex flex-col gap-5 p-5 sm:p-6 lg:flex-row lg:items-center lg:justify-between">
+           <div className="flex items-start gap-3">
+-            <div className="admin-heading-icon"><BookOpenText size={25} /></div>
++            {!titleInTopbar && <div className="admin-heading-icon"><BookOpenText size={25} /></div>}
+             <div>
+-              <p className="admin-medical-eyebrow">Medical Knowledge Admin</p>
+-              <h1 className="mt-1 text-2xl font-bold sm:text-3xl">Kho kiến thức y khoa</h1>
+-              <p className="mt-2 max-w-3xl text-sm leading-6 text-slate-500">Hai luồng nội dung được tách rõ: kiến thức do nhân viên kiểm duyệt và kiến thức tự động chưa qua kiểm duyệt y khoa.</p>
++              {!titleInTopbar && <><p className="admin-medical-eyebrow">Medical Knowledge Admin</p>
++              <h1 className="mt-1 text-2xl font-bold sm:text-3xl">Kho kiến thức y khoa</h1></>}
++              <p className="max-w-3xl text-sm leading-6 text-slate-500">Hai luồng nội dung được tách rõ: kiến thức do nhân viên kiểm duyệt và kiến thức tự động chưa qua kiểm duyệt y khoa.</p>
+             </div>
+           </div>
+           {knowledgeView === 'reviewed' && (
+--- before/Frontend/src/app/navigation.ts
++++ after/Frontend/src/app/navigation.ts
+@@ -41,6 +41,19 @@
+   label: string;
+   icon: LucideIcon;
+   group?: 'weather-ai';
++}
++
++/** Shared presentation groups for sidebar captions and the topbar. */
++export const ADMIN_NAV_SECTIONS: { key: string; ids: readonly TabType[] }[] = [
++  { key: 'overview', ids: ['dashboard'] },
++  { key: 'analytics', ids: ['seasonal', 'age-analysis', 'monthly-disease-analysis', 'gender-analysis', 'disease-trend-analysis', 'areas'] },
++  { key: 'ai', ids: ['forecast', 'weather-risk', 'parent-disease-visibility', 'medical-knowledge'] },
++  { key: 'operations', ids: ['data-import', 'reports', 'permissions'] },
++];
++
++export function getAdminPageGroup(tab: TabType, t: (key: string) => string): string {
++  const group = ADMIN_NAV_SECTIONS.find((section) => section.ids.includes(tab));
++  return t(tab === 'dashboard' ? 'admin.workspace' : `admin.group.${group?.key ?? 'utilities'}`);
+ }
+ 
+ export const TAB_PERMISSIONS: Partial<Record<TabType, string>> = {
+--- before/Frontend/src/i18n/locales/en.ts
++++ after/Frontend/src/i18n/locales/en.ts
+@@ -53,6 +53,7 @@
+   'admin.group.analytics': 'Data analytics',
+   'admin.group.ai': 'Models & knowledge',
+   'admin.group.operations': 'Operations',
++  'admin.group.utilities': 'System utilities',
+   'sidebar.permissions': 'Permissions',
+   'admin.description.dashboard': 'Overview of data, disease group trends and forecast results.',
+   'admin.description.seasonal': 'Compare seasonal trends and recorded periods.',
+--- before/Frontend/src/i18n/locales/vi.ts
++++ after/Frontend/src/i18n/locales/vi.ts
+@@ -57,6 +57,7 @@
+   'admin.group.analytics': 'Phân tích dữ liệu',
+   'admin.group.ai': 'Mô hình & kiến thức',
+   'admin.group.operations': 'Vận hành',
++  'admin.group.utilities': 'Tiện ích hệ thống',
+   'sidebar.permissions': 'Phân quyền',
+   'admin.description.dashboard': 'Tổng hợp dữ liệu, diễn biến nhóm bệnh và kết quả dự báo.',
+   'admin.description.seasonal': 'So sánh diễn biến theo mùa và thời điểm ghi nhận.',

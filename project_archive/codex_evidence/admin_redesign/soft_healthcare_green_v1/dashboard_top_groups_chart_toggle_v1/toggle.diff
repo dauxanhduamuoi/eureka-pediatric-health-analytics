@@ -1,0 +1,263 @@
+--- before/Frontend/src/i18n/locales/en.ts
++++ after/Frontend/src/i18n/locales/en.ts
+@@ -125,6 +125,10 @@
+   'dashboard.monthlyCases': 'Total cases by period',
+   'dashboard.topGroups': 'Top disease groups',
+   'dashboard.topGroupShare': 'Share within the displayed groups',
++  'dashboard.topGroupView': 'Top disease groups chart view',
++  'dashboard.donutView': 'Donut chart',
++  'dashboard.barsView': 'Horizontal bars',
++  'dashboard.noValidShare': 'No valid share available',
+   'dashboard.topGroupsHint': 'Number of disease groups loaded from /api/dashboard/top-disease-groups',
+   'dashboard.topByPeriod': 'Top disease groups by period',
+   'dashboard.yearlyCasesTitle': 'Total cases by year',
+--- before/Frontend/src/i18n/locales/vi.ts
++++ after/Frontend/src/i18n/locales/vi.ts
+@@ -132,6 +132,10 @@
+   'dashboard.monthlyCases': 'Tổng ca bệnh theo kỳ',
+   'dashboard.topGroups': 'Top nhóm bệnh',
+   'dashboard.topGroupShare': 'Tỷ trọng trong các nhóm đang hiển thị',
++  'dashboard.topGroupView': 'Dạng biểu đồ Top nhóm bệnh',
++  'dashboard.donutView': 'Biểu đồ tròn',
++  'dashboard.barsView': 'Thanh ngang',
++  'dashboard.noValidShare': 'Chưa có tỷ trọng hợp lệ',
+   'dashboard.topGroupsHint': 'Số nhóm bệnh được lấy từ API /api/dashboard/top-disease-groups',
+   'dashboard.topByPeriod': 'Top nhóm bệnh theo kỳ',
+   'dashboard.yearlyCasesTitle': 'Tổng ca bệnh theo từng năm',
+--- before/Frontend/src/app/components/DashboardOverview.test.tsx
++++ after/Frontend/src/app/components/DashboardOverview.test.tsx
+@@ -15,7 +15,7 @@
+ 
+ // Inspect chart inputs/tooltip semantics; JSDOM does not verify SVG layout or pointer placement.
+ vi.mock('recharts', async () => {
+-  const { createContext, useContext } = await import('react');
++  const { Children, createContext, isValidElement, useContext } = await import('react');
+   type Datum = { cases?: number; period?: string; year?: string; [key: string]: unknown };
+   const Data = createContext<Datum[]>([]);
+   const chart = (kind: string) => ({ data, children }: { data: Datum[]; children: ReactNode }) => (
+@@ -24,15 +24,23 @@
+   return {
+     ResponsiveContainer: ({ children }: { children: ReactNode }) => <div>{children}</div>,
+     LineChart: chart('line'), BarChart: chart('bar'),
++    PieChart: ({ children }: { children: ReactNode }) => {
++      const pie = Children.toArray(children).find((child) => isValidElement<{ data?: Datum[] }>(child) && child.props.data);
++      const data = isValidElement<{ data: Datum[] }>(pie) ? pie.props.data : [];
++      return <Data.Provider value={data}><div data-testid="pie-chart">{children}</div></Data.Provider>;
++    },
++    Pie: ({ data, children }: { data: Datum[]; children: ReactNode }) => <div><output data-testid="pie-data">{JSON.stringify(data)}</output>{children}</div>,
+     Line: () => null, CartesianGrid: () => null, XAxis: () => null, YAxis: () => null, Legend: () => null,
+     Bar: ({ children }: { children: ReactNode }) => <div>{children}</div>,
+     Cell: ({ fill }: { fill: string }) => <span data-testid="bar-cell" data-fill={fill} />,
+-    Tooltip: ({ formatter, labelFormatter, cursor }: {
++    Tooltip: ({ formatter, labelFormatter, cursor, content }: {
+       formatter?: (value: number) => [string, string];
+       labelFormatter?: (label: string, payload: { payload: Datum }[]) => string;
+       cursor?: boolean;
++      content?: (props: { active: boolean; payload: { payload: Datum }[] }) => ReactNode;
+     }) => {
+       const data = useContext(Data);
++      if (content) return <div data-testid="pie-tooltip">{content({ active: true, payload: data.length ? [{ payload: data[0] }] : [] })}</div>;
+       const ends = [data[0], data[data.length - 1]].filter(Boolean).map((row) => ({
+         label: labelFormatter?.(row.year ?? row.period ?? '', [{ payload: row }]) ?? row.period,
+         value: formatter?.(row.cases ?? 0),
+@@ -63,6 +71,7 @@
+ };
+ const mount = () => render(<I18nProvider><DashboardOverview /></I18nProvider>);
+ const region = (key: keyof typeof viStrings) => screen.getByRole('region', { name: viStrings[key] });
++const showBars = () => fireEvent.click(screen.getByRole('button', { name: viStrings['dashboard.barsView'] }));
+ 
+ beforeEach(() => {
+   vi.resetAllMocks(); localStorage.clear();
+@@ -117,6 +126,7 @@
+ it('ranks real counts without mutating input, keeps full names, zero values and selected-group shares', async () => {
+   vi.mocked(api.getTopDiseaseGroups).mockResolvedValue(groups as api.TopDiseaseGroup[]);
+   mount();
++  showBars();
+   const ranking = await screen.findByRole('list', { name: viStrings['dashboard.topGroups'] });
+   const rows = within(ranking).getAllByRole('listitem');
+   expect(rows).toHaveLength(3);
+@@ -152,12 +162,14 @@
+   const all = Array.from({ length: 12 }, (_, i) => ({ disease_group: `Nhóm ${i + 1}`, case_count: 12 - i }));
+   vi.mocked(api.getTopDiseaseGroups).mockImplementation(async (_type, limit) => all.slice(0, limit));
+   mount();
++  showBars();
+   const ranking = await screen.findByRole('list', { name: viStrings['dashboard.topGroups'] });
+   expect(within(ranking).getAllByRole('listitem')).toHaveLength(8);
+   const select = screen.getByRole('combobox', { name: viStrings['dashboard.topGroups'] });
+   expect(within(select).getAllByRole('option').map((option) => option.getAttribute('value'))).toEqual(['5', '6', '8', '10', '12']);
+   fireEvent.change(select, { target: { value: '5' } });
+   await waitFor(() => expect(within(ranking).getAllByRole('listitem')).toHaveLength(5));
++  expect(screen.getByRole('button', { name: viStrings['dashboard.barsView'] })).toHaveAttribute('aria-pressed', 'true');
+   expect(api.getTopDiseaseGroups).toHaveBeenLastCalledWith('predict_current', 5);
+   fireEvent.click(screen.getByRole('button', { name: viStrings['common.refresh'] }));
+   await waitFor(() => expect(api.getTopDiseaseGroups).toHaveBeenCalledTimes(3));
+@@ -174,6 +186,71 @@
+   const row = within(await screen.findByRole('list')).getByRole('listitem');
+   expect(row).toHaveTextContent('0 ca · —');
+   expect(row).not.toHaveTextContent('NaN');
++  expect(screen.queryByTestId('pie-chart')).not.toBeInTheDocument();
++  showBars();
++  expect(within(screen.getByRole('list')).getByRole('listitem')).toHaveTextContent('0 ca · —');
++});
++
++it('defaults to donut, toggles both ways with identical data and makes no extra API calls', async () => {
++  mount();
++  const pie = await screen.findByTestId('pie-data');
++  const donut = screen.getByRole('button', { name: viStrings['dashboard.donutView'] });
++  const bars = screen.getByRole('button', { name: viStrings['dashboard.barsView'] });
++  expect(screen.getByRole('group', { name: viStrings['dashboard.topGroupView'] })).toContainElement(donut);
++  expect(donut).toHaveAttribute('aria-pressed', 'true');
++  expect(bars).toHaveAttribute('aria-pressed', 'false');
++  expect(document.querySelector('.admin-dashboard-rank-track')).toBeNull();
++  const data = JSON.parse(pie.textContent!);
++  expect(data.map((entry: { value: number; share: number }) => [entry.value, entry.share])).toEqual([[30, 75], [10, 25], [0, 0]]);
++  expect(data.map((entry: { name: string }) => entry.name)).toEqual([longName, groups[0].disease_group, groups[2].disease_group]);
++  expect(screen.getByTestId('pie-tooltip')).toHaveTextContent(longName.split(' - ')[0]);
++  expect(screen.getByTestId('pie-tooltip')).toHaveTextContent('A long English disease group name');
++  expect(screen.getByTestId('pie-tooltip')).toHaveTextContent('30 ca · 75.0%');
++  expect(screen.getByTestId('pie-tooltip')).toHaveTextContent(viStrings['dashboard.topGroupShare']);
++  const calls = [api.getOverview, api.getMonthlyStatistics, api.getCasesByYear, api.getTopDiseaseGroups, api.getForecastGroupSummary, api.getForecastResults];
++  const before = calls.map((fn) => vi.mocked(fn).mock.calls.length);
++  bars.focus();
++  expect(bars).toHaveFocus();
++  fireEvent.click(bars);
++  expect(bars).toHaveAttribute('aria-pressed', 'true');
++  expect(screen.queryByTestId('pie-data')).not.toBeInTheDocument();
++  const rows = within(screen.getByRole('list', { name: viStrings['dashboard.topGroups'] })).getAllByRole('listitem');
++  data.forEach((entry: { vi: string; value: number; share: number }, index: number) => {
++    expect(rows[index]).toHaveTextContent(entry.vi);
++    expect(rows[index]).toHaveTextContent(`${entry.value} ca · ${entry.share.toFixed(1)}%`);
++    expect(rows[index].querySelector('.admin-dashboard-rank-track > span')).toHaveStyle({ width: `${entry.share}%` });
++  });
++  fireEvent.click(donut);
++  expect(donut).toHaveAttribute('aria-pressed', 'true');
++  expect(JSON.parse(screen.getByTestId('pie-data').textContent!)).toEqual(data);
++  expect(calls.map((fn) => vi.mocked(fn).mock.calls.length)).toEqual(before);
++});
++
++it('keeps donut selected and shares correct when Top K changes, then resets to donut on a fresh mount', async () => {
++  const all = Array.from({ length: 12 }, (_, i) => ({ disease_group: `Nhóm ${i + 1}`, case_count: 12 - i }));
++  vi.mocked(api.getTopDiseaseGroups).mockImplementation(async (_type, limit) => all.slice(0, limit));
++  const view = mount();
++  await screen.findByTestId('pie-data');
++  fireEvent.change(screen.getByRole('combobox', { name: viStrings['dashboard.topGroups'] }), { target: { value: '10' } });
++  await waitFor(() => expect(JSON.parse(screen.getByTestId('pie-data').textContent!)).toHaveLength(10));
++  expect(screen.getByRole('button', { name: viStrings['dashboard.donutView'] })).toHaveAttribute('aria-pressed', 'true');
++  expect(JSON.parse(screen.getByTestId('pie-data').textContent!)[0].share).toBe(12 / 75 * 100);
++  expect(api.getTopDiseaseGroups).toHaveBeenCalledTimes(2);
++  showBars();
++  view.unmount();
++  mount();
++  await screen.findByTestId('pie-data');
++  expect(screen.getByRole('button', { name: viStrings['dashboard.donutView'] })).toHaveAttribute('aria-pressed', 'true');
++});
++
++it('suppresses percentages and donut sectors when the denominator is nonfinite', async () => {
++  vi.mocked(api.getTopDiseaseGroups).mockResolvedValue([{ disease_group: 'Invalid total fixture', case_count: Infinity }]);
++  mount();
++  const list = await screen.findByRole('list', { name: viStrings['dashboard.topGroups'] });
++  expect(list).not.toHaveTextContent('%');
++  expect(screen.queryByTestId('pie-data')).not.toBeInTheDocument();
++  showBars();
++  expect(screen.getByRole('list', { name: viStrings['dashboard.topGroups'] })).not.toHaveTextContent('%');
+ });
+ 
+ it('keeps loading/empty states and retries a failed API load without fake success', async () => {
+@@ -184,6 +261,7 @@
+   expect(screen.getByRole('button', { name: viStrings['common.refresh'] })).toBeDisabled();
+   rejectLoad(new Error('Dashboard offline fixture'));
+   expect(await screen.findByText(/Dashboard offline fixture/)).toBeVisible();
++  showBars();
+   vi.mocked(api.getMonthlyStatistics).mockResolvedValue([]);
+   vi.mocked(api.getCasesByYear).mockResolvedValue([]);
+   vi.mocked(api.getTopDiseaseGroups).mockResolvedValue([]);
+@@ -192,4 +270,6 @@
+   expect(within(region('dashboard.monthlyCases')).getByText(viStrings['dashboard.noData'])).toBeVisible();
+   expect(within(region('dashboard.topGroups')).getByText(viStrings['dashboard.noGroupData'])).toBeVisible();
+   expect(within(region('dashboard.yearlyCasesTitle')).getByText(viStrings['dashboard.noData'])).toBeVisible();
+-});
++  fireEvent.click(screen.getByRole('button', { name: viStrings['dashboard.donutView'] }));
++  expect(within(region('dashboard.topGroups')).getByText(viStrings['dashboard.noGroupData'])).toBeVisible();
++});
+--- before/Frontend/src/app/components/DashboardOverview.tsx
++++ after/Frontend/src/app/components/DashboardOverview.tsx
+@@ -3,6 +3,7 @@
+ import AdminStatCard from './admin/AdminStatCard';
+ import { ADMIN_CHART, ADMIN_CHART_COLORS } from './admin/chartPalette';
+ import AdminPageHeading from './admin/AdminPageHeading';
++import DashboardTopGroupsChart from './admin/DashboardTopGroupsChart';
+ import { Fragment, useCallback, useEffect, useMemo, useState } from 'react';
+ import {
+   Users,
+@@ -220,7 +221,7 @@
+         vi: label.vi || group.disease_group,
+         en: label.en,
+         value: group.case_count,
+-        share: total > 0 ? group.case_count / total * 100 : null,
++        share: Number.isFinite(total) && total > 0 ? group.case_count / total * 100 : null,
+       };
+     });
+   }, [topGroups, bilingualMap]);
+@@ -444,32 +445,8 @@
+         </section>
+ 
+         <section aria-labelledby="dashboard-top-title" className="admin-surface bg-white rounded-xl p-6 border border-slate-200 shadow-sm">
+-          <div className="mb-4">
+-            <h3 id="dashboard-top-title" className="text-lg font-semibold text-slate-800">{t('dashboard.topGroups')}</h3>
+-            <p className="text-xs text-slate-500 mt-1">{t('dashboard.topGroupShare')}</p>
+-          </div>
+-          {rankedGroups.length === 0 ? (
+-            <EmptyChart loading={showEmptyLoading} label={t('dashboard.noGroupData')} t={t} />
+-          ) : (
+-            <ol className="admin-dashboard-ranking" aria-label={t('dashboard.topGroups')}>
+-              {rankedGroups.map((entry, index) => {
+-                const share = entry.share === null ? '—' : `${entry.share.toFixed(1)}%`;
+-                const tooltip = `${entry.vi}${entry.en ? ` / ${entry.en}` : ''}: ${entry.value.toLocaleString()} ${t('dashboard.caseUnit')} · ${share} (${t('dashboard.topGroupShare')})`;
+-                return (
+-                  <li key={entry.name} title={tooltip} tabIndex={0}>
+-                    <span className="admin-dashboard-rank" aria-hidden="true">{index + 1}</span>
+-                    <div className="admin-dashboard-rank-content">
+-                      <div className="admin-dashboard-rank-heading">
+-                        <span className="admin-dashboard-rank-label"><strong>{entry.vi}</strong>{entry.en && <small>{entry.en}</small>}</span>
+-                        <span className="admin-dashboard-rank-value">{entry.value.toLocaleString()} <small>{t('dashboard.caseUnit')} · {share}</small></span>
+-                      </div>
+-                      <div className="admin-dashboard-rank-track" aria-hidden="true"><span style={{ width: `${entry.share ?? 0}%` }} /></div>
+-                    </div>
+-                  </li>
+-                );
+-              })}
+-            </ol>
+-          )}
++          <DashboardTopGroupsChart groups={rankedGroups} animate={chartAnimation}
++            emptyState={<EmptyChart loading={showEmptyLoading} label={t('dashboard.noGroupData')} t={t} />} />
+         </section>
+       </div>
+ 
+--- before/Frontend/src/app/components/admin/content.css
++++ after/Frontend/src/app/components/admin/content.css
+@@ -51,6 +51,25 @@
+ .admin-dashboard-rank-value small { color: var(--admin-muted); font-size: 10px; font-weight: 400; }
+ .admin-dashboard-rank-track { height: 6px; margin-top: 5px; border-radius: 4px; background: var(--admin-subtle); overflow: hidden; }
+ .admin-dashboard-rank-track > span { display: block; height: 100%; border-radius: inherit; background: var(--admin-primary); }
++.admin-dashboard-top-groups { container-type: inline-size; min-width: 0; }
++.admin-dashboard-top-header { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 10px; margin-bottom: 8px; }
++.admin-dashboard-chart-toggle { display: inline-flex; flex-wrap: wrap; gap: 2px; max-width: 100%; padding: 3px; border: 1px solid var(--admin-border); border-radius: 9px; background: var(--admin-subtle); }
++:root .eureka-admin .admin-dashboard-chart-toggle > button { min-height: 30px; padding: 4px 8px; border-radius: 6px; color: var(--admin-muted); font-size: 11px; line-height: 1.5; }
++:root .eureka-admin .admin-dashboard-chart-toggle > button:hover { color: var(--admin-ink); background: var(--admin-mint); }
++:root .eureka-admin .admin-dashboard-chart-toggle > button[aria-pressed='true'] { color: var(--admin-accent-ink); background: var(--admin-mint); font-weight: 700; }
++.admin-dashboard-donut-layout { display: grid; grid-template-columns: minmax(0, 1fr); gap: 12px; align-items: center; }
++.admin-dashboard-donut-layout > * { min-width: 0; }
++.admin-dashboard-donut-plot { width: 100%; min-width: 0; }
++.admin-dashboard-donut-layout .admin-dashboard-ranking { gap: 9px; }
++.admin-dashboard-donut-swatch { width: 8px; height: 8px; flex: 0 0 8px; border-radius: 2px; align-self: flex-start; margin-top: 5px; }
++.admin-dashboard-donut-tooltip { width: 250px; max-width: 100%; padding: 10px 12px; border: 1px solid var(--admin-border); border-radius: 10px; background: var(--admin-surface); color: var(--admin-ink); font-size: 12px; overflow-wrap: anywhere; }
++.admin-dashboard-donut-tooltip strong, .admin-dashboard-donut-tooltip small { display: block; line-height: 1.5; }
++.admin-dashboard-donut-tooltip small { color: var(--admin-muted); font-size: 10px; }
++.admin-dashboard-donut-tooltip p { margin-block: 5px; font-variant-numeric: tabular-nums; }
++.admin-dashboard-donut-unavailable { display: grid; place-items: center; width: 180px; height: 180px; max-width: 100%; margin: 25px auto; border: 26px solid var(--admin-subtle); border-radius: 50%; color: var(--admin-muted); }
++@container (min-width: 560px) {
++  .admin-dashboard-donut-layout { grid-template-columns: minmax(0, .85fr) minmax(0, 1.15fr); gap: 20px; }
++}
+ @media (min-width: 1100px) {
+   .eureka-admin .admin-dashboard-content .admin-dashboard-charts { grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr); }
+ }

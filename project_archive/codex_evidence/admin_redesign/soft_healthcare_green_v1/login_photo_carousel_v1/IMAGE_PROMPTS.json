@@ -1,0 +1,24 @@
+[
+  {
+    "slide": 1,
+    "prompt": "Use case: photorealistic-natural. Create a standalone editorial-style photographic image for the left panel of a pediatric healthcare application's login screen. NOT a website mockup, no UI. Bright modern pediatric consulting room with soft mint green and warm white tones, natural window daylight. A friendly Asian female pediatrician in a white coat sitting at eye level and talking with a fully clothed school-age Asian child and parent, relaxed and reassuring, no invasive treatment. Fictional generated people, no real patient identity. Medium-wide environmental portrait, subjects' faces in the upper middle area with generous framing around heads so a portrait cover crop will not cut faces. Keep bottom third visually calm for HTML overlay text. Authentic natural skin texture, understated professional healthcare photography, no cartoon or exaggerated smiles. No text, logos, watermark, screens with patient data, paperwork with readable text, or embedded interface. Output one photographic asset, approximately 4:5 portrait.",
+    "tool": "built-in image_gen",
+    "reference": "None: referenced ZIP not available in workspace/attachments at implementation time",
+    "used_in_carousel": false,
+    "note": "Initial candidate generated while ZIP was unavailable; superseded by supplied slide 1. Original retained in generated_images."
+  },
+  {
+    "slide": 2,
+    "prompt": "Use case: photorealistic-natural. Create ONE standalone portrait photographic asset for a pediatric healthcare application's login carousel, not a website screenshot. A mother and her fully clothed young school-age daughter sitting together in a modern friendly pediatric clinic waiting lounge, quietly talking and looking at one another. Fictional Asian family, not identifiable real patients. Bright soft daylight, mint upholstery, warm light wood, neutral white walls, a small plant, clean uncluttered background. Natural candid expression, authentic skin texture and realistic hands, subtle professional healthcare editorial photography. Faces fully framed in upper middle, medium-wide environmental portrait, enough headroom and side margins for portrait object-fit cover. Bottom quarter calm for overlay HTML text. No doctor examination in this scene; a distinct composition from a doctor consultation. No text, no readable documents, no logos, no watermarks, no patient data, no UI. 4:5 portrait composition.",
+    "tool": "built-in image_gen",
+    "reference": "Standalone generated scene; supplied mockup later inspected for layout only",
+    "used_in_carousel": true
+  },
+  {
+    "slide": 3,
+    "prompt": "Use case: photorealistic-natural. Generate one portrait editorial architectural photograph, not a website mockup. A bright contemporary pediatric clinic consultation room, no people. Friendly mint green and warm-white interior, light oak furniture, soft upholstered child-size stool beside an examination couch, small tidy shelf with a few unbranded age-appropriate toys, large side window with soft natural morning daylight and leafy plant. Calm clean modern healthcare environment, natural materials, realistic architectural photography, not a sterile operating room, not cartoonishly colorful. Portrait 4:5 composition with room details in upper two-thirds and calm lower quarter allowing HTML headline overlay. No readable signage, no logos, no text, no watermark, no display screens, medical records, documents or patient data. One distinct original photographic asset for a healthcare app login carousel.",
+    "tool": "built-in image_gen",
+    "reference": "Standalone generated scene; supplied mockup later inspected for layout only",
+    "used_in_carousel": true
+  }
+]

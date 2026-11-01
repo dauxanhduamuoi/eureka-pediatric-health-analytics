@@ -1,0 +1,72 @@
+--- before/Frontend/src/app/components/DashboardOverview.tsx
++++ after/Frontend/src/app/components/DashboardOverview.tsx
+@@ -1,3 +1,4 @@
++import AnalyticsContext from './admin/AnalyticsContext';
+ import AdminDetails from './admin/AdminDetails';
+ import BilingualLegend from './admin/DiseaseChartLegend';
+ import AdminStatCard from './admin/AdminStatCard';
+@@ -337,8 +338,12 @@
+   );
+ 
+   return (
+-    <div className="admin-page-stack relative admin-dashboard-content">
++    <div className="admin-page-stack relative admin-dashboard-content eureka-analytics">
+       <AdminPageHeading icon={Activity} title={t('sidebar.dashboard')} description={t('admin.description.dashboard')} />
++      <AnalyticsContext title="Diễn biến và cơ cấu nhóm bệnh"
++        description="Theo dõi diễn biến theo kỳ, đối chiếu cơ cấu nhóm bệnh và kiểm tra độ phủ trước khi đọc các bảng chi tiết."
++        scope={monthlyChartData.length ? `${monthlyChartData[0].period} → ${monthlyChartData[monthlyChartData.length - 1].period}` : 'Chưa có kỳ dữ liệu'}
++        links={[{ id: 'analytics-dashboard-trend', label: 'Diễn biến theo kỳ' }, { id: 'analytics-dashboard-groups', label: 'Cơ cấu nhóm bệnh' }, { id: 'analytics-dashboard-coverage', label: 'Độ phủ theo năm' }, { id: 'analytics-dashboard-records', label: 'Bảng chi tiết' }]} />
+       {/* Toasts */}
+       <div className="fixed top-4 right-4 z-50 space-y-2">
+         {toasts.map((toast) => (
+@@ -416,10 +421,9 @@
+           iconBg={stat.iconBg} iconColor={stat.iconColor} borderColor={stat.borderColor} />)}
+       </div>
+ 
+-      {/* Independent desktop columns; CSS interleaves the cards on smaller screens. */}
++      {/* Read the time series first; composition and coverage follow in DOM order. */}
+       <div className="admin-dashboard-charts">
+-        <div className="admin-dashboard-left-column">
+-          <section aria-labelledby="dashboard-monthly-title" className="admin-dashboard-period admin-surface bg-white rounded-xl p-6 border border-slate-200 shadow-sm">
++          <section id="analytics-dashboard-trend" tabIndex={-1} aria-labelledby="dashboard-monthly-title" className="admin-dashboard-period admin-surface bg-white rounded-xl p-6 border border-slate-200 shadow-sm">
+             <h3 id="dashboard-monthly-title" className="text-lg font-semibold text-slate-800 mb-4">{t('dashboard.monthlyCases')}</h3>
+             {monthlyChartData.length === 0 ? (
+               <EmptyChart loading={showEmptyLoading} label={t('dashboard.noData')} t={t} />
+@@ -445,8 +449,11 @@
+               </ResponsiveContainer>
+             )}
+           </section>
+-
+-          <section aria-labelledby="dashboard-yearly-title" className="admin-dashboard-year admin-surface bg-white rounded-xl p-6 border border-slate-200 shadow-sm">
++        <section id="analytics-dashboard-groups" tabIndex={-1} aria-labelledby="dashboard-top-title" className="admin-dashboard-top admin-surface bg-white rounded-xl p-6 border border-slate-200 shadow-sm">
++          <DashboardTopGroupsChart groups={rankedGroups} styles={topGroupStyles} animate={chartAnimation}
++            emptyState={<EmptyChart loading={showEmptyLoading} label={t('dashboard.noGroupData')} t={t} />} />
++        </section>
++          <section id="analytics-dashboard-coverage" tabIndex={-1} aria-labelledby="dashboard-yearly-title" className="admin-dashboard-year admin-surface bg-white rounded-xl p-6 border border-slate-200 shadow-sm">
+             <header className="mb-4">
+               <h3 id="dashboard-yearly-title" className="text-lg font-semibold text-slate-800">{t('dashboard.yearlyCasesTitle')}</h3>
+               <p className="text-xs text-slate-500 mt-1">
+@@ -526,14 +533,9 @@
+               </>
+             )}
+           </section>
+-
+-        </div>
+-        <section aria-labelledby="dashboard-top-title" className="admin-dashboard-top admin-surface bg-white rounded-xl p-6 border border-slate-200 shadow-sm">
+-          <DashboardTopGroupsChart groups={rankedGroups} styles={topGroupStyles} animate={chartAnimation}
+-            emptyState={<EmptyChart loading={showEmptyLoading} label={t('dashboard.noGroupData')} t={t} />} />
+-        </section>
+       </div>
+ 
++      <div id="analytics-dashboard-records" tabIndex={-1}>
+       <AdminDetails title={t('content.dashboardDetails')}>
+       <div className="admin-surface bg-white rounded-xl p-6 border border-slate-200 shadow-sm">
+         <div className="mb-4">
+@@ -789,6 +791,7 @@
+         )}
+       </div>
+       </AdminDetails>
++      </div>
+     </div>
+   );
+ }

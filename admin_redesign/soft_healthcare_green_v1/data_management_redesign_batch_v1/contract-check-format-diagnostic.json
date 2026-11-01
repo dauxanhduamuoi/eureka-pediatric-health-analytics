@@ -1,0 +1,62 @@
+{
+  "controllers": [
+    {
+      "file": "DataImport.tsx",
+      "originalStatements": 12,
+      "unchangedStatements": 10,
+      "changes": [
+        "loadImportStatuses",
+        "effect:1"
+      ],
+      "additions": [
+        "[statusError,setStatusError]",
+        "[jobError,setJobError]"
+      ],
+      "unexpected": [],
+      "apiCallsUnchanged": true
+    },
+    {
+      "file": "DiseaseCodesManager.tsx",
+      "originalStatements": 14,
+      "unchangedStatements": 12,
+      "changes": [
+        "load",
+        "effect:2"
+      ],
+      "additions": [
+        "listVersion"
+      ],
+      "unexpected": [],
+      "apiCallsUnchanged": true
+    },
+    {
+      "file": "ProvinceRegionsManager.tsx",
+      "originalStatements": 12,
+      "unchangedStatements": 12,
+      "changes": [],
+      "additions": [],
+      "unexpected": [],
+      "apiCallsUnchanged": true
+    },
+    {
+      "file": "ParentGuideManager.tsx",
+      "originalStatements": 25,
+      "unchangedStatements": 24,
+      "changes": [
+        "loadImportedRows"
+      ],
+      "additions": [
+        "guideListVersion"
+      ],
+      "unexpected": [],
+      "apiCallsUnchanged": true
+    }
+  ],
+  "guideContentMappingUnchanged": false,
+  "unscopedSelectors": [],
+  "protectedFiles": 608,
+  "unexpectedChanges": [],
+  "indexUnchanged": true,
+  "realDatabaseExcludedFromHashInventory": true,
+  "status": "FAIL"
+}

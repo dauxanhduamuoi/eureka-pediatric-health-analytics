@@ -1,0 +1,10 @@
+{
+  "checked": [
+    "Frontend/src/app/components/AreaInsights.tsx",
+    "Frontend/src/app/components/AreaInsights.test.tsx",
+    "Frontend/src/app/components/areas/AreaFilterPanel.tsx",
+    "Frontend/src/app/components/areas/AreaResults.tsx",
+    "Frontend/src/app/components/areas/AreaInsights.css"
+  ],
+  "trailingWhitespace": []
+}

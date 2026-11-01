@@ -1,0 +1,12 @@
+{
+  "status": "BROWSER NOT VERIFIED",
+  "apps": [],
+  "browsers": [],
+  "errors": ["Computer Use native pipe is unavailable (os error 2)", "The browser access host is unavailable"],
+  "viewportsNotVisuallyVerified": [1440, 1280, 768, 390],
+  "scrollHeightMeasured": false,
+  "screenshotTaken": false,
+  "runtimeSymptomFullyReproduced": false,
+  "confirmedSourceCase": "Empty/loading recommendation reused a fixed 180px chart placeholder",
+  "realApiRequests": false
+}

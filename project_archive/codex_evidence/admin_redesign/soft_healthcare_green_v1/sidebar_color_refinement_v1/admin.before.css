@@ -1,0 +1,225 @@
+/* Eureka Admin only. Legacy utility adapters keep existing forms and dialogs intact.
+   Parent never mounts .eureka-admin, including shared Weather AI explanation views. */
+.eureka-admin {
+  --admin-bg: #f5fcf7;
+  --admin-surface: #fff;
+  --admin-subtle: #f5f9f6;
+  --admin-mint: #e4f6e9;
+  --admin-border: #dcece1;
+  --admin-primary: #15803d;
+  --admin-hover: #166534;
+  --admin-ink: #172b22;
+  --admin-muted: #607268;
+  --admin-accent-ink: #166534;
+  --admin-radius: 16px;
+  --admin-control-radius: 9px;
+  --admin-shadow: 0 2px 8px rgb(23 43 34 / 3%);
+  --admin-space: 24px;
+  --admin-font-body: 13px;
+  --admin-font-title: 24px;
+  color-scheme: light;
+  display: flex;
+  width: 100%;
+  height: 100dvh;
+  min-height: 0;
+  overflow: hidden;
+  background: var(--admin-bg);
+  color: var(--admin-ink);
+  isolation: isolate;
+}
+/* Keep the existing explicit appearance preferences operational. Light is the
+   healthcare default; no stored preference is overwritten by the redesign. */
+html.dark .eureka-admin {
+  --admin-bg: #101e17;
+  --admin-surface: #182a20;
+  --admin-subtle: #20372a;
+  --admin-mint: #224a31;
+  --admin-border: #355141;
+  --admin-ink: #eef8f0;
+  --admin-muted: #b2c6b8;
+  --admin-accent-ink: #86efac;
+  color-scheme: dark;
+}
+html[data-theme='multicolor'] .eureka-admin {
+  --admin-primary: hsl(var(--mc-hue) 60% 36%);
+  --admin-hover: hsl(var(--mc-hue) 62% 28%);
+  --admin-mint: hsl(var(--mc-hue) 55% 94%);
+  --admin-accent-ink: hsl(var(--mc-hue) 62% 28%);
+}
+html[data-theme='developer'] .eureka-admin { --admin-radius: 8px; --admin-control-radius: 5px; --admin-shadow: none; }
+:root .eureka-admin .admin-sidebar {
+  /* Sidebar palette stays light, independently of main-page appearance. */
+  --admin-surface: #fbfefc;
+  --admin-subtle: #eff8f2;
+  --admin-mint: #e1f3e7;
+  --admin-border: #deebe2;
+  --admin-primary: #218247;
+  --admin-accent-ink: #21623b;
+  --admin-ink: #253d2e;
+  --admin-muted: #586e61;
+  --admin-scroll-track: #f0f8f3;
+  --admin-scroll-thumb: #b5d8c0;
+  color-scheme: light;
+  color: var(--admin-ink);
+  width: 264px;
+  flex: 0 0 auto;
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+  background: var(--admin-surface);
+  border-right: 1px solid var(--admin-border);
+}
+:root .eureka-admin[data-sidebar='collapsed'] .admin-sidebar { width: 80px; background: #e9f8ee; --admin-scroll-track: #e9f8ee; --admin-scroll-thumb: #a5cfb2; }
+:root .eureka-admin [hidden] { display: none !important; }
+.admin-brand { display: flex; align-items: center; gap: 10px; min-height: 88px; padding: 18px 16px; flex-shrink: 0; }
+.admin-brand-mark { display: grid; place-items: center; width: 36px; height: 38px; flex-shrink: 0; border-radius: 11px; background: var(--admin-mint); color: var(--admin-primary); }
+#root .eureka-admin .admin-brand-name { font-size: 14px; font-weight: 700; line-height: 1.45; letter-spacing: 0; overflow-wrap: normal; text-wrap: balance; }
+.admin-product-name { color: var(--admin-muted); font-size: 11px; margin-bottom: 3px; line-height: 1.5; }
+.admin-brand-caption { margin-top: 4px; font-size: 10px; color: var(--admin-muted); }
+.admin-navigation { padding: 8px 12px 18px; overscroll-behavior: contain; scrollbar-width: thin; scrollbar-color: var(--admin-scroll-thumb) var(--admin-scroll-track); }
+.admin-navigation::-webkit-scrollbar { width: 5px; }
+.admin-navigation::-webkit-scrollbar-track { background: var(--admin-scroll-track); border-radius: 10px; }
+.admin-navigation::-webkit-scrollbar-thumb { background: var(--admin-scroll-thumb); border-radius: 10px; }
+.admin-navigation:hover { --admin-scroll-thumb: #87bb99; }
+.admin-navigation::-webkit-scrollbar-button { display: none; width: 0; height: 0; }
+.admin-nav-group + .admin-nav-group { margin-top: 22px; }
+.admin-nav-caption { margin: 0 12px 8px; font-size: 10px; font-weight: 700; letter-spacing: .7px; text-transform: uppercase; color: var(--admin-muted); }
+:root .eureka-admin .admin-nav-item {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  width: 100%;
+  position: relative;
+  min-width: 0;
+  padding: 10px 12px;
+  min-height: 42px;
+  border-radius: var(--admin-control-radius);
+  color: var(--admin-muted);
+  background: transparent;
+  text-align: left;
+  font-size: var(--admin-font-body);
+  font-weight: 600;
+  line-height: 1.5;
+  transition: background-color .15s, color .15s;
+}
+.admin-nav-item > svg { flex-shrink: 0; }
+.admin-nav-item > span { min-width: 0; flex: 1; white-space: normal; overflow-wrap: anywhere; }
+:root .eureka-admin .admin-nav-item:hover { background: var(--admin-subtle); color: var(--admin-ink); }
+:root .eureka-admin .admin-nav-item[aria-current='page'] { background: var(--admin-mint); color: var(--admin-accent-ink); font-weight: 700; box-shadow: inset 3px 0 var(--admin-primary); }
+:root .eureka-admin .admin-nav-item.admin-weather-active { color: var(--admin-accent-ink); }
+.admin-nav-submenu { margin-left: 20px; padding-left: 8px; border-left: 1px solid var(--admin-border); }
+.admin-sidebar-footer { padding: 10px 12px; border-top: 1px solid var(--admin-border); flex-shrink: 0; }
+:root .eureka-admin[data-sidebar='collapsed'] .admin-brand { justify-content: center; padding: 18px 10px; }
+:root .eureka-admin[data-sidebar='collapsed'] .admin-navigation { padding: 8px 12px 16px; }
+:root .eureka-admin[data-sidebar='collapsed'] .admin-nav-group + .admin-nav-group { border-top: 1px solid var(--admin-border); padding-top: 13px; margin-top: 13px; }
+:root .eureka-admin[data-sidebar='collapsed'] .admin-nav-item { justify-content: center; padding: 11px 8px; min-height: 44px; }
+:root .eureka-admin[data-sidebar='collapsed'] .admin-nav-submenu { margin-left: 0; padding-left: 0; border-left: 0; }
+:root .eureka-admin[data-sidebar='collapsed'] .admin-nav-chevron { position: absolute; right: 1px; bottom: 3px; width: 10px; height: 10px; }
+.admin-workspace { display: flex; flex: 1; flex-direction: column; min-width: 0; min-height: 0; }
+:root .eureka-admin .admin-topbar { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 18px 32px; min-height: 90px; flex-shrink: 0; border-bottom: 1px solid var(--admin-border); background: var(--admin-surface); z-index: 60; }
+.admin-topbar-title, .admin-topbar-actions { display: flex; align-items: center; gap: 18px; min-width: 0; }
+.admin-topbar-title { flex: 1; }
+.admin-topbar h2 { font-size: 18px; font-weight: 700; line-height: 1.4; overflow-wrap: anywhere; }
+.admin-eyebrow { color: var(--admin-muted); font-size: 10px; margin-bottom: 3px; letter-spacing: .5px; }
+:root .eureka-admin .admin-icon-button { display: inline-flex; align-items: center; justify-content: center; width: 40px; height: 40px; flex-shrink: 0; border: 1px solid var(--admin-border); border-radius: 11px; color: var(--admin-muted); background: var(--admin-surface); }
+:root .eureka-admin .admin-icon-button:hover { background: var(--admin-mint); color: var(--admin-accent-ink); }
+.admin-notification-count { position: absolute; top: -5px; right: -5px; background: #dc2626; color: white; padding: 1px 5px; border-radius: 20px; font-size: 10px; }
+.admin-account-button { display: flex; align-items: center; gap: 10px; padding: 2px; }
+.admin-avatar { display: grid; place-items: center; width: 39px; height: 39px; border-radius: 50%; background: var(--admin-mint); color: var(--admin-accent-ink); font-size: 12px; font-weight: 800; flex-shrink: 0; }
+.admin-account-label { text-align: left; max-width: 170px; }
+.admin-account-label strong, .admin-account-label small { display: block; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.admin-account-label strong { font-size: 13px; font-weight: 700; }
+.admin-account-label small { font-size: 11px; color: var(--admin-muted); margin-top: 2px; }
+.admin-account-menu { position: absolute; top: calc(100% + 15px); right: 0; width: min(270px, calc(100vw - 32px)); padding: 6px; border-radius: var(--admin-radius); border: 1px solid var(--admin-border); background: var(--admin-surface); box-shadow: 0 12px 32px rgb(23 43 34 / 12%); }
+.admin-account-menu > button { display: flex; align-items: center; gap: 9px; width: 100%; padding: 10px 12px; font-size: 13px; text-align: left; border-radius: var(--admin-control-radius); }
+.admin-account-menu > button:hover { background: var(--admin-subtle); }
+.admin-account-identity { display: grid; gap: 3px; padding: 12px; margin-bottom: 4px; border-bottom: 1px solid var(--admin-border); overflow-wrap: anywhere; font-size: 13px; }
+.admin-account-identity > span { color: var(--admin-muted); font-size: 11px; }
+:root .eureka-admin .admin-logout { color: #b91c1c; }
+.admin-content { flex: 1; min-width: 0; min-height: 0; overflow: auto; padding: 30px 32px 40px; scrollbar-gutter: stable; }
+.admin-page { max-width: 1560px; margin: 0 auto; min-width: 0; }
+.admin-page .grid > * { min-width: 0; }
+.admin-page-heading { display: flex; align-items: flex-start; flex-wrap: wrap; gap: 13px; margin-bottom: var(--admin-space); }
+.admin-heading-icon { display: grid; place-items: center; flex-shrink: 0; width: 45px; height: 45px; background: var(--admin-mint); color: var(--admin-accent-ink); border-radius: 13px; }
+.admin-heading-copy { flex: 1; min-width: min(220px, 100%); }
+.admin-heading-copy h2 { font-size: var(--admin-font-title); line-height: 1.35; font-weight: 700; letter-spacing: -.45px; }
+.admin-heading-copy > p { margin-top: 7px; font-size: 13px; line-height: 1.7; color: var(--admin-muted); max-width: 76ch; }
+.admin-heading-actions { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+/* Compatibility layer for existing page primitives. No selectors target Parent
+   or overwrite warning/error/sign colours, data, dimensions of chart marks. */
+:root .eureka-admin .bg-white { background: var(--admin-surface) !important; border-color: var(--admin-border) !important; }
+:root .eureka-admin :is(.bg-slate-50, .bg-slate-100) { background: var(--admin-subtle) !important; }
+:root .eureka-admin :is(.text-slate-800, .text-slate-900, .text-slate-950) { color: var(--admin-ink) !important; }
+:root .eureka-admin :is(.text-slate-400, .text-slate-500, .text-slate-600, .text-slate-700) { color: var(--admin-muted) !important; }
+:root .eureka-admin :is(.border-slate-100, .border-slate-200) { border-color: var(--admin-border) !important; }
+:root .eureka-admin :is(.rounded-xl, .rounded-2xl, .rounded-3xl) { border-radius: var(--admin-radius) !important; }
+:root .eureka-admin :is(.rounded-lg, .rounded-md) { border-radius: var(--admin-control-radius) !important; }
+:root .eureka-admin :is(.shadow-sm, .shadow-md, .shadow-lg, .shadow-xl, .shadow-2xl) { box-shadow: var(--admin-shadow) !important; }
+:root .eureka-admin .admin-surface { background: var(--admin-surface) !important; border: 1px solid var(--admin-border) !important; border-radius: var(--admin-radius) !important; box-shadow: var(--admin-shadow) !important; }
+:root .eureka-admin :is(button, a).bg-blue-600 { background: var(--admin-primary) !important; color: #fff !important; box-shadow: none !important; }
+:root .eureka-admin :is(button, a).bg-blue-600:hover { background: var(--admin-hover) !important; }
+:root .eureka-admin :is(button, a):is(.bg-blue-50, .bg-blue-100),
+:root .eureka-admin :is(button, a)[aria-selected='true'],
+:root .eureka-admin button[aria-current='page'] { background: var(--admin-mint) !important; color: var(--admin-accent-ink) !important; }
+:root .eureka-admin :is(input, select, textarea) { max-width: 100%; background: var(--admin-surface) !important; color: var(--admin-ink) !important; border-color: var(--admin-border) !important; accent-color: var(--admin-primary); }
+:root .eureka-admin :is(input, select, textarea):focus { border-color: var(--admin-primary) !important; box-shadow: 0 0 0 3px color-mix(in srgb, var(--admin-primary) 16%, transparent) !important; }
+:root .eureka-admin :is(button, a, input, select, textarea, summary, [tabindex]):focus-visible { outline: 2px solid var(--admin-primary); outline-offset: 3px; }
+:root .eureka-admin :is(button, select, input:not([type='checkbox']):not([type='radio']):not([type='range'])) { min-height: 36px; }
+:root .eureka-admin button:disabled { cursor: not-allowed; }
+:root .eureka-admin .admin-toggle { min-height: 24px; height: 24px; width: 44px; }
+:root .eureka-admin .admin-toggle > span { top: 4px; left: 4px; }
+:root .eureka-admin table { font-variant-numeric: tabular-nums; }
+:root .eureka-admin table thead tr { background: var(--admin-subtle) !important; }
+:root .eureka-admin th { font-weight: 600; color: var(--admin-muted); }
+:root .eureka-admin :is(th, td) { padding-top: 12px; padding-bottom: 12px; vertical-align: top; }
+:root .eureka-admin table tbody tr:hover { background: var(--admin-subtle) !important; }
+:root .eureka-admin .admin-kpi { border-left-width: 1px !important; position: relative; }
+.admin-kpi::before { content: ''; position: absolute; top: 18px; bottom: 18px; left: 0; width: 3px; border-radius: 0 4px 4px 0; background: var(--admin-kpi-accent, var(--admin-primary)); }
+.admin-kpi.border-l-amber-500 { --admin-kpi-accent: #d97706; }
+.admin-kpi.border-l-red-500 { --admin-kpi-accent: #dc2626; }
+.admin-kpi-icon { display: inline-flex; flex-shrink: 0; padding: 10px; border-radius: 11px; background: var(--admin-mint); color: var(--admin-kpi-accent, var(--admin-accent-ink)); }
+:root .eureka-admin .seasonal-highlight-card { background: var(--admin-surface) !important; color: var(--admin-ink) !important; border: 1px solid var(--admin-border) !important; box-shadow: var(--admin-shadow) !important; }
+:root .eureka-admin .seasonal-highlight-icon { color: var(--admin-primary) !important; }
+:root .eureka-admin .seasonal-highlight-badge { background: var(--admin-mint) !important; color: var(--admin-accent-ink) !important; }
+:root .eureka-admin .seasonal-highlight-muted { color: var(--admin-muted) !important; }
+:root .eureka-admin .recharts-cartesian-grid line { stroke: var(--admin-border); stroke-dasharray: 3 5; }
+:root .eureka-admin .recharts-text { fill: var(--admin-muted); }
+:root .eureka-admin .recharts-default-tooltip { background: var(--admin-surface) !important; border: 1px solid var(--admin-border) !important; border-radius: 10px; color: var(--admin-ink); box-shadow: var(--admin-shadow) !important; }
+.admin-skip-link { position: absolute; top: 8px; left: 12px; transform: translateY(-200%); z-index: 150; background: var(--admin-surface); padding: 10px 16px; border: 1px solid var(--admin-primary); border-radius: 8px; }
+.admin-skip-link:focus { transform: translateY(0); }
+.admin-drawer-backdrop { position: fixed; inset: 0; z-index: 80; background: rgb(15 38 25 / 30%); }
+:root .eureka-admin .fixed.inset-0 > :is(.bg-white, form) { max-height: calc(100dvh - 32px); overflow-y: auto; }
+:root .eureka-admin .admin-medical-hero { background: var(--admin-surface); color: var(--admin-ink); }
+.admin-medical-eyebrow { color: var(--admin-accent-ink); font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; }
+.admin-medical-metric { background: var(--admin-subtle); border: 1px solid var(--admin-border); padding: 10px 14px; border-radius: 10px; color: var(--admin-muted); }
+.admin-medical-metric strong { display: block; font-size: 20px; color: var(--admin-accent-ink); }
+.admin-auth { display: grid; place-items: center; overflow: auto; }
+.admin-auth > div { width: 100%; }
+@media (min-width: 1280px) {
+  .admin-dashboard-charts { grid-template-columns: minmax(0, 1.35fr) minmax(0, 1fr); }
+}
+@media (max-width: 1023px) {
+  :root .eureka-admin .admin-sidebar,
+  :root .eureka-admin[data-sidebar='collapsed'] .admin-sidebar { width: min(300px, calc(100vw - 36px)); position: fixed; inset: 0 auto 0 0; z-index: 90; box-shadow: 12px 0 30px rgb(23 43 34 / 10%); }
+  :root .eureka-admin .admin-topbar { padding: 14px 20px; min-height: 76px; }
+  .admin-content { padding: 24px 20px 32px; }
+}
+@media (max-width: 639px) {
+  :root .eureka-admin { --admin-space: 16px; --admin-radius: 13px; }
+  :root .eureka-admin .admin-topbar { padding: 12px; gap: 8px; }
+  .admin-topbar-title, .admin-topbar-actions { gap: 9px; }
+  .admin-topbar h2 { font-size: 14px; }
+  .admin-eyebrow, .admin-account-label, .admin-account-button > svg { display: none; }
+  .admin-content { padding: 20px 12px 28px; }
+  .admin-page-heading { gap: 10px; margin-bottom: 20px; }
+  .admin-heading-copy h2 { font-size: 21px; }
+  .admin-heading-icon { width: 38px; height: 38px; }
+  .admin-heading-actions { width: 100%; }
+  :root .eureka-admin .admin-surface { padding: 16px; }
+  :root .eureka-admin :is(.grid, .flex) > .min-w-0 { overflow-wrap: anywhere; }
+  :root .eureka-admin .fixed.right-4 { right: 12px; max-width: calc(100vw - 24px); }
+  :root .eureka-admin .admin-profile-row { flex-wrap: wrap; gap: 16px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  :root .eureka-admin *, :root .eureka-admin *::before, :root .eureka-admin *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; scroll-behavior: auto !important; }
+}

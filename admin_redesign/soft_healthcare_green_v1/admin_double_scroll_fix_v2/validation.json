@@ -1,0 +1,39 @@
+{
+  "status": "PASS_WITH_FINDINGS",
+  "completedAt": "2026-10-31T23:59:43.968978+07:00",
+  "targetedFrontend": {
+    "passed": 159,
+    "files": 9,
+    "log": "targeted-tests-final.log"
+  },
+  "typecheck": "PASS",
+  "productionBuild": "PASS",
+  "gitDiffCheckExit": 0,
+  "browser": {
+    "status": "VERIFIED_ISOLATED_FIXTURE",
+    "version": "Chrome/156.0.8078.74",
+    "viewports": [
+      1440,
+      1280,
+      768,
+      390
+    ],
+    "liveAppE2E": "NOT_VERIFIED"
+  },
+  "protectedFiles": {
+    "status": "PASS",
+    "total": 626,
+    "protectedUnchanged": 623,
+    "authorizedChanged": [
+      "Frontend/src/app/components/admin/AdminLayout.test.tsx",
+      "Frontend/src/app/components/admin/AdminLayout.tsx",
+      "Frontend/src/app/components/admin/admin.css"
+    ],
+    "unexpectedChanges": [],
+    "extraFrontendSourceFiles": [],
+    "modelFiles": 221,
+    "gitIndexUnchanged": true,
+    "realDatabaseExcluded": true
+  },
+  "report": "ADMIN_DOUBLE_SCROLL_FIX_V2_REPORT.md"
+}

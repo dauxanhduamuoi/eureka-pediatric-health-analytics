@@ -1,0 +1,11 @@
+{
+  "status": "BROWSER NOT VERIFIED",
+  "apps": [],
+  "browsers": [],
+  "errors": ["Native apps: Computer Use native pipe is unavailable (os error 2)", "Browsers: The browser access host is unavailable"],
+  "runtimeReproduced": false,
+  "actualDomMeasurements": false,
+  "grayAreaOwnerIdentified": false,
+  "viewportsNotVerified": [1440, 1280, 768, 390],
+  "applicationPatchApplied": false
+}

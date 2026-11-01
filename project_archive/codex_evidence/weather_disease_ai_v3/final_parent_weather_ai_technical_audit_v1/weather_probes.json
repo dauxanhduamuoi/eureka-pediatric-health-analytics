@@ -1,0 +1,86 @@
+{
+  "offline_only": true,
+  "model_count": 221,
+  "features": 45,
+  "manifest_verified": true,
+  "model_load_and_service_init_ms": 617.918,
+  "requested_query": {
+    "latitude": [
+      "10.790861"
+    ],
+    "longitude": [
+      "106.6313"
+    ],
+    "hourly": [
+      "temperature_2m,relative_humidity_2m,precipitation,rain,weather_code,wind_speed_10m,wind_gusts_10m"
+    ],
+    "past_days": [
+      "6"
+    ],
+    "forecast_days": [
+      "1"
+    ],
+    "timezone": [
+      "Asia/Ho_Chi_Minh"
+    ]
+  },
+  "healthy": {
+    "anchor": "2026-08-07",
+    "temperature_mean_current": 30,
+    "temperature_mean_3d": 16.666667,
+    "temperature_mean_7d": 12.857143,
+    "rain_sum_3d": 144,
+    "rain_sum_7d": 336,
+    "day_D_first_12h_mean": 20,
+    "day_D_complete_24h_mean": 30,
+    "runtime_ms": [
+      {
+        "feature_preparation": 31.451,
+        "ranking_221_models": 126.598,
+        "tier1_top_k": 6.316,
+        "tier2_top_k": 1.089,
+        "total": 165.566
+      },
+      {
+        "feature_preparation": 32.655,
+        "ranking_221_models": 188.304,
+        "tier1_top_k": 8.465,
+        "tier2_top_k": 0.018,
+        "total": 229.579
+      }
+    ],
+    "all_top5_shap_available": true,
+    "forbidden_response_keys": [],
+    "same_input_scores_identical": true
+  },
+  "null_rain_precipitation": {
+    "accepted": true,
+    "hourly_nulls": 336,
+    "encoded_all_45_finite": true,
+    "rain_sum_current": 0,
+    "rain_sum_7d": 0,
+    "precipitation_sum_7d": 0,
+    "rain_days_7d": 0,
+    "returned_count": 5
+  },
+  "one_hour_per_day": {
+    "accepted": true,
+    "hourly_rows": 7,
+    "rain_sum_7d": 14,
+    "returned_count": 5
+  },
+  "error_paths": {
+    "missing_hourly_field": {
+      "type": "ValueError",
+      "message": "Open-Meteo thiếu hourly fields: ['wind_gusts_10m']"
+    },
+    "empty_hourly": {
+      "type": "ValueError",
+      "message": "Open-Meteo thiếu hourly fields: ['time', 'temperature_2m', 'relative_humidity_2m', 'precipitation', 'rain', 'weather_code', 'wind_speed_10m', 'wind_gusts_10m']"
+    },
+    "provider_error": {
+      "type": "RuntimeError",
+      "message": "Không lấy được weather realtime từ Open-Meteo: <urlopen error simulated offline error>"
+    }
+  }
+}

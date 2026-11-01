@@ -1,0 +1,18 @@
+[
+  {
+    "source": "weather_disease_ai_v2/scripts/prepare_workspace.py",
+    "target": "README.md"
+  },
+  {
+    "source": "weather_disease_ai_v3/explainability/lightgbm_h14_final/build_explainability.py",
+    "target": "README.md"
+  },
+  {
+    "source": "weather_disease_ai_v3/explainability/lightgbm_h14_final/runtime_deps/cloudpickle/cloudpickle.py",
+    "target": "README.md"
+  },
+  {
+    "source": "weather_disease_ai_v3/explainability/lightgbm_h14_final/runtime_deps/numba/cloudpickle/cloudpickle.py",
+    "target": "README.md"
+  }
+]

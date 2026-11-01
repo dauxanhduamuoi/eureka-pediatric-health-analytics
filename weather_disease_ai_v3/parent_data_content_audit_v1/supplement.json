@@ -1,0 +1,192 @@
+{
+  "duplicate_excel_rows": [
+    {
+      "excel_row": 24,
+      "IDNHOMICD": 19,
+      "TENNHOMICD": "Giang mai bẩm sinh - Congenital syphilis",
+      "MANHOMBAOCAO": "A49",
+      "TRIEUCHUNGTHUONGGAP": "Có thể không có triệu chứng; có thể xuất hiện loét, tiết dịch bất thường, tiểu buốt, đau vùng chậu hoặc phát ban tùy tác nhân.",
+      "DAUHIEUCANDIKHAM": "Đi khám sớm nếu có phơi nhiễm, tổn thương/tiết dịch bất thường hoặc sốt kéo dài; khám ngay khi trẻ lừ đừ, khó thở hoặc nhiễm trùng nặng.",
+      "CACHPHONGBENH": "Quan hệ tình dục an toàn, xét nghiệm định kỳ khi có nguy cơ, điều trị đồng thời bạn tình và khám thai để dự phòng lây truyền mẹ-con."
+    },
+    {
+      "excel_row": 153,
+      "IDNHOMICD": 19,
+      "TENNHOMICD": "Giang mai bẩm sinh - Congenital syphilis",
+      "MANHOMBAOCAO": "H54",
+      "TRIEUCHUNGTHUONGGAP": "Có thể không có triệu chứng; có thể xuất hiện loét, tiết dịch bất thường, tiểu buốt, đau vùng chậu hoặc phát ban tùy tác nhân.",
+      "DAUHIEUCANDIKHAM": "Đi khám sớm nếu có phơi nhiễm, tổn thương/tiết dịch bất thường hoặc sốt kéo dài; khám ngay khi trẻ lừ đừ, khó thở hoặc nhiễm trùng nặng.",
+      "CACHPHONGBENH": "Quan hệ tình dục an toàn, xét nghiệm định kỳ khi có nguy cơ, điều trị đồng thời bạn tình và khám thai để dự phòng lây truyền mẹ-con."
+    }
+  ],
+  "db_unmapped_icd_aggregates": [
+    {
+      "main_icd": "A91",
+      "icd_admission": "A97",
+      "icd_discharge": "A91",
+      "encounters": 1
+    },
+    {
+      "main_icd": "B02.2",
+      "icd_admission": "B02",
+      "icd_discharge": "B02.2",
+      "encounters": 1
+    },
+    {
+      "main_icd": "Z22.7",
+      "icd_admission": "J18",
+      "icd_discharge": "Z22.7",
+      "encounters": 1
+    }
+  ],
+  "star_icd_catalog_matches": [
+    {
+      "main_icd": "B02.2",
+      "icd_code": "B02.2†",
+      "group_id": "34",
+      "group_name": "Thuỷ đậu và zôna - Varicella and Zoster",
+      "encounters": 1
+    }
+  ],
+  "month_stat_duplicate_keys": [
+    {
+      "duplicate_keys": 0
+    }
+  ],
+  "backend_api_zero_rows": [
+    {
+      "rows": 0
+    }
+  ],
+  "region_group_counts": [
+    {
+      "province_code": "74",
+      "groups": 191
+    },
+    {
+      "province_code": "79",
+      "groups": 208
+    }
+  ],
+  "hyphen_affected_guidance": [],
+  "concurrent_server_metadata": {
+    "db_mtime_utc": "2026-10-24T08:15:04.710429+00:00",
+    "most_recent_login_activity": [
+      {
+        "last_seen_at": "2026-10-24 08:15:04.705914",
+        "session_count": 135
+      }
+    ],
+    "job_statuses": [
+      {
+        "status": "FAILED",
+        "n": 5,
+        "latest_created_at": "2026-09-10 13:39:13.379607",
+        "latest_finished_at": "2026-09-10 13:49:59.585940"
+      },
+      {
+        "status": "INSUFFICIENT",
+        "n": 233,
+        "latest_created_at": "2026-10-24 05:24:12.138373",
+        "latest_finished_at": "2026-10-24 05:24:40.038775"
+      },
+      {
+        "status": "READY",
+        "n": 23,
+        "latest_created_at": "2026-10-04 12:54:51.535281",
+        "latest_finished_at": "2026-10-04 12:55:23.841956"
+      }
+    ],
+    "inventory_table_counts_unchanged": true
+  },
+  "catalog_multiple_report_blocks_per_id": [
+    {
+      "group_id": "19",
+      "group_name": "Giang mai bẩm sinh - Congenital syphilis",
+      "report_blocks": "A49,H54",
+      "variants": 2
+    }
+  ],
+  "catalog_metadata_19": [
+    {
+      "group_id": "19",
+      "group_name": "Giang mai bẩm sinh - Congenital syphilis",
+      "report_group_code": "A49",
+      "icd_prefixes": "A49",
+      "codes": 7
+    },
+    {
+      "group_id": "19",
+      "group_name": "Giang mai bẩm sinh - Congenital syphilis",
+      "report_group_code": "H54",
+      "icd_prefixes": "H54",
+      "codes": 10
+    }
+  ],
+  "excel_unknown_id_name_pairs": [],
+  "parent_visibility": {
+    "version": 0,
+    "enabled": 221,
+    "disabled": []
+  },
+  "deployment_model_files": {
+    "manifest_count": 221,
+    "entries": 221,
+    "feature_count": 45,
+    "matching_model_checksums": 221
+  },
+  "reviewed_169_humidity": [
+    {
+      "topic": 2,
+      "revision": 14,
+      "safe_item_returned": false,
+      "assessments": [
+        {
+          "source_id": 2,
+          "relevance": "NOT_SUPPORTIVE",
+          "note_vi": "Nghiên cứu về bệnh viêm phổi tổ chức vô căn, không đưa ra kết quả liên quan tới độ ẩm.",
+          "population_relevance": "UNKNOWN",
+          "population_note": "Legacy revision has no stored population assessment."
+        },
+        {
+          "source_id": 3,
+          "relevance": "NOT_SUPPORTIVE",
+          "note_vi": "Nghiên cứu liên quan tới nhiệt độ và độ ẩm, nhưng không báo cáo kết quả cụ thể cho viêm phổi.",
+          "population_relevance": "UNKNOWN",
+          "population_note": "Legacy revision has no stored population assessment."
+        },
+        {
+          "source_id": 4,
+          "relevance": "NOT_SUPPORTIVE",
+          "note_vi": "Nghiên cứu về nhiễm trùng đường hô hấp ở trẻ em, không có kết quả liên quan tới độ ẩm.",
+          "population_relevance": "UNKNOWN",
+          "population_note": "Legacy revision has no stored population assessment."
+        },
+        {
+          "source_id": 6,
+          "relevance": "INDIRECT",
+          "note_vi": "Liên quan tới độ ẩm và bệnh Legionnaires’, một dạng viêm phổi, nhưng không áp dụng cho toàn bộ nhóm bệnh.",
+          "population_relevance": "UNKNOWN",
+          "population_note": "Legacy revision has no stored population assessment."
+        },
+        {
+          "source_id": 16,
+          "relevance": "NOT_SUPPORTIVE",
+          "note_vi": "Hướng dẫn về humidification trong điều trị nội khí quản, không liên quan tới độ ẩm môi trường.",
+          "population_relevance": "UNKNOWN",
+          "population_note": "Legacy revision has no stored population assessment."
+        },
+        {
+          "source_id": 17,
+          "relevance": "DIRECT",
+          "note_vi": "Cung cấp bằng chứng trực tiếp về mối quan hệ giữa độ ẩm tuyệt đối và tử vong do viêm phổi ở người cao tuổi.",
+          "population_relevance": "UNKNOWN",
+          "population_note": "Legacy revision has no stored population assessment."
+        }
+      ],
+      "policy_reasons": [
+        "PARENT_TIER2_PEDIATRIC_SUPPORT_REQUIRED"
+      ]
+    }
+  ]
+}

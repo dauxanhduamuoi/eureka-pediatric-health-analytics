@@ -1,0 +1,1502 @@
+{
+  "candidate_catalog": {
+    "disease_groups": 311,
+    "never_observed_full_source": 76,
+    "observed_disease_groups_full_source": 235
+  },
+  "checks": {
+    "anchor_date_excluded_from_model_features": true,
+    "baseline_contract_train_only": true,
+    "context_has_no_disease_target": true,
+    "disease_catalog_mapping_valid": true,
+    "h14_is_d_to_d_plus_13": true,
+    "h3_is_d_to_d_plus_2": true,
+    "h3_le_h7_le_h14": true,
+    "h7_is_d_to_d_plus_6": true,
+    "has_case_matches_case_count": true,
+    "no_anchor_overlap": true,
+    "no_duplicate_query_id": true,
+    "no_duplicate_target_key": true,
+    "no_future_weather": true,
+    "no_target_window_overlap_between_splits": true,
+    "same_weather_features_for_h3_h7_h14": true,
+    "support_built_from_train_only": true,
+    "target_windows_within_source": true,
+    "weather_3d_is_d_minus_2_to_d": true,
+    "weather_7d_is_d_minus_6_to_d": true,
+    "weather_current_is_d_only": true,
+    "year_excluded_from_model_features": true
+  },
+  "contexts": {
+    "age_gender_pairs": 12,
+    "anchor_date_from": "2021-01-07",
+    "anchor_date_to": "2025-04-13",
+    "last_patient_date": "2025-04-26",
+    "max_target_end": "2025-04-26",
+    "queries": 18696,
+    "unique_anchor_dates": 1558
+  },
+  "estimated_dense_payload_bytes_at_40_bytes_per_pair": 232578240,
+  "estimated_full_candidate_rows_all_valid_queries": 5814456,
+  "estimated_full_candidate_rows_train": 4000704,
+  "examples": [
+    {
+      "age_group": "1-5 tuổi",
+      "anchor_date": "2021-01-07",
+      "gender": "Nam",
+      "positive_h14": [
+        {
+          "case_count": 19,
+          "disease_group_id": "169",
+          "disease_group_name": "Các bệnh viêm phổi - Pneumonia"
+        },
+        {
+          "case_count": 8,
+          "disease_group_id": "170",
+          "disease_group_name": "Viêm phế quản và viêm tiểu phế quản cấp - Acute bronchitis and acute bronchiolitis"
+        },
+        {
+          "case_count": 5,
+          "disease_group_id": "41",
+          "disease_group_name": "Bệnh virut khác - Other viral diseases"
+        },
+        {
+          "case_count": 4,
+          "disease_group_id": "165",
+          "disease_group_name": "Viêm họng và viêm amidan cấp - Acute pharyngitis and acute tonsillitis"
+        },
+        {
+          "case_count": 4,
+          "disease_group_id": "197",
+          "disease_group_name": "Bệnh khác của bộ máy tiêu hoá - Other diseases of the digestive system"
+        },
+        {
+          "case_count": 3,
+          "disease_group_id": "176",
+          "disease_group_name": "Hen - Asthma"
+        },
+        {
+          "case_count": 3,
+          "disease_group_id": "32",
+          "disease_group_name": "Sốt virut khác do tiết túc truyền và sốt virus xuất huyết - Other arthropod"
+        },
+        {
+          "case_count": 3,
+          "disease_group_id": "6",
+          "disease_group_name": "Các bệnh nhiễm khuẩn ruột khác - Other intestinal infectious diseases"
+        },
+        {
+          "case_count": 1,
+          "disease_group_id": "182",
+          "disease_group_name": "Bệnh khác của khoang miệng, tuyến nước bọt và hàm - Other diseases of the oral cavity, salivary glands and jaws"
+        },
+        {
+          "case_count": 1,
+          "disease_group_id": "185",
+          "disease_group_name": "Bệnh khác của thực quản, dạ dày và tá tràng - Other diseases of oesophagus, stomach, duodenum"
+        },
+        {
+          "case_count": 1,
+          "disease_group_id": "190",
+          "disease_group_name": "Tắc liệt ruột và tắc ruột không do thoát vị - Paralytic ileus, intestinal obstruction without hernia"
+        },
+        {
+          "case_count": 1,
+          "disease_group_id": "198",
+          "disease_group_name": "Bệnh nhiễm khuẩn da và mô tế bào dưới da - Infections of skin and subcutaneous tissue"
+        },
+        {
+          "case_count": 1,
+          "disease_group_id": "204",
+          "disease_group_name": "Bệnh của hệ thống tổ chức liên kết - Systematic connective tissue disorders"
+        },
+        {
+          "case_count": 1,
+          "disease_group_id": "99",
+          "disease_group_name": "Tổn thương chảy máu, bệnh khác của máu và cơ quan tạo máu - Haemorrhagic conditions and other diseases of blood, blood"
+        }
+      ],
+      "positive_h3": [
+        {
+          "case_count": 5,
+          "disease_group_id": "169",
+          "disease_group_name": "Các bệnh viêm phổi - Pneumonia"
+        },
+        {
+          "case_count": 2,
+          "disease_group_id": "170",
+          "disease_group_name": "Viêm phế quản và viêm tiểu phế quản cấp - Acute bronchitis and acute bronchiolitis"
+        },
+        {
+          "case_count": 1,
+          "disease_group_id": "182",
+          "disease_group_name": "Bệnh khác của khoang miệng, tuyến nước bọt và hàm - Other diseases of the oral cavity, salivary glands and jaws"
+        },
+        {
+          "case_count": 1,
+          "disease_group_id": "185",
+          "disease_group_name": "Bệnh khác của thực quản, dạ dày và tá tràng - Other diseases of oesophagus, stomach, duodenum"
+        },
+        {
+          "case_count": 1,
+          "disease_group_id": "204",
+          "disease_group_name": "Bệnh của hệ thống tổ chức liên kết - Systematic connective tissue disorders"
+        },
+        {
+          "case_count": 1,
+          "disease_group_id": "41",
+          "disease_group_name": "Bệnh virut khác - Other viral diseases"
+        }
+      ],
+      "positive_h7": [
+        {
+          "case_count": 12,
+          "disease_group_id": "169",
+          "disease_group_name": "Các bệnh viêm phổi - Pneumonia"
+        },
+        {
+          "case_count": 5,
+          "disease_group_id": "170",
+          "disease_group_name": "Viêm phế quản và viêm tiểu phế quản cấp - Acute bronchitis and acute bronchiolitis"
+        },
+        {
+          "case_count": 4,
+          "disease_group_id": "165",
+          "disease_group_name": "Viêm họng và viêm amidan cấp - Acute pharyngitis and acute tonsillitis"
+        },
+        {
+          "case_count": 4,
+          "disease_group_id": "197",
+          "disease_group_name": "Bệnh khác của bộ máy tiêu hoá - Other diseases of the digestive system"
+        },
+        {
+          "case_count": 3,
+          "disease_group_id": "41",
+          "disease_group_name": "Bệnh virut khác - Other viral diseases"
+        },
+        {
+          "case_count": 2,
+          "disease_group_id": "176",
+          "disease_group_name": "Hen - Asthma"
+        },
+        {
+          "case_count": 2,
+          "disease_group_id": "32",
+          "disease_group_name": "Sốt virut khác do tiết túc truyền và sốt virus xuất huyết - Other arthropod"
+        },
+        {
+          "case_count": 1,
+          "disease_group_id": "182",
+          "disease_group_name": "Bệnh khác của khoang miệng, tuyến nước bọt và hàm - Other diseases of the oral cavity, salivary glands and jaws"
+        },
+        {
+          "case_count": 1,
+          "disease_group_id": "185",
+          "disease_group_name": "Bệnh khác của thực quản, dạ dày và tá tràng - Other diseases of oesophagus, stomach, duodenum"
+        },
+        {
+          "case_count": 1,
+          "disease_group_id": "204",
+          "disease_group_name": "Bệnh của hệ thống tổ chức liên kết - Systematic connective tissue disorders"
+        },
+        {
+          "case_count": 1,
+          "disease_group_id": "99",
+          "disease_group_name": "Tổn thương chảy máu, bệnh khác của máu và cơ quan tạo máu - Haemorrhagic conditions and other diseases of blood, blood"
+        }
+      ],
+      "query_id": "Q20210107_C00",
+      "target_ranges": {
+        "h14": "2021-01-07 -> 2021-01-20",
+        "h3": "2021-01-07 -> 2021-01-09",
+        "h7": "2021-01-07 -> 2021-01-13"
+      },
+      "weather_ranges": {
+        "3d": "2021-01-05 -> 2021-01-07",
+        "7d": "2021-01-01 -> 2021-01-07",
+        "current": "2021-01-07"
+      },
+      "weather_values": {
+        "humidity_mean_current": 61.25,
+        "precipitation_sum_3d": 4.0,
+        "temperature_mean_current": 28.670833,
+        "wind_speed_mean_7d": 7.669643
+      }
+    },
+    {
+      "age_group": "6-10 tuổi",
+      "anchor_date": "2023-04-12",
+      "gender": "Nam",
+      "positive_h14": [
+        {
+          "case_count": 31,
+          "disease_group_id": "169",
+          "disease_group_name": "Các bệnh viêm phổi - Pneumonia"
+        },
+        {
+          "case_count": 23,
+          "disease_group_id": "165",
+          "disease_group_name": "Viêm họng và viêm amidan cấp - Acute pharyngitis and acute tonsillitis"
+        },
+        {
+          "case_count": 22,
+          "disease_group_id": "87",
+          "disease_group_name": "Bệnh bạch cầu - Leukaemia"
+        },
+        {
+          "case_count": 18,
+          "disease_group_id": "173",
+          "disease_group_name": "Bệnh mạn tính của amidan và của VA - Chronic diseases of tonsils and adenoids"
+        },
+        {
+          "case_count": 17,
+          "disease_group_id": "259",
+          "disease_group_name": "Dị tật bẩm sinh khác của bộ máy sinh dục tiết niệu - Other malformations of the genitourinary system"
+        },
+        {
+          "case_count": 14,
+          "disease_group_id": "186",
+          "disease_group_name": "Bệnh của ruột thừa - Diseases of appendix"
+        },
+        {
+          "case_count": 10,
+          "disease_group_id": "176",
+          "disease_group_name": "Hen - Asthma"
+        },
+        {
+          "case_count": 10,
+          "disease_group_id": "274",
+          "disease_group_name": "Gãy các phần khác của chi do lao động và giao thông - Fracture of other lim bones"
+        },
+        {
+          "case_count": 10,
+          "disease_group_id": "5",
+          "disease_group_name": "Ỉa chảy, viêm dạy dày, ruột non có nguồn gốc nhiễm khuẩn - Diarrhoea and gastroenteritis of presumed infectious origin."
+        },
+        {
+          "case_count": 9,
+          "disease_group_id": "261",
+          "disease_group_name": "Dị dạng bẩm sinh của bộ máy sinh dục tiết niệu - Congenital malformations of genital organs"
+        },
+        {
+          "case_count": 9,
+          "disease_group_id": "270",
+          "disease_group_name": "Các triệu chứng, dấu hiệu và kết quả bất thường về khám lâm sàng và xét nghiệm khác, chưa xếp ở chỗ khác - Other symptoms, signs and abnormal clinical and laboratory findings, not elsewhere classified"
+        },
+        {
+          "case_count": 8,
+          "disease_group_id": "185",
+          "disease_group_name": "Bệnh khác của thực quản, dạ dày và tá tràng - Other diseases of oesophagus, stomach, duodenum"
+        },
+        {
+          "case_count": 8,
+          "disease_group_id": "6",
+          "disease_group_name": "Các bệnh nhiễm khuẩn ruột khác - Other intestinal infectious diseases"
+        },
+        {
+          "case_count": 8,
+          "disease_group_id": "72",
+          "disease_group_name": "U ác mạc treo và các mô mềm - Malignantneoplasms of mesothelial and soft tissue"
+        },
+        {
+          "case_count": 8,
+          "disease_group_id": "99",
+          "disease_group_name": "Tổn thương chảy máu, bệnh khác của máu và cơ quan tạo máu - Haemorrhagic conditions and other diseases of blood, blood"
+        },
+        {
+          "case_count": 7,
+          "disease_group_id": "98",
+          "disease_group_name": "Thiếu máu khác - Other anaemias"
+        },
+        {
+          "case_count": 6,
+          "disease_group_id": "184",
+          "disease_group_name": "Viêm dạ dày và tá tràng - Gastritis and duodenitis"
+        },
+        {
+          "case_count": 6,
+          "disease_group_id": "187",
+          "disease_group_name": "Thoát vị bẹn - Inguinal hernia"
+        },
+        {
+          "case_count": 6,
+          "disease_group_id": "221",
+          "disease_group_name": "Thừa bao qui đầu, hẹp và nghẹt bao qui đầu - Redundant prepuce, phimosis and paraphimosis"
+        },
+        {
+          "case_count": 6,
+          "disease_group_id": "282",
+          "disease_group_name": "Hậu quả do dị vật vào hốc tự nhiên - Effects of foreign body entert hrough natural orifice"
+        },
+        {
+          "case_count": 6,
+          "disease_group_id": "96",
+          "disease_group_name": "U khác insitu, lành tính và các u tiến triển không chắc chắn hoặc chưa rõ - Other insitus and benign neoplasms and neoplasms of uncertain or unknown behaviour"
+        },
+        {
+          "case_count": 5,
+          "disease_group_id": "192",
+          "disease_group_name": "Bệnh khác của ruột non và màng bụng - Other diseases of intestine peritoneum"
+        },
+        {
+          "case_count": 5,
+          "disease_group_id": "281",
+          "disease_group_name": "Các tổn thương khác do chấn thương xác định và ở nhiều nơi - Other injuries of specified, unspecified and multiple body regions"
+        },
+        {
+          "case_count": 4,
+          "disease_group_id": "199",
+          "disease_group_name": "Bệnh khác của da và mô tế bào dưới da - Other diseases of skin and subcutaneous tissue"
+        },
+        {
+          "case_count": 4,
+          "disease_group_id": "217",
+          "disease_group_name": "Bệnh khác của bộ máy tiết niệu - Other diseases of the urnary system"
+        },
+        {
+          "case_count": 4,
+          "disease_group_id": "253",
+          "disease_group_name": "Tổn thương khác có nguồn gốc trong thời kỳ chu sinh - Other conditions originating in the perinatal period"
+        },
+        {
+          "case_count": 4,
+          "disease_group_id": "260",
+          "disease_group_name": "Tinh hoàn lạc chỗ - Undescended testicle"
+        },
+        {
+          "case_count": 4,
+          "disease_group_id": "82",
+          "disease_group_name": "U ác não - Malignant neoplasm of brain"
+        },
+        {
+          "case_count": 3,
+          "disease_group_id": "167",
+          "disease_group_name": "Viêm cấp đường hô hấp trên khác - Other acute upper respiratory infections"
+        },
+        {
+          "case_count": 3,
+          "disease_group_id": "170",
+          "disease_group_name": "Viêm phế quản và viêm tiểu phế quản cấp - Acute bronchitis and acute bronchiolitis"
+        },
+        {
+          "case_count": 3,
+          "disease_group_id": "190",
+          "disease_group_name": "Tắc liệt ruột và tắc ruột không do thoát vị - Paralytic ileus, intestinal obstruction without hernia"
+        },
+        {
+          "case_count": 3,
+          "disease_group_id": "197",
+          "disease_group_name": "Bệnh khác của bộ máy tiêu hoá - Other diseases of the digestive system"
+        },
+        {
+          "case_count": 3,
+          "disease_group_id": "212",
+          "disease_group_name": "Bệnh cầu thận khác - Other glomerular diseases"
+        },
+        {
+          "case_count": 3,
+          "disease_group_id": "256",
+          "disease_group_name": "Dị tật bẩm sinh khác của bộ máy tuần hoàn - Congenital malfor-mation of the circulatory system"
+        },
+        {
+          "case_count": 2,
+          "disease_group_id": "120",
+          "disease_group_name": "Viêm hệ thần kinh trung ương - Inflamatory diseases of the central nervous system"
+        },
+        {
+          "case_count": 2,
+          "disease_group_id": "124",
+          "disease_group_name": "Động kinh - Epilepsy"
+        },
+        {
+          "case_count": 2,
+          "disease_group_id": "194",
+          "disease_group_name": "Các bệnh khác của gan - Other diseases of liver"
+        },
+        {
+          "case_count": 2,
+          "disease_group_id": "198",
+          "disease_group_name": "Bệnh nhiễm khuẩn da và mô tế bào dưới da - Infections of skin and subcutaneous tissue"
+        },
+        {
+          "case_count": 2,
+          "disease_group_id": "204",
+          "disease_group_name": "Bệnh của hệ thống tổ chức liên kết - Systematic connective tissue disorders"
+        },
+        {
+          "case_count": 2,
+          "disease_group_id": "207",
+          "disease_group_name": "Tổn thương các mô mềm - Soft tissue disorders"
+        },
+        {
+          "case_count": 2,
+          "disease_group_id": "267",
+          "disease_group_name": "Đau bụng và khung chậu - Abdominal and pelvic pain"
+        },
+        {
+          "case_count": 2,
+          "disease_group_id": "311",
+          "disease_group_name": "Bệnh do tiếp xúc với dịch vụ y tế phải chăm sóc và khám xét đặc biệt - Persons encountering health services for specific procedures and health care"
+        },
+        {
+          "case_count": 1,
+          "disease_group_id": "100",
+          "disease_group_name": "Một số rối loạn hệ miễn dịch - Certain disorders involving the immune mechanism"
+        },
+        {
+          "case_count": 1,
+          "disease_group_id": "104",
+          "disease_group_name": "Đái tháo đường - Diabetes mellitus."
+        },
+        {
+          "case_count": 1,
+          "disease_group_id": "105",
+          "disease_group_name": "Suy dinh dưỡng - Malnutrition"
+        },
+        {
+          "case_count": 1,
+          "disease_group_id": "119",
+          "disease_group_name": "Rối loạn tâm thần và nhân cách khác - Other mental and behavioural disorders"
+        },
+        {
+          "case_count": 1,
+          "disease_group_id": "150",
+          "disease_group_name": "Rối loạn dẫn truyền và loạn nhịp tim - Conduction disorders and cardiac arrhythymias"
+        },
+        {
+          "case_count": 1,
+          "disease_group_id": "155",
+          "disease_group_name": "Tai biến mạch máu não, không xác định rõ chảy máu hoặc do nhồi máu - Stroke, not specified as haemorrhage or infarction"
+        },
+        {
+          "case_count": 1,
+          "disease_group_id": "17",
+          "disease_group_name": "Nhiễm khuẩn huyết - Septicemia"
+        },
+        {
+          "case_count": 1,
+          "disease_group_id": "179",
+          "disease_group_name": "Bệnh khác của bộ máy hô hấp - Other diseases of respiratory system."
+        },
+        {
+          "case_count": 1,
+          "disease_group_id": "181",
+          "disease_group_name": "Tổn thương khác liên quan đến răng và mô quanh răng - Other disorders of teeth and supporting structures"
+        },
+        {
+          "case_count": 1,
+          "disease_group_id": "182",
+          "disease_group_name": "Bệnh khác của khoang miệng, tuyến nước bọt và hàm - Other diseases of the oral cavity, salivary glands and jaws"
+        },
+        {
+          "case_count": 1,
+          "disease_group_id": "183",
+          "disease_group_name": "Loét dạ dày và tá tràng - Gastric and duodenal ulcer"
+        },
+        {
+          "case_count": 1,
+          "disease_group_id": "189",
+          "disease_group_name": "Bệnh Crohn (viêm ruột non từng vùng) và viêm loét đại tràng - Crohn’s disease and ulcerative colitis"
+        },
+        {
+          "case_count": 1,
+          "disease_group_id": "196",
+          "disease_group_name": "Viêm tuỵ cấp và bệnh khác của tuỵ - Acute pancreatitis and other diseases of pancreas"
+        },
+        {
+          "case_count": 1,
+          "disease_group_id": "203",
+          "disease_group_name": "Bệnh khác của khớp - Other joint disorders"
+        },
+        {
+          "case_count": 1,
+          "disease_group_id": "209",
+          "disease_group_name": "Viêm xương tuỷ - Osteomyelitis"
+        },
+        {
+          "case_count": 1,
+          "disease_group_id": "210",
+          "disease_group_name": "Bệnh khác của hệ xương khớp, cơ và mô liên kết - Other diseases of the musculo-skeletal system and connective tissue"
+        },
+        {
+          "case_count": 1,
+          "disease_group_id": "214",
+          "disease_group_name": "Suy thận - Renal failure"
+        },
+        {
+          "case_count": 1,
+          "disease_group_id": "215",
+          "disease_group_name": "Sỏi tiết niệu - Urolithiasis"
+        },
+        {
+          "case_count": 1,
+          "disease_group_id": "216",
+          "disease_group_name": "Viêm bàng quang - Cystitis"
+        },
+        {
+          "case_count": 1,
+          "disease_group_id": "220",
+          "disease_group_name": "Tràn dịch tinh mạc, u nang tinh dịch - Hydrocele and spermatocele"
+        },
+        {
+          "case_count": 1,
+          "disease_group_id": "278",
+          "disease_group_name": "Thương tổn do chấn thương trong sọ - Intracranial injury"
+        },
+        {
+          "case_count": 1,
+          "disease_group_id": "283",
+          "disease_group_name": "Bỏng và sự ăn mòn - Burnss and corrosions"
+        },
+        {
+          "case_count": 1,
+          "disease_group_id": "300",
+          "disease_group_name": "Tai biến của thuốc và các chất sinh học trong điều trị - Drugs medicament and biological substances causing adverseeffects in therapeutic use."
+        },
+        {
+          "case_count": 1,
+          "disease_group_id": "57",
+          "disease_group_name": "Bệnh nhiễm khuẩn và kí sinh vật khác - Other infectious and parasitic diseases"
+        },
+        {
+          "case_count": 1,
+          "disease_group_id": "69",
+          "disease_group_name": "U ác xương và sụn khớp - Malignant neoplasms of bone and articular cartilage"
+        },
+        {
+          "case_count": 1,
+          "disease_group_id": "84",
+          "disease_group_name": "U ác các khu trú khác, khó định nghĩa, thứ phát, không xác định rõ và phức hợp - Malignant neoplasm of other and ill"
+        },
+        {
+          "case_count": 1,
+          "disease_group_id": "86",
+          "disease_group_name": "U bạch huyết không phải Hodgkin - Non-Hodgkin's lymphoma"
+        },
+        {
+          "case_count": 1,
+          "disease_group_id": "90",
+          "disease_group_name": "U da lành - Benign neoplasm of skin"
+        },
+        {
+          "case_count": 1,
+          "disease_group_id": "95",
+          "disease_group_name": "U lành não và các phần khác của hệ thần kinh trung ương - Benign neoplasm of brain and other parts of central nervous system"
+        }
+      ],
+      "positive_h3": [
+        {
+          "case_count": 8,
+          "disease_group_id": "169",
+          "disease_group_name": "Các bệnh viêm phổi - Pneumonia"
+        },
+        {
+          "case_count": 4,
+          "disease_group_id": "165",
+          "disease_group_name": "Viêm họng và viêm amidan cấp - Acute pharyngitis and acute tonsillitis"
+        },
+        {
+          "case_count": 4,
+          "disease_group_id": "173",
+          "disease_group_name": "Bệnh mạn tính của amidan và của VA - Chronic diseases of tonsils and adenoids"
+        },
+        {
+          "case_count": 4,
+          "disease_group_id": "6",
+          "disease_group_name": "Các bệnh nhiễm khuẩn ruột khác - Other intestinal infectious diseases"
+        },
+        {
+          "case_count": 3,
+          "disease_group_id": "253",
+          "disease_group_name": "Tổn thương khác có nguồn gốc trong thời kỳ chu sinh - Other conditions originating in the perinatal period"
+        },
+        {
+          "case_count": 3,
+          "disease_group_id": "99",
+          "disease_group_name": "Tổn thương chảy máu, bệnh khác của máu và cơ quan tạo máu - Haemorrhagic conditions and other diseases of blood, blood"
+        },
+        {
+          "case_count": 2,
+          "disease_group_id": "176",
+          "disease_group_name": "Hen - Asthma"
+        },
+        {
+          "case_count": 2,
+          "disease_group_id": "184",
+          "disease_group_name": "Viêm dạ dày và tá tràng - Gastritis and duodenitis"
+        },
+        {
+          "case_count": 2,
+          "disease_group_id": "186",
+          "disease_group_name": "Bệnh của ruột thừa - Diseases of appendix"
+        },
+        {
+          "case_count": 2,
+          "disease_group_id": "192",
+          "disease_group_name": "Bệnh khác của ruột non và màng bụng - Other diseases of intestine peritoneum"
+        },
+        {
+          "case_count": 2,
+          "disease_group_id": "198",
+          "disease_group_name": "Bệnh nhiễm khuẩn da và mô tế bào dưới da - Infections of skin and subcutaneous tissue"
+        },
+        {
+          "case_count": 2,
+          "disease_group_id": "260",
+          "disease_group_name": "Tinh hoàn lạc chỗ - Undescended testicle"
+        },
+        {
+          "case_count": 2,
+          "disease_group_id": "87",
+          "disease_group_name": "Bệnh bạch cầu - Leukaemia"
+        },
+        {
+          "case_count": 2,
+          "disease_group_id": "96",
+          "disease_group_name": "U khác insitu, lành tính và các u tiến triển không chắc chắn hoặc chưa rõ - Other insitus and benign neoplasms and neoplasms of uncertain or unknown behaviour"
+        },
+        {
+          "case_count": 1,
+          "disease_group_id": "105",
+          "disease_group_name": "Suy dinh dưỡng - Malnutrition"
+        },
+        {
+          "case_count": 1,
+          "disease_group_id": "120",
+          "disease_group_name": "Viêm hệ thần kinh trung ương - Inflamatory diseases of the central nervous system"
+        },
+        {
+          "case_count": 1,
+          "disease_group_id": "124",
+          "disease_group_name": "Động kinh - Epilepsy"
+        },
+        {
+          "case_count": 1,
+          "disease_group_id": "167",
+          "disease_group_name": "Viêm cấp đường hô hấp trên khác - Other acute upper respiratory infections"
+        },
+        {
+          "case_count": 1,
+          "disease_group_id": "170",
+          "disease_group_name": "Viêm phế quản và viêm tiểu phế quản cấp - Acute bronchitis and acute bronchiolitis"
+        },
+        {
+          "case_count": 1,
+          "disease_group_id": "179",
+          "disease_group_name": "Bệnh khác của bộ máy hô hấp - Other diseases of respiratory system."
+        },
+        {
+          "case_count": 1,
+          "disease_group_id": "185",
+          "disease_group_name": "Bệnh khác của thực quản, dạ dày và tá tràng - Other diseases of oesophagus, stomach, duodenum"
+        },
+        {
+          "case_count": 1,
+          "disease_group_id": "187",
+          "disease_group_name": "Thoát vị bẹn - Inguinal hernia"
+        },
+        {
+          "case_count": 1,
+          "disease_group_id": "190",
+          "disease_group_name": "Tắc liệt ruột và tắc ruột không do thoát vị - Paralytic ileus, intestinal obstruction without hernia"
+        },
+        {
+          "case_count": 1,
+          "disease_group_id": "204",
+          "disease_group_name": "Bệnh của hệ thống tổ chức liên kết - Systematic connective tissue disorders"
+        },
+        {
+          "case_count": 1,
+          "disease_group_id": "209",
+          "disease_group_name": "Viêm xương tuỷ - Osteomyelitis"
+        },
+        {
+          "case_count": 1,
+          "disease_group_id": "212",
+          "disease_group_name": "Bệnh cầu thận khác - Other glomerular diseases"
+        },
+        {
+          "case_count": 1,
+          "disease_group_id": "215",
+          "disease_group_name": "Sỏi tiết niệu - Urolithiasis"
+        },
+        {
+          "case_count": 1,
+          "disease_group_id": "217",
+          "disease_group_name": "Bệnh khác của bộ máy tiết niệu - Other diseases of the urnary system"
+        },
+        {
+          "case_count": 1,
+          "disease_group_id": "221",
+          "disease_group_name": "Thừa bao qui đầu, hẹp và nghẹt bao qui đầu - Redundant prepuce, phimosis and paraphimosis"
+        },
+        {
+          "case_count": 1,
+          "disease_group_id": "259",
+          "disease_group_name": "Dị tật bẩm sinh khác của bộ máy sinh dục tiết niệu - Other malformations of the genitourinary system"
+        },
+        {
+          "case_count": 1,
+          "disease_group_id": "261",
+          "disease_group_name": "Dị dạng bẩm sinh của bộ máy sinh dục tiết niệu - Congenital malformations of genital organs"
+        },
+        {
+          "case_count": 1,
+          "disease_group_id": "270",
+          "disease_group_name": "Các triệu chứng, dấu hiệu và kết quả bất thường về khám lâm sàng và xét nghiệm khác, chưa xếp ở chỗ khác - Other symptoms, signs and abnormal clinical and laboratory findings, not elsewhere classified"
+        },
+        {
+          "case_count": 1,
+          "disease_group_id": "281",
+          "disease_group_name": "Các tổn thương khác do chấn thương xác định và ở nhiều nơi - Other injuries of specified, unspecified and multiple body regions"
+        },
+        {
+          "case_count": 1,
+          "disease_group_id": "282",
+          "disease_group_name": "Hậu quả do dị vật vào hốc tự nhiên - Effects of foreign body entert hrough natural orifice"
+        },
+        {
+          "case_count": 1,
+          "disease_group_id": "311",
+          "disease_group_name": "Bệnh do tiếp xúc với dịch vụ y tế phải chăm sóc và khám xét đặc biệt - Persons encountering health services for specific procedures and health care"
+        },
+        {
+          "case_count": 1,
+          "disease_group_id": "84",
+          "disease_group_name": "U ác các khu trú khác, khó định nghĩa, thứ phát, không xác định rõ và phức hợp - Malignant neoplasm of other and ill"
+        },
+        {
+          "case_count": 1,
+          "disease_group_id": "86",
+          "disease_group_name": "U bạch huyết không phải Hodgkin - Non-Hodgkin's lymphoma"
+        }
+      ],
+      "positive_h7": [
+        {
+          "case_count": 15,
+          "disease_group_id": "169",
+          "disease_group_name": "Các bệnh viêm phổi - Pneumonia"
+        },
+        {
+          "case_count": 13,
+          "disease_group_id": "87",
+          "disease_group_name": "Bệnh bạch cầu - Leukaemia"
+        },
+        {
+          "case_count": 10,
+          "disease_group_id": "173",
+          "disease_group_name": "Bệnh mạn tính của amidan và của VA - Chronic diseases of tonsils and adenoids"
+        },
+        {
+          "case_count": 9,
+          "disease_group_id": "165",
+          "disease_group_name": "Viêm họng và viêm amidan cấp - Acute pharyngitis and acute tonsillitis"
+        },
+        {
+          "case_count": 9,
+          "disease_group_id": "186",
+          "disease_group_name": "Bệnh của ruột thừa - Diseases of appendix"
+        },
+        {
+          "case_count": 8,
+          "disease_group_id": "259",
+          "disease_group_name": "Dị tật bẩm sinh khác của bộ máy sinh dục tiết niệu - Other malformations of the genitourinary system"
+        },
+        {
+          "case_count": 5,
+          "disease_group_id": "176",
+          "disease_group_name": "Hen - Asthma"
+        },
+        {
+          "case_count": 5,
+          "disease_group_id": "282",
+          "disease_group_name": "Hậu quả do dị vật vào hốc tự nhiên - Effects of foreign body entert hrough natural orifice"
+        },
+        {
+          "case_count": 5,
+          "disease_group_id": "5",
+          "disease_group_name": "Ỉa chảy, viêm dạy dày, ruột non có nguồn gốc nhiễm khuẩn - Diarrhoea and gastroenteritis of presumed infectious origin."
+        },
+        {
+          "case_count": 5,
+          "disease_group_id": "99",
+          "disease_group_name": "Tổn thương chảy máu, bệnh khác của máu và cơ quan tạo máu - Haemorrhagic conditions and other diseases of blood, blood"
+        },
+        {
+          "case_count": 4,
+          "disease_group_id": "184",
+          "disease_group_name": "Viêm dạ dày và tá tràng - Gastritis and duodenitis"
+        },
+        {
+          "case_count": 4,
+          "disease_group_id": "192",
+          "disease_group_name": "Bệnh khác của ruột non và màng bụng - Other diseases of intestine peritoneum"
+        },
+        {
+          "case_count": 4,
+          "disease_group_id": "221",
+          "disease_group_name": "Thừa bao qui đầu, hẹp và nghẹt bao qui đầu - Redundant prepuce, phimosis and paraphimosis"
+        },
+        {
+          "case_count": 4,
+          "disease_group_id": "253",
+          "disease_group_name": "Tổn thương khác có nguồn gốc trong thời kỳ chu sinh - Other conditions originating in the perinatal period"
+        },
+        {
+          "case_count": 4,
+          "disease_group_id": "260",
+          "disease_group_name": "Tinh hoàn lạc chỗ - Undescended testicle"
+        },
+        {
+          "case_count": 4,
+          "disease_group_id": "281",
+          "disease_group_name": "Các tổn thương khác do chấn thương xác định và ở nhiều nơi - Other injuries of specified, unspecified and multiple body regions"
+        },
+        {
+          "case_count": 4,
+          "disease_group_id": "6",
+          "disease_group_name": "Các bệnh nhiễm khuẩn ruột khác - Other intestinal infectious diseases"
+        },
+        {
+          "case_count": 3,
+          "disease_group_id": "170",
+          "disease_group_name": "Viêm phế quản và viêm tiểu phế quản cấp - Acute bronchitis and acute bronchiolitis"
+        },
+        {
+          "case_count": 3,
+          "disease_group_id": "185",
+          "disease_group_name": "Bệnh khác của thực quản, dạ dày và tá tràng - Other diseases of oesophagus, stomach, duodenum"
+        },
+        {
+          "case_count": 3,
+          "disease_group_id": "217",
+          "disease_group_name": "Bệnh khác của bộ máy tiết niệu - Other diseases of the urnary system"
+        },
+        {
+          "case_count": 3,
+          "disease_group_id": "256",
+          "disease_group_name": "Dị tật bẩm sinh khác của bộ máy tuần hoàn - Congenital malfor-mation of the circulatory system"
+        },
+        {
+          "case_count": 3,
+          "disease_group_id": "261",
+          "disease_group_name": "Dị dạng bẩm sinh của bộ máy sinh dục tiết niệu - Congenital malformations of genital organs"
+        },
+        {
+          "case_count": 3,
+          "disease_group_id": "274",
+          "disease_group_name": "Gãy các phần khác của chi do lao động và giao thông - Fracture of other lim bones"
+        },
+        {
+          "case_count": 3,
+          "disease_group_id": "72",
+          "disease_group_name": "U ác mạc treo và các mô mềm - Malignantneoplasms of mesothelial and soft tissue"
+        },
+        {
+          "case_count": 3,
+          "disease_group_id": "96",
+          "disease_group_name": "U khác insitu, lành tính và các u tiến triển không chắc chắn hoặc chưa rõ - Other insitus and benign neoplasms and neoplasms of uncertain or unknown behaviour"
+        },
+        {
+          "case_count": 2,
+          "disease_group_id": "120",
+          "disease_group_name": "Viêm hệ thần kinh trung ương - Inflamatory diseases of the central nervous system"
+        },
+        {
+          "case_count": 2,
+          "disease_group_id": "167",
+          "disease_group_name": "Viêm cấp đường hô hấp trên khác - Other acute upper respiratory infections"
+        },
+        {
+          "case_count": 2,
+          "disease_group_id": "190",
+          "disease_group_name": "Tắc liệt ruột và tắc ruột không do thoát vị - Paralytic ileus, intestinal obstruction without hernia"
+        },
+        {
+          "case_count": 2,
+          "disease_group_id": "198",
+          "disease_group_name": "Bệnh nhiễm khuẩn da và mô tế bào dưới da - Infections of skin and subcutaneous tissue"
+        },
+        {
+          "case_count": 2,
+          "disease_group_id": "204",
+          "disease_group_name": "Bệnh của hệ thống tổ chức liên kết - Systematic connective tissue disorders"
+        },
+        {
+          "case_count": 2,
+          "disease_group_id": "212",
+          "disease_group_name": "Bệnh cầu thận khác - Other glomerular diseases"
+        },
+        {
+          "case_count": 2,
+          "disease_group_id": "270",
+          "disease_group_name": "Các triệu chứng, dấu hiệu và kết quả bất thường về khám lâm sàng và xét nghiệm khác, chưa xếp ở chỗ khác - Other symptoms, signs and abnormal clinical and laboratory findings, not elsewhere classified"
+        },
+        {
+          "case_count": 2,
+          "disease_group_id": "98",
+          "disease_group_name": "Thiếu máu khác - Other anaemias"
+        },
+        {
+          "case_count": 1,
+          "disease_group_id": "104",
+          "disease_group_name": "Đái tháo đường - Diabetes mellitus."
+        },
+        {
+          "case_count": 1,
+          "disease_group_id": "105",
+          "disease_group_name": "Suy dinh dưỡng - Malnutrition"
+        },
+        {
+          "case_count": 1,
+          "disease_group_id": "124",
+          "disease_group_name": "Động kinh - Epilepsy"
+        },
+        {
+          "case_count": 1,
+          "disease_group_id": "179",
+          "disease_group_name": "Bệnh khác của bộ máy hô hấp - Other diseases of respiratory system."
+        },
+        {
+          "case_count": 1,
+          "disease_group_id": "187",
+          "disease_group_name": "Thoát vị bẹn - Inguinal hernia"
+        },
+        {
+          "case_count": 1,
+          "disease_group_id": "196",
+          "disease_group_name": "Viêm tuỵ cấp và bệnh khác của tuỵ - Acute pancreatitis and other diseases of pancreas"
+        },
+        {
+          "case_count": 1,
+          "disease_group_id": "197",
+          "disease_group_name": "Bệnh khác của bộ máy tiêu hoá - Other diseases of the digestive system"
+        },
+        {
+          "case_count": 1,
+          "disease_group_id": "199",
+          "disease_group_name": "Bệnh khác của da và mô tế bào dưới da - Other diseases of skin and subcutaneous tissue"
+        },
+        {
+          "case_count": 1,
+          "disease_group_id": "207",
+          "disease_group_name": "Tổn thương các mô mềm - Soft tissue disorders"
+        },
+        {
+          "case_count": 1,
+          "disease_group_id": "209",
+          "disease_group_name": "Viêm xương tuỷ - Osteomyelitis"
+        },
+        {
+          "case_count": 1,
+          "disease_group_id": "214",
+          "disease_group_name": "Suy thận - Renal failure"
+        },
+        {
+          "case_count": 1,
+          "disease_group_id": "215",
+          "disease_group_name": "Sỏi tiết niệu - Urolithiasis"
+        },
+        {
+          "case_count": 1,
+          "disease_group_id": "216",
+          "disease_group_name": "Viêm bàng quang - Cystitis"
+        },
+        {
+          "case_count": 1,
+          "disease_group_id": "267",
+          "disease_group_name": "Đau bụng và khung chậu - Abdominal and pelvic pain"
+        },
+        {
+          "case_count": 1,
+          "disease_group_id": "300",
+          "disease_group_name": "Tai biến của thuốc và các chất sinh học trong điều trị - Drugs medicament and biological substances causing adverseeffects in therapeutic use."
+        },
+        {
+          "case_count": 1,
+          "disease_group_id": "311",
+          "disease_group_name": "Bệnh do tiếp xúc với dịch vụ y tế phải chăm sóc và khám xét đặc biệt - Persons encountering health services for specific procedures and health care"
+        },
+        {
+          "case_count": 1,
+          "disease_group_id": "57",
+          "disease_group_name": "Bệnh nhiễm khuẩn và kí sinh vật khác - Other infectious and parasitic diseases"
+        },
+        {
+          "case_count": 1,
+          "disease_group_id": "69",
+          "disease_group_name": "U ác xương và sụn khớp - Malignant neoplasms of bone and articular cartilage"
+        },
+        {
+          "case_count": 1,
+          "disease_group_id": "84",
+          "disease_group_name": "U ác các khu trú khác, khó định nghĩa, thứ phát, không xác định rõ và phức hợp - Malignant neoplasm of other and ill"
+        },
+        {
+          "case_count": 1,
+          "disease_group_id": "86",
+          "disease_group_name": "U bạch huyết không phải Hodgkin - Non-Hodgkin's lymphoma"
+        },
+        {
+          "case_count": 1,
+          "disease_group_id": "90",
+          "disease_group_name": "U da lành - Benign neoplasm of skin"
+        }
+      ],
+      "query_id": "Q20230412_C04",
+      "target_ranges": {
+        "h14": "2023-04-12 -> 2023-04-25",
+        "h3": "2023-04-12 -> 2023-04-14",
+        "h7": "2023-04-12 -> 2023-04-18"
+      },
+      "weather_ranges": {
+        "3d": "2023-04-10 -> 2023-04-12",
+        "7d": "2023-04-06 -> 2023-04-12",
+        "current": "2023-04-12"
+      },
+      "weather_values": {
+        "humidity_mean_current": 74.625,
+        "precipitation_sum_3d": 9.5,
+        "temperature_mean_current": 29.495833,
+        "wind_speed_mean_7d": 10.289286
+      }
+    },
+    {
+      "age_group": "Trên 15 tuổi",
+      "anchor_date": "2025-04-13",
+      "gender": "Nữ",
+      "positive_h14": [
+        {
+          "case_count": 3,
+          "disease_group_id": "270",
+          "disease_group_name": "Các triệu chứng, dấu hiệu và kết quả bất thường về khám lâm sàng và xét nghiệm khác, chưa xếp ở chỗ khác - Other symptoms, signs and abnormal clinical and laboratory findings, not elsewhere classified"
+        },
+        {
+          "case_count": 2,
+          "disease_group_id": "6",
+          "disease_group_name": "Các bệnh nhiễm khuẩn ruột khác - Other intestinal infectious diseases"
+        },
+        {
+          "case_count": 1,
+          "disease_group_id": "186",
+          "disease_group_name": "Bệnh của ruột thừa - Diseases of appendix"
+        },
+        {
+          "case_count": 1,
+          "disease_group_id": "192",
+          "disease_group_name": "Bệnh khác của ruột non và màng bụng - Other diseases of intestine peritoneum"
+        },
+        {
+          "case_count": 1,
+          "disease_group_id": "200",
+          "disease_group_name": "Viêm khớp dạng thấp và viêm khớp khác - Rheumatoid arthritis, other inflamatory polyarthropaties"
+        },
+        {
+          "case_count": 1,
+          "disease_group_id": "214",
+          "disease_group_name": "Suy thận - Renal failure"
+        },
+        {
+          "case_count": 1,
+          "disease_group_id": "96",
+          "disease_group_name": "U khác insitu, lành tính và các u tiến triển không chắc chắn hoặc chưa rõ - Other insitus and benign neoplasms and neoplasms of uncertain or unknown behaviour"
+        }
+      ],
+      "positive_h3": [
+        {
+          "case_count": 1,
+          "disease_group_id": "186",
+          "disease_group_name": "Bệnh của ruột thừa - Diseases of appendix"
+        },
+        {
+          "case_count": 1,
+          "disease_group_id": "214",
+          "disease_group_name": "Suy thận - Renal failure"
+        },
+        {
+          "case_count": 1,
+          "disease_group_id": "270",
+          "disease_group_name": "Các triệu chứng, dấu hiệu và kết quả bất thường về khám lâm sàng và xét nghiệm khác, chưa xếp ở chỗ khác - Other symptoms, signs and abnormal clinical and laboratory findings, not elsewhere classified"
+        },
+        {
+          "case_count": 1,
+          "disease_group_id": "6",
+          "disease_group_name": "Các bệnh nhiễm khuẩn ruột khác - Other intestinal infectious diseases"
+        },
+        {
+          "case_count": 1,
+          "disease_group_id": "96",
+          "disease_group_name": "U khác insitu, lành tính và các u tiến triển không chắc chắn hoặc chưa rõ - Other insitus and benign neoplasms and neoplasms of uncertain or unknown behaviour"
+        }
+      ],
+      "positive_h7": [
+        {
+          "case_count": 1,
+          "disease_group_id": "186",
+          "disease_group_name": "Bệnh của ruột thừa - Diseases of appendix"
+        },
+        {
+          "case_count": 1,
+          "disease_group_id": "192",
+          "disease_group_name": "Bệnh khác của ruột non và màng bụng - Other diseases of intestine peritoneum"
+        },
+        {
+          "case_count": 1,
+          "disease_group_id": "214",
+          "disease_group_name": "Suy thận - Renal failure"
+        },
+        {
+          "case_count": 1,
+          "disease_group_id": "270",
+          "disease_group_name": "Các triệu chứng, dấu hiệu và kết quả bất thường về khám lâm sàng và xét nghiệm khác, chưa xếp ở chỗ khác - Other symptoms, signs and abnormal clinical and laboratory findings, not elsewhere classified"
+        },
+        {
+          "case_count": 1,
+          "disease_group_id": "6",
+          "disease_group_name": "Các bệnh nhiễm khuẩn ruột khác - Other intestinal infectious diseases"
+        },
+        {
+          "case_count": 1,
+          "disease_group_id": "96",
+          "disease_group_name": "U khác insitu, lành tính và các u tiến triển không chắc chắn hoặc chưa rõ - Other insitus and benign neoplasms and neoplasms of uncertain or unknown behaviour"
+        }
+      ],
+      "query_id": "Q20250413_C11",
+      "target_ranges": {
+        "h14": "2025-04-13 -> 2025-04-26",
+        "h3": "2025-04-13 -> 2025-04-15",
+        "h7": "2025-04-13 -> 2025-04-19"
+      },
+      "weather_ranges": {
+        "3d": "2025-04-11 -> 2025-04-13",
+        "7d": "2025-04-07 -> 2025-04-13",
+        "current": "2025-04-13"
+      },
+      "weather_values": {
+        "humidity_mean_current": 70.5,
+        "precipitation_sum_3d": 3.1,
+        "temperature_mean_current": 30.133333,
+        "wind_speed_mean_7d": 8.588095
+      }
+    }
+  ],
+  "files": {
+    "contexts": {
+      "bytes": 302179,
+      "path": "data/processed/contexts.csv.gz",
+      "sha256": "6559eafc8a73809d509e712ed2b5744827c37beedfab8bde4c38b6349cfc0659"
+    },
+    "daily_cases": {
+      "bytes": 1226925,
+      "path": "data/processed/daily_cases.csv.gz",
+      "sha256": "40a2ccbd5cc7767e22265d782a3af192f3d2686e65d9f195c15ba5a8421f0124"
+    },
+    "disease_catalog": {
+      "bytes": 43870,
+      "path": "data/processed/disease_catalog.csv",
+      "sha256": "734f99eb5fe6a4a7a90f7eb6118d2c3da9f90b076cdc96be0fd8d4cb4b17299a"
+    },
+    "targets": {
+      "bytes": 2588759,
+      "path": "data/processed/targets.csv.gz",
+      "sha256": "a05d8930cf77203fdf25141fb08613442b35cf7041c1b8bc0235ae6616c09895"
+    },
+    "test_queries": {
+      "bytes": 41590,
+      "path": "data/splits/test_query_ids.csv",
+      "sha256": "2c536a615db278f381c1d13ad3a8cb90e8a92286a5646806d5574e763d76d986"
+    },
+    "train_queries": {
+      "bytes": 192970,
+      "path": "data/splits/train_query_ids.csv",
+      "sha256": "181a8a84be64b2fc64ceab744adefddd4877433da390c487fa4674067b8c4443"
+    },
+    "validation_queries": {
+      "bytes": 41230,
+      "path": "data/splits/validation_query_ids.csv",
+      "sha256": "f09171ac42c6b68efc1cb7b2ce4069a80d4db35d29ecba1d561a3ddf2c0a8bd8"
+    }
+  },
+  "model_feature_columns": [
+    "age_group",
+    "gender",
+    "month",
+    "season",
+    "day_of_year_sin",
+    "day_of_year_cos",
+    "weather_code_current",
+    "temperature_mean_current",
+    "temperature_max_current",
+    "temperature_min_current",
+    "humidity_mean_current",
+    "humidity_max_current",
+    "humidity_min_current",
+    "wind_speed_mean_current",
+    "wind_speed_max_current",
+    "precipitation_sum_current",
+    "rain_sum_current",
+    "wind_gust_max_current",
+    "rain_day_current",
+    "temperature_mean_3d",
+    "temperature_max_3d",
+    "temperature_min_3d",
+    "humidity_mean_3d",
+    "humidity_max_3d",
+    "humidity_min_3d",
+    "wind_speed_mean_3d",
+    "wind_speed_max_3d",
+    "precipitation_sum_3d",
+    "rain_sum_3d",
+    "rain_days_3d",
+    "rain_max_daily_3d",
+    "wind_gust_max_3d",
+    "temperature_mean_7d",
+    "temperature_max_7d",
+    "temperature_min_7d",
+    "humidity_mean_7d",
+    "humidity_max_7d",
+    "humidity_min_7d",
+    "wind_speed_mean_7d",
+    "wind_speed_max_7d",
+    "precipitation_sum_7d",
+    "rain_sum_7d",
+    "rain_days_7d",
+    "rain_max_daily_7d",
+    "wind_gust_max_7d"
+  ],
+  "no_model_trained": true,
+  "output_format": "csv.gz (pyarrow unavailable)",
+  "patient": {
+    "age_gender_pairs": 12,
+    "age_groups": [
+      "1-5 tuổi",
+      "11-15 tuổi",
+      "6-10 tuổi",
+      "Dưới 1 tuổi",
+      "Không rõ",
+      "Trên 15 tuổi"
+    ],
+    "candidate_disease_groups": 311,
+    "daily_case_rows": 148760,
+    "eligible_patient_rows": 257771,
+    "gender_values": [
+      "Nam",
+      "Nữ"
+    ],
+    "mapped_patient_rows": 257769,
+    "mapping_success_rate": 0.9999922411753067,
+    "observed_disease_groups": 235,
+    "patient_date_from": "2021-01-01",
+    "patient_date_to": "2025-04-26",
+    "raw_month_interpretation": "age_in_months_fallback_only",
+    "raw_patient_rows": 257771,
+    "total_case_count_day": 257769,
+    "unmapped_patient_rows": 2
+  },
+  "problem_type": "multi_label_disease_ranking_candidate_scoring",
+  "project": "weather_disease_ai_v3",
+  "sources": {
+    "original_patient_source": "D:\\OS_C\\Bài học trên trường\\Thực tập\\Fullstack_2\\ThucTap-main\\seasonal_disease_backend\\Tool\\weather\\train_history.xlsx",
+    "original_weather_source": "D:\\OS_C\\Bài học trên trường\\Thực tập\\Fullstack_2\\ThucTap-main\\seasonal_disease_backend\\Tool\\weather\\open-meteo-10.79N106.63E6m.csv",
+    "patient_sha256": "ae148fdadbcc901a3ade4bff9281bc856f34fc24906fa0c561a2cb09a3f28c78",
+    "raw_catalog_rows": 12230,
+    "raw_patient_rows": 257771,
+    "v3_patient_raw_copy": "D:\\OS_C\\Bài học trên trường\\Thực tập\\Fullstack_2\\ThucTap-main\\weather_disease_ai_v3\\data\\raw\\train_history.xlsx",
+    "v3_weather_raw_copy": "D:\\OS_C\\Bài học trên trường\\Thực tập\\Fullstack_2\\ThucTap-main\\weather_disease_ai_v3\\data\\raw\\weather_hcm_history.csv",
+    "weather_hourly_rows": 37944,
+    "weather_sha256": "d40d4931966e89778a959598ec5b4ecb701f8f67b0ae3356d89c6c164797ae82",
+    "workbook_sheets": [
+      "DS-BenhNhan",
+      "DS-MaBenh"
+    ]
+  },
+  "split": {
+    "checks": {
+      "no_anchor_overlap": true,
+      "train_h14_before_validation": true,
+      "validation_h14_before_test": true
+    },
+    "max_horizon_days": 14,
+    "method": "chronological_unique_anchor_dates_70_15_15_with_h14_purge",
+    "purge_gap_days": 13,
+    "purge_train_validation": {
+      "date_from": "2023-12-15",
+      "date_to": "2023-12-27",
+      "queries_excluded": 156,
+      "unique_anchor_dates": 13
+    },
+    "purge_validation_test": {
+      "date_from": "2024-08-13",
+      "date_to": "2024-08-25",
+      "queries_excluded": 156,
+      "unique_anchor_dates": 13
+    },
+    "test": {
+      "date_from": "2024-08-26",
+      "date_to": "2025-04-13",
+      "queries": 2772,
+      "unique_anchor_dates": 231
+    },
+    "train": {
+      "date_from": "2021-01-07",
+      "date_to": "2023-12-14",
+      "queries": 12864,
+      "unique_anchor_dates": 1072
+    },
+    "validation": {
+      "date_from": "2023-12-28",
+      "date_to": "2024-08-12",
+      "queries": 2748,
+      "unique_anchor_dates": 229
+    }
+  },
+  "support": {
+    "counts_by_horizon": {
+      "h14": {
+        "high": 104,
+        "insufficient": 18,
+        "low": 44,
+        "medium": 55,
+        "unsupported": 90
+      },
+      "h3": {
+        "high": 65,
+        "insufficient": 43,
+        "low": 70,
+        "medium": 43,
+        "unsupported": 90
+      },
+      "h7": {
+        "high": 85,
+        "insufficient": 23,
+        "low": 56,
+        "medium": 57,
+        "unsupported": 90
+      }
+    },
+    "definition": "summed_horizon_case_count_on_train_queries",
+    "overlapping_anchor_windows_may_count_same_encounter_more_than_once": true,
+    "source_split": "train_only",
+    "thresholds": {
+      "definition": "summed_horizon_case_count_on_train_queries",
+      "high_min": 1000,
+      "low_min": 20,
+      "medium_min": 200
+    }
+  },
+  "targets": {
+    "horizons": {
+      "h14": {
+        "positive_pairs": 673691,
+        "positive_rate": 0.11586483757035912,
+        "total_candidate_pairs": 5814456
+      },
+      "h3": {
+        "positive_pairs": 306800,
+        "positive_rate": 0.05276503941211353,
+        "total_candidate_pairs": 5814456
+      },
+      "h7": {
+        "positive_pairs": 492033,
+        "positive_rate": 0.08462236192001453,
+        "total_candidate_pairs": 5814456
+      }
+    },
+    "missing_sparse_row_means_zero_recorded_cases": true,
+    "rows": 673691,
+    "storage": "sparse_positive_union_h14"
+  },
+  "timezone": "Asia/Ho_Chi_Minh",
+  "weather": {
+    "actual_columns": [
+      "time",
+      "temperature_2m (°C)",
+      "relative_humidity_2m (%)",
+      "precipitation (mm)",
+      "rain (mm)",
+      "weather_code (wmo code)",
+      "wind_speed_10m (km/h)",
+      "wind_gusts_10m (km/h)"
+    ],
+    "canonical_mapping": {
+      "precipitation (mm)": "precipitation",
+      "rain (mm)": "rain",
+      "relative_humidity_2m (%)": "relative_humidity_2m",
+      "temperature_2m (°C)": "temperature_2m",
+      "time": "time",
+      "weather_code (wmo code)": "weather_code",
+      "wind_gusts_10m (km/h)": "wind_gusts_10m",
+      "wind_speed_10m (km/h)": "wind_speed_10m"
+    },
+    "daily_rows": 1581,
+    "date_from": "2021-01-01",
+    "date_to": "2025-04-30",
+    "feature_columns": [
+      "weather_code_current",
+      "temperature_mean_current",
+      "temperature_max_current",
+      "temperature_min_current",
+      "humidity_mean_current",
+      "humidity_max_current",
+      "humidity_min_current",
+      "wind_speed_mean_current",
+      "wind_speed_max_current",
+      "precipitation_sum_current",
+      "rain_sum_current",
+      "wind_gust_max_current",
+      "rain_day_current",
+      "temperature_mean_3d",
+      "temperature_max_3d",
+      "temperature_min_3d",
+      "humidity_mean_3d",
+      "humidity_max_3d",
+      "humidity_min_3d",
+      "wind_speed_mean_3d",
+      "wind_speed_max_3d",
+      "precipitation_sum_3d",
+      "rain_sum_3d",
+      "rain_days_3d",
+      "rain_max_daily_3d",
+      "wind_gust_max_3d",
+      "temperature_mean_7d",
+      "temperature_max_7d",
+      "temperature_min_7d",
+      "humidity_mean_7d",
+      "humidity_max_7d",
+      "humidity_min_7d",
+      "wind_speed_mean_7d",
+      "wind_speed_max_7d",
+      "precipitation_sum_7d",
+      "rain_sum_7d",
+      "rain_days_7d",
+      "rain_max_daily_7d",
+      "wind_gust_max_7d"
+    ],
+    "header_row_zero_based": 3,
+    "hourly_rows": 37944,
+    "invalid_timestamps": 0,
+    "lookbacks": {
+      "3d": [
+        -2,
+        0
+      ],
+      "7d": [
+        -6,
+        0
+      ],
+      "current": [
+        0,
+        0
+      ]
+    },
+    "missing_values": {
+      "precipitation": 0,
+      "rain": 0,
+      "relative_humidity_2m": 0,
+      "temperature_2m": 0,
+      "weather_code": 0,
+      "wind_gusts_10m": 0,
+      "wind_speed_10m": 0
+    }
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "Frontend/src/app/components/admin/AdminContent.regression.test.tsx": "c0df793ff1b8a774932794698ceecd036f4b4a85b423666b194c77e2675ab0ac",
+  "Frontend/src/app/components/DashboardOverview.test.tsx": "6c1d03aea2f864213725d25fbd89c29e37c924d83b3d247f78d6508ab7237959",
+  "Frontend/src/app/components/DashboardOverview.tsx": "868bcf8d2616c4d6755c8626a6778c8d66bf84f3df1185a0acc6cff8dcf65c3c",
+  "Frontend/src/app/components/SeasonalAnalysis.tsx": "cd57cf61825117790a1fee1046c6a7b39437236b3271a0de79a32501a6640dff",
+  "Frontend/src/app/components/admin/analytics-workspace.css": "f93e29b498a5e50e801d1937e7978b29ebfc1178e1b46477f8147033eb6ce23e",
+  "Frontend/src/app/components/admin/AnalyticsContext.tsx": "fd28479b9ff848d4add3b9aca99624b2a9aa33be6484b5d569d0a71fb1f1ed9a"
+}

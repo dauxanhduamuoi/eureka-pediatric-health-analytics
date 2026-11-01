@@ -1,0 +1,102 @@
+{
+  "seasonalControllerUnchanged": true,
+  "chartProps": [
+    {
+      "file": "SeasonalAnalysis.tsx",
+      "unchanged": true
+    },
+    {
+      "file": "admin/SeasonalCharts.tsx",
+      "unchanged": true
+    },
+    {
+      "file": "advanced-analytics/MonthlyWorkspace.tsx",
+      "unchanged": true
+    },
+    {
+      "file": "advanced-analytics/TrendWorkspace.tsx",
+      "unchanged": true
+    }
+  ],
+  "sharedFunctions": [
+    {
+      "file": "advanced-analytics/AnalyticsControls.tsx",
+      "name": "PeriodCombobox",
+      "unchanged": true
+    },
+    {
+      "file": "advanced-analytics/AnalyticsControls.tsx",
+      "name": "DiseaseCombobox",
+      "unchanged": true
+    },
+    {
+      "file": "advanced-analytics/TrendInteractions.tsx",
+      "name": "TrendLineTooltip",
+      "unchanged": true
+    },
+    {
+      "file": "advanced-analytics/TrendInteractions.tsx",
+      "name": "TrendPointDot",
+      "unchanged": true
+    }
+  ],
+  "protectedFiles": 616,
+  "unexpectedChanges": [],
+  "backupHashesMatch": true,
+  "indexUnchanged": true,
+  "newFiles": [
+    "Frontend/src/app/components/analytics-usability/ClientPagination.test.tsx",
+    "Frontend/src/app/components/analytics-usability/ClientPagination.tsx",
+    "Frontend/src/app/components/analytics-usability/refinement.css",
+    "Frontend/src/app/components/analytics-usability/Usability.regression.test.tsx"
+  ],
+  "unexpectedNew": [],
+  "missingNew": [],
+  "unscoped": [],
+  "trailingWhitespace": [],
+  "sourceAfterHashes": [
+    {
+      "file": "Frontend/src/app/components/SeasonalAnalysis.tsx",
+      "hash": "020d843c6417b8815cba0f4c28e674c65b00b0810c4e61ba71627425c58e833c"
+    },
+    {
+      "file": "Frontend/src/app/components/admin/SeasonalCharts.tsx",
+      "hash": "d64b807aaf1f12789da34ba186233e768de53e9c5f180b649b111ce9c1b8341f"
+    },
+    {
+      "file": "Frontend/src/app/components/advanced-analytics/MonthlyWorkspace.tsx",
+      "hash": "671872e7ac055e38e00b902f5c4fd2d44d1c6972e481aa3413d3fdfc215ed7bd"
+    },
+    {
+      "file": "Frontend/src/app/components/advanced-analytics/TrendWorkspace.tsx",
+      "hash": "522fd7bb870673d4336ec1247189a500cb9ee38e2035cdf6fc86b270cf9152a7"
+    },
+    {
+      "file": "Frontend/src/app/components/advanced-analytics/AnalyticsControls.tsx",
+      "hash": "53a327d648e991870061345684a37359c125b94f87d072a5de491af25ade68bf"
+    },
+    {
+      "file": "Frontend/src/app/components/advanced-analytics/TrendInteractions.tsx",
+      "hash": "8ebfeb227ca10f1b6ea70d72c4d3b698dd80c55297a2e778b248e32a01959cb2"
+    },
+    {
+      "file": "Frontend/src/app/components/analytics-usability/ClientPagination.tsx",
+      "hash": "eb430ce45de82aa056ee35a56b6b1dfa7ef9d70954803a1a8b246f344ec76605"
+    },
+    {
+      "file": "Frontend/src/app/components/analytics-usability/refinement.css",
+      "hash": "e85d45a2841636cffcce7f36da0f591b6cc81e262f48d162df8247c286184e91"
+    },
+    {
+      "file": "Frontend/src/app/components/analytics-usability/ClientPagination.test.tsx",
+      "hash": "6abefcbfb9c0691d6a6b8813d76854008c64872fc4d5f61678b5951de4ecd22c"
+    },
+    {
+      "file": "Frontend/src/app/components/analytics-usability/Usability.regression.test.tsx",
+      "hash": "ee36ff3ecac35dce8040a7a98a10ae9a2feb1e180fd3d3459a2706e3c9d80b48"
+    }
+  ],
+  "cssOnlyChecks": "Source checks only; not browser layout verification",
+  "realDatabaseExcluded": true,
+  "status": "PASS"
+}

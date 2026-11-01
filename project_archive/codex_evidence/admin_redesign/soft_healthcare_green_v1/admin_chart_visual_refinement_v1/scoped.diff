@@ -1,0 +1,481 @@
+--- before/AgeAnalysis.tsx
++++ after/AgeAnalysis.tsx
+@@ -1,6 +1,6 @@
+ import DiseaseAxisTick from './admin/DiseaseAxisTick';
+ import StatCard from './admin/AdminStatCard';
+-import { ADMIN_CHART, ADMIN_CHART_COLORS } from './admin/chartPalette';
++import { ADMIN_CHART, ADMIN_CHART_TOOLTIP_STYLE } from './admin/chartPalette';
+ import AdminPageHeading from './admin/AdminPageHeading';
+ import { useCallback, useEffect, useMemo, useState } from 'react';
+ import {
+@@ -29,7 +29,6 @@
+ import { ensureBilingualMap, splitDiseaseLabel } from '@/lib/disease';
+ import { useAdminChartAnimation } from './admin/useAdminChartAnimation';
+ 
+-const COLORS = ADMIN_CHART_COLORS;
+ 
+ interface AgeAnalysisCacheState {
+   periods: api.DashboardPeriodOption[];
+@@ -122,10 +121,10 @@
+     () =>
+       rows
+         .slice(0, 10)
+-        .map((row, index) => ({
++        .map((row) => ({
+           ...row,
+           label: splitDiseaseLabel(row.disease_group, bilingualMap).vi,
+-          color: COLORS[index % COLORS.length],
++          color: ADMIN_CHART.primary,
+         })),
+     [rows, bilingualMap],
+   );
+@@ -293,7 +292,7 @@
+         />
+       </div>
+ 
+-      <section className="admin-surface rounded-xl border border-slate-200 bg-white p-5 shadow-sm">
++      <section className="admin-surface admin-refined-chart rounded-xl border border-slate-200 bg-white p-5 shadow-sm">
+         <h3 className="mb-4 font-semibold text-slate-800">Top nhóm bệnh theo khoảng tháng tuổi</h3>
+         <p className="admin-chart-caption">Biểu đồ hiển thị tối đa 10 nhóm. Bảng bên dưới giữ toàn bộ nhóm theo lựa chọn và hỗ trợ tìm kiếm tên đầy đủ.</p>
+         {chartRows.length === 0 ? (
+@@ -301,10 +300,14 @@
+         ) : (
+           <ResponsiveContainer width="100%" height={360}>
+             <BarChart data={chartRows} layout="vertical" margin={{ left: 24, right: 40 }}>
+-              <CartesianGrid strokeDasharray="3 3" stroke="#f1f5f9" />
++              <CartesianGrid strokeDasharray="3 5" stroke={ADMIN_CHART.grid} horizontal={false} />
+               <XAxis type="number" tick={{ fontSize: 12 }} />
+-              <YAxis type="category" dataKey="label" width={136} tick={(props) => <DiseaseAxisTick {...props} bilingualMap={bilingualMap} />} />
+-              <Tooltip formatter={(value: number) => [`${value.toLocaleString()} ca`, 'Số ca']} />
++              <YAxis type="category" dataKey="disease_group" width={136} tick={(props) => <DiseaseAxisTick {...props} bilingualMap={bilingualMap} />} />
++              <Tooltip wrapperStyle={{ maxWidth: '100%' }} contentStyle={ADMIN_CHART_TOOLTIP_STYLE} itemStyle={{ color: 'var(--admin-ink)' }}
++                labelFormatter={(value) => {
++                  const name = splitDiseaseLabel(String(value), bilingualMap);
++                  return name.en ? `${name.vi} / ${name.en}` : name.vi;
++                }} formatter={(value: number) => [`${value.toLocaleString()} ca`, 'Số ca']} />
+               <Bar dataKey="case_count" radius={[0, 7, 7, 0]} isAnimationActive={chartAnimation}>
+                 {chartRows.map((entry) => (
+                   <Cell key={entry.disease_group} fill={entry.color} />
+--- before/AreaInsights.tsx
++++ after/AreaInsights.tsx
+@@ -102,7 +102,7 @@
+   for (let i = 0; i < code.length; i += 1) {
+     hash = (hash * 31 + code.charCodeAt(i)) % 997;
+   }
+-  return PROVINCE_COLORS[Math.abs(hash + index) % PROVINCE_COLORS.length];
++  return PROVINCE_COLORS[Math.abs(hash) % PROVINCE_COLORS.length];
+ }
+ 
+ function riskLabel(level: string): string {
+--- before/DashboardOverview.tsx
++++ after/DashboardOverview.tsx
+@@ -1,7 +1,7 @@
+ import AdminDetails from './admin/AdminDetails';
+ import BilingualLegend from './admin/DiseaseChartLegend';
+ import AdminStatCard from './admin/AdminStatCard';
+-import { ADMIN_CHART, ADMIN_CHART_COLORS } from './admin/chartPalette';
++import { ADMIN_CHART, categoryStyles } from './admin/chartPalette';
+ import AdminPageHeading from './admin/AdminPageHeading';
+ import DashboardTopGroupsChart from './admin/DashboardTopGroupsChart';
+ import { Fragment, useCallback, useEffect, useMemo, useState } from 'react';
+@@ -43,7 +43,6 @@
+ 
+ type DataType = 'train_history' | 'predict_current';
+ 
+-const PIE_COLORS = ADMIN_CHART_COLORS;
+ 
+ interface Toast {
+   id: number;
+@@ -225,6 +224,8 @@
+       };
+     });
+   }, [topGroups, bilingualMap]);
++
++  const topGroupStyles = useMemo(() => categoryStyles(topGroups.map((group) => group.disease_group)), [topGroups]);
+ 
+   const handleRunForecast = async () => {
+     setBusyAction('forecast');
+@@ -539,7 +540,7 @@
+ 
+         </div>
+         <section aria-labelledby="dashboard-top-title" className="admin-dashboard-top admin-surface bg-white rounded-xl p-6 border border-slate-200 shadow-sm">
+-          <DashboardTopGroupsChart groups={rankedGroups} animate={chartAnimation}
++          <DashboardTopGroupsChart groups={rankedGroups} styles={topGroupStyles} animate={chartAnimation}
+             emptyState={<EmptyChart loading={showEmptyLoading} label={t('dashboard.noGroupData')} t={t} />} />
+         </section>
+       </div>
+@@ -568,12 +569,12 @@
+                   />
+                 )}
+               />
+-              {stackedTopChartData.groups.map((g, i) => (
++              {stackedTopChartData.groups.map((g) => (
+                 <Bar
+                   key={g}
+                   dataKey={g}
+                   stackId="a"
+-                  fill={PIE_COLORS[i % PIE_COLORS.length]}
++                  fill={topGroupStyles.get(g)!.color}
+                   radius={[2, 2, 0, 0]}
+                   isAnimationActive={chartAnimation}
+                 />
+--- before/admin/chartPalette.ts
++++ after/admin/chartPalette.ts
+@@ -11,3 +11,27 @@
+   grid: '#e5eee8',
+   border: '#dcece1',
+ } as const;
++
++// Carbon light categorical sequence. Keep the legacy palette above for charts
++// outside this refinement and keep alert/risk colours separate.
++// https://www.carbondesignsystem.com/building-blocks/data-visualization/color-palettes
++export const ADMIN_CATEGORICAL_COLORS = [
++  '#6929c4', '#1192e8', '#005d5d', '#9f1853', '#fa4d56', '#570408', '#198038',
++  '#002d9c', '#ee538b', '#b28600', '#009d9a', '#012749', '#8a3800', '#a56eff',
++] as const;
++const LINE_DASHES = ['', '7 3', '2 3', '9 3 2 3', '12 4'] as const;
++export interface CategoryStyle { color: string; dash: string }
++
++/** Stable for a reordered category set. Raw names are the available keys in
++ * current disease APIs; this is not a global disease-ID registry. Bounded palette
++ * repeats for large sets: names, counts and line patterns remain necessary. */
++export function categoryStyles(keys: readonly string[]): ReadonlyMap<string, CategoryStyle> {
++  return new Map([...new Set(keys)].sort().map((key, index) => [key, {
++    color: ADMIN_CATEGORICAL_COLORS[index % ADMIN_CATEGORICAL_COLORS.length],
++    dash: LINE_DASHES[index % LINE_DASHES.length],
++  }]));
++}
++
++export const ADMIN_CHART_TOOLTIP_STYLE = {
++  maxWidth: 360, whiteSpace: 'normal', overflowWrap: 'anywhere',
++} as const;
+--- before/admin/SeasonalCharts.tsx
++++ after/admin/SeasonalCharts.tsx
+@@ -1,8 +1,8 @@
+ import DiseaseAxisTick from './DiseaseAxisTick';
+ import { Bar, BarChart, CartesianGrid, Line, LineChart, ResponsiveContainer, Tooltip, XAxis, YAxis, Legend } from 'recharts';
+ import { splitDiseaseLabel } from '@/lib/disease';
+-import { ADMIN_CHART_COLORS } from './chartPalette';
+-import DiseaseChartLegend from './DiseaseChartLegend';
++import { ADMIN_CHART, categoryStyles } from './chartPalette';
++import DiseaseChartLegend, { ChartLineSample } from './DiseaseChartLegend';
+ import { seasonalChartRows } from './seasonalPresentation';
+ 
+ export function SeasonalTrendChart({ rows, diseases, observed, bilingualMap, animate }: {
+@@ -10,25 +10,38 @@
+   bilingualMap: Record<string, string>; animate: boolean;
+ }) {
+   const displayRows = seasonalChartRows(rows, diseases, observed);
+-  return <>
++  const styles = categoryStyles(diseases);
++  return <div className="admin-refined-chart admin-seasonal-trend">
+     <p className="admin-chart-caption">5 nhóm có tổng ca cao nhất trong toàn bộ dữ liệu; đồ thị thuộc năm được chọn. Khoảng trống là tháng không có bản ghi, không phải 0 ca.</p>
+     <div className="admin-chart-frame">
+       <ResponsiveContainer width="100%" height={280}>
+         <LineChart data={displayRows} margin={{ top: 12, right: 12, bottom: 8, left: 0 }}>
+           <CartesianGrid vertical={false} /><XAxis dataKey="month" tickLine={false} axisLine={false} interval={0} tick={{ fontSize: 11 }} />
+           <YAxis width={45} tickLine={false} axisLine={false} tick={{ fontSize: 11 }} />
+-          <Tooltip formatter={(value: number, name: string) => {
+-            const label = splitDiseaseLabel(name, bilingualMap);
+-            return [`${Number(value).toLocaleString()} ca`, label.en ? `${label.vi} / ${label.en}` : label.vi];
+-          }} labelFormatter={(label) => `${label}${observed.has(Number(String(label).slice(1))) ? '' : ' · Không có bản ghi'}`} />
+-          {diseases.map((disease, index) => <Line key={disease} type="linear" dataKey={disease} name={disease}
+-            stroke={ADMIN_CHART_COLORS[index % ADMIN_CHART_COLORS.length]} strokeWidth={2} dot={false} activeDot={{ r: 4 }}
++          <Tooltip wrapperStyle={{ maxWidth: '100%' }} content={({ active, payload, label }) => {
++            if (!active || !payload?.length) return null;
++            return <div className="admin-refined-tooltip">
++              <strong>{label}{observed.has(Number(String(label).slice(1))) ? '' : ' · Không có bản ghi'}</strong>
++              <ul>{payload.map((entry) => {
++                const key = String(entry.dataKey ?? entry.name);
++                if (typeof entry.value !== 'number' || !Number.isFinite(entry.value)) return null;
++                const name = splitDiseaseLabel(key, bilingualMap);
++                const style = styles.get(key);
++                return <li key={key}><ChartLineSample color={style?.color ?? ADMIN_CHART.primary} dash={style?.dash} />
++                  <span>{name.vi}{name.en && <small>{name.en}</small>}<strong>{entry.value.toLocaleString()} ca</strong></span>
++                </li>;
++              })}</ul>
++            </div>;
++          }} />
++          {diseases.map((disease) => <Line key={disease} type="linear" dataKey={disease} name={disease}
++            stroke={styles.get(disease)!.color} strokeDasharray={styles.get(disease)!.dash || undefined}
++            strokeWidth={2.5} dot={{ r: 2, strokeWidth: 1.5, fill: 'var(--admin-surface)' }} activeDot={{ r: 4 }}
+             connectNulls={false} isAnimationActive={animate} />)}
+         </LineChart>
+       </ResponsiveContainer>
+     </div>
+-    <DiseaseChartLegend payload={diseases.map((value, index) => ({ value, color: ADMIN_CHART_COLORS[index % ADMIN_CHART_COLORS.length] }))} bilingualMap={bilingualMap} />
+-  </>;
++    <DiseaseChartLegend lines payload={diseases.map((value) => ({ value, ...styles.get(value)! }))} bilingualMap={bilingualMap} />
++  </div>;
+ }
+ 
+ export function SeasonalDistributionChart({ rows, dryLabel, rainyLabel, bilingualMap, animate }: {
+--- before/admin/DashboardTopGroupsChart.tsx
++++ after/admin/DashboardTopGroupsChart.tsx
+@@ -1,7 +1,7 @@
+ import { useState, type ReactNode } from 'react';
+ import { Cell, Pie, PieChart, ResponsiveContainer, Tooltip } from 'recharts';
+ import { useT } from '@/lib/i18n';
+-import { ADMIN_CHART_COLORS } from './chartPalette';
++import { ADMIN_CHART, categoryStyles, type CategoryStyle } from './chartPalette';
+ 
+ export interface RankedDashboardGroup {
+   name: string;
+@@ -12,16 +12,18 @@
+ }
+ 
+ const formatShare = (share: number | null) => share !== null && Number.isFinite(share) ? `${share.toFixed(1)}%` : '—';
+-const groupColor = (index: number) => ADMIN_CHART_COLORS[index % ADMIN_CHART_COLORS.length];
+ 
+ /** Presentation only: both views receive the same ranked counts and shares. */
+-export default function DashboardTopGroupsChart({ groups, emptyState, animate }: {
++export default function DashboardTopGroupsChart({ groups, emptyState, animate, styles: suppliedStyles }: {
+   groups: RankedDashboardGroup[];
+   emptyState: ReactNode;
+   animate: boolean;
++  styles?: ReadonlyMap<string, CategoryStyle>;
+ }) {
+   const t = useT();
+   const [view, setView] = useState<'donut' | 'bars'>('donut');
++  const styles = suppliedStyles ?? categoryStyles(groups.map((entry) => entry.name));
++  const groupColor = (name: string) => styles.get(name)?.color ?? ADMIN_CHART.primary;
+   const canDrawDonut = groups.some((entry) => entry.share !== null && entry.share > 0 && Number.isFinite(entry.share));
+ 
+   function groupList(bars: boolean) {
+@@ -31,13 +33,13 @@
+         const tooltip = `${entry.vi}${entry.en ? ` / ${entry.en}` : ''}: ${entry.value.toLocaleString()} ${t('dashboard.caseUnit')} · ${share} (${t('dashboard.topGroupShare')})`;
+         return <li key={entry.name} title={tooltip} tabIndex={0}>
+           {bars ? <span className="admin-dashboard-rank" aria-hidden="true">{index + 1}</span>
+-            : <span className="admin-dashboard-donut-swatch" style={{ backgroundColor: groupColor(index) }} aria-hidden="true" />}
++            : <span className="admin-dashboard-donut-swatch" style={{ backgroundColor: groupColor(entry.name) }} aria-hidden="true" />}
+           <div className="admin-dashboard-rank-content">
+             <div className="admin-dashboard-rank-heading">
+               <span className="admin-dashboard-rank-label"><strong>{entry.vi}</strong>{entry.en && <small>{entry.en}</small>}</span>
+               <span className="admin-dashboard-rank-value">{entry.value.toLocaleString()} <small>{t('dashboard.caseUnit')} · {share}</small></span>
+             </div>
+-            {bars && <div className="admin-dashboard-rank-track" aria-hidden="true"><span style={{ width: `${entry.share ?? 0}%` }} /></div>}
++            {bars && <div className="admin-dashboard-rank-track" aria-hidden="true"><span style={{ width: `${entry.share ?? 0}%`, backgroundColor: groupColor(entry.name) }} /></div>}
+           </div>
+         </li>;
+       })}
+@@ -61,12 +63,12 @@
+               <Pie data={groups} dataKey="value" nameKey="name" cx="50%" cy="50%"
+                 innerRadius="56%" outerRadius="84%" paddingAngle={1} stroke="var(--admin-surface)"
+                 label={false} labelLine={false} isAnimationActive={animate}>
+-                {groups.map((entry, index) => <Cell key={entry.name} fill={groupColor(index)} />)}
++                {groups.map((entry) => <Cell key={entry.name} fill={groupColor(entry.name)} />)}
+               </Pie>
+               <Tooltip wrapperStyle={{ maxWidth: '100%' }} content={({ active, payload }) => {
+                 if (!active || !payload?.length) return null;
+                 const entry = payload[0].payload as RankedDashboardGroup;
+-                return <div className="admin-dashboard-donut-tooltip">
++                return <div className="admin-dashboard-donut-tooltip" style={{ borderInlineStart: `3px solid ${groupColor(entry.name)}` }}>
+                   <strong>{entry.vi}</strong>{entry.en && <small>{entry.en}</small>}
+                   <p>{entry.value.toLocaleString()} {t('dashboard.caseUnit')} · {formatShare(entry.share)}</p>
+                   <small>{t('dashboard.topGroupShare')}</small>
+--- before/admin/DiseaseChartLegend.tsx
++++ after/admin/DiseaseChartLegend.tsx
+@@ -1,15 +1,22 @@
+ import { splitDiseaseLabel } from '@/lib/disease';
+ 
+-export default function DiseaseChartLegend({ payload, bilingualMap }: {
+-  payload?: Array<{ value: string; color: string }>;
++export function ChartLineSample({ color, dash }: { color: string; dash?: string }) {
++  return <svg className="admin-line-sample" width={28} height={12} viewBox="0 0 28 12" aria-hidden="true" focusable="false">
++    <line x1={1} x2={27} y1={6} y2={6} stroke={color} strokeWidth={2.5} strokeDasharray={dash || undefined} strokeLinecap="round" />
++  </svg>;
++}
++
++export default function DiseaseChartLegend({ payload, bilingualMap, lines = false }: {
++  payload?: Array<{ value: string; color: string; dash?: string }>;
+   bilingualMap: Record<string, string>;
++  lines?: boolean;
+ }) {
+   if (!payload?.length) return null;
+-  return <ul className="admin-chart-legend" aria-label="Chú giải nhóm bệnh" tabIndex={0}>
++  return <ul className={`admin-chart-legend${lines ? ' admin-line-legend' : ''}`} aria-label="Chú giải nhóm bệnh" tabIndex={0}>
+     {payload.map((entry) => {
+       const label = splitDiseaseLabel(entry.value, bilingualMap);
+       return <li key={entry.value}>
+-        <span className="admin-legend-dot" style={{ backgroundColor: entry.color }} aria-hidden="true" />
++        {lines ? <ChartLineSample color={entry.color} dash={entry.dash} /> : <span className="admin-legend-dot" style={{ backgroundColor: entry.color }} aria-hidden="true" />}
+         <span><strong>{label.vi}</strong>{label.en && <small>{label.en}</small>}</span>
+       </li>;
+     })}
+--- before/admin/content.css
++++ after/admin/content.css
+@@ -31,6 +31,18 @@
+ .admin-legend-dot { width: 8px; height: 8px; margin-top: 4px; border-radius: 2px; flex-shrink: 0; }
+ .admin-chart-legend strong { font-weight: 600; line-height: 1.5; }
+ .admin-chart-legend small { display: block; font-size: 10px; line-height: 1.5; color: var(--admin-muted); }
++/* Only the refined chart legend grows naturally for five series; legacy dense
++   legends keep their existing scrolling behaviour. */
++.eureka-admin .admin-line-legend { grid-template-columns: repeat(auto-fit, minmax(min(180px, 100%), 1fr)); gap: 12px 18px; max-height: none; overflow: visible; padding: 14px 0 0; margin-top: 12px; }
++.eureka-admin .admin-line-legend li > span { min-width: 0; overflow-wrap: anywhere; }
++.eureka-admin .admin-line-sample { flex: 0 0 28px; margin-top: 4px; }
++.eureka-admin .admin-refined-chart { min-width: 0; }
++.eureka-admin .admin-refined-tooltip { max-width: 360px; padding: 12px 14px; border: 1px solid var(--admin-border); border-radius: 10px; background: var(--admin-surface); color: var(--admin-ink); box-shadow: var(--admin-shadow); white-space: normal; overflow-wrap: anywhere; font-size: var(--admin-font-label); line-height: 1.5; }
++.eureka-admin .admin-refined-tooltip ul { display: grid; gap: 10px; list-style: none; padding: 0; margin: 8px 0 0; }
++.eureka-admin .admin-refined-tooltip li { display: flex; align-items: flex-start; gap: 8px; }
++.eureka-admin .admin-refined-tooltip li > span { min-width: 0; }
++.eureka-admin .admin-refined-tooltip small { display: block; color: var(--admin-muted); }
++.eureka-admin .admin-refined-tooltip li strong { display: block; margin-top: 2px; font-weight: 600; }
+ .admin-metric-strip { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); background: var(--admin-surface); border: 1px solid var(--admin-border); border-radius: 12px; overflow: hidden; }
+ :root .eureka-admin .admin-page .admin-kpi { padding: 16px !important; }
+ :root .eureka-admin .admin-page .admin-kpi p.text-2xl { font-size: 23px; font-weight: 700 !important; }
+--- before/admin/ChartVisuals.test.tsx
++++ after/admin/ChartVisuals.test.tsx
+@@ -0,0 +1,153 @@
++import type { ReactNode } from 'react';
++import { fireEvent, render, screen, waitFor, within } from '@testing-library/react';
++import { beforeEach, expect, it, vi } from 'vitest';
++import { I18nProvider } from '@/lib/i18n';
++import * as api from '@/lib/api';
++import { categoryStyles, ADMIN_CHART } from './chartPalette';
++import { SeasonalTrendChart } from './SeasonalCharts';
++import DashboardTopGroupsChart from './DashboardTopGroupsChart';
++import AgeAnalysis from '../AgeAnalysis';
++import AreaInsights from '../AreaInsights';
++
++vi.mock('../../contexts/AuthContext', () => ({ useAuth: () => ({ user: { role: 'staff', permissions: [] } }) }));
++vi.mock('@/lib/provinceRegions', () => ({ loadProvinceRegions: vi.fn().mockResolvedValue([]) }));
++vi.mock('@/lib/api', async (original) => ({
++  ...await original<typeof import('@/lib/api')>(),
++  getDashboardPeriods: vi.fn(), getDiseaseBilingual: vi.fn(), getCasesByAgeRange: vi.fn(), getDiseaseByAgeRange: vi.fn(),
++  listAreaProvinces: vi.fn(), getAreaCaseSummary: vi.fn(), getAreaDiseaseSummary: vi.fn(), getAreaLocalRisks: vi.fn(), getAreaRecommendations: vi.fn(),
++}));
++
++// Test real chart composition/data and tooltip content, not browser geometry.
++vi.mock('recharts', async () => {
++  const { Children, createContext, isValidElement, useContext } = await import('react');
++  type Row = Record<string, unknown>;
++  type Series = { dataKey?: string; name?: string; stroke?: string; strokeDasharray?: string; connectNulls?: boolean; data?: Row[]; type?: string };
++  const Data = createContext<{ rows: Row[]; series: Series[]; labelKey?: string }>({ rows: [], series: [] });
++  const Line = (props: Series) => <i data-testid="line-style" data-key={props.dataKey} data-color={props.stroke} data-dash={props.strokeDasharray ?? ''} data-connect={String(props.connectNulls)} />;
++  const Bar = ({ children }: { children?: ReactNode }) => <div>{children}</div>;
++  const Axis = () => null;
++  const Graph = ({ data, children }: { data?: Row[]; children: ReactNode }) => {
++    const nodes = Children.toArray(children).filter(isValidElement<Series>);
++    const rows = data ?? nodes.find((node) => node.props.data)?.props.data ?? [];
++    const series = nodes.filter((node) => node.type === Line || node.type === Bar).map((node) => node.props);
++    const labelKey = nodes.find((node) => node.type === Axis && node.props.type === 'category')?.props.dataKey;
++    return <Data.Provider value={{ rows, series, labelKey }}><div data-testid="chart"><output data-testid="chart-data">{JSON.stringify(rows)}</output>{children}</div></Data.Provider>;
++  };
++  return {
++    ResponsiveContainer: ({ children }: { children: ReactNode }) => <div>{children}</div>,
++    LineChart: Graph, BarChart: Graph, PieChart: Graph, Line, Bar, XAxis: Axis, YAxis: Axis,
++    Pie: ({ children }: { children: ReactNode }) => <div>{children}</div>,
++    Cell: ({ fill }: { fill: string }) => <i data-testid="cell" data-color={fill} />,
++    CartesianGrid: () => null, Legend: () => null, LabelList: () => null,
++    Tooltip: ({ content, labelFormatter, formatter }: {
++      content?: (props: { active: boolean; label: string; payload: Array<{ dataKey: string; name: string; value: unknown; payload: Row }> }) => ReactNode;
++      labelFormatter?: (label: string) => ReactNode;
++      formatter?: (value: number, name: string) => ReactNode;
++    }) => {
++      const { rows, series, labelKey } = useContext(Data);
++      const first = rows[0] ?? {};
++      const label = String(first[labelKey ?? 'month'] ?? first.name ?? '');
++      const payload = series.length ? series.map((item) => ({ dataKey: item.dataKey!, name: item.name ?? item.dataKey!, value: first[item.dataKey!], payload: first })).filter((item) => item.value !== null && item.value !== undefined)
++        : rows.length ? [{ dataKey: 'value', name: String(first.name), value: first.value, payload: first }] : [];
++      return <div data-testid="tooltip">{content ? content({ active: true, label, payload }) : <>{labelFormatter?.(label)}<output>{formatter && JSON.stringify(formatter(Number(payload[0]?.value ?? 0), 'Số ca'))}</output></>}</div>;
++    },
++  };
++});
++
++beforeEach(() => {
++  vi.clearAllMocks(); localStorage.clear();
++  window.matchMedia = vi.fn().mockReturnValue({ matches: false, addEventListener: vi.fn(), removeEventListener: vi.fn() });
++  vi.mocked(api.getDashboardPeriods).mockResolvedValue([]);
++  vi.mocked(api.getDiseaseBilingual).mockResolvedValue({});
++  vi.mocked(api.getCasesByAgeRange).mockResolvedValue({ period: '', min_month_age: null, max_month_age: null, total_cases: 15 });
++  vi.mocked(api.listAreaProvinces).mockResolvedValue([]);
++  vi.mocked(api.getAreaDiseaseSummary).mockResolvedValue([]);
++  vi.mocked(api.getAreaLocalRisks).mockResolvedValue([]);
++  vi.mocked(api.getAreaRecommendations).mockResolvedValue({ area: { province: null, district: null, ward: null }, top_risks: [], recommendations: [] });
++});
++const mount = (children: ReactNode) => render(<I18nProvider>{children}</I18nProvider>);
++
++it('keeps five category colours/patterns distinct without changing or depending on input ordering', () => {
++  const keys = Object.freeze(['Z - Zed', 'A - Alpha', 'M - Mu', 'B - Beta', 'T - Tau']);
++  const before = categoryStyles(keys);
++  expect(new Set([...before.values()].map((style) => style.color)).size).toBe(5);
++  expect(new Set([...before.values()].map((style) => style.dash)).size).toBe(5);
++  expect(categoryStyles([...keys].reverse())).toEqual(before);
++  expect(categoryStyles([...keys, keys[0]])).toEqual(before);
++  expect(keys[0]).toBe('Z - Zed');
++});
++
++it('preserves seasonal series order, counts, genuine zero and missing-month gaps; legend/tooltip use the same style', () => {
++  const diseases = ['Viêm phổi - Pneumonia', 'Viêm mũi - Rhinitis', 'Sốt - Fever', 'Ho - Cough', 'Nhóm tên dài - A long disease name'];
++  const rows = [Object.freeze({ month: 'T1', ...Object.fromEntries(diseases.map((key, index) => [key, index * 3])) }),
++    Object.freeze({ month: 'T2', ...Object.fromEntries(diseases.map((key) => [key, 7])) })];
++  const original = JSON.stringify(rows);
++  mount(<SeasonalTrendChart rows={rows} diseases={diseases} observed={new Set([1])} bilingualMap={{}} animate={false} />);
++  const plotted = JSON.parse(screen.getByTestId('chart-data').textContent!);
++  expect(plotted[0][diseases[0]]).toBe(0);
++  expect(diseases.map((key) => plotted[1][key])).toEqual(diseases.map(() => null));
++  expect(screen.getAllByTestId('line-style').map((line) => line.dataset.key)).toEqual(diseases);
++  const legend = screen.getByRole('list', { name: 'Chú giải nhóm bệnh' });
++  const tooltip = screen.getByTestId('tooltip');
++  screen.getAllByTestId('line-style').forEach((line, index) => {
++    const sample = within(legend).getAllByRole('listitem')[index].querySelector('line')!;
++    expect(sample.getAttribute('stroke')).toBe(line.dataset.color);
++    expect(sample.getAttribute('stroke-dasharray') ?? '').toBe(line.dataset.dash);
++    const tooltipSample = within(tooltip).getAllByRole('listitem')[index].querySelector('line')!;
++    expect(tooltipSample.getAttribute('stroke')).toBe(line.dataset.color);
++    expect(line).toHaveAttribute('data-connect', 'false');
++  });
++  expect(tooltip).toHaveTextContent('0 ca');
++  expect(tooltip).toHaveTextContent('Pneumonia');
++  expect(JSON.stringify(rows)).toBe(original);
++});
++
++it('keeps Dashboard category identity through reordered data and the donut/bar toggle without changing shares', () => {
++  const groups = Object.freeze([
++    Object.freeze({ name: 'Z', vi: 'Nhóm Z', en: null, value: 30, share: 60 }),
++    Object.freeze({ name: 'A', vi: 'Nhóm A', en: 'Alpha', value: 20, share: 40 }),
++    Object.freeze({ name: 'M', vi: 'Nhóm M', en: null, value: 0, share: 0 }),
++  ]);
++  const view = mount(<DashboardTopGroupsChart groups={[...groups]} emptyState="Trống" animate={false} />);
++  const colours = Object.fromEntries(groups.map((group, index) => [group.name, screen.getAllByTestId('cell')[index].dataset.color]));
++  const reversed = [...groups].reverse();
++  view.rerender(<I18nProvider><DashboardTopGroupsChart groups={reversed} emptyState="Trống" animate={false} /></I18nProvider>);
++  expect(screen.getAllByTestId('cell').map((cell) => cell.dataset.color)).toEqual(reversed.map((group) => colours[group.name]));
++  fireEvent.click(screen.getByRole('button', { name: 'Thanh ngang' }));
++  const rows = screen.getByRole('list').querySelectorAll('li');
++  rows.forEach((row, index) => {
++    expect(row.querySelector('.admin-dashboard-rank-track > span')).toHaveStyle({ width: `${reversed[index].share}%`, backgroundColor: colours[reversed[index].name] });
++  });
++  expect(groups.map((group) => group.value)).toEqual([30, 20, 0]);
++  expect(groups.map((group) => group.share)).toEqual([60, 40, 0]);
++});
++
++it('keeps the Age API/ranking data and full bilingual tooltip while using one count colour', async () => {
++  const raw = 'Nhóm hô hấp có tên dài cần giữ đầy đủ - A long respiratory disease name';
++  const scope = { period: '', min_month_age: null, max_month_age: null };
++  const input = [Object.freeze({ ...scope, disease_group: raw, case_count: 12 }), Object.freeze({ ...scope, disease_group: 'Ho - Cough', case_count: 3 })];
++  vi.mocked(api.getDiseaseByAgeRange).mockResolvedValue(input);
++  mount(<AgeAnalysis />);
++  await screen.findByTestId('chart-data');
++  expect(screen.getAllByTestId('cell').map((cell) => cell.dataset.color)).toEqual([ADMIN_CHART.primary, ADMIN_CHART.primary]);
++  expect(screen.getByTestId('tooltip')).toHaveTextContent(raw.replace(' - ', ' / '));
++  const plotted = JSON.parse(screen.getByTestId('chart-data').textContent!);
++  expect(plotted.map((row: { case_count: number }) => row.case_count)).toEqual([12, 3]);
++  expect(api.getDiseaseByAgeRange).toHaveBeenCalledWith({ period: undefined, minMonthAge: undefined, maxMonthAge: undefined, limit: 10 });
++  expect(input.map((row) => row.case_count)).toEqual([12, 3]);
++});
++
++it('keeps a province colour tied to its code when API order changes on refresh', async () => {
++  const input = [{ area_code: '79', area_name: 'TP Hồ Chí Minh', level: 'province', case_count: 12, disease_groups: 1 },
++    { area_code: '01', area_name: 'Hà Nội', level: 'province', case_count: 3, disease_groups: 1 }];
++  vi.mocked(api.getAreaCaseSummary).mockResolvedValue(input);
++  mount(<AreaInsights />);
++  await screen.findByTestId('chart-data');
++  const parsed = () => JSON.parse(screen.getByTestId('chart-data').textContent!) as Array<{ area_code: string; color: string; case_count: number }>;
++  const colours = Object.fromEntries(parsed().map((row) => [row.area_code, row.color]));
++  vi.mocked(api.getAreaCaseSummary).mockResolvedValue([...input].reverse());
++  fireEvent.click(screen.getByRole('button', { name: 'Làm mới' }));
++  await waitFor(() => expect(parsed()[0].area_code).toBe('01'));
++  expect(parsed().map((row) => row.color)).toEqual(['01', '79'].map((code) => colours[code]));
++  expect(parsed().map((row) => row.case_count)).toEqual([3, 12]);
++});

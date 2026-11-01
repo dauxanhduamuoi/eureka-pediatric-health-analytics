@@ -1,0 +1,10 @@
+{
+  "seasonal_disease_backend/app/ml/seasonal_forecast_data/train_history.xlsx": {
+    "exists": true,
+    "size": 11729304
+  },
+  "seasonal_disease_backend/app/ml/seasonal_disease_forecast_model.pkl": {
+    "exists": true,
+    "size": 336633146
+  }
+}

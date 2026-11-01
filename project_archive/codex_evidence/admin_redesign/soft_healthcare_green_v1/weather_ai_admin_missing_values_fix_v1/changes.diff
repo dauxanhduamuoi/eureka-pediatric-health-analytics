@@ -1,0 +1,216 @@
+--- before/Frontend/src/app/components/WeatherRisk.tsx
++++ after/Frontend/src/app/components/WeatherRisk.tsx
+@@ -103,8 +103,8 @@
+     .trim();
+ }
+ 
+-function num(value: unknown, digits = 2): string {
+-  if (typeof value !== 'number' || Number.isNaN(value)) return '-';
++function num(value: unknown, digits = 2): string | null {
++  if (typeof value !== 'number' || !Number.isFinite(value)) return null;
+   return value.toFixed(digits).replace(/\.00$/, '');
+ }
+ 
+@@ -187,6 +187,7 @@
+   const [initialLoading, setInitialLoading] = useState(true);
+   const [error, setError] = useState<string | null>(null);
+   const [result, setResult] = useState<api.WeatherAIPredictResponse | null>(cachedRiskState?.result ?? null);
++  const [resultFromCache, setResultFromCache] = useState(Boolean(cachedRiskState?.result));
+   const predictionRequest = useRef(0);
+   const [detailsVersion, setDetailsVersion] = useState(0);
+ 
+@@ -235,12 +236,19 @@
+   const weatherCards = useMemo(() => {
+     const f = result?.weather?.features ?? {};
+     return [
+-      { label: 'Nhiệt độ TB hôm nay', value: `${num(f.temp_mean_today)}°C`, icon: Thermometer },
+-      { label: 'Độ ẩm TB hôm nay', value: `${num(f.humidity_mean_today)}%`, icon: Droplets },
+-      { label: 'Mưa hôm nay', value: `${num(f.rain_sum_today)} mm`, icon: CloudRain },
+-      { label: 'Gió lớn nhất', value: `${num(f.wind_speed_max_today)} km/h`, icon: Wind },
+-    ];
++      { label: 'Nhiệt độ TB ngày dự đoán', raw: f.temperature_mean_current, unit: '°C', icon: Thermometer },
++      { label: 'Độ ẩm TB ngày dự đoán', raw: f.humidity_mean_current, unit: '%', icon: Droplets },
++      { label: 'Mưa ngày dự đoán', raw: f.rain_sum_current, unit: ' mm', icon: CloudRain },
++      { label: 'Gió lớn nhất', raw: f.wind_speed_max_current, unit: ' km/h', icon: Wind },
++    ].map((card) => {
++      const formatted = num(card.raw);
++      return { ...card, missing: formatted === null, value: formatted === null ? 'Chưa có dữ liệu' : `${formatted}${card.unit}` };
++    });
+   }, [result]);
++  const weatherSource = result?.weather?.meta?.source;
++  const weatherSourceLabel = weatherSource === 'open_meteo' ? 'Open-Meteo'
++    : weatherSource === 'manual_locked_features' ? 'Bộ đặc trưng nhập thủ công'
++      : weatherSource === 'manual_daily_history' ? 'Lịch sử thời tiết nhập thủ công' : 'Chưa rõ nguồn';
+ 
+   const predictions = useMemo(() => result?.predictions ?? result?.top_risks ?? [], [result]);
+   const totalRiskPages = pageCount(predictions.length, riskPageSize);
+@@ -345,6 +353,7 @@
+       const res = await api.predictWeatherAIRisk(payload);
+       if (requestId !== predictionRequest.current) return;
+       setResult(res);
++      setResultFromCache(false);
+       setRiskPage(1);
+     } catch (e) {
+       if (requestId === predictionRequest.current) setError(api.weatherAIErrorMessage(e));
+@@ -548,12 +557,21 @@
+             </div>
+           ) : (
+             <>
++              {(loading || error || resultFromCache) && (
++                <p role="status" className="rounded-xl border border-amber-200 bg-amber-50 px-3 py-2 text-sm text-amber-700">
++                  {loading ? 'Đang chạy dự đoán mới. Thời tiết và xếp hạng bên dưới thuộc kết quả trước đó.'
++                    : error ? 'Chưa có kết quả mới. Thời tiết và xếp hạng bên dưới thuộc lần dự đoán trước; vui lòng thử lại.'
++                      : 'Đang hiển thị kết quả đã lưu từ lần trước, không phải dữ liệu vừa tải. Chạy lại để cập nhật.'}
++                </p>
++              )}
+               <div className="admin-surface rounded-2xl border border-slate-200 bg-white p-5 shadow-sm">
+                 <div className="mb-4 flex flex-col justify-between gap-3 md:flex-row md:items-center">
+                   <div>
+                     <h3 className="font-semibold text-slate-800">Thời tiết dùng cho dự đoán</h3>
+                     <p className="text-xs text-slate-500">
+-                      Nguồn: Open-Meteo realtime · Tháng {String(result.weather.features.month ?? '-')} · {String(result.weather.features.season ?? '-')}
++                      Nguồn: {weatherSourceLabel} · Ngày {result.context?.anchor_date || String(result.weather?.meta?.date || 'Chưa rõ ngày')}
++                      {result.weather?.features?.month != null && <> · Tháng {String(result.weather.features.month)}</>}
++                      {result.weather?.features?.season != null && <> · {String(result.weather.features.season)}</>}
+                     </p>
+                   </div>
+                   {status && (
+@@ -562,6 +580,11 @@
+                     </div>
+                   )}
+                 </div>
++                {weatherCards.some((card) => card.missing) && (
++                  <p role="alert" className="mb-3 text-sm text-amber-700">
++                    Phản hồi thiếu hoặc có giá trị thời tiết không hợp lệ. Không thể xác nhận đầy đủ dữ liệu thời tiết của kết quả này. Vui lòng thử lại.
++                  </p>
++                )}
+                 <div className="admin-weather-metrics">
+                   {weatherCards.map((card) => {
+                     const Icon = card.icon;
+--- before/Frontend/src/app/components/WeatherRisk.test.tsx
++++ after/Frontend/src/app/components/WeatherRisk.test.tsx
+@@ -2,6 +2,7 @@
+ import { beforeEach, expect, it, vi } from 'vitest';
+ import { I18nProvider } from '@/lib/i18n';
+ import * as api from '@/lib/api';
++import { saveWeatherRiskCache } from '@/lib/weatherRiskCache';
+ import WeatherRisk from './WeatherRisk';
+ import fixture from '../../../../weather_disease_ai_v3/shap_explanation_fix_v1/backend_after.json';
+ 
+@@ -30,6 +31,116 @@
+ }
+ const openFirst = () => fireEvent.click(detailButtons()[0]);
+ 
++const weatherPanel = () => within(screen.getByRole('heading', { name: 'Thời tiết dùng cho dự đoán' }).closest('.admin-surface') as HTMLElement);
++const metric = (label: string | RegExp) => within(weatherPanel().getByText(label).parentElement as HTMLElement);
++
++it('shows the exact V3 current weather features from the ranking response', async () => {
++  await mount(); await predict();
++  expect(metric(/Nhiệt độ TB/).getByText('26.88°C')).toBeVisible();
++  expect(metric(/Độ ẩm TB/).getByText('68.83%')).toBeVisible();
++  expect(metric(/Mưa /).getByText('12 mm')).toBeVisible();
++  expect(metric('Gió lớn nhất').getByText('9 km/h')).toBeVisible();
++  expect(weatherPanel().getByText(/2026-08-07/)).toBeVisible();
++  expect(weatherPanel().getByText(/Bộ đặc trưng nhập thủ công/)).toBeVisible();
++  expect(api.predictWeatherAIRisk).toHaveBeenCalledTimes(1);
++});
++
++it('preserves real zero values and uses the returned source and date, not a separate weather request', async () => {
++  const rows = response();
++  rows.weather.meta = { source: 'open_meteo', date: rows.context.anchor_date, latitude: 10.8231, longitude: 106.6297 };
++  for (const key of ['temperature_mean_current', 'humidity_mean_current', 'rain_sum_current', 'wind_speed_max_current']) rows.weather.features[key] = 0;
++  vi.mocked(api.predictWeatherAIRisk).mockResolvedValueOnce(rows);
++  await mount(); await predict();
++  for (const text of ['0°C', '0%', '0 mm', '0 km/h']) expect(weatherPanel().getByText(text)).toBeVisible();
++  expect(weatherPanel().getByText(/Nguồn: Open-Meteo · Ngày 2026-08-07/)).toBeVisible();
++  expect(weatherPanel().queryByRole('alert')).not.toBeInTheDocument();
++});
++
++it.each([undefined, null, NaN, Infinity, -Infinity, '27'])('reports missing/nonfinite weather %s without inventing zero', async (invalid) => {
++  const rows = response(); rows.weather.features.temperature_mean_current = invalid;
++  // An obsolete alias cannot silently substitute for the locked V3 field.
++  rows.weather.features.temp_mean_today = 99;
++  vi.mocked(api.predictWeatherAIRisk).mockResolvedValueOnce(rows);
++  await mount(); await predict();
++  expect(metric(/Nhiệt độ TB/).getByText('Chưa có dữ liệu')).toBeVisible();
++  expect(weatherPanel().getByRole('alert')).toHaveTextContent(/Không thể xác nhận đầy đủ dữ liệu/);
++  expect(metric(/Nhiệt độ TB/).queryByText(/0°C|99°C|Infinity|NaN|^-°C$/)).not.toBeInTheDocument();
++  expect(metric(/Mưa /).getByText('12 mm')).toBeVisible();
++});
++
++it('handles an absent weather object without crashing or treating model-ready as weather-ready', async () => {
++  const rows = response(); delete (rows as Partial<api.WeatherAIPredictResponse>).weather;
++  vi.mocked(api.predictWeatherAIRisk).mockResolvedValueOnce(rows);
++  await mount(); await predict();
++  expect(weatherPanel().getByText(/Model: Sẵn sàng/)).toBeVisible();
++  expect(weatherPanel().getAllByText('Chưa có dữ liệu')).toHaveLength(4);
++  expect(weatherPanel().getByRole('alert')).toBeVisible();
++  expect(weatherPanel().getByText(/Chưa rõ nguồn/)).toBeVisible();
++});
++
++it('labels cached weather/ranking as previous and replaces both together after a successful rerun', async () => {
++  const cached = response(); cached.weather.features.temperature_mean_current = 21;
++  saveWeatherRiskCache({ result: cached, locationMode: 'manual', provinceCode: '79', geoPoint: null,
++    geoStatus: '', ageGroup: '1-5 tuổi', gender: 'Nam', topKInput: '10', pageSizeInput: '5', riskPage: 1, savedAt: '2026-08-07T10:00:00Z' });
++  render(<I18nProvider><WeatherRisk /></I18nProvider>);
++  await screen.findByRole('button', { name: 'Xem nhóm đáng lưu ý' });
++  expect(screen.getByText(/Đang hiển thị kết quả đã lưu/)).toBeVisible();
++  expect(metric(/Nhiệt độ TB/).getByText('21°C')).toBeVisible();
++  expect(api.predictWeatherAIRisk).not.toHaveBeenCalled();
++  fireEvent.click(screen.getByRole('button', { name: 'Xem nhóm đáng lưu ý' }));
++  await waitFor(() => expect(metric(/Nhiệt độ TB/).getByText('26.88°C')).toBeVisible());
++  expect(screen.queryByText(/Đang hiển thị kết quả đã lưu/)).not.toBeInTheDocument();
++});
++
++it('keeps weather and ranking paired and labels previous results while loading or after a provider 502', async () => {
++  await mount(); await predict();
++  let reject!: (reason: unknown) => void;
++  vi.mocked(api.predictWeatherAIRisk).mockReturnValueOnce(new Promise((_done, fail) => { reject = fail; }));
++  fireEvent.click(screen.getByRole('button', { name: 'Xem nhóm đáng lưu ý' }));
++  expect(screen.getByText(/Đang chạy dự đoán mới/)).toBeVisible();
++  expect(metric(/Nhiệt độ TB/).getByText('26.88°C')).toBeVisible();
++  await act(async () => reject(new api.ApiError(502, 'upstream', 'WEATHER_DATA_UNAVAILABLE')));
++  expect(await screen.findByText('Chưa có đủ dữ liệu thời tiết để đưa ra kết quả. Vui lòng thử lại.')).toBeVisible();
++  expect(screen.getByText(/Chưa có kết quả mới/)).toBeVisible();
++  expect(metric(/Nhiệt độ TB/).getByText('26.88°C')).toBeVisible();
++  expect(screen.getByRole('button', { name: 'Xem nhóm đáng lưu ý' })).toBeEnabled();
++});
++
++it('discards both old weather and ranking when location changes, even if the old response arrives later', async () => {
++  let finishOld!: (value: api.WeatherAIPredictResponse) => void;
++  vi.mocked(api.predictWeatherAIRisk).mockReturnValueOnce(new Promise((done) => { finishOld = done; }));
++  await mount(); fireEvent.click(screen.getByRole('button', { name: 'Xem nhóm đáng lưu ý' }));
++  fireEvent.click(screen.getByRole('button', { name: 'Thành phố Hồ Chí Minh' }));
++  fireEvent.click(screen.getByRole('button', { name: 'Hà Nội' }));
++  expect(screen.queryByRole('heading', { name: 'Thời tiết dùng cho dự đoán' })).not.toBeInTheDocument();
++  const newer = response(); newer.weather.features.temperature_mean_current = 18;
++  newer.predictions[0].disease_name = 'Nhóm bệnh của lượt mới - New context';
++  vi.mocked(api.predictWeatherAIRisk).mockResolvedValueOnce(newer);
++  await predict(); await act(async () => finishOld(response()));
++  expect(metric(/Nhiệt độ TB/).getByText('18°C')).toBeVisible();
++  expect(screen.getByRole('heading', { name: 'Nhóm bệnh của lượt mới' })).toBeVisible();
++  expect(api.predictWeatherAIRisk).toHaveBeenLastCalledWith(expect.objectContaining({ latitude: 21.0278, longitude: 105.8342 }));
++});
++
++it('does not fetch weather or predict when GPS fails and no coordinates are available', async () => {
++  const previous = Object.getOwnPropertyDescriptor(navigator, 'geolocation');
++  Object.defineProperty(navigator, 'geolocation', { configurable: true, value: { getCurrentPosition: vi.fn((_ok, fail) => fail({ message: 'GPS denied', code: 1 })) } });
++  try {
++    await mount(); fireEvent.click(screen.getByRole('button', { name: /Dùng định vị/ }));
++    fireEvent.click(screen.getByRole('button', { name: /Lấy vị trí hiện tại/ }));
++    expect(screen.getByText(/Không thể định vị: GPS denied/)).toBeVisible();
++    fireEvent.click(screen.getByRole('button', { name: 'Xem nhóm đáng lưu ý' }));
++    expect(await screen.findByText(/Vui lòng bấm lấy vị trí hiện tại trước khi dự đoán/)).toBeVisible();
++    expect(api.predictWeatherAIRisk).not.toHaveBeenCalled();
++    expect(screen.queryByRole('heading', { name: 'Thời tiết dùng cho dự đoán' })).not.toBeInTheDocument();
++    fireEvent.click(screen.getByRole('button', { name: /Tự chọn/ }));
++    await predict(); expect(metric(/Nhiệt độ TB/).getByText('26.88°C')).toBeVisible();
++  } finally {
++    if (previous) Object.defineProperty(navigator, 'geolocation', previous);
++    else Reflect.deleteProperty(navigator, 'geolocation');
++  }
++});
++
+ it('ignores a prediction response after its input has changed', async () => {
+   let resolve!: (value: api.WeatherAIPredictResponse) => void;
+   vi.mocked(api.predictWeatherAIRisk).mockReturnValueOnce(new Promise((done) => { resolve = done; }));

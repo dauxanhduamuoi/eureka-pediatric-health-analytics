@@ -1,0 +1,186 @@
+--- before/Frontend/src/app/components/LoginPage.test.tsx
++++ after/Frontend/src/app/components/LoginPage.test.tsx
+@@ -77,3 +77,65 @@
+   await act(async () => { form.requestSubmit(); });
+   expect(auth.login).toHaveBeenCalledExactlyOnceWith('test-user', 'isolated-password');
+ });
++
++it('reveals and hides the same password without changing its value, caret or input focus', () => {
++  mount();
++  const input = screen.getByLabelText('Mật khẩu') as HTMLInputElement;
++  const value = '  Mật-khẩu-kiểm-thử_123  ';
++  fireEvent.change(input, { target: { value } });
++  act(() => { input.focus(); input.setSelectionRange(3, 8); });
++  const toggle = screen.getByRole('button', { name: 'Hiện mật khẩu' });
++  expect(toggle).toHaveAttribute('type', 'button');
++  expect(toggle).toHaveAttribute('aria-controls', 'password');
++  expect(toggle).toHaveAttribute('aria-pressed', 'false');
++  expect(fireEvent.mouseDown(toggle)).toBe(false); // Prevent pointer focus stealing.
++  fireEvent.click(toggle);
++  expect(screen.getByLabelText('Mật khẩu')).toBe(input);
++  expect(input).toHaveAttribute('type', 'text');
++  expect(input).toHaveValue(value); expect(input).toHaveFocus();
++  expect([input.selectionStart, input.selectionEnd]).toEqual([3, 8]);
++  expect(screen.getByRole('button', { name: 'Ẩn mật khẩu' })).toHaveAttribute('aria-pressed', 'true');
++  fireEvent.mouseDown(toggle); fireEvent.click(toggle);
++  expect(input).toHaveAttribute('type', 'password');
++  expect(input).toHaveValue(value); expect(input).toHaveFocus();
++  expect(auth.login).not.toHaveBeenCalled();
++});
++
++it('keeps a keyboard-focusable native toggle that does not submit or lose button focus', () => {
++  mount();
++  const toggle = screen.getByRole('button', { name: 'Hiện mật khẩu' });
++  expect(toggle.tabIndex).toBe(0);
++  act(() => toggle.focus());
++  fireEvent.click(toggle); // Native button activation; browser key dispatch is separate visual QA.
++  expect(toggle).toHaveFocus();
++  expect(toggle).toHaveAccessibleName('Ẩn mật khẩu');
++  expect(auth.login).not.toHaveBeenCalled();
++  expect(toggle.compareDocumentPosition(screen.getByRole('button', { name: 'Đăng nhập' })) & Node.DOCUMENT_POSITION_FOLLOWING).toBeTruthy();
++});
++
++it('keeps the native Enter submit path with visible passwords and sends unchanged credentials', async () => {
++  const { container } = mount();
++  const username = screen.getByLabelText('Tên đăng nhập');
++  const password = screen.getByLabelText('Mật khẩu');
++  fireEvent.change(username, { target: { value: 'test-user' } });
++  fireEvent.change(password, { target: { value: 'isolated-password' } });
++  fireEvent.click(screen.getByRole('button', { name: 'Hiện mật khẩu' }));
++  expect(password).toHaveAttribute('type', 'text');
++  const key = new KeyboardEvent('keydown', { key: 'Enter', bubbles: true, cancelable: true });
++  expect(password.dispatchEvent(key)).toBe(true);
++  expect(container.querySelectorAll('button[type="submit"]')).toHaveLength(1);
++  // JSDOM does not synthesize implicit keyboard submission; exercise its native target.
++  await act(async () => { container.querySelector('form')!.requestSubmit(); });
++  expect(auth.login).toHaveBeenCalledExactlyOnceWith('test-user', 'isolated-password');
++});
++
++it('retains context loading and required validation after changing visibility', async () => {
++  auth.loading = true;
++  const { container } = mount();
++  fireEvent.click(screen.getByRole('button', { name: 'Hiện mật khẩu' }));
++  expect(screen.getByRole('button', { name: viStrings['auth.loggingIn'] })).toBeDisabled();
++  expect(container.querySelector('form')).toHaveAttribute('aria-busy', 'true');
++  expect(screen.getByLabelText('Mật khẩu')).toBeRequired();
++  expect(container.querySelector('form')!.checkValidity()).toBe(false);
++  expect(auth.login).not.toHaveBeenCalled();
++});
+--- before/Frontend/src/app/components/LoginPage.tsx
++++ after/Frontend/src/app/components/LoginPage.tsx
+@@ -1,5 +1,5 @@
+ import { useState, type FormEvent } from 'react';
+-import { Activity, ArrowUpRight, Baby, LogIn, Loader2 } from 'lucide-react';
++import { Activity, ArrowUpRight, Baby, Eye, EyeOff, LogIn, Loader2 } from 'lucide-react';
+ import { useAuth } from '../contexts/AuthContext';
+ import { useT } from '@/lib/i18n';
+ import LoginVisualCarousel from './LoginVisualCarousel';
+@@ -10,6 +10,7 @@
+   const t = useT();
+   const [username, setUsername] = useState('');
+   const [password, setPassword] = useState('');
++  const [showPassword, setShowPassword] = useState(false);
+   const [submitting, setSubmitting] = useState(false);
+ 
+   async function handleSubmit(e: FormEvent) {
+@@ -54,15 +55,23 @@
+               </div>
+               <div className="login-field">
+                 <label htmlFor="password">{t('auth.password')}</label>
+-                <input
+-                  id="password"
+-                  type="password"
+-                  value={password}
+-                  onChange={(e) => setPassword(e.target.value)}
+-                  autoComplete="current-password"
+-                  required
+-                  className="login-input"
+-                />
++                <div className="login-password-control">
++                  <input
++                    id="password"
++                    type={showPassword ? 'text' : 'password'}
++                    value={password}
++                    onChange={(e) => setPassword(e.target.value)}
++                    autoComplete="current-password"
++                    required
++                    className="login-input"
++                  />
++                  <button type="button" className="login-password-toggle" aria-controls="password" aria-pressed={showPassword}
++                    aria-label={showPassword ? 'Ẩn mật khẩu' : 'Hiện mật khẩu'}
++                    onMouseDown={(event) => event.preventDefault()}
++                    onClick={() => setShowPassword((visible) => !visible)}>
++                    {showPassword ? <EyeOff size={18} aria-hidden="true" /> : <Eye size={18} aria-hidden="true" />}
++                  </button>
++                </div>
+               </div>
+               {error && <div role="alert" className="login-error">{error}</div>}
+               <button type="submit" disabled={busy} className="login-submit">
+--- before/Frontend/src/app/components/LoginVisualCarousel.test.tsx
++++ after/Frontend/src/app/components/LoginVisualCarousel.test.tsx
+@@ -162,3 +162,22 @@
+   expect(interval).toHaveBeenCalledTimes(initialIntervalCount);
+   expect(screen.getByRole('button', { name: 'Đăng nhập' })).toBeEnabled();
+ });
++
++it('keeps carousel timing and password focus unchanged when visibility toggles', () => {
++  const interval = vi.spyOn(window, 'setInterval');
++  const { container } = render(<I18nProvider><LoginPage /></I18nProvider>);
++  container.querySelectorAll('img').forEach((image) => fireEvent.load(image));
++  const count = interval.mock.calls.length;
++  const password = screen.getByLabelText('Mật khẩu');
++  fireEvent.change(password, { target: { value: 'isolated-password' } });
++  act(() => password.focus());
++  fireEvent.mouseDown(screen.getByRole('button', { name: 'Hiện mật khẩu' }));
++  fireEvent.click(screen.getByRole('button', { name: 'Hiện mật khẩu' }));
++  expect(password).toHaveAttribute('type', 'text');
++  expect(password).toHaveFocus();
++  expect(interval).toHaveBeenCalledTimes(count);
++  advance(); expect(dot(1)).toHaveAttribute('aria-current', 'true');
++  expect(password).toHaveValue('isolated-password');
++  expect(password).toHaveFocus();
++  expect(interval).toHaveBeenCalledTimes(count);
++});
+--- before/Frontend/src/app/components/login.css
++++ after/Frontend/src/app/components/login.css
+@@ -11,15 +11,21 @@
+ .login-form { display: grid; gap: 20px; }
+ .login-field { display: grid; gap: 8px; }
+ #root .eureka-admin .login-field > label { font-size: var(--admin-font-body); font-weight: 600; color: var(--admin-ink); }
+-#root .eureka-admin .login-input { width: 100%; min-height: 46px; padding: 11px 14px; border-radius: 10px; }
+-#root .eureka-admin .login-submit { display: flex; align-items: center; justify-content: center; gap: 10px; width: 100%; min-height: 46px; margin-top: 4px; padding: 11px 16px; border-radius: 10px; background: var(--admin-primary); color: #fff; font-size: var(--admin-font-body); transition: background-color .15s; }
++#root .eureka-admin .login-input { width: 100%; min-height: 46px; padding: 11px 14px; border-radius: 10px; transition: border-color .15s ease, box-shadow .15s ease; }
++.login-password-control { position: relative; min-width: 0; }
++#root .eureka-admin .login-password-control .login-input { display: block; padding-right: 52px; }
++#root .eureka-admin .login-password-toggle { position: absolute; top: 50%; right: 4px; transform: translateY(-50%); display: inline-flex; align-items: center; justify-content: center; width: var(--admin-control-height); height: var(--admin-control-height); padding: 0; border-radius: 7px; background: transparent; color: var(--admin-muted); transition: background-color .15s ease, color .15s ease; }
++#root .eureka-admin .login-password-toggle:hover { background: var(--admin-mint); color: var(--admin-accent-ink); }
++#root .eureka-admin .login-submit { display: flex; align-items: center; justify-content: center; gap: 10px; width: 100%; min-height: 46px; margin-top: 4px; padding: 11px 16px; border-radius: 10px; background: var(--admin-primary); color: #fff; font-size: var(--admin-font-body); transition: background-color .15s ease, box-shadow .15s ease; }
+ #root .eureka-admin .login-submit:not(:disabled):hover { background: var(--admin-hover); }
++#root .eureka-admin .login-submit:not(:disabled):active { background: var(--admin-hover); box-shadow: inset 0 2px 4px rgb(23 43 34 / 16%); }
+ .login-submit:disabled { opacity: .65; cursor: not-allowed; }
+ .login-error { padding: 10px 12px; border: 1px solid #fecaca; border-radius: 9px; background: #fff1f2; color: #9f1239; font-size: var(--admin-font-label); line-height: 1.6; overflow-wrap: anywhere; }
+-.login-parent-link { display: flex; align-items: center; gap: 10px; margin-top: 32px; border-top: 1px solid var(--admin-border); padding-top: 24px; font-size: var(--admin-font-label); color: var(--admin-muted); }
++.login-parent-link { display: flex; align-items: center; gap: 10px; margin-top: 32px; border-top: 1px solid var(--admin-border); padding-top: 24px; font-size: var(--admin-font-label); color: var(--admin-muted); transition: color .15s ease; }
+ .login-parent-link > span { flex: 1; }
+ .login-parent-link > svg { flex-shrink: 0; }
+ .login-parent-link:hover { color: var(--admin-accent-ink); }
++.login-parent-link:hover > span, .login-parent-link:focus-visible > span { text-decoration: underline; text-underline-offset: 3px; }
+ 
+ /* The photo pane has its own stable box; slow/missing images never shift the form. */
+ .login-carousel { position: relative; min-height: 660px; overflow: hidden; background: #deeee3; isolation: isolate; }
+@@ -28,7 +34,7 @@
+ .login-photo-slide[data-active='true'] { opacity: 1; }
+ .login-photo-slide img { width: 100%; height: 100%; display: block; object-fit: cover; }
+ .login-carousel-fallback { display: grid; place-items: center; padding: 32px; color: #315c46; font-size: 14px; text-align: center; }
+-.login-photo-shade { z-index: 1; pointer-events: none; background: linear-gradient(180deg, transparent 35%, rgb(9 37 24 / 28%) 56%, rgb(9 37 24 / 90%) 100%); }
++.login-photo-shade { z-index: 1; pointer-events: none; background: linear-gradient(180deg, rgb(9 37 24 / 0%) 36%, rgb(9 37 24 / 12%) 52%, rgb(9 37 24 / 55%) 72%, rgb(9 37 24 / 78%) 100%); }
+ .login-photo-content { position: absolute; inset: auto 0 0; z-index: 2; padding: 36px; }
+ #root .eureka-admin .login-photo-content h2 { font-size: clamp(26px, 2.5vw, 36px); line-height: 1.3; font-weight: 600; letter-spacing: -.02em; color: #fff; text-wrap: balance; }
+ .login-carousel-footer { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px 20px; margin-top: 28px; }
+@@ -59,5 +65,5 @@
+   #root .eureka-admin .login-form-content > h2 { font-size: 24px; margin-bottom: 24px; }
+ }
+ @media (prefers-reduced-motion: reduce) {
+-  .login-photo-slide, .login-carousel-dots button > span { transition: none; }
++  .login-photo-slide, .login-carousel-dots button > span, #root .eureka-admin :is(.login-input, .login-submit, .login-password-toggle), .login-parent-link { transition: none; }
+ }

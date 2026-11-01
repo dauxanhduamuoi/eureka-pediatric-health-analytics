@@ -1,0 +1,27 @@
+{
+  "status": "PASS",
+  "model_load": true,
+  "inference": true,
+  "features": [
+    "disease_target",
+    "age_group",
+    "target_season",
+    "target_year",
+    "target_month_num",
+    "target_month_sin",
+    "target_month_cos",
+    "lag_1",
+    "lag_2",
+    "lag_3",
+    "lag_4",
+    "lag_5",
+    "rolling_3",
+    "rolling_5",
+    "change_1"
+  ],
+  "prediction_finite": true,
+  "sample_count": 1,
+  "input": "synthetic five-month history, not DB or hospital Excel",
+  "write_database": false,
+  "training": false
+}

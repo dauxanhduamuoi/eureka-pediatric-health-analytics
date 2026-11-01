@@ -1,0 +1,28 @@
+{
+  "protectedFileCount": 584,
+  "changedExistingFiles": [
+    "Frontend/src/app/AppPages.tsx",
+    "Frontend/src/app/components/admin/AdminPages.regression.test.tsx",
+    "Frontend/src/app/components/admin/ChartVisuals.test.tsx"
+  ],
+  "removedExistingFiles": [
+    "Frontend/src/app/components/AgeAnalysis.tsx"
+  ],
+  "outsideAllowedChanges": [],
+  "removalOnlyExpected": true,
+  "oldEntryBackupMatchesBaseline": true,
+  "helpersAndCacheTypeUnchanged": true,
+  "derivedLabelsChartAndSearchUnchanged": true,
+  "originalStateInitializersUnchanged": true,
+  "apiCallExpressionsUnchanged": true,
+  "cacheCallExpressionsAndObjectsUnchanged": true,
+  "consumerEditsOnlyEntryMigration": true,
+  "cssRulesScopedToAgePage": true,
+  "cssRuleCount": 64,
+  "intentionalBehaviorCorrections": [
+    "Latest-request version guard and unmount cleanup",
+    "Clear pending state when the current range is invalid",
+    "Do not display missing peak counts as zero"
+  ],
+  "realDatabaseIncludedInHashInventory": false
+}

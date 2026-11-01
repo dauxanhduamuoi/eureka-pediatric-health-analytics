@@ -1,0 +1,839 @@
+{
+  "guide": {
+    "file": "huong_dan_phu_huynh_backend_mapping_ready (1).xlsx",
+    "sheet": "HuongDan-PhuHuynh",
+    "sha256": "8b2967dd5024565f5b6202280f670423162732218ec01c75200bd167904fa906",
+    "excel_rows": 312,
+    "parsed_rows": 311,
+    "db_rows": 311,
+    "public_api_rows": 311,
+    "missing_columns": [],
+    "database_vs_excel_different_names": [],
+    "public_api_includes_source": false,
+    "missing_any_content": {
+      "symptoms": 0,
+      "warning_signs": 0,
+      "prevention": 0
+    },
+    "duplicate_db_names": [],
+    "import_logs": [
+      {
+        "id": 8,
+        "file_name": "huong_dan_phu_huynh_backend_mapping_ready (1).xlsx",
+        "total_rows": 312,
+        "valid_rows": 311,
+        "invalid_rows": 1,
+        "created_at": "2026-05-30 14:53:07.205511"
+      },
+      {
+        "id": 7,
+        "file_name": "huong_dan_phu_huynh_backend_mapping_ready (1).xlsx",
+        "total_rows": 312,
+        "valid_rows": 311,
+        "invalid_rows": 1,
+        "created_at": "2026-05-30 14:52:05.162135"
+      }
+    ],
+    "unique_prevention_texts": 94,
+    "most_repeated_prevention": [
+      {
+        "text": "Không phải mọi ung thư đều phòng tránh được. Giảm nguy cơ bằng cách không hút thuốc, hạn chế rượu, ăn uống và vận động lành mạnh, tiêm chủng phù hợp (ví dụ HPV, viêm gan B) và sàng lọc theo tuổi/nguy cơ.",
+        "groups": 33,
+        "knowledge_ids": [
+          94,
+          93,
+          92,
+          91,
+          90,
+          89,
+          88,
+          87,
+          86,
+          85,
+          81,
+          80,
+          79,
+          78,
+          77,
+          76,
+          75,
+          74,
+          73,
+          72,
+          71,
+          70,
+          69,
+          68,
+          67,
+          66,
+          65,
+          64,
+          63,
+          62,
+          61,
+          60,
+          59
+        ]
+      },
+      {
+        "text": "Uống đủ nước khi phù hợp, vệ sinh cá nhân, quan hệ tình dục an toàn và khám sớm khi có sốt, bí tiểu hoặc chảy máu bất thường.",
+        "groups": 14,
+        "knowledge_ids": [
+          276,
+          275,
+          272,
+          271,
+          270,
+          267,
+          265,
+          264,
+          263,
+          254,
+          248,
+          246,
+          245,
+          229
+        ]
+      },
+      {
+        "text": "Dùng thiết bị bảo hộ, phòng té ngã và tai nạn lao động/giao thông; sơ cứu an toàn và đi cấp cứu khi chấn thương nặng.",
+        "groups": 13,
+        "knowledge_ids": [
+          308,
+          296,
+          292,
+          291,
+          227,
+          226,
+          225,
+          219,
+          218,
+          216,
+          205,
+          200,
+          199
+        ]
+      },
+      {
+        "text": "Dùng nước sạch, vệ sinh môi trường, mang giày dép, xử lý thực phẩm đúng cách và phòng côn trùng trung gian tại vùng nguy cơ.",
+        "groups": 13,
+        "knowledge_ids": [
+          278,
+          261,
+          240,
+          58,
+          57,
+          56,
+          55,
+          54,
+          53,
+          52,
+          51,
+          50,
+          44
+        ]
+      },
+      {
+        "text": "Tư vấn tiền thai, bổ sung axit folic theo khuyến cáo, khám thai và sàng lọc trước sinh; theo dõi chuyên khoa sau sinh.",
+        "groups": 13,
+        "knowledge_ids": [
+          224,
+          223,
+          217,
+          211,
+          210,
+          209,
+          208,
+          207,
+          204,
+          203,
+          202,
+          201,
+          194
+        ]
+      }
+    ]
+  },
+  "mapping": {
+    "total": 311,
+    "model_groups": 221,
+    "unmatched": [],
+    "ambiguous": [
+      {
+        "disease_group_id": "105",
+        "name": "Suy dinh dưỡng - Malnutrition",
+        "has_model": true,
+        "match_count": 3,
+        "candidate_ids": [
+          239,
+          112,
+          109
+        ],
+        "selected_id": 239,
+        "selected_name": "Thai chậm phát triển, suy dinh dưỡng, rối loạn gắn liền với thai nghén và cân nặng không đủ khi sinh - Slow fetal growth, fetal malnutrition and disorders related to short gestation and low birth weight",
+        "exact_expected_id": 109
+      },
+      {
+        "disease_group_id": "11",
+        "name": "Phong - Leprosy",
+        "has_model": false,
+        "match_count": 2,
+        "candidate_ids": [
+          47,
+          13
+        ],
+        "selected_id": 47,
+        "selected_name": "Di chứng phong - Sequelae of leprosy",
+        "exact_expected_id": 13
+      },
+      {
+        "disease_group_id": "152",
+        "name": "Bệnh tim khác - Other heart diseases",
+        "has_model": true,
+        "match_count": 2,
+        "candidate_ids": [
+          156,
+          117
+        ],
+        "selected_id": 156,
+        "selected_name": "Bệnh tim thiếu máu cục bộ khác - Other ischaemic heart diseases",
+        "exact_expected_id": 117
+      },
+      {
+        "disease_group_id": "265",
+        "name": "Dị dạng bẩm sinh khác - Other congenital malformations",
+        "has_model": true,
+        "match_count": 2,
+        "candidate_ids": [
+          217,
+          211
+        ],
+        "selected_id": 217,
+        "selected_name": "Dị dạng bẩm sinh khác - Other congenital malformations",
+        "exact_expected_id": 217
+      }
+    ],
+    "wrong_selected": [
+      {
+        "disease_group_id": "105",
+        "name": "Suy dinh dưỡng - Malnutrition",
+        "has_model": true,
+        "match_count": 3,
+        "candidate_ids": [
+          239,
+          112,
+          109
+        ],
+        "selected_id": 239,
+        "selected_name": "Thai chậm phát triển, suy dinh dưỡng, rối loạn gắn liền với thai nghén và cân nặng không đủ khi sinh - Slow fetal growth, fetal malnutrition and disorders related to short gestation and low birth weight",
+        "exact_expected_id": 109
+      },
+      {
+        "disease_group_id": "11",
+        "name": "Phong - Leprosy",
+        "has_model": false,
+        "match_count": 2,
+        "candidate_ids": [
+          47,
+          13
+        ],
+        "selected_id": 47,
+        "selected_name": "Di chứng phong - Sequelae of leprosy",
+        "exact_expected_id": 13
+      },
+      {
+        "disease_group_id": "152",
+        "name": "Bệnh tim khác - Other heart diseases",
+        "has_model": true,
+        "match_count": 2,
+        "candidate_ids": [
+          156,
+          117
+        ],
+        "selected_id": 156,
+        "selected_name": "Bệnh tim thiếu máu cục bộ khác - Other ischaemic heart diseases",
+        "exact_expected_id": 117
+      }
+    ]
+  },
+  "dashboard_api": {
+    "data_type": "predict_current",
+    "total_records": 257771,
+    "total_cases_from_monthly_statistics": 257771,
+    "total_periods": 52,
+    "total_disease_groups": 236,
+    "max_month": {
+      "period": "2023-10",
+      "case_count": 8245
+    },
+    "top_disease_group": {
+      "disease_group": "Các bệnh viêm phổi - Pneumonia",
+      "case_count": 39648
+    }
+  },
+  "targets": [
+    {
+      "province_code": "74",
+      "disease_group_id": "274",
+      "disease_name": "Gãy các phần khác của chi do lao động và giao thông - Fracture of other lim bones",
+      "report_group_code": "S42,S52,S62,S82,S92,T10,T12",
+      "model": true,
+      "model_file_exists": true,
+      "db_aggregates": [
+        {
+          "data_type": "predict_current",
+          "encounters": 508,
+          "period_from": "2021-08",
+          "period_to": "2025-04"
+        }
+      ],
+      "db_icd_prefixes": [
+        "S42",
+        "S52",
+        "S62",
+        "S82",
+        "S92",
+        "T10",
+        "T12"
+      ],
+      "api_limit5": null,
+      "api_limit200": [
+        {
+          "disease_group": "Gãy các phần khác của chi do lao động và giao thông - Fracture of other lim bones",
+          "recent_cases": 508,
+          "risk_level": "Cao",
+          "forecast_risk_level": "Cao",
+          "period_from": "2021-01",
+          "period_to": "2025-04"
+        }
+      ],
+      "rank_by_local_encounters": 11,
+      "frontend_top5_local_cases": null,
+      "selected_guidance": {
+        "id": 220,
+        "disease_group": "Gãy các phần khác của chi do lao động và giao thông - Fracture of other lim bones",
+        "title": "Gãy các phần khác của chi do lao động và giao thông - Fracture of other lim bones",
+        "symptoms": "Ho kéo dài, có thể ho đờm/ho ra máu, sốt nhẹ, ra mồ hôi đêm, sụt cân, mệt mỏi.",
+        "warning_signs": "Đi khám sớm nếu ho kéo dài, ho ra máu, sụt cân, sốt kéo dài; cấp cứu nếu khó thở, tím tái hoặc lừ đừ.",
+        "prevention": "Thông khí nơi ở, che miệng khi ho, khám sàng lọc khi có nguy cơ hoặc ho kéo dài; tuân thủ điều trị và tiêm chủng theo chương trình địa phương.",
+        "source": "Excel: huong_dan_phu_huynh_backend_mapping_ready (1).xlsx; IDNHOMICD=274; MANHOMBAOCAO=S42,S52,S62,S82,S92,T10,T12"
+      },
+      "excel_row_number": 222,
+      "excel_guidance": [
+        {
+          "IDNHOMICD": 274,
+          "TENNHOMICD": "Gãy các phần khác của chi do lao động và giao thông - Fracture of other lim bones",
+          "MANHOMBAOCAO": "S42,S52,S62,S82,S92,T10,T12",
+          "TRIEUCHUNGTHUONGGAP": "Ho kéo dài, có thể ho đờm/ho ra máu, sốt nhẹ, ra mồ hôi đêm, sụt cân, mệt mỏi.",
+          "DAUHIEUCANDIKHAM": "Đi khám sớm nếu ho kéo dài, ho ra máu, sụt cân, sốt kéo dài; cấp cứu nếu khó thở, tím tái hoặc lừ đừ.",
+          "CACHPHONGBENH": "Thông khí nơi ở, che miệng khi ho, khám sàng lọc khi có nguy cơ hoặc ho kéo dài; tuân thủ điều trị và tiêm chủng theo chương trình địa phương."
+        }
+      ]
+    },
+    {
+      "province_code": "74",
+      "disease_group_id": "6",
+      "disease_name": "Các bệnh nhiễm khuẩn ruột khác - Other intestinal infectious diseases",
+      "report_group_code": "A02,A04-A05,A07-A08",
+      "model": true,
+      "model_file_exists": true,
+      "db_aggregates": [
+        {
+          "data_type": "predict_current",
+          "encounters": 1032,
+          "period_from": "2021-01",
+          "period_to": "2025-04"
+        }
+      ],
+      "db_icd_prefixes": [
+        "A02",
+        "A04",
+        "A05",
+        "A07",
+        "A08"
+      ],
+      "api_limit5": {
+        "disease_group": "Các bệnh nhiễm khuẩn ruột khác - Other intestinal infectious diseases",
+        "recent_cases": 1032,
+        "risk_level": "Cao",
+        "forecast_risk_level": "Cao",
+        "period_from": "2021-01",
+        "period_to": "2025-04"
+      },
+      "api_limit200": [
+        {
+          "disease_group": "Các bệnh nhiễm khuẩn ruột khác - Other intestinal infectious diseases",
+          "recent_cases": 1032,
+          "risk_level": "Cao",
+          "forecast_risk_level": "Cao",
+          "period_from": "2021-01",
+          "period_to": "2025-04"
+        }
+      ],
+      "rank_by_local_encounters": 5,
+      "frontend_top5_local_cases": 1032,
+      "selected_guidance": {
+        "id": 5,
+        "disease_group": "Các bệnh nhiễm khuẩn ruột khác - Other intestinal infectious diseases",
+        "title": "Các bệnh nhiễm khuẩn ruột khác - Other intestinal infectious diseases",
+        "symptoms": "Thường gặp tiêu chảy, đau bụng, buồn nôn/nôn, có thể sốt; cần lưu ý mất nước hoặc phân có máu.",
+        "warning_signs": "Đi khám ngay nếu trẻ không uống/bú được, nôn mọi thứ, khát nhiều, mắt trũng, tiểu ít, lừ đừ, sốt cao hoặc đi ngoài có máu.",
+        "prevention": "Rửa tay, dùng nước sạch, ăn chín, bảo quản thực phẩm đúng cách; bù nước sớm và khám khi có dấu hiệu nặng.",
+        "source": "Excel: huong_dan_phu_huynh_backend_mapping_ready (1).xlsx; IDNHOMICD=6; MANHOMBAOCAO=A02,A04-A05,A07-A08"
+      },
+      "excel_row_number": 6,
+      "excel_guidance": [
+        {
+          "IDNHOMICD": 6,
+          "TENNHOMICD": "Các bệnh nhiễm khuẩn ruột khác - Other intestinal infectious diseases",
+          "MANHOMBAOCAO": "A02,A04-A05,A07-A08",
+          "TRIEUCHUNGTHUONGGAP": "Thường gặp tiêu chảy, đau bụng, buồn nôn/nôn, có thể sốt; cần lưu ý mất nước hoặc phân có máu.",
+          "DAUHIEUCANDIKHAM": "Đi khám ngay nếu trẻ không uống/bú được, nôn mọi thứ, khát nhiều, mắt trũng, tiểu ít, lừ đừ, sốt cao hoặc đi ngoài có máu.",
+          "CACHPHONGBENH": "Rửa tay, dùng nước sạch, ăn chín, bảo quản thực phẩm đúng cách; bù nước sớm và khám khi có dấu hiệu nặng."
+        }
+      ]
+    },
+    {
+      "province_code": "79",
+      "disease_group_id": "274",
+      "disease_name": "Gãy các phần khác của chi do lao động và giao thông - Fracture of other lim bones",
+      "report_group_code": "S42,S52,S62,S82,S92,T10,T12",
+      "model": true,
+      "model_file_exists": true,
+      "db_aggregates": [
+        {
+          "data_type": "predict_current",
+          "encounters": 1855,
+          "period_from": "2021-07",
+          "period_to": "2025-04"
+        }
+      ],
+      "db_icd_prefixes": [
+        "S42",
+        "S52",
+        "S62",
+        "S82",
+        "S92",
+        "T10",
+        "T12"
+      ],
+      "api_limit5": null,
+      "api_limit200": [
+        {
+          "disease_group": "Gãy các phần khác của chi do lao động và giao thông - Fracture of other lim bones",
+          "recent_cases": 1855,
+          "risk_level": "Cao",
+          "forecast_risk_level": "Cao",
+          "period_from": "2021-01",
+          "period_to": "2025-04"
+        }
+      ],
+      "rank_by_local_encounters": 10,
+      "frontend_top5_local_cases": null,
+      "selected_guidance": {
+        "id": 220,
+        "disease_group": "Gãy các phần khác của chi do lao động và giao thông - Fracture of other lim bones",
+        "title": "Gãy các phần khác của chi do lao động và giao thông - Fracture of other lim bones",
+        "symptoms": "Ho kéo dài, có thể ho đờm/ho ra máu, sốt nhẹ, ra mồ hôi đêm, sụt cân, mệt mỏi.",
+        "warning_signs": "Đi khám sớm nếu ho kéo dài, ho ra máu, sụt cân, sốt kéo dài; cấp cứu nếu khó thở, tím tái hoặc lừ đừ.",
+        "prevention": "Thông khí nơi ở, che miệng khi ho, khám sàng lọc khi có nguy cơ hoặc ho kéo dài; tuân thủ điều trị và tiêm chủng theo chương trình địa phương.",
+        "source": "Excel: huong_dan_phu_huynh_backend_mapping_ready (1).xlsx; IDNHOMICD=274; MANHOMBAOCAO=S42,S52,S62,S82,S92,T10,T12"
+      },
+      "excel_row_number": 222,
+      "excel_guidance": [
+        {
+          "IDNHOMICD": 274,
+          "TENNHOMICD": "Gãy các phần khác của chi do lao động và giao thông - Fracture of other lim bones",
+          "MANHOMBAOCAO": "S42,S52,S62,S82,S92,T10,T12",
+          "TRIEUCHUNGTHUONGGAP": "Ho kéo dài, có thể ho đờm/ho ra máu, sốt nhẹ, ra mồ hôi đêm, sụt cân, mệt mỏi.",
+          "DAUHIEUCANDIKHAM": "Đi khám sớm nếu ho kéo dài, ho ra máu, sụt cân, sốt kéo dài; cấp cứu nếu khó thở, tím tái hoặc lừ đừ.",
+          "CACHPHONGBENH": "Thông khí nơi ở, che miệng khi ho, khám sàng lọc khi có nguy cơ hoặc ho kéo dài; tuân thủ điều trị và tiêm chủng theo chương trình địa phương."
+        }
+      ]
+    },
+    {
+      "province_code": "79",
+      "disease_group_id": "6",
+      "disease_name": "Các bệnh nhiễm khuẩn ruột khác - Other intestinal infectious diseases",
+      "report_group_code": "A02,A04-A05,A07-A08",
+      "model": true,
+      "model_file_exists": true,
+      "db_aggregates": [
+        {
+          "data_type": "predict_current",
+          "encounters": 3313,
+          "period_from": "2021-01",
+          "period_to": "2025-04"
+        }
+      ],
+      "db_icd_prefixes": [
+        "A02",
+        "A04",
+        "A05",
+        "A07",
+        "A08"
+      ],
+      "api_limit5": {
+        "disease_group": "Các bệnh nhiễm khuẩn ruột khác - Other intestinal infectious diseases",
+        "recent_cases": 3313,
+        "risk_level": "Cao",
+        "forecast_risk_level": "Cao",
+        "period_from": "2021-01",
+        "period_to": "2025-04"
+      },
+      "api_limit200": [
+        {
+          "disease_group": "Các bệnh nhiễm khuẩn ruột khác - Other intestinal infectious diseases",
+          "recent_cases": 3313,
+          "risk_level": "Cao",
+          "forecast_risk_level": "Cao",
+          "period_from": "2021-01",
+          "period_to": "2025-04"
+        }
+      ],
+      "rank_by_local_encounters": 5,
+      "frontend_top5_local_cases": 3313,
+      "selected_guidance": {
+        "id": 5,
+        "disease_group": "Các bệnh nhiễm khuẩn ruột khác - Other intestinal infectious diseases",
+        "title": "Các bệnh nhiễm khuẩn ruột khác - Other intestinal infectious diseases",
+        "symptoms": "Thường gặp tiêu chảy, đau bụng, buồn nôn/nôn, có thể sốt; cần lưu ý mất nước hoặc phân có máu.",
+        "warning_signs": "Đi khám ngay nếu trẻ không uống/bú được, nôn mọi thứ, khát nhiều, mắt trũng, tiểu ít, lừ đừ, sốt cao hoặc đi ngoài có máu.",
+        "prevention": "Rửa tay, dùng nước sạch, ăn chín, bảo quản thực phẩm đúng cách; bù nước sớm và khám khi có dấu hiệu nặng.",
+        "source": "Excel: huong_dan_phu_huynh_backend_mapping_ready (1).xlsx; IDNHOMICD=6; MANHOMBAOCAO=A02,A04-A05,A07-A08"
+      },
+      "excel_row_number": 6,
+      "excel_guidance": [
+        {
+          "IDNHOMICD": 6,
+          "TENNHOMICD": "Các bệnh nhiễm khuẩn ruột khác - Other intestinal infectious diseases",
+          "MANHOMBAOCAO": "A02,A04-A05,A07-A08",
+          "TRIEUCHUNGTHUONGGAP": "Thường gặp tiêu chảy, đau bụng, buồn nôn/nôn, có thể sốt; cần lưu ý mất nước hoặc phân có máu.",
+          "DAUHIEUCANDIKHAM": "Đi khám ngay nếu trẻ không uống/bú được, nôn mọi thứ, khát nhiều, mắt trũng, tiểu ít, lừ đừ, sốt cao hoặc đi ngoài có máu.",
+          "CACHPHONGBENH": "Rửa tay, dùng nước sạch, ăn chín, bảo quản thực phẩm đúng cách; bù nước sớm và khám khi có dấu hiệu nặng."
+        }
+      ]
+    }
+  ],
+  "regions": {
+    "74": {
+      "top5": [
+        {
+          "disease_group": "Các bệnh viêm phổi - Pneumonia",
+          "recent_cases": 3420,
+          "risk_level": "Cao",
+          "forecast_risk_level": "Cao",
+          "period_from": "2021-01",
+          "period_to": "2025-04"
+        },
+        {
+          "disease_group": "Viêm phế quản và viêm tiểu phế quản cấp - Acute bronchitis and acute bronchiolitis",
+          "recent_cases": 1439,
+          "risk_level": "Trung bình",
+          "forecast_risk_level": "Trung bình",
+          "period_from": "2021-01",
+          "period_to": "2025-04"
+        },
+        {
+          "disease_group": "Viêm họng và viêm amidan cấp - Acute pharyngitis and acute tonsillitis",
+          "recent_cases": 1312,
+          "risk_level": "Cao",
+          "forecast_risk_level": "Cao",
+          "period_from": "2021-01",
+          "period_to": "2025-04"
+        },
+        {
+          "disease_group": "Dị tật bẩm sinh khác của bộ máy sinh dục tiết niệu - Other malformations of the genitourinary system",
+          "recent_cases": 1266,
+          "risk_level": "Cao",
+          "forecast_risk_level": "Cao",
+          "period_from": "2021-01",
+          "period_to": "2025-04"
+        },
+        {
+          "disease_group": "Các bệnh nhiễm khuẩn ruột khác - Other intestinal infectious diseases",
+          "recent_cases": 1032,
+          "risk_level": "Cao",
+          "forecast_risk_level": "Cao",
+          "period_from": "2021-01",
+          "period_to": "2025-04"
+        }
+      ],
+      "returned_limit200": 191,
+      "recommendations": [
+        "Các bệnh viêm phổi - Pneumonia: Tiêm chủng phù hợp, vệ sinh tay/hô hấp, không hút thuốc và khám sớm khi khó thở",
+        "Viêm phế quản và viêm tiểu phế quản cấp - Acute bronchitis and acute bronchiolitis: Vệ sinh tay/hô hấp, tránh khói thuốc và bụi, thông khí nơi ở, tiêm chủng phù hợp và khám khi nặng",
+        "Viêm họng và viêm amidan cấp - Acute pharyngitis and acute tonsillitis: Vệ sinh tay/hô hấp, tránh khói thuốc và bụi, thông khí nơi ở, tiêm chủng phù hợp và khám khi nặng",
+        "Dị tật bẩm sinh khác của bộ máy sinh dục tiết niệu - Other malformations of the genitourinary system: Tư vấn tiền thai, bổ sung axit folic theo khuyến cáo, khám thai và sàng lọc trước sinh",
+        "Dị tật bẩm sinh khác của bộ máy sinh dục tiết niệu - Other malformations of the genitourinary system: theo dõi chuyên khoa sau sinh"
+      ]
+    },
+    "79": {
+      "top5": [
+        {
+          "disease_group": "Các bệnh viêm phổi - Pneumonia",
+          "recent_cases": 10306,
+          "risk_level": "Cao",
+          "forecast_risk_level": "Cao",
+          "period_from": "2021-01",
+          "period_to": "2025-04"
+        },
+        {
+          "disease_group": "Viêm họng và viêm amidan cấp - Acute pharyngitis and acute tonsillitis",
+          "recent_cases": 5181,
+          "risk_level": "Cao",
+          "forecast_risk_level": "Cao",
+          "period_from": "2021-01",
+          "period_to": "2025-04"
+        },
+        {
+          "disease_group": "Viêm phế quản và viêm tiểu phế quản cấp - Acute bronchitis and acute bronchiolitis",
+          "recent_cases": 4266,
+          "risk_level": "Trung bình",
+          "forecast_risk_level": "Trung bình",
+          "period_from": "2021-01",
+          "period_to": "2025-04"
+        },
+        {
+          "disease_group": "Ỉa chảy, viêm dạy dày, ruột non có nguồn gốc nhiễm khuẩn - Diarrhoea and gastroenteritis of presumed infectious origin.",
+          "recent_cases": 3759,
+          "risk_level": "Cao",
+          "forecast_risk_level": "Cao",
+          "period_from": "2021-01",
+          "period_to": "2025-04"
+        },
+        {
+          "disease_group": "Các bệnh nhiễm khuẩn ruột khác - Other intestinal infectious diseases",
+          "recent_cases": 3313,
+          "risk_level": "Cao",
+          "forecast_risk_level": "Cao",
+          "period_from": "2021-01",
+          "period_to": "2025-04"
+        }
+      ],
+      "returned_limit200": 200,
+      "recommendations": [
+        "Các bệnh viêm phổi - Pneumonia: Tiêm chủng phù hợp, vệ sinh tay/hô hấp, không hút thuốc và khám sớm khi khó thở",
+        "Viêm họng và viêm amidan cấp - Acute pharyngitis and acute tonsillitis: Vệ sinh tay/hô hấp, tránh khói thuốc và bụi, thông khí nơi ở, tiêm chủng phù hợp và khám khi nặng",
+        "Viêm phế quản và viêm tiểu phế quản cấp - Acute bronchitis and acute bronchiolitis: Vệ sinh tay/hô hấp, tránh khói thuốc và bụi, thông khí nơi ở, tiêm chủng phù hợp và khám khi nặng",
+        "Ỉa chảy, viêm dạy dày, ruột non có nguồn gốc nhiễm khuẩn - Diarrhoea and gastroenteritis of presumed infectious origin.: Rửa tay, dùng nước sạch, ăn chín, bảo quản thực phẩm đúng cách",
+        "Ỉa chảy, viêm dạy dày, ruột non có nguồn gốc nhiễm khuẩn - Diarrhoea and gastroenteritis of presumed infectious origin.: bù nước sớm và khám khi có dấu hiệu nặng"
+      ]
+    }
+  },
+  "catalog": {
+    "db_group_ids": 311,
+    "db_names": 311,
+    "v3_candidates": 311,
+    "deployed_models": 221,
+    "observed_full_source": 235,
+    "train_supported": 221,
+    "model_ids_equal_train_supported": true,
+    "observed_without_model": [
+      {
+        "disease_group_id": "114",
+        "disease_group_name": "Rối loạn tâm thần và ứng xử liên quan dùng các chất kích thích tâm lí khác - Mental and behavioural disorders due to other psychoactive substances use",
+        "train_positive_queries_h14": 0
+      },
+      {
+        "disease_group_id": "15",
+        "disease_group_name": "Ho gà - Whooping cough",
+        "train_positive_queries_h14": 0
+      },
+      {
+        "disease_group_id": "158",
+        "disease_group_name": "Bệnh mạch máu ngoại vi khác - Other peripheral vascular disease",
+        "train_positive_queries_h14": 0
+      },
+      {
+        "disease_group_id": "16",
+        "disease_group_name": "Nhiễm khuẩn não mô cầu - Meningococcal infection",
+        "train_positive_queries_h14": 0
+      },
+      {
+        "disease_group_id": "2",
+        "disease_group_name": "Thương hàn, phó thương hàn - Typhoid and paratyphoid fevers",
+        "train_positive_queries_h14": 0
+      },
+      {
+        "disease_group_id": "219",
+        "disease_group_name": "Tổn thương khác của tuyến tiền liệt - Other disorders of prostate",
+        "train_positive_queries_h14": 0
+      },
+      {
+        "disease_group_id": "280",
+        "disease_group_name": "Chấn thương dập nát và cắt cụt đã xác định và nhiều vùng trong cơ thể - Fracture of other lim bones",
+        "train_positive_queries_h14": 0
+      },
+      {
+        "disease_group_id": "294",
+        "disease_group_name": "Tai nạn do khói, lửa, đám cháy - expossure to smoke, fire and fpames",
+        "train_positive_queries_h14": 0
+      },
+      {
+        "disease_group_id": "295",
+        "disease_group_name": "Tai nạn do tiếp xúc với các chất nóng - contact with heat and hot",
+        "train_positive_queries_h14": 0
+      },
+      {
+        "disease_group_id": "298",
+        "disease_group_name": "Tự tử - Intentional self-harm",
+        "train_positive_queries_h14": 0
+      },
+      {
+        "disease_group_id": "35",
+        "disease_group_name": "Sởi - Measles",
+        "train_positive_queries_h14": 0
+      },
+      {
+        "disease_group_id": "40",
+        "disease_group_name": "Quai bị - Mumps",
+        "train_positive_queries_h14": 0
+      },
+      {
+        "disease_group_id": "61",
+        "disease_group_name": "U ác đại tràng - Malignant neoplasm of colon",
+        "train_positive_queries_h14": 0
+      },
+      {
+        "disease_group_id": "67",
+        "disease_group_name": "U ác khí quản, phế quản và phổi - Malignant neoplasms of trachea, bronchus and lung",
+        "train_positive_queries_h14": 0
+      }
+    ],
+    "db_vs_v3_name_differences": [],
+    "unknown_patient_groups": [
+      {
+        "disease_group": "Không rõ nhóm bệnh",
+        "encounters": 3
+      }
+    ]
+  },
+  "forecast": {
+    "latest_period": "2025-05",
+    "risk_distribution": [
+      {
+        "risk_level": "Cao",
+        "rows": 61
+      },
+      {
+        "risk_level": "Thấp",
+        "rows": 714
+      },
+      {
+        "risk_level": "Trung bình",
+        "rows": 161
+      }
+    ],
+    "classify_zero_without_forecast": "Thấp",
+    "classify_zero_with_global_high_forecast": "Cao"
+  },
+  "medical": {
+    "settings": [
+      {
+        "enabled": 1,
+        "display_mode": "REVIEWED_WITH_AUTO_FALLBACK",
+        "auto_visible_default": 0,
+        "basic_fallback_enabled": 1
+      }
+    ],
+    "review_statuses": [
+      {
+        "status": "APPROVED",
+        "parent_display_allowed": 0,
+        "n": 3
+      },
+      {
+        "status": "APPROVED",
+        "parent_display_allowed": 1,
+        "n": 1
+      },
+      {
+        "status": "DRAFT",
+        "parent_display_allowed": 0,
+        "n": 12
+      }
+    ],
+    "published_pointers": [
+      {
+        "topic_id": 2,
+        "disease_group_id": "169",
+        "factor_type": "WEATHER",
+        "factor_key": "humidity",
+        "factor_value": null,
+        "published_revision_id": 14,
+        "status": "APPROVED",
+        "parent_display_allowed": 1,
+        "evidence_level": "LIMITED_OR_INDIRECT"
+      }
+    ],
+    "auto_statuses": [
+      {
+        "generation_status": "INSUFFICIENT",
+        "auto_tier": null,
+        "is_visible": 0,
+        "n": 231
+      },
+      {
+        "generation_status": "INSUFFICIENT",
+        "auto_tier": "STRICT",
+        "is_visible": 0,
+        "n": 2
+      },
+      {
+        "generation_status": "READY",
+        "auto_tier": null,
+        "is_visible": 1,
+        "n": 2
+      },
+      {
+        "generation_status": "READY",
+        "auto_tier": "BASIC",
+        "is_visible": 0,
+        "n": 2
+      },
+      {
+        "generation_status": "READY",
+        "auto_tier": "BASIC",
+        "is_visible": 1,
+        "n": 19
+      }
+    ],
+    "auto_current": [
+      {
+        "generation_status": "INSUFFICIENT",
+        "auto_tier": null,
+        "is_hidden_by_staff": 0,
+        "n": 188
+      },
+      {
+        "generation_status": "INSUFFICIENT",
+        "auto_tier": "STRICT",
+        "is_hidden_by_staff": 0,
+        "n": 2
+      },
+      {
+        "generation_status": "READY",
+        "auto_tier": null,
+        "is_hidden_by_staff": 0,
+        "n": 2
+      },
+      {
+        "generation_status": "READY",
+        "auto_tier": "BASIC",
+        "is_hidden_by_staff": 0,
+        "n": 21
+      }
+    ],
+    "source_providers": [
+      {
+        "provider_id": "PUBMED",
+        "n": 188
+      },
+      {
+        "provider_id": "WHO",
+        "n": 1
+      }
+    ]
+  }
+}

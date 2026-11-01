@@ -1,0 +1,15 @@
+{
+  "observed_date_local": "2026-10-24",
+  "existing_uvicorn_parent_pid": 21312,
+  "reload_enabled": true,
+  "lifespan_off_flag": false,
+  "python_child_pid": 39660,
+  "python_child_created_local": "2026-10-24 16:46:05",
+  "area_provinces_rows": 77,
+  "area_provinces_max_updated_at": "2026-10-24 09:46:09.820232",
+  "readonly_inspection_total_changes": 0,
+  "interpretation": "Timing is consistent with an existing reload watcher restarting a lifecycle which seeds area metadata. Causation and exact row-level differences are not proven; baseline stores hashes, not row contents.",
+  "real_database_invariance_certified": false,
+  "server_stopped_or_restarted_by_task_command": false,
+  "database_restored_or_overwritten": false
+}

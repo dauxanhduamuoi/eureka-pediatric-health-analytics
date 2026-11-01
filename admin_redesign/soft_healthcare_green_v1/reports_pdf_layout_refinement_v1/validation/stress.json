@@ -1,0 +1,12 @@
+[
+  {
+    "case": "long-table",
+    "rows": 120,
+    "pages": 4
+  },
+  {
+    "case": "long-name",
+    "rows": 4,
+    "pages": 2
+  }
+]

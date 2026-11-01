@@ -1,0 +1,22 @@
+{
+  "baseline_files": 526,
+  "changed_files": [
+    "Frontend\\src\\app\\App.navigation.test.tsx",
+    "Frontend\\src\\app\\App.tsx",
+    "Frontend\\src\\app\\components\\AdminMainNavigation.tsx",
+    "Frontend\\src\\app\\components\\admin\\AdminLayout.test.tsx",
+    "Frontend\\src\\app\\components\\admin\\AdminLayout.tsx",
+    "Frontend\\src\\app\\components\\admin\\BrandingVietnamese.test.tsx",
+    "Frontend\\src\\app\\components\\admin\\admin.css",
+    "Frontend\\src\\app\\navigation.ts",
+    "Frontend\\src\\i18n\\locales\\vi.ts"
+  ],
+  "changed_tables_excluding_live_login_sessions": [],
+  "tracked_table_count": 32,
+  "real_db_file_changed": true,
+  "head_unchanged": true,
+  "index_unchanged": true,
+  "read_only_total_changes": 0,
+  "browser_visual": "NOT VERIFIED: The browser access host is unavailable",
+  "network": "No app HTTP requests or external network calls; browser inventory only"
+}

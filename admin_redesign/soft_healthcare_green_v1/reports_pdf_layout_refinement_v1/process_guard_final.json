@@ -1,0 +1,11 @@
+﻿{
+    "status":  "SAFE_BACKEND_STOPPED",
+    "checked_at":  "2026-10-30T14:39:11.2872372+07:00",
+    "processes":  [
+
+                  ],
+    "listeners":  [
+
+                  ],
+    "started_stopped_restarted":  false
+}

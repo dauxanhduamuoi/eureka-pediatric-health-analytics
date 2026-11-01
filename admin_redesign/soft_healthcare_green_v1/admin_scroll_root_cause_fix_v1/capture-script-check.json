@@ -1,0 +1,13 @@
+{
+  "fixtureOnly": true,
+  "realGeometryVerified": false,
+  "correctSchema": true,
+  "correctSection": true,
+  "capturesCoreContainers": true,
+  "jsonSerializable": true,
+  "leavesDomUnchanged": true,
+  "noNetworkScrollStorageCookieCalls": true,
+  "noSensitiveFixtureTextInOutput": true,
+  "noFixtureHostInOutput": true,
+  "status": "PASS"
+}

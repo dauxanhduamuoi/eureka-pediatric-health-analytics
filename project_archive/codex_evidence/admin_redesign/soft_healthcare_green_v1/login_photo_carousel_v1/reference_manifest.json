@@ -1,0 +1,10 @@
+{
+  "zip": "C:\\Users\\LENOVO\\Downloads\\eureka_login_visual_reference.zip",
+  "sha256": "daa3e549bcb78335eb287942b9d62cb2c06092f764a8cd25524d43ebb206bc01",
+  "inspected": [
+    "reference/login_single_layout_reference.png",
+    "reference/four_login_layouts_reference.png",
+    "assets/pediatric_consultation_slide_01.webp"
+  ],
+  "screenshots_used_as_runtime_images": false
+}

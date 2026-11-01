@@ -1,0 +1,35 @@
+{
+  "changed_files": [
+    "Frontend\\src\\app\\components\\ParentDiseaseVisibilitySettings.test.tsx",
+    "Frontend\\src\\app\\components\\ParentDiseaseVisibilitySettings.tsx"
+  ],
+  "changed_backend_files": [],
+  "changed_tables_excluding_login_sessions": [],
+  "table_count": 32,
+  "real_db_file_unchanged": false,
+  "real_db_before": "81dcd697c90d6eba433042ccce9ce781d1a6680826c05e916f67d1db5fa0d113",
+  "real_db_after": "2fdeafb66f4fa5368b74d307b14ac164607b412dcc53bf4d5bbf07bb20f3149f",
+  "readonly_total_changes": [
+    0,
+    0
+  ],
+  "head_unchanged": true,
+  "staged_diff_unchanged": true,
+  "head": "6a69d26e7b07188f7def6cd7bcf9481f8e2eb649",
+  "frontend_api_unchanged": true,
+  "permission_page_unchanged": true,
+  "no_real_visibility_api_called": true,
+  "no_real_toggle_performed": true,
+  "backend_started_or_restarted": false,
+  "external_network_calls": false,
+  "browser_real": "NOT VERIFIED",
+  "tests": {
+    "targeted_frontend": 34,
+    "all_frontend": 448,
+    "frontend_files": 19,
+    "isolated_backend_regression": 17,
+    "typecheck": "PASS",
+    "build": "PASS",
+    "git_diff_check": "PASS"
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "baseline_files": 483,
+  "changed_files": [
+    "Frontend/src/app/components/DashboardOverview.tsx",
+    "Frontend/src/app/components/admin/content.css",
+    "Frontend/src/i18n/locales/en.ts",
+    "Frontend/src/i18n/locales/vi.ts"
+  ],
+  "added_source_files": [
+    "Frontend/src/app/components/DashboardOverview.test.tsx"
+  ],
+  "unchanged_dashboard_logic": {
+    "api_loading_and_cache": true,
+    "monthly_yearly_aggregations": true,
+    "stacked_period_aggregation": true,
+    "forecast_and_detail_state": true,
+    "detail_views_and_forecast_table": true
+  },
+  "head_unchanged": true,
+  "index_unchanged": true,
+  "database": "Not opened or written",
+  "browser_visual": "NOT VERIFIED: The browser access host is unavailable"
+}

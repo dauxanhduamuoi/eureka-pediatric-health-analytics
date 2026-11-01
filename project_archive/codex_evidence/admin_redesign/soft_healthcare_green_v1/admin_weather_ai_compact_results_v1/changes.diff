@@ -1,0 +1,130 @@
+--- before/Frontend/src/app/components/WeatherRisk.tsx
++++ after/Frontend/src/app/components/WeatherRisk.tsx
+@@ -1,5 +1,5 @@
+ import AdminPageHeading from './admin/AdminPageHeading';
+-import { useEffect, useMemo, useState } from 'react';
++import { useEffect, useMemo, useRef, useState } from 'react';
+ import {
+   AlertTriangle,
+   ChevronDown,
+@@ -18,7 +18,8 @@
+ } from 'lucide-react';
+ import * as api from '@/lib/api';
+ import { clearWeatherRiskCache, loadWeatherRiskCache, saveWeatherRiskCache } from '@/lib/weatherRiskCache';
+-import { WeatherAILoadingNotice, WeatherAIPredictionList } from './weather-ai/WeatherAIResults';
++import { WeatherAILoadingNotice } from './weather-ai/WeatherAIResults';
++import AdminWeatherAIResults from './admin/AdminWeatherAIResults';
+ 
+ type LocationMode = 'geo' | 'manual';
+ type ProvinceOption = api.AreaOption & {
+@@ -186,6 +187,8 @@
+   const [initialLoading, setInitialLoading] = useState(true);
+   const [error, setError] = useState<string | null>(null);
+   const [result, setResult] = useState<api.WeatherAIPredictResponse | null>(cachedRiskState?.result ?? null);
++  const predictionRequest = useRef(0);
++  const [detailsVersion, setDetailsVersion] = useState(0);
+ 
+   useEffect(() => {
+     let alive = true;
+@@ -213,6 +216,7 @@
+     load();
+     return () => {
+       alive = false;
++      predictionRequest.current += 1;
+     };
+   }, []);
+ 
+@@ -249,6 +253,8 @@
+   }, [predictions, riskPage, riskPageSize]);
+ 
+   const resetResult = () => {
++    predictionRequest.current += 1;
++    setLoading(false);
+     setResult(null);
+     setRiskPage(1);
+     setError(null);
+@@ -310,6 +316,8 @@
+ 
+   const runPredict = async () => {
+     if (loading) return;
++    const requestId = ++predictionRequest.current;
++    setDetailsVersion(requestId);
+     setLoading(true);
+     setError(null);
+     try {
+@@ -335,12 +343,13 @@
+       }
+ 
+       const res = await api.predictWeatherAIRisk(payload);
++      if (requestId !== predictionRequest.current) return;
+       setResult(res);
+       setRiskPage(1);
+     } catch (e) {
+-      setError(api.weatherAIErrorMessage(e));
++      if (requestId === predictionRequest.current) setError(api.weatherAIErrorMessage(e));
+     } finally {
+-      setLoading(false);
++      if (requestId === predictionRequest.current) setLoading(false);
+     }
+   };
+ 
+@@ -572,7 +581,7 @@
+                   <div>
+                     <h3 className="font-semibold text-slate-800">Các nhóm bệnh đáng lưu ý</h3>
+                     <p className="text-sm text-slate-500">
+-                      Hiển thị {(riskPage - 1) * riskPageSize + 1}-{Math.min(riskPage * riskPageSize, predictions.length)} / {predictions.length} nhóm theo thứ hạng tương đối.
++                      {predictions.length === 0 ? 'Chưa có nhóm bệnh để hiển thị.' : `Hiển thị ${(currentRiskPage - 1) * riskPageSize + 1}-${Math.min(currentRiskPage * riskPageSize, predictions.length)} / ${predictions.length} nhóm theo thứ hạng tương đối.`}
+                     </p>
+                   </div>
+                   <label className="flex items-center gap-2 text-sm text-slate-600">
+@@ -592,9 +601,11 @@
+                   </label>
+                 </div>
+ 
+-                <WeatherAIPredictionList
++                <AdminWeatherAIResults
++                  key={`${detailsVersion}-${currentRiskPage}-${riskPageSize}`}
+                   predictions={visiblePredictions}
+                   disclaimer={result.disclaimer}
++                  disabled={loading}
+                 />
+ 
+                 {predictions.length > riskPageSize && (
+--- before/Frontend/src/app/components/admin/AdminWorkflows.content.test.tsx
++++ after/Frontend/src/app/components/admin/AdminWorkflows.content.test.tsx
+@@ -10,8 +10,8 @@
+ vi.mock('../../contexts/AuthContext', () => ({ useAuth: () => ({ user: { id: 1, username: 'admin', role: 'admin', permissions: [] } }) }));
+ vi.mock('../weather-ai/WeatherAIResults', () => ({
+   WeatherAILoadingNotice: () => <p>Đang tải kết quả kiểm thử</p>,
+-  WeatherAIPredictionList: ({ predictions }: { predictions: NonNullable<api.WeatherAIPredictResponse['predictions']> }) => <output data-testid="admin-predictions">{predictions.map((row) => row.disease_id).join(',')}</output>,
+ }));
++vi.mock('./AdminWeatherAIResults', () => ({ default: ({ predictions }: { predictions: NonNullable<api.WeatherAIPredictResponse['predictions']> }) => <output data-testid="admin-predictions">{predictions.map((row) => row.disease_id).join(',')}</output> }));
+ vi.mock('@/lib/api', async (original) => ({
+   ...await original<typeof import('@/lib/api')>(),
+   getWeatherAIStatus: vi.fn(), getWeatherAIOptions: vi.fn(), listAreaProvinces: vi.fn(), predictWeatherAIRisk: vi.fn(),
+--- before/Frontend/src/app/components/admin/content.css
++++ after/Frontend/src/app/components/admin/content.css
+@@ -126,6 +126,23 @@
+ .admin-weather-workspace { display: grid; grid-template-columns: minmax(280px, .78fr) minmax(0, 1.45fr); gap: var(--content-gap); align-items: start; }
+ .admin-weather-result { min-width: 0; display: flex; flex-direction: column; gap: 16px; }
+ .admin-weather-inputs { min-width: 0; }
++.admin-weather-content .admin-weather-compact-list { display: grid; gap: 12px; }
++.admin-weather-content .admin-weather-card { min-width: 0; padding: 16px; border: 1px solid var(--admin-border); border-radius: 12px; background: var(--admin-surface); }
++.admin-weather-card-heading { display: flex; align-items: flex-start; flex-wrap: wrap; gap: 12px; }
++.admin-weather-card-rank { display: grid; place-items: center; flex: 0 0 34px; height: 34px; border-radius: 10px; background: var(--admin-mint); color: var(--admin-accent-ink); font-size: var(--admin-font-body); font-weight: 600; }
++.admin-weather-card-copy { flex: 1 1 180px; min-width: 0; overflow-wrap: anywhere; }
++.admin-weather-card-english { color: var(--admin-muted); font-size: var(--admin-font-meta); line-height: 1.5; margin-top: 3px; }
++.admin-weather-card-caption { color: var(--admin-muted); font-size: var(--admin-font-label); line-height: var(--admin-leading-body); margin-top: 5px; }
++.admin-weather-card-toggle { display: inline-flex; align-items: center; justify-content: center; gap: 6px; padding: 8px 12px; border: 1px solid var(--admin-border); border-radius: var(--admin-control-radius); background: var(--admin-mint); color: var(--admin-accent-ink); }
++.admin-weather-card-toggle:not(:disabled):hover { background: var(--admin-subtle); }
++.admin-weather-card-toggle[aria-expanded='true'] > svg { transform: rotate(180deg); }
++.admin-weather-card-toggle:disabled { opacity: .5; }
++.admin-weather-details { min-width: 0; margin-top: 12px; overflow-wrap: anywhere; }
++.admin-weather-details > div { margin-top: 0; }
++/* The result column is narrower than the window: use one readable SHAP column. */
++.admin-weather-details .grid { grid-template-columns: minmax(0, 1fr); }
++.admin-weather-details a { min-width: 0; max-width: 100%; }
++@media (max-width: 599px) { .admin-weather-card-toggle { width: 100%; } }
+ .admin-weather-inputs .admin-input-title { font-size: 14px; font-weight: 600; margin-bottom: 16px; }
+ .admin-weather-metrics { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
+ .admin-visibility-toolbar { display: flex; flex-wrap: wrap; align-items: center; gap: 12px; padding-bottom: 14px; border-bottom: 1px solid var(--admin-border); }

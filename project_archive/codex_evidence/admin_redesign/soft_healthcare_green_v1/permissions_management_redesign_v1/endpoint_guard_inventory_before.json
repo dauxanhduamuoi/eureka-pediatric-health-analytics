@@ -1,0 +1,1159 @@
+[
+  {
+    "file": "seasonal_disease_backend/app/routers/admin.py",
+    "line": 106,
+    "method": "POST",
+    "path": "/api/admin/users",
+    "function": "create_user",
+    "guards": [
+      "Depends(get_db)",
+      "Depends(require_admin_permission('admin.create_user'))"
+    ],
+    "router_guards": ""
+  },
+  {
+    "file": "seasonal_disease_backend/app/routers/admin.py",
+    "line": 137,
+    "method": "GET",
+    "path": "/api/admin/users",
+    "function": "list_users",
+    "guards": [
+      "Depends(get_db)",
+      "Depends(require_admin)"
+    ],
+    "router_guards": ""
+  },
+  {
+    "file": "seasonal_disease_backend/app/routers/admin.py",
+    "line": 146,
+    "method": "GET",
+    "path": "/api/admin/roles",
+    "function": "list_roles",
+    "guards": [
+      "Depends(get_db)",
+      "Depends(require_admin)"
+    ],
+    "router_guards": ""
+  },
+  {
+    "file": "seasonal_disease_backend/app/routers/admin.py",
+    "line": 154,
+    "method": "GET",
+    "path": "/api/admin/permissions",
+    "function": "list_permissions",
+    "guards": [
+      "Depends(require_admin)"
+    ],
+    "router_guards": ""
+  },
+  {
+    "file": "seasonal_disease_backend/app/routers/admin.py",
+    "line": 164,
+    "method": "PATCH",
+    "path": "/api/admin/users/{user_id}/role",
+    "function": "update_user_role",
+    "guards": [
+      "Depends(get_db)",
+      "Depends(require_admin_permission('admin.assign_permissions'))"
+    ],
+    "router_guards": ""
+  },
+  {
+    "file": "seasonal_disease_backend/app/routers/admin.py",
+    "line": 194,
+    "method": "PATCH",
+    "path": "/api/admin/users/{user_id}/active",
+    "function": "update_user_active",
+    "guards": [
+      "Depends(get_db)",
+      "Depends(require_admin_permission('admin.toggle_user'))"
+    ],
+    "router_guards": ""
+  },
+  {
+    "file": "seasonal_disease_backend/app/routers/admin.py",
+    "line": 233,
+    "method": "PATCH",
+    "path": "/api/admin/users/{user_id}/permissions",
+    "function": "update_user_permissions",
+    "guards": [
+      "Depends(get_db)",
+      "Depends(require_admin_permission('admin.assign_permissions'))"
+    ],
+    "router_guards": ""
+  },
+  {
+    "file": "seasonal_disease_backend/app/routers/admin.py",
+    "line": 250,
+    "method": "POST",
+    "path": "/api/admin/users/{user_id}/reset-password",
+    "function": "reset_user_password",
+    "guards": [
+      "Depends(get_db)",
+      "Depends(require_admin_permission('admin.reset_password'))"
+    ],
+    "router_guards": ""
+  },
+  {
+    "file": "seasonal_disease_backend/app/routers/admin.py",
+    "line": 277,
+    "method": "DELETE",
+    "path": "/api/admin/users/{user_id}",
+    "function": "delete_user",
+    "guards": [
+      "Depends(get_db)",
+      "Depends(require_admin_permission('admin.delete_user'))"
+    ],
+    "router_guards": ""
+  },
+  {
+    "file": "seasonal_disease_backend/app/routers/admin.py",
+    "line": 297,
+    "method": "POST",
+    "path": "/api/admin/users/bulk",
+    "function": "bulk_create_users",
+    "guards": [
+      "Depends(get_db)",
+      "Depends(require_admin_permission('admin.create_user'))"
+    ],
+    "router_guards": ""
+  },
+  {
+    "file": "seasonal_disease_backend/app/routers/admin.py",
+    "line": 339,
+    "method": "GET",
+    "path": "/api/admin/users/{user_id}/sessions",
+    "function": "list_user_sessions",
+    "guards": [
+      "Depends(get_db)",
+      "Depends(require_admin)"
+    ],
+    "router_guards": ""
+  },
+  {
+    "file": "seasonal_disease_backend/app/routers/areas.py",
+    "line": 99,
+    "method": "GET",
+    "path": "/api/areas/provinces",
+    "function": "list_provinces",
+    "guards": [
+      "Depends(get_db)"
+    ],
+    "router_guards": ""
+  },
+  {
+    "file": "seasonal_disease_backend/app/routers/areas.py",
+    "line": 106,
+    "method": "GET",
+    "path": "/api/areas/province-regions",
+    "function": "list_province_regions",
+    "guards": [],
+    "router_guards": ""
+  },
+  {
+    "file": "seasonal_disease_backend/app/routers/areas.py",
+    "line": 116,
+    "method": "GET",
+    "path": "/api/areas/case-summary",
+    "function": "case_summary",
+    "guards": [
+      "Depends(get_db)",
+      "Depends(require_permission('feature.areas'))"
+    ],
+    "router_guards": ""
+  },
+  {
+    "file": "seasonal_disease_backend/app/routers/areas.py",
+    "line": 160,
+    "method": "GET",
+    "path": "/api/areas/disease-summary",
+    "function": "disease_summary",
+    "guards": [
+      "Depends(get_db)",
+      "Depends(require_permission('feature.areas'))"
+    ],
+    "router_guards": ""
+  },
+  {
+    "file": "seasonal_disease_backend/app/routers/areas.py",
+    "line": 187,
+    "method": "GET",
+    "path": "/api/areas/local-risks",
+    "function": "local_risks",
+    "guards": [
+      "Depends(get_db)"
+    ],
+    "router_guards": ""
+  },
+  {
+    "file": "seasonal_disease_backend/app/routers/areas.py",
+    "line": 228,
+    "method": "GET",
+    "path": "/api/areas/recommendations",
+    "function": "recommendations",
+    "guards": [
+      "Depends(get_db)"
+    ],
+    "router_guards": ""
+  },
+  {
+    "file": "seasonal_disease_backend/app/routers/areas.py",
+    "line": 258,
+    "method": "POST",
+    "path": "/api/areas/sync-defaults",
+    "function": "sync_defaults",
+    "guards": [
+      "Depends(get_db)",
+      "Depends(require_admin_permission('admin.assign_permissions'))"
+    ],
+    "router_guards": ""
+  },
+  {
+    "file": "seasonal_disease_backend/app/routers/auth.py",
+    "line": 76,
+    "method": "POST",
+    "path": "/api/auth/login",
+    "function": "login",
+    "guards": [
+      "Depends()",
+      "Depends(get_db)"
+    ],
+    "router_guards": ""
+  },
+  {
+    "file": "seasonal_disease_backend/app/routers/auth.py",
+    "line": 110,
+    "method": "GET",
+    "path": "/api/auth/me",
+    "function": "me",
+    "guards": [
+      "Depends(get_db)",
+      "Depends(get_current_user)"
+    ],
+    "router_guards": ""
+  },
+  {
+    "file": "seasonal_disease_backend/app/routers/auth.py",
+    "line": 118,
+    "method": "PATCH",
+    "path": "/api/auth/profile",
+    "function": "update_profile",
+    "guards": [
+      "Depends(get_db)",
+      "Depends(get_current_user)"
+    ],
+    "router_guards": ""
+  },
+  {
+    "file": "seasonal_disease_backend/app/routers/auth.py",
+    "line": 138,
+    "method": "POST",
+    "path": "/api/auth/change-password",
+    "function": "change_password",
+    "guards": [
+      "Depends(get_db)",
+      "Depends(get_current_user)"
+    ],
+    "router_guards": ""
+  },
+  {
+    "file": "seasonal_disease_backend/app/routers/auth.py",
+    "line": 156,
+    "method": "GET",
+    "path": "/api/auth/sessions",
+    "function": "list_my_sessions",
+    "guards": [
+      "Depends(get_db)",
+      "Depends(get_current_user)",
+      "Depends(get_current_session_id)"
+    ],
+    "router_guards": ""
+  },
+  {
+    "file": "seasonal_disease_backend/app/routers/auth.py",
+    "line": 171,
+    "method": "POST",
+    "path": "/api/auth/sessions/{session_id}/revoke",
+    "function": "revoke_my_session",
+    "guards": [
+      "Depends(get_db)",
+      "Depends(get_current_user)"
+    ],
+    "router_guards": ""
+  },
+  {
+    "file": "seasonal_disease_backend/app/routers/auth.py",
+    "line": 193,
+    "method": "POST",
+    "path": "/api/auth/sessions/revoke-others",
+    "function": "revoke_other_sessions",
+    "guards": [
+      "Depends(get_db)",
+      "Depends(get_current_user)",
+      "Depends(get_current_session_id)"
+    ],
+    "router_guards": ""
+  },
+  {
+    "file": "seasonal_disease_backend/app/routers/auto_medical_knowledge.py",
+    "line": 63,
+    "method": "GET",
+    "path": "/api/medical-knowledge/auto",
+    "function": "get_auto_overview",
+    "guards": [
+      "Depends(require_staff_or_admin)",
+      "Depends(get_auto_admin_service)"
+    ],
+    "router_guards": ""
+  },
+  {
+    "file": "seasonal_disease_backend/app/routers/auto_medical_knowledge.py",
+    "line": 71,
+    "method": "PATCH",
+    "path": "/api/medical-knowledge/auto/settings",
+    "function": "update_auto_settings",
+    "guards": [
+      "Depends(require_admin)",
+      "Depends(get_auto_admin_service)"
+    ],
+    "router_guards": ""
+  },
+  {
+    "file": "seasonal_disease_backend/app/routers/auto_medical_knowledge.py",
+    "line": 80,
+    "method": "POST",
+    "path": "/api/medical-knowledge/auto/topics/visibility",
+    "function": "set_auto_topic_visibility",
+    "guards": [
+      "Depends(require_staff_or_admin)",
+      "Depends(get_auto_admin_service)"
+    ],
+    "router_guards": ""
+  },
+  {
+    "file": "seasonal_disease_backend/app/routers/auto_medical_knowledge.py",
+    "line": 109,
+    "method": "POST",
+    "path": "/api/medical-knowledge/auto/jobs/{job_id}/retry",
+    "function": "retry_auto_job",
+    "guards": [
+      "Depends(require_admin)",
+      "Depends(get_auto_admin_service)"
+    ],
+    "router_guards": ""
+  },
+  {
+    "file": "seasonal_disease_backend/app/routers/auto_medical_knowledge.py",
+    "line": 122,
+    "method": "POST",
+    "path": "/api/medical-knowledge/auto/regenerate",
+    "function": "regenerate_auto_topic",
+    "guards": [
+      "Depends(require_admin)",
+      "Depends(get_auto_queue_service)"
+    ],
+    "router_guards": ""
+  },
+  {
+    "file": "seasonal_disease_backend/app/routers/dashboard.py",
+    "line": 57,
+    "method": "GET",
+    "path": "/api/dashboard/overview",
+    "function": "overview",
+    "guards": [
+      "Depends(get_db)",
+      "Depends(require_permission('feature.dashboard'))"
+    ],
+    "router_guards": ""
+  },
+  {
+    "file": "seasonal_disease_backend/app/routers/dashboard.py",
+    "line": 118,
+    "method": "GET",
+    "path": "/api/dashboard/monthly-statistics",
+    "function": "monthly_statistics",
+    "guards": [
+      "Depends(get_db)",
+      "Depends(require_any_permission(('feature.dashboard', 'feature.monthly_disease', 'feature.gender_analysis', 'feature.disease_trend', 'feature.reports')))"
+    ],
+    "router_guards": ""
+  },
+  {
+    "file": "seasonal_disease_backend/app/routers/dashboard.py",
+    "line": 147,
+    "method": "GET",
+    "path": "/api/dashboard/top-disease-groups",
+    "function": "top_disease_groups",
+    "guards": [
+      "Depends(get_db)",
+      "Depends(require_any_permission(('feature.dashboard', 'feature.reports')))"
+    ],
+    "router_guards": ""
+  },
+  {
+    "file": "seasonal_disease_backend/app/routers/dashboard.py",
+    "line": 174,
+    "method": "GET",
+    "path": "/api/dashboard/cases-by-year",
+    "function": "cases_by_year",
+    "guards": [
+      "Depends(get_db)",
+      "Depends(require_permission('feature.dashboard'))"
+    ],
+    "router_guards": ""
+  },
+  {
+    "file": "seasonal_disease_backend/app/routers/dashboard.py",
+    "line": 222,
+    "method": "GET",
+    "path": "/api/dashboard/top-disease-groups-by-month",
+    "function": "top_disease_groups_by_month",
+    "guards": [
+      "Depends(get_db)",
+      "Depends(require_permission('feature.monthly_disease'))"
+    ],
+    "router_guards": ""
+  },
+  {
+    "file": "seasonal_disease_backend/app/routers/dashboard.py",
+    "line": 253,
+    "method": "GET",
+    "path": "/api/dashboard/disease-percentage-by-month",
+    "function": "disease_percentage_by_month",
+    "guards": [
+      "Depends(get_db)",
+      "Depends(require_permission('feature.monthly_disease'))"
+    ],
+    "router_guards": ""
+  },
+  {
+    "file": "seasonal_disease_backend/app/routers/dashboard.py",
+    "line": 298,
+    "method": "GET",
+    "path": "/api/dashboard/seasonal-summary",
+    "function": "seasonal_summary",
+    "guards": [
+      "Depends(get_db)",
+      "Depends(require_permission('feature.seasonal'))"
+    ],
+    "router_guards": ""
+  },
+  {
+    "file": "seasonal_disease_backend/app/routers/dashboard.py",
+    "line": 339,
+    "method": "GET",
+    "path": "/api/dashboard/monthly-comparison",
+    "function": "monthly_comparison",
+    "guards": [
+      "Depends(get_db)",
+      "Depends(require_permission('feature.monthly_disease'))"
+    ],
+    "router_guards": ""
+  },
+  {
+    "file": "seasonal_disease_backend/app/routers/dashboard.py",
+    "line": 410,
+    "method": "GET",
+    "path": "/api/dashboard/cases-by-age-range",
+    "function": "cases_by_age_range",
+    "guards": [
+      "Depends(get_db)",
+      "Depends(require_permission('feature.age_analysis'))"
+    ],
+    "router_guards": ""
+  },
+  {
+    "file": "seasonal_disease_backend/app/routers/dashboard.py",
+    "line": 451,
+    "method": "GET",
+    "path": "/api/dashboard/disease-by-age-range",
+    "function": "disease_by_age_range",
+    "guards": [
+      "Depends(get_db)",
+      "Depends(require_permission('feature.age_analysis'))"
+    ],
+    "router_guards": ""
+  },
+  {
+    "file": "seasonal_disease_backend/app/routers/dashboard.py",
+    "line": 524,
+    "method": "GET",
+    "path": "/api/dashboard/cases-by-gender",
+    "function": "cases_by_gender",
+    "guards": [
+      "Depends(get_db)",
+      "Depends(require_permission('feature.gender_analysis'))"
+    ],
+    "router_guards": ""
+  },
+  {
+    "file": "seasonal_disease_backend/app/routers/dashboard.py",
+    "line": 569,
+    "method": "GET",
+    "path": "/api/dashboard/disease-trend",
+    "function": "disease_trend",
+    "guards": [
+      "Depends(get_db)",
+      "Depends(require_permission('feature.disease_trend'))"
+    ],
+    "router_guards": ""
+  },
+  {
+    "file": "seasonal_disease_backend/app/routers/dashboard.py",
+    "line": 613,
+    "method": "GET",
+    "path": "/api/dashboard/year-over-year",
+    "function": "year_over_year",
+    "guards": [
+      "Depends(get_db)",
+      "Depends(require_any_permission(('feature.seasonal', 'feature.disease_trend')))"
+    ],
+    "router_guards": ""
+  },
+  {
+    "file": "seasonal_disease_backend/app/routers/dashboard.py",
+    "line": 654,
+    "method": "GET",
+    "path": "/api/dashboard/seasonal-peak",
+    "function": "seasonal_peak",
+    "guards": [
+      "Depends(get_db)",
+      "Depends(require_permission('feature.seasonal'))"
+    ],
+    "router_guards": ""
+  },
+  {
+    "file": "seasonal_disease_backend/app/routers/dashboard.py",
+    "line": 706,
+    "method": "GET",
+    "path": "/api/dashboard/disease-by-gender",
+    "function": "disease_by_gender",
+    "guards": [
+      "Depends(get_db)",
+      "Depends(require_permission('feature.gender_analysis'))"
+    ],
+    "router_guards": ""
+  },
+  {
+    "file": "seasonal_disease_backend/app/routers/dashboard.py",
+    "line": 775,
+    "method": "GET",
+    "path": "/api/dashboard/disease-season-comparison",
+    "function": "disease_season_comparison",
+    "guards": [
+      "Depends(get_db)",
+      "Depends(require_permission('feature.seasonal'))"
+    ],
+    "router_guards": ""
+  },
+  {
+    "file": "seasonal_disease_backend/app/routers/dashboard.py",
+    "line": 841,
+    "method": "GET",
+    "path": "/api/dashboard/periods",
+    "function": "get_periods",
+    "guards": [
+      "Depends(get_db)",
+      "Depends(require_any_permission(('feature.dashboard', 'feature.monthly_disease', 'feature.gender_analysis', 'feature.disease_trend', 'feature.age_analysis', 'feature.seasonal', 'feature.reports')))"
+    ],
+    "router_guards": ""
+  },
+  {
+    "file": "seasonal_disease_backend/app/routers/dashboard.py",
+    "line": 879,
+    "method": "GET",
+    "path": "/api/dashboard/disease-groups",
+    "function": "get_disease_groups",
+    "guards": [
+      "Depends(get_db)",
+      "Depends(require_any_permission(('feature.disease_trend', 'feature.gender_analysis', 'feature.reports')))"
+    ],
+    "router_guards": ""
+  },
+  {
+    "file": "seasonal_disease_backend/app/routers/dashboard.py",
+    "line": 910,
+    "method": "GET",
+    "path": "/api/dashboard/summary-card",
+    "function": "summary_card",
+    "guards": [
+      "Depends(get_db)",
+      "Depends(require_permission('feature.monthly_disease'))"
+    ],
+    "router_guards": ""
+  },
+  {
+    "file": "seasonal_disease_backend/app/routers/forecast.py",
+    "line": 41,
+    "method": "POST",
+    "path": "/api/forecast/run",
+    "function": "run_ai_forecast",
+    "guards": [
+      "Depends(get_db)",
+      "Depends(require_permission('feature.forecast'))"
+    ],
+    "router_guards": ""
+  },
+  {
+    "file": "seasonal_disease_backend/app/routers/forecast.py",
+    "line": 63,
+    "method": "GET",
+    "path": "/api/forecast/results",
+    "function": "get_forecast_results",
+    "guards": [
+      "Depends(get_db)",
+      "Depends(require_permission('feature.forecast'))"
+    ],
+    "router_guards": ""
+  },
+  {
+    "file": "seasonal_disease_backend/app/routers/forecast.py",
+    "line": 85,
+    "method": "GET",
+    "path": "/api/forecast/group-summary",
+    "function": "get_group_summary",
+    "guards": [
+      "Depends(get_db)",
+      "Depends(require_permission('feature.forecast'))"
+    ],
+    "router_guards": ""
+  },
+  {
+    "file": "seasonal_disease_backend/app/routers/forecast.py",
+    "line": 173,
+    "method": "GET",
+    "path": "/api/forecast/accuracy",
+    "function": "get_forecast_accuracy",
+    "guards": [
+      "Depends(get_db)",
+      "Depends(require_permission('feature.forecast'))"
+    ],
+    "router_guards": ""
+  },
+  {
+    "file": "seasonal_disease_backend/app/routers/import_data.py",
+    "line": 124,
+    "method": "GET",
+    "path": "/api/import/job-status",
+    "function": "import_job_status",
+    "guards": [
+      "Depends(get_current_user)"
+    ],
+    "router_guards": "[Depends(require_permission('feature.data_import'))]"
+  },
+  {
+    "file": "seasonal_disease_backend/app/routers/import_data.py",
+    "line": 131,
+    "method": "POST",
+    "path": "/api/import/predict-current",
+    "function": "import_predict_current",
+    "guards": [
+      "Depends(get_db)",
+      "Depends(get_current_user)"
+    ],
+    "router_guards": "[Depends(require_permission('feature.data_import'))]"
+  },
+  {
+    "file": "seasonal_disease_backend/app/routers/import_data.py",
+    "line": 188,
+    "method": "POST",
+    "path": "/api/import/disease-codes",
+    "function": "import_disease_codes_endpoint",
+    "guards": [
+      "Depends(get_db)",
+      "Depends(get_current_user)"
+    ],
+    "router_guards": "[Depends(require_permission('feature.data_import'))]"
+  },
+  {
+    "file": "seasonal_disease_backend/app/routers/import_data.py",
+    "line": 223,
+    "method": "POST",
+    "path": "/api/import/parent-guide/preview",
+    "function": "preview_parent_guide_endpoint",
+    "guards": [
+      "Depends(get_current_user)"
+    ],
+    "router_guards": "[Depends(require_permission('feature.data_import'))]"
+  },
+  {
+    "file": "seasonal_disease_backend/app/routers/import_data.py",
+    "line": 241,
+    "method": "POST",
+    "path": "/api/import/parent-guide",
+    "function": "import_parent_guide_endpoint",
+    "guards": [
+      "Depends(get_db)",
+      "Depends(get_current_user)"
+    ],
+    "router_guards": "[Depends(require_permission('feature.data_import'))]"
+  },
+  {
+    "file": "seasonal_disease_backend/app/routers/import_data.py",
+    "line": 266,
+    "method": "GET",
+    "path": "/api/import/parent-guide/status",
+    "function": "get_parent_guide_status",
+    "guards": [
+      "Depends(get_db)",
+      "Depends(get_current_user)"
+    ],
+    "router_guards": "[Depends(require_permission('feature.data_import'))]"
+  },
+  {
+    "file": "seasonal_disease_backend/app/routers/import_data.py",
+    "line": 280,
+    "method": "GET",
+    "path": "/api/import/parent-guide",
+    "function": "list_parent_guide",
+    "guards": [
+      "Depends(get_db)",
+      "Depends(get_current_user)"
+    ],
+    "router_guards": "[Depends(require_permission('feature.data_import'))]"
+  },
+  {
+    "file": "seasonal_disease_backend/app/routers/import_data.py",
+    "line": 321,
+    "method": "POST",
+    "path": "/api/import/province-regions/preview",
+    "function": "preview_province_regions_endpoint",
+    "guards": [
+      "Depends(get_current_user)"
+    ],
+    "router_guards": "[Depends(require_permission('feature.data_import'))]"
+  },
+  {
+    "file": "seasonal_disease_backend/app/routers/import_data.py",
+    "line": 339,
+    "method": "POST",
+    "path": "/api/import/province-regions",
+    "function": "import_province_regions_endpoint",
+    "guards": [
+      "Depends(get_db)",
+      "Depends(get_current_user)"
+    ],
+    "router_guards": "[Depends(require_permission('feature.data_import'))]"
+  },
+  {
+    "file": "seasonal_disease_backend/app/routers/import_data.py",
+    "line": 370,
+    "method": "GET",
+    "path": "/api/import/province-regions/status",
+    "function": "get_province_regions_status",
+    "guards": [
+      "Depends(get_current_user)"
+    ],
+    "router_guards": "[Depends(require_permission('feature.data_import'))]"
+  },
+  {
+    "file": "seasonal_disease_backend/app/routers/import_data.py",
+    "line": 394,
+    "method": "GET",
+    "path": "/api/import/disease-codes/status",
+    "function": "get_disease_codes_status",
+    "guards": [
+      "Depends(get_db)",
+      "Depends(get_current_user)"
+    ],
+    "router_guards": "[Depends(require_permission('feature.data_import'))]"
+  },
+  {
+    "file": "seasonal_disease_backend/app/routers/import_data.py",
+    "line": 418,
+    "method": "GET",
+    "path": "/api/import/patient-data/status",
+    "function": "get_patient_data_status",
+    "guards": [
+      "Depends(get_db)",
+      "Depends(get_current_user)"
+    ],
+    "router_guards": "[Depends(require_permission('feature.data_import'))]"
+  },
+  {
+    "file": "seasonal_disease_backend/app/routers/import_data.py",
+    "line": 453,
+    "method": "GET",
+    "path": "/api/import/disease-codes",
+    "function": "list_disease_codes",
+    "guards": [
+      "Depends(get_db)",
+      "Depends(get_current_user)"
+    ],
+    "router_guards": "[Depends(require_permission('feature.data_import'))]"
+  },
+  {
+    "file": "seasonal_disease_backend/app/routers/medical_evidence_provider_settings.py",
+    "line": 34,
+    "method": "GET",
+    "path": "/api/medical-knowledge/providers/settings",
+    "function": "read_provider_settings",
+    "guards": [
+      "Depends(require_staff_or_admin)",
+      "Depends(get_db)",
+      "Depends(_service)"
+    ],
+    "router_guards": ""
+  },
+  {
+    "file": "seasonal_disease_backend/app/routers/medical_evidence_provider_settings.py",
+    "line": 45,
+    "method": "PATCH",
+    "path": "/api/medical-knowledge/providers/settings",
+    "function": "update_provider_setting",
+    "guards": [
+      "Depends(require_admin)",
+      "Depends(_service)"
+    ],
+    "router_guards": ""
+  },
+  {
+    "file": "seasonal_disease_backend/app/routers/medical_evidence_reviewed.py",
+    "line": 49,
+    "method": "POST",
+    "path": "/api/medical-knowledge/providers/search",
+    "function": "search_providers",
+    "guards": [
+      "Depends(require_staff_or_admin)",
+      "Depends(_service)"
+    ],
+    "router_guards": ""
+  },
+  {
+    "file": "seasonal_disease_backend/app/routers/medical_evidence_reviewed.py",
+    "line": 61,
+    "method": "POST",
+    "path": "/api/medical-knowledge/providers/lookup",
+    "function": "lookup_exact_provider",
+    "guards": [
+      "Depends(require_staff_or_admin)",
+      "Depends(_service)"
+    ],
+    "router_guards": ""
+  },
+  {
+    "file": "seasonal_disease_backend/app/routers/medical_evidence_reviewed.py",
+    "line": 73,
+    "method": "POST",
+    "path": "/api/medical-knowledge/providers/import",
+    "function": "import_provider_sources",
+    "guards": [
+      "Depends(require_staff_or_admin)",
+      "Depends(_service)"
+    ],
+    "router_guards": ""
+  },
+  {
+    "file": "seasonal_disease_backend/app/routers/medical_knowledge_drafts.py",
+    "line": 177,
+    "method": "POST",
+    "path": "/api/medical-knowledge/drafts/generate",
+    "function": "generate_medical_knowledge_draft",
+    "guards": [
+      "Depends(require_staff_or_admin)",
+      "Depends(get_draft_service)"
+    ],
+    "router_guards": ""
+  },
+  {
+    "file": "seasonal_disease_backend/app/routers/medical_knowledge_drafts.py",
+    "line": 189,
+    "method": "GET",
+    "path": "/api/medical-knowledge/topics",
+    "function": "get_medical_knowledge_topic_history",
+    "guards": [
+      "Depends(require_staff_or_admin)",
+      "Depends(get_draft_service)"
+    ],
+    "router_guards": ""
+  },
+  {
+    "file": "seasonal_disease_backend/app/routers/medical_knowledge_drafts.py",
+    "line": 213,
+    "method": "GET",
+    "path": "/api/medical-knowledge/revisions/{revision_id}",
+    "function": "get_medical_knowledge_revision",
+    "guards": [
+      "Depends(require_staff_or_admin)",
+      "Depends(get_draft_service)"
+    ],
+    "router_guards": ""
+  },
+  {
+    "file": "seasonal_disease_backend/app/routers/medical_knowledge_drafts.py",
+    "line": 225,
+    "method": "PATCH",
+    "path": "/api/medical-knowledge/revisions/{revision_id}",
+    "function": "update_medical_knowledge_draft",
+    "guards": [
+      "Depends(require_staff_or_admin)",
+      "Depends(get_draft_service)"
+    ],
+    "router_guards": ""
+  },
+  {
+    "file": "seasonal_disease_backend/app/routers/medical_knowledge_drafts.py",
+    "line": 238,
+    "method": "POST",
+    "path": "/api/medical-knowledge/revisions/{revision_id}/approve",
+    "function": "approve_medical_knowledge_revision",
+    "guards": [
+      "Depends(require_staff_or_admin)",
+      "Depends(get_approval_service)"
+    ],
+    "router_guards": ""
+  },
+  {
+    "file": "seasonal_disease_backend/app/routers/medical_knowledge_drafts.py",
+    "line": 250,
+    "method": "POST",
+    "path": "/api/medical-knowledge/revisions/{revision_id}/publish",
+    "function": "publish_medical_knowledge_revision",
+    "guards": [
+      "Depends(require_staff_or_admin)",
+      "Depends(get_publication_service)"
+    ],
+    "router_guards": ""
+  },
+  {
+    "file": "seasonal_disease_backend/app/routers/medical_knowledge_drafts.py",
+    "line": 265,
+    "method": "POST",
+    "path": "/api/medical-knowledge/revisions/{revision_id}/unpublish",
+    "function": "unpublish_medical_knowledge_revision",
+    "guards": [
+      "Depends(require_staff_or_admin)",
+      "Depends(get_publication_service)"
+    ],
+    "router_guards": ""
+  },
+  {
+    "file": "seasonal_disease_backend/app/routers/medical_knowledge_pubmed.py",
+    "line": 80,
+    "method": "GET",
+    "path": "/api/medical-knowledge/options",
+    "function": "medical_knowledge_options",
+    "guards": [
+      "Depends(require_staff_or_admin)"
+    ],
+    "router_guards": ""
+  },
+  {
+    "file": "seasonal_disease_backend/app/routers/medical_knowledge_pubmed.py",
+    "line": 90,
+    "method": "GET",
+    "path": "/api/medical-knowledge/topic-sources",
+    "function": "get_topic_source_library",
+    "guards": [
+      "Depends(require_staff_or_admin)",
+      "Depends(get_pubmed_service)"
+    ],
+    "router_guards": ""
+  },
+  {
+    "file": "seasonal_disease_backend/app/routers/medical_knowledge_pubmed.py",
+    "line": 125,
+    "method": "POST",
+    "path": "/api/medical-knowledge/pubmed/search",
+    "function": "search_pubmed",
+    "guards": [
+      "Depends(require_staff_or_admin)",
+      "Depends(get_pubmed_service)"
+    ],
+    "router_guards": ""
+  },
+  {
+    "file": "seasonal_disease_backend/app/routers/medical_knowledge_pubmed.py",
+    "line": 137,
+    "method": "POST",
+    "path": "/api/medical-knowledge/pubmed/lookup",
+    "function": "lookup_pubmed_article",
+    "guards": [
+      "Depends(require_staff_or_admin)",
+      "Depends(get_pubmed_service)"
+    ],
+    "router_guards": ""
+  },
+  {
+    "file": "seasonal_disease_backend/app/routers/medical_knowledge_pubmed.py",
+    "line": 149,
+    "method": "POST",
+    "path": "/api/medical-knowledge/pubmed/import",
+    "function": "import_pubmed_sources",
+    "guards": [
+      "Depends(require_staff_or_admin)",
+      "Depends(get_pubmed_service)"
+    ],
+    "router_guards": ""
+  },
+  {
+    "file": "seasonal_disease_backend/app/routers/medical_knowledge_service_status.py",
+    "line": 113,
+    "method": "GET",
+    "path": "/api/medical-knowledge/service-status",
+    "function": "get_service_status",
+    "guards": [
+      "Depends(require_staff_or_admin)"
+    ],
+    "router_guards": ""
+  },
+  {
+    "file": "seasonal_disease_backend/app/routers/medical_knowledge_service_status.py",
+    "line": 141,
+    "method": "POST",
+    "path": "/api/medical-knowledge/service-status/pubmed/test",
+    "function": "test_pubmed_connection",
+    "guards": [
+      "Depends(require_staff_or_admin)",
+      "Depends(get_status_pubmed_client)"
+    ],
+    "router_guards": ""
+  },
+  {
+    "file": "seasonal_disease_backend/app/routers/medical_knowledge_service_status.py",
+    "line": 163,
+    "method": "POST",
+    "path": "/api/medical-knowledge/service-status/llm/test",
+    "function": "test_llm_connection",
+    "guards": [
+      "Depends(require_staff_or_admin)",
+      "Depends(get_status_llm_generator)"
+    ],
+    "router_guards": ""
+  },
+  {
+    "file": "seasonal_disease_backend/app/routers/parent_disease_visibility.py",
+    "line": 56,
+    "method": "GET",
+    "path": "/api/admin/parent-disease-visibility",
+    "function": "read_parent_disease_visibility",
+    "guards": [
+      "Depends(require_permission(PERMISSION_CODE))",
+      "Depends(get_parent_disease_visibility_service)"
+    ],
+    "router_guards": ""
+  },
+  {
+    "file": "seasonal_disease_backend/app/routers/parent_disease_visibility.py",
+    "line": 69,
+    "method": "PATCH",
+    "path": "/api/admin/parent-disease-visibility/{disease_group_id}",
+    "function": "update_parent_disease_visibility",
+    "guards": [
+      "Depends(require_permission(PERMISSION_CODE))",
+      "Depends(get_parent_disease_visibility_service)"
+    ],
+    "router_guards": ""
+  },
+  {
+    "file": "seasonal_disease_backend/app/routers/public.py",
+    "line": 65,
+    "method": "GET",
+    "path": "/api/public/disease-knowledge",
+    "function": "disease_knowledge",
+    "guards": [
+      "Depends(get_db)"
+    ],
+    "router_guards": ""
+  },
+  {
+    "file": "seasonal_disease_backend/app/routers/public.py",
+    "line": 85,
+    "method": "POST",
+    "path": "/api/public/medical-knowledge/published",
+    "function": "published_medical_knowledge",
+    "guards": [
+      "Depends(get_published_medical_knowledge_read_service)"
+    ],
+    "router_guards": ""
+  },
+  {
+    "file": "seasonal_disease_backend/app/routers/public.py",
+    "line": 97,
+    "method": "GET",
+    "path": "/api/public/weather-options",
+    "function": "public_weather_options",
+    "guards": [],
+    "router_guards": ""
+  },
+  {
+    "file": "seasonal_disease_backend/app/routers/public.py",
+    "line": 105,
+    "method": "POST",
+    "path": "/api/public/parent-risk",
+    "function": "parent_risk",
+    "guards": [
+      "Depends(get_db)"
+    ],
+    "router_guards": ""
+  },
+  {
+    "file": "seasonal_disease_backend/app/routers/reports.py",
+    "line": 37,
+    "method": "GET",
+    "path": "/api/reports/by-age-months",
+    "function": "report_by_age_months",
+    "guards": [
+      "Depends(get_db)",
+      "Depends(require_permission('feature.reports'))"
+    ],
+    "router_guards": ""
+  },
+  {
+    "file": "seasonal_disease_backend/app/routers/reports.py",
+    "line": 105,
+    "method": "GET",
+    "path": "/api/reports/by-month-year",
+    "function": "report_by_month_year",
+    "guards": [
+      "Depends(get_db)",
+      "Depends(require_permission('feature.reports'))"
+    ],
+    "router_guards": ""
+  },
+  {
+    "file": "seasonal_disease_backend/app/routers/reports.py",
+    "line": 152,
+    "method": "GET",
+    "path": "/api/reports/disease-bilingual",
+    "function": "disease_bilingual",
+    "guards": [
+      "Depends(get_db)",
+      "Depends(require_permission('feature.reports'))"
+    ],
+    "router_guards": ""
+  },
+  {
+    "file": "seasonal_disease_backend/app/routers/weather_ai.py",
+    "line": 23,
+    "method": "GET",
+    "path": "/api/weather-ai/status",
+    "function": "weather_ai_status",
+    "guards": [
+      "Depends(require_permission('feature.weather_risk'))"
+    ],
+    "router_guards": ""
+  },
+  {
+    "file": "seasonal_disease_backend/app/routers/weather_ai.py",
+    "line": 29,
+    "method": "GET",
+    "path": "/api/weather-ai/options",
+    "function": "weather_ai_options",
+    "guards": [
+      "Depends(require_permission('feature.weather_risk'))"
+    ],
+    "router_guards": ""
+  },
+  {
+    "file": "seasonal_disease_backend/app/routers/weather_ai.py",
+    "line": 38,
+    "method": "POST",
+    "path": "/api/weather-ai/predict-risk",
+    "function": "predict_risk",
+    "guards": [
+      "Depends(require_permission('feature.weather_risk'))"
+    ],
+    "router_guards": ""
+  }
+]

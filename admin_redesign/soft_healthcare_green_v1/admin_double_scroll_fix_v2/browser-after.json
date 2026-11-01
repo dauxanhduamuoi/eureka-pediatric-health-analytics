@@ -1,0 +1,470 @@
+{
+  "phase": "after",
+  "scope": "Real AdminLayout and shipped CSS; synthetic content/public fixtures and deliberate external overflow probe; no live page controllers or APIs",
+  "checks": [
+    "AFTER: outside-shell overflow cannot wheel-scroll document or displace topbar",
+    "AFTER: four viewport sizes, main wheel/end, bounded inner scrolls, sidebar/drawer, eight shell section switches, dynamic content, portal dialog/account dropdown, six Admin/public transitions"
+  ],
+  "browser": "Chrome/156.0.8078.74",
+  "initial": {
+    "windowY": 0,
+    "htmlOverflow": "hidden",
+    "bodyOverflow": "hidden",
+    "shellTop": 0,
+    "shellBottom": 900,
+    "main": {
+      "top": 0,
+      "height": 818,
+      "scrollHeight": 7176,
+      "overflow": "auto",
+      "bottom": 900
+    },
+    "last": {
+      "top": 7195.859375,
+      "bottom": 7218.25
+    },
+    "font": "Nunito, \"Segoe UI\", Arial, sans-serif",
+    "width": 1440,
+    "documentWidth": 1440
+  },
+  "afterOuterWheel": {
+    "windowY": 0,
+    "htmlOverflow": "hidden",
+    "bodyOverflow": "hidden",
+    "shellTop": 0,
+    "shellBottom": 900,
+    "main": {
+      "top": 0,
+      "height": 818,
+      "scrollHeight": 7176,
+      "overflow": "auto",
+      "bottom": 900
+    },
+    "last": {
+      "top": 7195.859375,
+      "bottom": 7218.25
+    },
+    "font": "Nunito, \"Segoe UI\", Arial, sans-serif",
+    "width": 1440,
+    "documentWidth": 1440
+  },
+  "widths": [
+    {
+      "width": 1440,
+      "height": 900,
+      "end": {
+        "windowY": 0,
+        "htmlOverflow": "hidden",
+        "bodyOverflow": "hidden",
+        "shellTop": 0,
+        "shellBottom": 900,
+        "main": {
+          "top": 6358,
+          "height": 818,
+          "scrollHeight": 7176,
+          "overflow": "auto",
+          "bottom": 900
+        },
+        "last": {
+          "top": 837.859375,
+          "bottom": 860.25
+        },
+        "font": "Nunito, \"Segoe UI\", Arial, sans-serif",
+        "width": 1440,
+        "documentWidth": 1440
+      },
+      "sidebar": {
+        "height": 750,
+        "scrollHeight": 750,
+        "top": 0,
+        "overflow": "auto"
+      }
+    },
+    {
+      "width": 1280,
+      "height": 800,
+      "end": {
+        "windowY": 0,
+        "htmlOverflow": "hidden",
+        "bodyOverflow": "hidden",
+        "shellTop": 0,
+        "shellBottom": 800,
+        "main": {
+          "top": 6458,
+          "height": 718,
+          "scrollHeight": 7176,
+          "overflow": "auto",
+          "bottom": 800
+        },
+        "last": {
+          "top": 737.859375,
+          "bottom": 760.25
+        },
+        "font": "Nunito, \"Segoe UI\", Arial, sans-serif",
+        "width": 1280,
+        "documentWidth": 1280
+      },
+      "sidebar": {
+        "height": 650,
+        "scrollHeight": 720,
+        "top": 70,
+        "overflow": "auto"
+      }
+    },
+    {
+      "width": 768,
+      "height": 1024,
+      "end": {
+        "windowY": 0,
+        "htmlOverflow": "hidden",
+        "bodyOverflow": "hidden",
+        "shellTop": 0,
+        "shellBottom": 1024,
+        "main": {
+          "top": 6245,
+          "height": 942,
+          "scrollHeight": 7187,
+          "overflow": "auto",
+          "bottom": 1024
+        },
+        "last": {
+          "top": 969.859375,
+          "bottom": 992.25
+        },
+        "font": "Nunito, \"Segoe UI\", Arial, sans-serif",
+        "width": 768,
+        "documentWidth": 768
+      },
+      "sidebar": {
+        "height": 936,
+        "scrollHeight": 936,
+        "top": 0,
+        "overflow": "auto"
+      }
+    },
+    {
+      "width": 390,
+      "height": 844,
+      "end": {
+        "windowY": 0,
+        "htmlOverflow": "hidden",
+        "bodyOverflow": "hidden",
+        "shellTop": 0,
+        "shellBottom": 844,
+        "main": {
+          "top": 6391,
+          "height": 768,
+          "scrollHeight": 7159,
+          "overflow": "auto",
+          "bottom": 844
+        },
+        "last": {
+          "top": 793.46875,
+          "bottom": 815.859375
+        },
+        "font": "Nunito, \"Segoe UI\", Arial, sans-serif",
+        "width": 390,
+        "documentWidth": 390
+      },
+      "sidebar": {
+        "height": 756,
+        "scrollHeight": 756,
+        "top": 0,
+        "overflow": "auto"
+      }
+    }
+  ],
+  "routes": [
+    {
+      "section": "areas",
+      "windowY": 0,
+      "htmlOverflow": "hidden",
+      "bodyOverflow": "hidden",
+      "shellTop": 0,
+      "shellBottom": 900,
+      "main": {
+        "top": 6358,
+        "height": 818,
+        "scrollHeight": 7176,
+        "overflow": "auto",
+        "bottom": 900
+      },
+      "last": {
+        "top": 837.859375,
+        "bottom": 860.25
+      },
+      "font": "Nunito, \"Segoe UI\", Arial, sans-serif",
+      "width": 1440,
+      "documentWidth": 1440
+    },
+    {
+      "section": "monthly-disease-analysis",
+      "windowY": 0,
+      "htmlOverflow": "hidden",
+      "bodyOverflow": "hidden",
+      "shellTop": 0,
+      "shellBottom": 900,
+      "main": {
+        "top": 6239,
+        "height": 818,
+        "scrollHeight": 7057,
+        "overflow": "auto",
+        "bottom": 900
+      },
+      "last": {
+        "top": 837.859375,
+        "bottom": 860.25
+      },
+      "font": "Nunito, \"Segoe UI\", Arial, sans-serif",
+      "width": 1440,
+      "documentWidth": 1440
+    },
+    {
+      "section": "disease-trend-analysis",
+      "windowY": 0,
+      "htmlOverflow": "hidden",
+      "bodyOverflow": "hidden",
+      "shellTop": 0,
+      "shellBottom": 900,
+      "main": {
+        "top": 6239,
+        "height": 818,
+        "scrollHeight": 7057,
+        "overflow": "auto",
+        "bottom": 900
+      },
+      "last": {
+        "top": 837.859375,
+        "bottom": 860.25
+      },
+      "font": "Nunito, \"Segoe UI\", Arial, sans-serif",
+      "width": 1440,
+      "documentWidth": 1440
+    },
+    {
+      "section": "seasonal",
+      "windowY": 0,
+      "htmlOverflow": "hidden",
+      "bodyOverflow": "hidden",
+      "shellTop": 0,
+      "shellBottom": 900,
+      "main": {
+        "top": 6239,
+        "height": 818,
+        "scrollHeight": 7057,
+        "overflow": "auto",
+        "bottom": 900
+      },
+      "last": {
+        "top": 837.859375,
+        "bottom": 860.25
+      },
+      "font": "Nunito, \"Segoe UI\", Arial, sans-serif",
+      "width": 1440,
+      "documentWidth": 1440
+    },
+    {
+      "section": "dashboard",
+      "windowY": 0,
+      "htmlOverflow": "hidden",
+      "bodyOverflow": "hidden",
+      "shellTop": 0,
+      "shellBottom": 900,
+      "main": {
+        "top": 6239,
+        "height": 818,
+        "scrollHeight": 7057,
+        "overflow": "auto",
+        "bottom": 900
+      },
+      "last": {
+        "top": 837.859375,
+        "bottom": 860.25
+      },
+      "font": "Nunito, \"Segoe UI\", Arial, sans-serif",
+      "width": 1440,
+      "documentWidth": 1440
+    },
+    {
+      "section": "age-analysis",
+      "windowY": 0,
+      "htmlOverflow": "hidden",
+      "bodyOverflow": "hidden",
+      "shellTop": 0,
+      "shellBottom": 900,
+      "main": {
+        "top": 6239,
+        "height": 818,
+        "scrollHeight": 7057,
+        "overflow": "auto",
+        "bottom": 900
+      },
+      "last": {
+        "top": 837.859375,
+        "bottom": 860.25
+      },
+      "font": "Nunito, \"Segoe UI\", Arial, sans-serif",
+      "width": 1440,
+      "documentWidth": 1440
+    },
+    {
+      "section": "gender-analysis",
+      "windowY": 0,
+      "htmlOverflow": "hidden",
+      "bodyOverflow": "hidden",
+      "shellTop": 0,
+      "shellBottom": 900,
+      "main": {
+        "top": 6239,
+        "height": 818,
+        "scrollHeight": 7057,
+        "overflow": "auto",
+        "bottom": 900
+      },
+      "last": {
+        "top": 837.859375,
+        "bottom": 860.25
+      },
+      "font": "Nunito, \"Segoe UI\", Arial, sans-serif",
+      "width": 1440,
+      "documentWidth": 1440
+    },
+    {
+      "section": "forecast",
+      "windowY": 0,
+      "htmlOverflow": "hidden",
+      "bodyOverflow": "hidden",
+      "shellTop": 0,
+      "shellBottom": 900,
+      "main": {
+        "top": 6239,
+        "height": 818,
+        "scrollHeight": 7057,
+        "overflow": "auto",
+        "bottom": 900
+      },
+      "last": {
+        "top": 837.859375,
+        "bottom": 860.25
+      },
+      "font": "Nunito, \"Segoe UI\", Arial, sans-serif",
+      "width": 1440,
+      "documentWidth": 1440
+    }
+  ],
+  "publicTransitions": [
+    {
+      "mode": "login",
+      "state": {
+        "windowY": 0,
+        "htmlOverflow": "visible",
+        "bodyOverflow": "visible",
+        "shellTop": 0,
+        "shellBottom": 900,
+        "main": null,
+        "last": null,
+        "font": "Nunito, \"Segoe UI\", Arial, sans-serif",
+        "width": 1440,
+        "documentWidth": 1425
+      }
+    },
+    {
+      "mode": "parent",
+      "state": {
+        "windowY": 500,
+        "htmlOverflow": "visible",
+        "bodyOverflow": "visible",
+        "main": null,
+        "last": null,
+        "font": null,
+        "width": 1440,
+        "documentWidth": 1425
+      }
+    },
+    {
+      "mode": "admin",
+      "state": {
+        "windowY": 0,
+        "htmlOverflow": "hidden",
+        "bodyOverflow": "hidden",
+        "shellTop": 0,
+        "shellBottom": 900,
+        "main": {
+          "top": 0,
+          "height": 818,
+          "scrollHeight": 10080,
+          "overflow": "auto",
+          "bottom": 900
+        },
+        "last": {
+          "top": 10100.296875,
+          "bottom": 10122.6875
+        },
+        "font": "Nunito, \"Segoe UI\", Arial, sans-serif",
+        "width": 1440,
+        "documentWidth": 1440
+      }
+    },
+    {
+      "mode": "parent",
+      "state": {
+        "windowY": 0,
+        "htmlOverflow": "visible",
+        "bodyOverflow": "visible",
+        "main": null,
+        "last": null,
+        "font": null,
+        "width": 1440,
+        "documentWidth": 1425
+      }
+    },
+    {
+      "mode": "admin",
+      "state": {
+        "windowY": 0,
+        "htmlOverflow": "hidden",
+        "bodyOverflow": "hidden",
+        "shellTop": 0,
+        "shellBottom": 900,
+        "main": {
+          "top": 0,
+          "height": 818,
+          "scrollHeight": 10080,
+          "overflow": "auto",
+          "bottom": 900
+        },
+        "last": {
+          "top": 10100.296875,
+          "bottom": 10122.6875
+        },
+        "font": "Nunito, \"Segoe UI\", Arial, sans-serif",
+        "width": 1440,
+        "documentWidth": 1440
+      }
+    },
+    {
+      "mode": "login",
+      "state": {
+        "windowY": 0,
+        "htmlOverflow": "visible",
+        "bodyOverflow": "visible",
+        "shellTop": 0,
+        "shellBottom": 900,
+        "main": null,
+        "last": null,
+        "font": "Nunito, \"Segoe UI\", Arial, sans-serif",
+        "width": 1440,
+        "documentWidth": 1425
+      }
+    }
+  ],
+  "apiRequests": [],
+  "requestPaths": [
+    "/",
+    "/assets/index-CWlruceY.css",
+    "/assets/index-C5An2rxF.js",
+    "/assets/fonts/nunito/Nunito-Variable.ttf",
+    "/favicon.ico"
+  ],
+  "status": "PASS"
+}

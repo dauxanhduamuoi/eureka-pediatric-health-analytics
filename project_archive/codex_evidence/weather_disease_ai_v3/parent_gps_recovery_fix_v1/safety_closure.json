@@ -1,0 +1,37 @@
+{
+  "date": "2026-10-25",
+  "head": "6a69d26e7b07188f7def6cd7bcf9481f8e2eb649",
+  "index_unchanged": true,
+  "head_unchanged": true,
+  "changed_files": [
+    "Frontend\\src\\app\\components\\ParentPortal.test.tsx",
+    "Frontend\\src\\app\\components\\ParentPortal.tsx",
+    "Frontend\\src\\i18n\\locales\\en.ts",
+    "Frontend\\src\\i18n\\locales\\vi.ts"
+  ],
+  "real_db_file_unchanged": false,
+  "real_db_sha256_before": "1cba9096a6d7ba75bf1a37f464b569f06c942c9f5e7e555738ce889b15d8215f",
+  "real_db_sha256_after": "8a9e439a5383ea720a536ebb097adaa7196b3db056e3b494037bb56a7ec3c064",
+  "changed_tables_excluding_login_sessions": [],
+  "table_count": 32,
+  "read_only_total_changes": [
+    0,
+    0
+  ],
+  "backend_started_or_stopped_by_agent": false,
+  "external_network_or_real_api_called": false,
+  "audit_before_fix": {
+    "gps_regression_failures": 4,
+    "ordinary_retry_and_manual_switch_passed": 2
+  },
+  "tests": {
+    "parent_passed": 64,
+    "frontend_passed": 401,
+    "frontend_files": 18,
+    "typecheck": "PASS",
+    "production_build": "PASS",
+    "diff_check": "PASS"
+  },
+  "browser_gps_permission_timeout": "NOT VERIFIED: callback mocks in jsdom; native Chrome present, no connected browser tab provider.",
+  "weather_W01_W02_source_unchanged": true
+}

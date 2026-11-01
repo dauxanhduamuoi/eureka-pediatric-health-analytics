@@ -1,0 +1,321 @@
+--- before/Frontend/src/i18n/locales/en.ts
++++ after/Frontend/src/i18n/locales/en.ts
+@@ -124,6 +124,7 @@
+   'dashboard.currentData': 'Current data',
+   'dashboard.monthlyCases': 'Total cases by period',
+   'dashboard.topGroups': 'Top disease groups',
++  'dashboard.topGroupShare': 'Share within the displayed groups',
+   'dashboard.topGroupsHint': 'Number of disease groups loaded from /api/dashboard/top-disease-groups',
+   'dashboard.topByPeriod': 'Top disease groups by period',
+   'dashboard.yearlyCasesTitle': 'Total cases by year',
+--- before/Frontend/src/i18n/locales/vi.ts
++++ after/Frontend/src/i18n/locales/vi.ts
+@@ -131,6 +131,7 @@
+   'dashboard.currentData': 'Dữ liệu hiện tại',
+   'dashboard.monthlyCases': 'Tổng ca bệnh theo kỳ',
+   'dashboard.topGroups': 'Top nhóm bệnh',
++  'dashboard.topGroupShare': 'Tỷ trọng trong các nhóm đang hiển thị',
+   'dashboard.topGroupsHint': 'Số nhóm bệnh được lấy từ API /api/dashboard/top-disease-groups',
+   'dashboard.topByPeriod': 'Top nhóm bệnh theo kỳ',
+   'dashboard.yearlyCasesTitle': 'Tổng ca bệnh theo từng năm',
+--- before/Frontend/src/app/components/DashboardOverview.tsx
++++ after/Frontend/src/app/components/DashboardOverview.tsx
+@@ -23,8 +23,6 @@
+   Line,
+   BarChart,
+   Bar,
+-  PieChart,
+-  Pie,
+   Cell,
+   XAxis,
+   YAxis,
+@@ -212,20 +210,20 @@
+     return { data, groups: topNames };
+   }, [monthly, topGroups, topLimit]);
+ 
+-  const pieData = useMemo(
+-    () =>
+-      topGroups.map((g, i) => {
+-        const lbl = splitDiseaseLabel(g.disease_group, bilingualMap);
+-        return {
+-          name: g.disease_group,
+-          vi: lbl.vi || g.disease_group,
+-          en: lbl.en,
+-          value: g.case_count,
+-          color: PIE_COLORS[i % PIE_COLORS.length],
+-        };
+-      }),
+-    [topGroups, bilingualMap],
+-  );
++  const rankedGroups = useMemo(() => {
++    const sorted = [...topGroups].sort((a, b) => b.case_count - a.case_count);
++    const total = sorted.reduce((sum, group) => sum + group.case_count, 0);
++    return sorted.map((group) => {
++      const label = splitDiseaseLabel(group.disease_group, bilingualMap);
++      return {
++        name: group.disease_group,
++        vi: label.vi || group.disease_group,
++        en: label.en,
++        value: group.case_count,
++        share: total > 0 ? group.case_count / total * 100 : null,
++      };
++    });
++  }, [topGroups, bilingualMap]);
+ 
+   const handleRunForecast = async () => {
+     setBusyAction('forecast');
+@@ -416,10 +414,69 @@
+           iconBg={stat.iconBg} iconColor={stat.iconColor} borderColor={stat.borderColor} />)}
+       </div>
+ 
+-      <div className="admin-surface bg-white rounded-xl p-6 border border-slate-200 shadow-sm">
++      {/* Charts Row */}
++      <div className="admin-dashboard-charts">
++        <section aria-labelledby="dashboard-monthly-title" className="admin-surface bg-white rounded-xl p-6 border border-slate-200 shadow-sm">
++          <h3 id="dashboard-monthly-title" className="text-lg font-semibold text-slate-800 mb-4">{t('dashboard.monthlyCases')}</h3>
++          {monthlyChartData.length === 0 ? (
++            <EmptyChart loading={showEmptyLoading} label={t('dashboard.noData')} t={t} />
++          ) : (
++            <ResponsiveContainer width="100%" height={300}>
++              <LineChart data={monthlyChartData} margin={{ top: 12, right: 18, left: 0, bottom: 8 }}>
++                <CartesianGrid strokeDasharray="3 5" stroke={ADMIN_CHART.grid} vertical={false} />
++                <XAxis dataKey="period" tick={{ fontSize: 11 }} tickLine={false} axisLine={false} tickMargin={10} minTickGap={32} interval="preserveStartEnd" />
++                <YAxis tick={{ fontSize: 11 }} tickLine={false} axisLine={false} width={58} tickFormatter={(value: number) => value.toLocaleString()} />
++                <Tooltip contentStyle={{ borderRadius: 10, border: `1px solid ${ADMIN_CHART.border}`, fontSize: 12 }}
++                  formatter={(value: number) => [`${value.toLocaleString()} ${t('dashboard.caseUnit')}`, t('dashboard.cases')]} />
++                <Line
++                  type="monotone"
++                  dataKey="cases"
++                  name={t('dashboard.cases')}
++                  stroke={ADMIN_CHART.primary}
++                  strokeWidth={2}
++                  dot={{ r: 2 }}
++                  activeDot={{ r: 4 }}
++                  isAnimationActive={chartAnimation}
++                />
++              </LineChart>
++            </ResponsiveContainer>
++          )}
++        </section>
++
++        <section aria-labelledby="dashboard-top-title" className="admin-surface bg-white rounded-xl p-6 border border-slate-200 shadow-sm">
++          <div className="mb-4">
++            <h3 id="dashboard-top-title" className="text-lg font-semibold text-slate-800">{t('dashboard.topGroups')}</h3>
++            <p className="text-xs text-slate-500 mt-1">{t('dashboard.topGroupShare')}</p>
++          </div>
++          {rankedGroups.length === 0 ? (
++            <EmptyChart loading={showEmptyLoading} label={t('dashboard.noGroupData')} t={t} />
++          ) : (
++            <ol className="admin-dashboard-ranking" aria-label={t('dashboard.topGroups')}>
++              {rankedGroups.map((entry, index) => {
++                const share = entry.share === null ? '—' : `${entry.share.toFixed(1)}%`;
++                const tooltip = `${entry.vi}${entry.en ? ` / ${entry.en}` : ''}: ${entry.value.toLocaleString()} ${t('dashboard.caseUnit')} · ${share} (${t('dashboard.topGroupShare')})`;
++                return (
++                  <li key={entry.name} title={tooltip} tabIndex={0}>
++                    <span className="admin-dashboard-rank" aria-hidden="true">{index + 1}</span>
++                    <div className="admin-dashboard-rank-content">
++                      <div className="admin-dashboard-rank-heading">
++                        <span className="admin-dashboard-rank-label"><strong>{entry.vi}</strong>{entry.en && <small>{entry.en}</small>}</span>
++                        <span className="admin-dashboard-rank-value">{entry.value.toLocaleString()} <small>{t('dashboard.caseUnit')} · {share}</small></span>
++                      </div>
++                      <div className="admin-dashboard-rank-track" aria-hidden="true"><span style={{ width: `${entry.share ?? 0}%` }} /></div>
++                    </div>
++                  </li>
++                );
++              })}
++            </ol>
++          )}
++        </section>
++      </div>
++
++      <section aria-labelledby="dashboard-yearly-title" className="admin-surface bg-white rounded-xl p-6 border border-slate-200 shadow-sm">
+         <div className="mb-4 flex flex-col gap-1 sm:flex-row sm:items-start sm:justify-between">
+           <div>
+-            <h3 className="text-lg font-semibold text-slate-800">{t('dashboard.yearlyCasesTitle')}</h3>
++            <h3 id="dashboard-yearly-title" className="text-lg font-semibold text-slate-800">{t('dashboard.yearlyCasesTitle')}</h3>
+             <p className="text-xs text-slate-500 mt-1">
+               {t('dashboard.yearlyCasesDesc')}
+             </p>
+@@ -441,12 +498,14 @@
+         ) : (
+           <>
+             <ResponsiveContainer width="100%" height={230}>
+-              <BarChart data={yearlyChartData} margin={{ top: 10, right: 20, left: 8, bottom: 18 }}>
+-                <CartesianGrid strokeDasharray="3 3" stroke="#f1f5f9" />
+-                <XAxis dataKey="year" tick={{ fontSize: 12 }} />
+-                <YAxis tick={{ fontSize: 12 }} />
++              <BarChart data={yearlyChartData} barCategoryGap="28%" margin={{ top: 12, right: 18, left: 0, bottom: 8 }}>
++                <CartesianGrid strokeDasharray="3 5" stroke={ADMIN_CHART.grid} vertical={false} />
++                <XAxis dataKey="year" tick={{ fontSize: 12 }} tickLine={false} axisLine={false} tickMargin={10} minTickGap={24} />
++                <YAxis tick={{ fontSize: 11 }} tickLine={false} axisLine={false} width={58} tickFormatter={(value: number) => value.toLocaleString()} />
+                 <Tooltip
+-                  contentStyle={{ borderRadius: '0.75rem', border: '1px solid #e2e8f0' }}
++                  cursor={false}
++                  contentStyle={{ borderRadius: 10, border: `1px solid ${ADMIN_CHART.border}`, fontSize: 12, whiteSpace: 'normal' }}
++                  wrapperStyle={{ maxWidth: 'min(280px, calc(100vw - 64px))' }}
+                   formatter={(value: number) => [
+                     `${value.toLocaleString()} ${t('dashboard.caseUnit')}`,
+                     t('dashboard.totalCases'),
+@@ -465,13 +524,14 @@
+                 <Bar
+                   dataKey="cases"
+                   name={t('dashboard.totalCases')}
+-                  radius={[7, 7, 0, 0]}
++                  maxBarSize={40}
++                  radius={[4, 4, 0, 0]}
+                   isAnimationActive={chartAnimation}
+                 >
+                   {yearlyChartData.map((entry) => (
+                     <Cell
+                       key={entry.year}
+-                      fill={entry.isCompleteYear ? '#0f766e' : '#f59e0b'}
++                      fill={entry.isCompleteYear ? ADMIN_CHART.primary : '#f59e0b'}
+                     />
+                   ))}
+                 </Bar>
+@@ -503,119 +563,7 @@
+             )}
+           </>
+         )}
+-      </div>
+-
+-      {/* Charts Row */}
+-      <div className="admin-dashboard-charts grid grid-cols-1 lg:grid-cols-2 gap-6">
+-        <div className="admin-surface bg-white rounded-xl p-6 border border-slate-200 shadow-sm">
+-          <h3 className="text-lg font-semibold text-slate-800 mb-4">{t('dashboard.monthlyCases')}</h3>
+-          {monthlyChartData.length === 0 ? (
+-            <EmptyChart loading={showEmptyLoading} label={t('dashboard.noData')} t={t} />
+-          ) : (
+-            <ResponsiveContainer width="100%" height={260}>
+-              <LineChart data={monthlyChartData} margin={{ bottom: 24 }}>
+-                <CartesianGrid strokeDasharray="3 3" stroke="#f1f5f9" />
+-                <XAxis dataKey="period" tick={{ fontSize: 12 }} />
+-                <YAxis tick={{ fontSize: 12 }} />
+-                <Tooltip contentStyle={{ borderRadius: '0.75rem', border: '1px solid #e2e8f0' }} />
+-                <Legend
+-                  verticalAlign="bottom"
+-                  content={(props) => (
+-                    <BilingualLegend
+-                      payload={props.payload as unknown as Array<{ value: string; color: string }>}
+-                      bilingualMap={bilingualMap}
+-                    />
+-                  )}
+-                />
+-                <Line
+-                  type="monotone"
+-                  dataKey="cases"
+-                  name={t('dashboard.cases')}
+-                  stroke={ADMIN_CHART.primary}
+-                  strokeWidth={2.5}
+-                  dot={{ r: 3 }}
+-                  isAnimationActive={chartAnimation}
+-                />
+-              </LineChart>
+-            </ResponsiveContainer>
+-          )}
+-        </div>
+-
+-        <div className="admin-surface bg-white rounded-xl p-6 border border-slate-200 shadow-sm">
+-          <div className="flex items-start justify-between gap-3 mb-4">
+-            <div>
+-              <h3 className="text-lg font-semibold text-slate-800">{t('dashboard.topGroups')}</h3>
+-              <p className="text-xs text-slate-500 mt-1">
+-                Tổng số ca của {topLimit} nhóm theo lựa chọn hiện tại.
+-              </p>
+-            </div>
+-          </div>
+-          {pieData.length === 0 ? (
+-            <EmptyChart loading={showEmptyLoading} label={t('dashboard.noGroupData')} t={t} />
+-          ) : (
+-            <div className="grid grid-cols-1 md:grid-cols-2 gap-3 items-center">
+-              {/* Pie không có label ngoài — dùng legend bên cạnh để tránh chèn chữ */}
+-              <ResponsiveContainer width="100%" height={260}>
+-                <PieChart>
+-                  <Pie
+-                    data={pieData}
+-                    cx="50%"
+-                    cy="50%"
+-                    labelLine={false}
+-                    label={(props) => {
+-                      const p = props as unknown as { percent: number };
+-                      // Chỉ hiện % khi miếng đủ to, không kẹp tên bệnh để khỏi chồng.
+-                      if (p.percent < 0.06) return '';
+-                      return `${(p.percent * 100).toFixed(0)}%`;
+-                    }}
+-                    outerRadius={95}
+-                    innerRadius={55}
+-                    dataKey="value"
+-                    paddingAngle={2}
+-                    isAnimationActive={chartAnimation}
+-                  >
+-                    {pieData.map((entry, index) => (
+-                      <Cell key={`cell-${index}`} fill={entry.color} />
+-                    ))}
+-                  </Pie>
+-                  <Tooltip
+-                    contentStyle={{ borderRadius: '0.75rem', border: '1px solid #e2e8f0' }}
+-                    formatter={(value: number, _name, item) => {
+-                      const p = (item as unknown as { payload: { vi: string; en: string | null } }).payload;
+-                      return [`${value} ${t('col.cases').toLowerCase()}`, p.en ? `${p.vi}\n${p.en}` : p.vi];
+-                    }}
+-                  />
+-                </PieChart>
+-              </ResponsiveContainer>
+-
+-              {/* Legend bên phải: VN dòng trên, EN dòng dưới + số ca */}
+-              <div className="space-y-2 max-h-[280px] overflow-y-auto pr-1">
+-                {pieData.map((entry, idx) => {
+-                  const total = pieData.reduce((a, b) => a + b.value, 0) || 1;
+-                  const pct = ((entry.value / total) * 100).toFixed(0);
+-                  return (
+-                    <div key={idx} className="flex items-start gap-2 text-xs">
+-                      <span
+-                        className="inline-block w-3 h-3 rounded-sm mt-0.5 shrink-0"
+-                        style={{ backgroundColor: entry.color }}
+-                      />
+-                      <div className="min-w-0 flex-1 leading-tight">
+-                        <div className="font-medium" style={{ color: entry.color }}>
+-                          {entry.vi} <span className="text-slate-500">{pct}%</span>
+-                        </div>
+-                        {entry.en && <div className="italic text-slate-500">{entry.en}</div>}
+-                      </div>
+-                      <span className="text-[11px] text-slate-500 tabular-nums shrink-0">
+-                        {entry.value.toLocaleString()}
+-                      </span>
+-                    </div>
+-                  );
+-                })}
+-              </div>
+-            </div>
+-          )}
+-        </div>
+-      </div>
++      </section>
+ 
+       <AdminDetails title={t('content.dashboardDetails')}>
+       <div className="admin-surface bg-white rounded-xl p-6 border border-slate-200 shadow-sm">
+--- before/Frontend/src/app/components/admin/content.css
++++ after/Frontend/src/app/components/admin/content.css
+@@ -38,6 +38,22 @@
+ .admin-metric-strip > .admin-kpi::before { display: none; }
+ .admin-metric-strip .admin-kpi-icon { background: transparent; padding: 0; }
+ .admin-dashboard-charts { gap: var(--content-gap); }
++.eureka-admin .admin-dashboard-content .admin-dashboard-charts { display: grid; grid-template-columns: minmax(0, 1fr); align-items: start; }
++.eureka-admin .admin-dashboard-ranking { display: grid; gap: 12px; list-style: none; margin: 0; padding: 0; }
++.admin-dashboard-ranking > li { display: flex; align-items: baseline; gap: 8px; min-width: 0; border-radius: 4px; }
++.admin-dashboard-rank { flex: 0 0 18px; color: var(--admin-muted); font-size: 11px; font-variant-numeric: tabular-nums; }
++.admin-dashboard-rank-content { flex: 1; min-width: 0; }
++.admin-dashboard-rank-heading { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: baseline; gap: 3px 12px; font-size: 12px; }
++.admin-dashboard-rank-label { flex: 1 1 150px; min-width: 0; overflow-wrap: anywhere; }
++.admin-dashboard-rank-label strong { font-weight: 600; line-height: 1.5; }
++.admin-dashboard-rank-label small { display: block; color: var(--admin-muted); line-height: 1.5; font-size: 10px; }
++.admin-dashboard-rank-value { color: var(--admin-ink); font-weight: 700; font-variant-numeric: tabular-nums; white-space: nowrap; }
++.admin-dashboard-rank-value small { color: var(--admin-muted); font-size: 10px; font-weight: 400; }
++.admin-dashboard-rank-track { height: 6px; margin-top: 5px; border-radius: 4px; background: var(--admin-subtle); overflow: hidden; }
++.admin-dashboard-rank-track > span { display: block; height: 100%; border-radius: inherit; background: var(--admin-primary); }
++@media (min-width: 1100px) {
++  .eureka-admin .admin-dashboard-content .admin-dashboard-charts { grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr); }
++}
+ .admin-year-coverage-list { display: grid; gap: 5px; }
+ .admin-year-coverage-list > div { display: flex; flex-wrap: wrap; gap: 4px 12px; padding: 4px 0; background: transparent; box-shadow: none; }
+ .admin-year-coverage-list > div > div { margin-top: 0; font-size: 12px; }

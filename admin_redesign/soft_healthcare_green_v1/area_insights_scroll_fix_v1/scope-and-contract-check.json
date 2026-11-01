@@ -1,0 +1,118 @@
+{
+  "controllerUnchanged": true,
+  "helpers": [
+    {
+      "name": "normalizeText",
+      "unchanged": true
+    },
+    {
+      "name": "normalizeProvinceName",
+      "unchanged": true
+    },
+    {
+      "name": "buildProvinceRegionLookup",
+      "unchanged": true
+    },
+    {
+      "name": "getProvinceRegion",
+      "unchanged": true
+    },
+    {
+      "name": "isProvinceInRegion",
+      "unchanged": true
+    },
+    {
+      "name": "provinceColor",
+      "unchanged": true
+    },
+    {
+      "name": "riskLabel",
+      "unchanged": true
+    },
+    {
+      "name": "riskScore",
+      "unchanged": true
+    },
+    {
+      "name": "scoreToRisk",
+      "unchanged": true
+    },
+    {
+      "name": "classifyRiskFromCases",
+      "unchanged": true
+    },
+    {
+      "name": "aggregateDiseaseRows",
+      "unchanged": true
+    },
+    {
+      "name": "buildTargetCaseRows",
+      "unchanged": true
+    },
+    {
+      "name": "aggregateRiskRows",
+      "unchanged": true
+    },
+    {
+      "name": "buildRegionRecommendations",
+      "unchanged": true
+    },
+    {
+      "name": "PageSizeSelect",
+      "unchanged": true
+    },
+    {
+      "name": "PaginationControls",
+      "unchanged": true
+    }
+  ],
+  "unchangedDataProps": [
+    {
+      "name": "AreaFilterPanel",
+      "unchanged": true
+    },
+    {
+      "name": "AreaSummary",
+      "unchanged": true
+    },
+    {
+      "name": "AreaDistribution",
+      "unchanged": true
+    },
+    {
+      "name": "AreaDetails",
+      "unchanged": true
+    }
+  ],
+  "originalTestsUnchanged": true,
+  "changedRules": [
+    ".area-insights-workspace .area-detail-workspace",
+    ".area-insights-workspace .area-recommendations"
+  ],
+  "addedRules": [
+    ".area-insights-workspace .area-empty-message"
+  ],
+  "cssChangesInScope": true,
+  "protectedFiles": 623,
+  "unexpectedChanges": [],
+  "backupsMatch": true,
+  "indexUnchanged": true,
+  "newSourceFiles": [],
+  "trailingWhitespace": [],
+  "afterHashes": [
+    {
+      "file": "Frontend/src/app/components/AreaInsights.tsx",
+      "hash": "daa871625233dbe33ba95cb84cd55ed1bf8a5f9c3d630a6f21456c739af6c29f"
+    },
+    {
+      "file": "Frontend/src/app/components/areas/AreaInsights.css",
+      "hash": "dcc5eb21d3d6ef1d0be34f2a671efe1b39bbcc8784c43709aa5a89ad7af64f7c"
+    },
+    {
+      "file": "Frontend/src/app/components/AreaInsights.test.tsx",
+      "hash": "209d3136161abfe3199af67f48cd6d711e6c997578b6c42d0b1df740ce65c6ff"
+    }
+  ],
+  "realDatabaseExcluded": true,
+  "status": "PASS"
+}

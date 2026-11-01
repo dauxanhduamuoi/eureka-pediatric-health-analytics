@@ -1,0 +1,36 @@
+{
+  "protectedFiles": 589,
+  "changedExistingFiles": [
+    "Frontend/src/app/components/AdvancedAnalytics.tsx",
+    "Frontend/src/app/components/NotificationsPanel.tsx"
+  ],
+  "missingBaselineFiles": [],
+  "outsideAllowedChanges": [],
+  "stateInitializersUnchanged": true,
+  "nonRequestDerivedStatementsUnchanged": true,
+  "comparedDerivedDeclarations": 26,
+  "apiCallExpressionsUnchanged": true,
+  "cacheCallsAndObjectsUnchanged": true,
+  "periodFilterHelperUnchanged": true,
+  "notificationMutationsAndReloadUnchanged": true,
+  "notificationFilteringAndUnreadUnchanged": true,
+  "notificationStoreCallsUnchanged": true,
+  "css": [
+    {
+      "file": "advanced-analytics/analytics.css",
+      "rules": 74,
+      "scoped": true
+    },
+    {
+      "file": "notifications/notifications.css",
+      "rules": 46,
+      "scoped": true
+    }
+  ],
+  "documentedCorrections": [
+    "Latest-response version guards for analysis requests",
+    "Catch propagated notification sync exceptions; shared helper silent-provider-failure contract unchanged",
+    "Safe presentation of missing numeric fields"
+  ],
+  "realDatabaseInInventory": false
+}

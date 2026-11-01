@@ -1,0 +1,21 @@
+{
+  "protected_files_checked": 579,
+  "modified_source": [
+    "Frontend/src/app/components/Forecast.tsx"
+  ],
+  "new_source": [
+    "Frontend/src/app/components/Forecast.test.tsx"
+  ],
+  "weather_models_checked": 221,
+  "forecast_model_hash_unchanged": true,
+  "backend_parent_shap_mk_env_unchanged": true,
+  "git_index_unchanged": true,
+  "server_start_kill_restart": false,
+  "direct_real_db_writes": false,
+  "real_db_hash_unchanged": false,
+  "db_change_investigated_in": "database-change-audit.json",
+  "database_attribution": "Active login session last_seen_at coincides with file mtime. No row baseline/writer trace to conclusively attribute all changes. No restoration.",
+  "isolated_tests": "SQLite guard allows only memory or evidence isolated-pytest; no app.main/lifespan startup",
+  "external_network": "Open-Meteo read-only request using public city coordinates; no patient/device GPS data; local unauthenticated GETs",
+  "no_git_mutations": true
+}

@@ -1,0 +1,5 @@
+{
+  "valid_utf8": true,
+  "suspect_corrupted_words": [],
+  "scope": "Frontend/src; heuristic excludes URL query strings; rendered descriptions separately asserted"
+}

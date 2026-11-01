@@ -1,0 +1,23 @@
+{
+  "status": "PASS_WITH_FINDINGS",
+  "frontendTests": { "passed": 96, "failed": 0, "files": 10, "log": "frontend-regression.log" },
+  "areaTests": { "passed": 14, "failed": 0 },
+  "typecheck": "PASS",
+  "productionBuild": "PASS",
+  "gitDiffCheck": "PASS_WITH_LINE_ENDING_WARNINGS",
+  "browser": "BROWSER NOT VERIFIED",
+  "logicPreservation": "PASS: 44 main statements and 20 top-level declarations unchanged",
+  "hashPreservation": "PASS: 579 unchanged baseline files; only AreaInsights.tsx changed; new dedicated source/evidence files separately listed",
+  "realDatabaseAccessed": false,
+  "backendSourceChanged": false,
+  "backendTestsRun": false,
+  "serverRestartedOrKilled": false,
+  "dependenciesAdded": false,
+  "gitIndexChanged": false,
+  "gitMutationCommandsUsed": false,
+  "findings": [
+    "Real-browser viewport, theme and keyboard verification unavailable.",
+    "Pre-existing selected-area zero-row synthesis and per-province catch-to-empty behavior deliberately retained.",
+    "Some unchanged regression tests emit act warnings; Git emits existing working-tree line-ending warnings."
+  ]
+}

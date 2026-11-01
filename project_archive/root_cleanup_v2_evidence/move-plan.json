@@ -1,0 +1,476 @@
+[
+  {
+    "src": "README.md",
+    "dest": "project_archive/legacy_docs/root_readmes_v2/README.md",
+    "action": "COPY_HISTORY",
+    "files": [
+      {
+        "path": "README.md",
+        "sha256": "20da4856a3189780d923852d6ef769ea49e4866c50f81d9ca82221e16fd2a16a",
+        "mtime_ns": 1779317066000000000
+      }
+    ],
+    "reason": "Preserve complete original root README before authorized canonical rewrite"
+  },
+  {
+    "src": "admin_redesign/soft_healthcare_green_v1/advanced_analytics_notifications_batch_v1",
+    "dest": "project_archive/codex_evidence/admin_redesign/soft_healthcare_green_v1/advanced_analytics_notifications_batch_v1",
+    "action": "MOVE_EVIDENCE",
+    "files": [
+      {
+        "path": "admin_redesign/soft_healthcare_green_v1/advanced_analytics_notifications_batch_v1/advanced-final-recheck.log",
+        "sha256": "87075d6a879e7646b5509a7c687f66a1c75f9f58594b548df2598a8f462c7698",
+        "mtime_ns": 1793434237374403600
+      },
+      {
+        "path": "admin_redesign/soft_healthcare_green_v1/advanced_analytics_notifications_batch_v1/audit-v2-reference.json",
+        "sha256": "e4c0d5e113d3fc2f3305bacaec5f6e07a59ed931c2d2ea89ba3ea9621525eef3",
+        "mtime_ns": 1793434321065005000
+      },
+      {
+        "path": "admin_redesign/soft_healthcare_green_v1/advanced_analytics_notifications_batch_v1/baseline-AdvancedAnalytics.test.tsx.txt",
+        "sha256": "ae2ca4cd864b3bf443f2d3691e89f04d31268a912cf3f2429b50cb69b252ee6e",
+        "mtime_ns": 1793433093256060500
+      },
+      {
+        "path": "admin_redesign/soft_healthcare_green_v1/advanced_analytics_notifications_batch_v1/baseline-NotificationsPanel.test.tsx.txt",
+        "sha256": "b1b86a0c74fccf4d4dcd39ba2602e45aefa399ea4530dbcc62c9d4f30e346190",
+        "mtime_ns": 1793433093256060500
+      },
+      {
+        "path": "admin_redesign/soft_healthcare_green_v1/advanced_analytics_notifications_batch_v1/baseline-tests.log",
+        "sha256": "740a3f5a2ca8a02399a065f2e0f869e8121d7b98a707226d1e5dc1af7509d453",
+        "mtime_ns": 1793433097933607300
+      },
+      {
+        "path": "admin_redesign/soft_healthcare_green_v1/advanced_analytics_notifications_batch_v1/baseline.json",
+        "sha256": "f4534ed540c2d5879b71569a49afe0ed23a0a77109dc496a6a9cb582771e97fe",
+        "mtime_ns": 1793433014037580000
+      },
+      {
+        "path": "admin_redesign/soft_healthcare_green_v1/advanced_analytics_notifications_batch_v1/BATCH_1_REDESIGN_REPORT.md",
+        "sha256": "619bfda9783410b48ddd7f0dc72c72eded2bf023845574a7ff1cdb2409908afe",
+        "mtime_ns": 1793434484645048500
+      },
+      {
+        "path": "admin_redesign/soft_healthcare_green_v1/advanced_analytics_notifications_batch_v1/browser-verification.json",
+        "sha256": "b7dfda1a567aaa4febaa8ef7144f95e1e319d95347de8019baf0881dc78d44c0",
+        "mtime_ns": 1793434484645048500
+      },
+      {
+        "path": "admin_redesign/soft_healthcare_green_v1/advanced_analytics_notifications_batch_v1/build.log",
+        "sha256": "ff0d2d3b698abc773097dc1f1cdf487180ab89c037f0472395a045a2032135cb",
+        "mtime_ns": 1793434241112922900
+      },
+      {
+        "path": "admin_redesign/soft_healthcare_green_v1/advanced_analytics_notifications_batch_v1/frontend-regression.log",
+        "sha256": "636cd087fbff633d8bedf6d17e8f022dd2c2113ccd6c79b948ced8717325b5e3",
+        "mtime_ns": 1793434027014989700
+      },
+      {
+        "path": "admin_redesign/soft_healthcare_green_v1/advanced_analytics_notifications_batch_v1/git-diff-check.log",
+        "sha256": "522ee698405b9b48a5e8ebddc5ed422b525befd3c9d01b50a87bae038e5bc959",
+        "mtime_ns": 1793434321667895700
+      },
+      {
+        "path": "admin_redesign/soft_healthcare_green_v1/advanced_analytics_notifications_batch_v1/git-status-after.txt",
+        "sha256": "bf46eea9997b177ccbda1b14e9a6434a30b22560015621497bad14c7be55c667",
+        "mtime_ns": 1793434321249567700
+      },
+      {
+        "path": "admin_redesign/soft_healthcare_green_v1/advanced_analytics_notifications_batch_v1/git-status-before.txt",
+        "sha256": "2a938f4e7d35720031e224b34baf19d577106c0bd4d87de70fb7278463a863b8",
+        "mtime_ns": 1793433014217805100
+      },
+      {
+        "path": "admin_redesign/soft_healthcare_green_v1/advanced_analytics_notifications_batch_v1/header-recheck.log",
+        "sha256": "d3321ac83b1540717c91a82adae6f4c7a5495ce46bdebc1f8c3b94fdd34a2a2a",
+        "mtime_ns": 1793434124126448700
+      },
+      {
+        "path": "admin_redesign/soft_healthcare_green_v1/advanced_analytics_notifications_batch_v1/result.json",
+        "sha256": "a11c29f8b9e9e15412fd05a53ba31114a4ff926417708b4c0acb86348ba6de84",
+        "mtime_ns": 1793434484645048500
+      },
+      {
+        "path": "admin_redesign/soft_healthcare_green_v1/advanced_analytics_notifications_batch_v1/source-files-after.json",
+        "sha256": "bee4b674ffe96b63f69bf968ed164c93644d2c98db739b6383db751998c9bede",
+        "mtime_ns": 1793434321047965800
+      },
+      {
+        "path": "admin_redesign/soft_healthcare_green_v1/advanced_analytics_notifications_batch_v1/source-preservation.json",
+        "sha256": "49b00ef100d834c088f91c03f6d546f49ee46338cdfb144b3684ee0eee3ac13b",
+        "mtime_ns": 1793434486465302100
+      },
+      {
+        "path": "admin_redesign/soft_healthcare_green_v1/advanced_analytics_notifications_batch_v1/step-A-monthly.log",
+        "sha256": "0e263c4af8f7bd4d9980b8b07f5de590ff897a18e75e8de7d9bf8401d078f15d",
+        "mtime_ns": 1793433429199926700
+      },
+      {
+        "path": "admin_redesign/soft_healthcare_green_v1/advanced_analytics_notifications_batch_v1/step-B-gender.log",
+        "sha256": "b9ab0a85d41c5edd2ec7ceb45892d780a86e657e98cdd51bdec2acfdfc400479",
+        "mtime_ns": 1793433482447884800
+      },
+      {
+        "path": "admin_redesign/soft_healthcare_green_v1/advanced_analytics_notifications_batch_v1/step-C-trend.log",
+        "sha256": "1bee5d86a9733e8ab581015f0692cc2783f1a3ba73bb18c998914c5a40ed0671",
+        "mtime_ns": 1793433617951943300
+      },
+      {
+        "path": "admin_redesign/soft_healthcare_green_v1/advanced_analytics_notifications_batch_v1/step-D-notifications.log",
+        "sha256": "be92e2d67de6e5f8669dcbfd17e02205aa73ad4c725dfd2ca98e34086e624ea5",
+        "mtime_ns": 1793433737719099300
+      },
+      {
+        "path": "admin_redesign/soft_healthcare_green_v1/advanced_analytics_notifications_batch_v1/typecheck.log",
+        "sha256": "cc1958e542360cc40898b9adb996794682c621bd47d15044038a776ec8598438",
+        "mtime_ns": 1793434233670632100
+      },
+      {
+        "path": "admin_redesign/soft_healthcare_green_v1/advanced_analytics_notifications_batch_v1/verify-source.cjs",
+        "sha256": "519e8a798b32ebeb0c87ce443ae5dbd17971bd2dacc5bdecc4bbef80d94a6871",
+        "mtime_ns": 1793434096502863200
+      },
+      {
+        "path": "admin_redesign/soft_healthcare_green_v1/advanced_analytics_notifications_batch_v1/source_before/Frontend/src/app/components/AdvancedAnalytics.tsx",
+        "sha256": "ee99a15b7fda68f254f1ff800ffaf4a377bc4a280b3bcf25fb0ba77843e6e8f0",
+        "mtime_ns": 1793433014039909000
+      },
+      {
+        "path": "admin_redesign/soft_healthcare_green_v1/advanced_analytics_notifications_batch_v1/source_before/Frontend/src/app/components/NotificationsPanel.tsx",
+        "sha256": "37357c47e869a7b907c9186a1c58eeaf9aa2b503dddacc95f28b3292b807ecce",
+        "mtime_ns": 1793433014039909000
+      }
+    ],
+    "reason": "Standalone verifier uses repository cwd and bundle __dirname; module dependencies and local baseline paths remain valid without script edits"
+  },
+  {
+    "src": "admin_redesign/soft_healthcare_green_v1/age_insights_workspace_redesign_v1",
+    "dest": "project_archive/codex_evidence/admin_redesign/soft_healthcare_green_v1/age_insights_workspace_redesign_v1",
+    "action": "MOVE_EVIDENCE",
+    "files": [
+      {
+        "path": "admin_redesign/soft_healthcare_green_v1/age_insights_workspace_redesign_v1/AGE_INSIGHTS_WORKSPACE_REDESIGN_REPORT.md",
+        "sha256": "9bcfda823fd7129032cec93b4f91ecf6cedae060e4d35bacf896c87c111a3fac",
+        "mtime_ns": 1793432478867376200
+      },
+      {
+        "path": "admin_redesign/soft_healthcare_green_v1/age_insights_workspace_redesign_v1/baseline-parity-tests.tsx.txt",
+        "sha256": "e1f6a56f2ee819d90eaafb848714fd761b612ba236bb903dc8e28518b9de32d5",
+        "mtime_ns": 1793432006404133800
+      },
+      {
+        "path": "admin_redesign/soft_healthcare_green_v1/age_insights_workspace_redesign_v1/baseline-tests.log",
+        "sha256": "b24db5b155076010902ac642278cb688bc93455dc4932b496d9d41dfbc3450d9",
+        "mtime_ns": 1793431867695343400
+      },
+      {
+        "path": "admin_redesign/soft_healthcare_green_v1/age_insights_workspace_redesign_v1/baseline.json",
+        "sha256": "cb3c47bcfd7371939b78575db8226ec097ee054b8a984d6d076b5cecbe928136",
+        "mtime_ns": 1793431803502767000
+      },
+      {
+        "path": "admin_redesign/soft_healthcare_green_v1/age_insights_workspace_redesign_v1/browser-verification.json",
+        "sha256": "3d005e3b0307dc2de8767d4e08c523470ea362bb4c3427de3aa2bcc88e175e6d",
+        "mtime_ns": 1793432478868378300
+      },
+      {
+        "path": "admin_redesign/soft_healthcare_green_v1/age_insights_workspace_redesign_v1/build-migration.log",
+        "sha256": "6c92714bb32ecd96433d183e3d9bf3a711a4a4db2f44619ebb6341cab772f417",
+        "mtime_ns": 1793432052595929200
+      },
+      {
+        "path": "admin_redesign/soft_healthcare_green_v1/age_insights_workspace_redesign_v1/build.log",
+        "sha256": "a95eb159f1f4b6f63f7d326229b08d8828935dc2d3bcea328309bc36cd26e58d",
+        "mtime_ns": 1793432323288757100
+      },
+      {
+        "path": "admin_redesign/soft_healthcare_green_v1/age_insights_workspace_redesign_v1/entry-references.json",
+        "sha256": "aaad5e703950933ee52c1bfabea6c24b1a31c9b8288b9538043197b915919c27",
+        "mtime_ns": 1793432320545555100
+      },
+      {
+        "path": "admin_redesign/soft_healthcare_green_v1/age_insights_workspace_redesign_v1/frontend-regression.log",
+        "sha256": "7a44676ff6c0118e2fea5f1601dd15dde7c20189f4879e67190facaec158e18d",
+        "mtime_ns": 1793432335447579000
+      },
+      {
+        "path": "admin_redesign/soft_healthcare_green_v1/age_insights_workspace_redesign_v1/git-diff-check.log",
+        "sha256": "0fcba8273e9780cffe9b7486e765a2ced9e15fb8a430a6124ed13bb0827d66b3",
+        "mtime_ns": 1793432351084209900
+      },
+      {
+        "path": "admin_redesign/soft_healthcare_green_v1/age_insights_workspace_redesign_v1/git-status-after.txt",
+        "sha256": "2a938f4e7d35720031e224b34baf19d577106c0bd4d87de70fb7278463a863b8",
+        "mtime_ns": 1793432320327677100
+      },
+      {
+        "path": "admin_redesign/soft_healthcare_green_v1/age_insights_workspace_redesign_v1/git-status-before.txt",
+        "sha256": "e99a1fd1df0fe145b172021ea1efa5ab366248cb55d9590e6d97a880ba666de1",
+        "mtime_ns": 1793431803872098300
+      },
+      {
+        "path": "admin_redesign/soft_healthcare_green_v1/age_insights_workspace_redesign_v1/migration-tests.log",
+        "sha256": "995a246f9a8ee7bdc333e44163fdccc403b84db8314c12e1b83f19f3a429c764",
+        "mtime_ns": 1793432053651844200
+      },
+      {
+        "path": "admin_redesign/soft_healthcare_green_v1/age_insights_workspace_redesign_v1/result.json",
+        "sha256": "ca89b5bfa69ffb8af1a8c79dfe23440fc065647ff7a23cef06b3ef5c2f24d0bf",
+        "mtime_ns": 1793432478869375600
+      },
+      {
+        "path": "admin_redesign/soft_healthcare_green_v1/age_insights_workspace_redesign_v1/source-files-after.json",
+        "sha256": "68cb19207933a2e8d4978e8bdb5e4a117a987d9362fc1c98a647c3b4f85664c3",
+        "mtime_ns": 1793432319901920400
+      },
+      {
+        "path": "admin_redesign/soft_healthcare_green_v1/age_insights_workspace_redesign_v1/source-preservation.json",
+        "sha256": "ed479baa0b4b90c12d07b5e6ab771d9a0b56efb0673437d2c0bb355ab6b42e7e",
+        "mtime_ns": 1793432479723984400
+      },
+      {
+        "path": "admin_redesign/soft_healthcare_green_v1/age_insights_workspace_redesign_v1/typecheck-migration.log",
+        "sha256": "cc1958e542360cc40898b9adb996794682c621bd47d15044038a776ec8598438",
+        "mtime_ns": 1793432047467228800
+      },
+      {
+        "path": "admin_redesign/soft_healthcare_green_v1/age_insights_workspace_redesign_v1/typecheck.log",
+        "sha256": "cc1958e542360cc40898b9adb996794682c621bd47d15044038a776ec8598438",
+        "mtime_ns": 1793432317564402100
+      },
+      {
+        "path": "admin_redesign/soft_healthcare_green_v1/age_insights_workspace_redesign_v1/verify-source.cjs",
+        "sha256": "3ae523af0e77fe7741aed71fe99fe573bb3de8c7874e2c747f58eddc0ffee9b0",
+        "mtime_ns": 1793432145029984800
+      },
+      {
+        "path": "admin_redesign/soft_healthcare_green_v1/age_insights_workspace_redesign_v1/source_before/Frontend/src/app/AppPages.tsx",
+        "sha256": "1a9102886376e150c1386bb6e4cdb29672f52764b49df9b45b86b197cf2e1d21",
+        "mtime_ns": 1793431803505202400
+      },
+      {
+        "path": "admin_redesign/soft_healthcare_green_v1/age_insights_workspace_redesign_v1/source_before/Frontend/src/app/components/AgeAnalysis.tsx",
+        "sha256": "5ca95b213081b3ad34e01b352044970a0d80d4a583c4c244b3eaf5c25a04b181",
+        "mtime_ns": 1793431803505202400
+      },
+      {
+        "path": "admin_redesign/soft_healthcare_green_v1/age_insights_workspace_redesign_v1/source_before/Frontend/src/app/components/admin/AdminPages.regression.test.tsx",
+        "sha256": "5eb797efd03c757d390b223c5fc53a91417e3f640bd6e7dbab3ce71c88c40d2c",
+        "mtime_ns": 1793432006404133800
+      },
+      {
+        "path": "admin_redesign/soft_healthcare_green_v1/age_insights_workspace_redesign_v1/source_before/Frontend/src/app/components/admin/ChartVisuals.test.tsx",
+        "sha256": "c03cbab717e1cb7c6e7873794406604ef475cfe9ee32f06a0dc41b8db38ac0b8",
+        "mtime_ns": 1793431803506573000
+      }
+    ],
+    "reason": "Standalone verifier uses repository cwd and bundle __dirname; module dependencies and local baseline paths remain valid without script edits"
+  },
+  {
+    "src": "admin_redesign/soft_healthcare_green_v1/forecast_account_redesign_batch_v1",
+    "dest": "project_archive/codex_evidence/admin_redesign/soft_healthcare_green_v1/forecast_account_redesign_batch_v1",
+    "action": "MOVE_EVIDENCE",
+    "files": [
+      {
+        "path": "admin_redesign/soft_healthcare_green_v1/forecast_account_redesign_batch_v1/audit-v2-reference.json",
+        "sha256": "8d631bdb2238671f317f1a92cb7e83a83214053ca01c188dd9ae9a12437568d8",
+        "mtime_ns": 1793436904630263700
+      },
+      {
+        "path": "admin_redesign/soft_healthcare_green_v1/forecast_account_redesign_batch_v1/baseline-tests.log",
+        "sha256": "a190b633c3e6b8a08c396a803913e5814f58275b2330ed381613b97442819739",
+        "mtime_ns": 1793435944202370300
+      },
+      {
+        "path": "admin_redesign/soft_healthcare_green_v1/forecast_account_redesign_batch_v1/baseline.json",
+        "sha256": "10be7f2210e8a1809c2d65429c535d5251d112ee375bc4e6b4ba89dd089dcf3f",
+        "mtime_ns": 1793435846337772300
+      },
+      {
+        "path": "admin_redesign/soft_healthcare_green_v1/forecast_account_redesign_batch_v1/browser-verification.json",
+        "sha256": "b7dfda1a567aaa4febaa8ef7144f95e1e319d95347de8019baf0881dc78d44c0",
+        "mtime_ns": 1793437040887027100
+      },
+      {
+        "path": "admin_redesign/soft_healthcare_green_v1/forecast_account_redesign_batch_v1/build.log",
+        "sha256": "c582fb98d55eaf4ef22b14e0a1f18d3ddbcd79aac67422e4336424c3c3f792de",
+        "mtime_ns": 1793436806345020700
+      },
+      {
+        "path": "admin_redesign/soft_healthcare_green_v1/forecast_account_redesign_batch_v1/evidence-hygiene.json",
+        "sha256": "9bb6f32ae7115e4179882baec4c688e225a78305592817796b5c70976f61849d",
+        "mtime_ns": 1793436904673533000
+      },
+      {
+        "path": "admin_redesign/soft_healthcare_green_v1/forecast_account_redesign_batch_v1/forecast-final-recheck.log",
+        "sha256": "b3d81254703cc148a4fb253c7d3910c7704381a3728935683425d2e5094c6cb2",
+        "mtime_ns": 1793436827039897600
+      },
+      {
+        "path": "admin_redesign/soft_healthcare_green_v1/forecast_account_redesign_batch_v1/forecast-parity-before.log",
+        "sha256": "6b04b101a3ee70f98ed63b1ad84692f9002982d2742452464669abecdfe4551c",
+        "mtime_ns": 1793436162450796900
+      },
+      {
+        "path": "admin_redesign/soft_healthcare_green_v1/forecast_account_redesign_batch_v1/FORECAST_ACCOUNT_BATCH_2_REPORT.md",
+        "sha256": "b23612dd9b2fd6181b064ca22525db714bb58d2dba6b506b03625be830a2ccd0",
+        "mtime_ns": 1793437040885027200
+      },
+      {
+        "path": "admin_redesign/soft_healthcare_green_v1/forecast_account_redesign_batch_v1/frontend-regression.log",
+        "sha256": "618c47c282449bb98f82a045485599d9bc92eb85633592ce1c0d86d79a7e03c0",
+        "mtime_ns": 1793436622694531800
+      },
+      {
+        "path": "admin_redesign/soft_healthcare_green_v1/forecast_account_redesign_batch_v1/git-diff-check.log",
+        "sha256": "a2708475e038ec0dca0922f87aa3afa2b027a268dadc95e5a4ca93ad0f812124",
+        "mtime_ns": 1793436829986144800
+      },
+      {
+        "path": "admin_redesign/soft_healthcare_green_v1/forecast_account_redesign_batch_v1/git-status-after.txt",
+        "sha256": "d8da0edaf6379aca7e6324aecd9f857096d7112b9cb5eeb4711bd52f32daf086",
+        "mtime_ns": 1793436904791440700
+      },
+      {
+        "path": "admin_redesign/soft_healthcare_green_v1/forecast_account_redesign_batch_v1/git-status-before.txt",
+        "sha256": "bf46eea9997b177ccbda1b14e9a6434a30b22560015621497bad14c7be55c667",
+        "mtime_ns": 1793435846462667500
+      },
+      {
+        "path": "admin_redesign/soft_healthcare_green_v1/forecast_account_redesign_batch_v1/result.json",
+        "sha256": "c8e962920fc147df4acb05c6ca0d46ec55fcdb1357a3adf5a2aa8f7f2d52b3f9",
+        "mtime_ns": 1793437040886025400
+      },
+      {
+        "path": "admin_redesign/soft_healthcare_green_v1/forecast_account_redesign_batch_v1/run-tests.cjs",
+        "sha256": "ace1b3cf64f04fbe04b8c029f2a30189bce36270d5f29b60d116ca0b150e4ad4",
+        "mtime_ns": 1793435846578093600
+      },
+      {
+        "path": "admin_redesign/soft_healthcare_green_v1/forecast_account_redesign_batch_v1/source-files-after.json",
+        "sha256": "b477100e95600db7af50c0d1a6305b3893bffa87ed18eea7c394602bb8164c00",
+        "mtime_ns": 1793436904628166400
+      },
+      {
+        "path": "admin_redesign/soft_healthcare_green_v1/forecast_account_redesign_batch_v1/source-preservation.json",
+        "sha256": "dab0e8a0735ac81924b5257c5775b58cb3be8bd67915e9e16609fdb80a5f03f2",
+        "mtime_ns": 1793437041711276900
+      },
+      {
+        "path": "admin_redesign/soft_healthcare_green_v1/forecast_account_redesign_batch_v1/step-A-forecast.log",
+        "sha256": "7736f7d95d046c66b60b353f1e7da6ef1a2866ef3db5cba027aa8f0d7814d706",
+        "mtime_ns": 1793436306311064700
+      },
+      {
+        "path": "admin_redesign/soft_healthcare_green_v1/forecast_account_redesign_batch_v1/step-B-account.log",
+        "sha256": "9d6766bac0d467b5eeea6b605d3891b4d1436a616438aa08cd92496406f2e66a",
+        "mtime_ns": 1793436542232415100
+      },
+      {
+        "path": "admin_redesign/soft_healthcare_green_v1/forecast_account_redesign_batch_v1/typecheck.log",
+        "sha256": "cc1958e542360cc40898b9adb996794682c621bd47d15044038a776ec8598438",
+        "mtime_ns": 1793436824492844200
+      },
+      {
+        "path": "admin_redesign/soft_healthcare_green_v1/forecast_account_redesign_batch_v1/verify-source.cjs",
+        "sha256": "1b22065c070f0341127e376e74594b9c435597fe09e068020fc863df7e4db562",
+        "mtime_ns": 1793436807378655300
+      },
+      {
+        "path": "admin_redesign/soft_healthcare_green_v1/forecast_account_redesign_batch_v1/source_before/Frontend/src/app/components/Account.tsx",
+        "sha256": "5d82ddf8475da990b0a1b1a0a13fbee002b85aae659f05e01f96c9d61a002018",
+        "mtime_ns": 1793435846340102500
+      },
+      {
+        "path": "admin_redesign/soft_healthcare_green_v1/forecast_account_redesign_batch_v1/source_before/Frontend/src/app/components/Forecast.test.tsx",
+        "sha256": "52cc8adf5f409d4371f0c81944d5c3aed1cf0ea5d10b77924d827ce9a1a0611d",
+        "mtime_ns": 1793435846340102500
+      },
+      {
+        "path": "admin_redesign/soft_healthcare_green_v1/forecast_account_redesign_batch_v1/source_before/Frontend/src/app/components/Forecast.tsx",
+        "sha256": "f09b249620d4858d3b71d5f157ab6562e03d864e78f13a2b81d6de48c27f60cd",
+        "mtime_ns": 1793435846338789200
+      }
+    ],
+    "reason": "Standalone verifier uses repository cwd and bundle __dirname; module dependencies and local baseline paths remain valid without script edits"
+  },
+  {
+    "src": "README_RUN_FIXED.md",
+    "dest": "project_archive/legacy_docs/root_readmes_v2/README_RUN_FIXED.md",
+    "action": "MOVE_LEGACY_DOC",
+    "files": [
+      {
+        "path": "README_RUN_FIXED.md",
+        "sha256": "c84e1fc8088ff84fbb0a3b8ae0cae05f07836c14ae1d2cdcb98db21f10b63781",
+        "mtime_ns": 1792724934265470400
+      }
+    ],
+    "reason": "Original document preserved; useful verified content consolidated in canonical README and docs/data-and-models.md or docs/local-development.md"
+  },
+  {
+    "src": "README_IMPORT_AND_MODEL_DATA.md",
+    "dest": "project_archive/legacy_docs/root_readmes_v2/README_IMPORT_AND_MODEL_DATA.md",
+    "action": "MOVE_LEGACY_DOC",
+    "files": [
+      {
+        "path": "README_IMPORT_AND_MODEL_DATA.md",
+        "sha256": "29daa0edbc56c29c9b60639454f5a11710bba8235a42b480c56c70f5da571d32",
+        "mtime_ns": 1779764676000000000
+      }
+    ],
+    "reason": "Original document preserved; useful verified content consolidated in canonical README and docs/data-and-models.md or docs/local-development.md"
+  },
+  {
+    "src": "README_MODEL_TRAIN_EXCEL.md",
+    "dest": "project_archive/legacy_docs/root_readmes_v2/README_MODEL_TRAIN_EXCEL.md",
+    "action": "MOVE_LEGACY_DOC",
+    "files": [
+      {
+        "path": "README_MODEL_TRAIN_EXCEL.md",
+        "sha256": "02ec697b75d645f193e8c7b9acb0ef7e17e4aa2f560f2b123c01fb06408547bd",
+        "mtime_ns": 1779764659000000000
+      }
+    ],
+    "reason": "Original document preserved; useful verified content consolidated in canonical README and docs/data-and-models.md or docs/local-development.md"
+  },
+  {
+    "src": ".pytest_cache",
+    "dest": "project_archive/misc_archive/pytest_cache_root_v2",
+    "action": "MOVE_REGENERABLE_CACHE",
+    "files": [
+      {
+        "path": ".pytest_cache/.gitignore",
+        "bytes": 39,
+        "mtime_ns": 1787065800757797300,
+        "sha256": "e7c6bb30148cf667606dcd63e7ca77acaa3cfb0c8303bf09e6419e1e1669dc6d"
+      },
+      {
+        "path": ".pytest_cache/CACHEDIR.TAG",
+        "bytes": 191,
+        "mtime_ns": 1787065800758794100,
+        "sha256": "37dc88ef9a0abeddbe81053a6dd8fdfb13afb613045ea1eb4a5c815a74a3bde4"
+      },
+      {
+        "path": ".pytest_cache/README.md",
+        "bytes": 310,
+        "mtime_ns": 1787065800757797300,
+        "sha256": "420e808d79a6c25d3cda0af33bc4782314a14949866682c68ce8149e89b66b70"
+      },
+      {
+        "path": ".pytest_cache/v/cache/lastfailed",
+        "bytes": 42613,
+        "mtime_ns": 1787065800761181000,
+        "sha256": "a34b08b7ec057c3bbf257cf3e61b41686773c73e1a62c3c6a1c10a9be469757e"
+      },
+      {
+        "path": ".pytest_cache/v/cache/nodeids",
+        "bytes": 56640,
+        "mtime_ns": 1788021558202238200,
+        "sha256": "7a8e350f4ca04302a13ed66e9d4d05c351d18de22eb075c9185f37e366a5f41e"
+      }
+    ],
+    "reason": "Untracked/ignored pytest cache with validated cache tag and JSON metadata; no active pytest process observed; preserve bytes instead of deleting"
+  }
+]

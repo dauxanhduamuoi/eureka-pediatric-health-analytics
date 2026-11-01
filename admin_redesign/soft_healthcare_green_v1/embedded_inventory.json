@@ -1,0 +1,84 @@
+[
+  {
+    "component": "Frontend/src/app/components/DiseaseCodesManager.tsx",
+    "api_methods": [
+      "getDiseaseCodesStatus",
+      "listDiseaseCodes"
+    ],
+    "redesign": "Inherits isolated Admin form, surface, table, focus and dialog primitives; existing handlers unchanged"
+  },
+  {
+    "component": "Frontend/src/app/components/ProvinceRegionsManager.tsx",
+    "api_methods": [
+      "getProvinceRegionsStatus",
+      "importProvinceRegions",
+      "previewProvinceRegions"
+    ],
+    "redesign": "Inherits isolated Admin form, surface, table, focus and dialog primitives; existing handlers unchanged"
+  },
+  {
+    "component": "Frontend/src/app/components/ParentGuideManager.tsx",
+    "api_methods": [
+      "getParentGuideStatus",
+      "importParentGuide",
+      "listParentGuide",
+      "previewParentGuide"
+    ],
+    "redesign": "Inherits isolated Admin form, surface, table, focus and dialog primitives; existing handlers unchanged"
+  },
+  {
+    "component": "Frontend/src/app/components/medical-knowledge/ServiceConfigurationPanel.tsx",
+    "api_methods": [
+      "getMedicalEvidenceProviderSettings",
+      "getMedicalKnowledgeServiceStatus",
+      "testLlmConnection",
+      "testPubMedConnection",
+      "updateMedicalEvidenceProviderSetting"
+    ],
+    "redesign": "Inherits isolated Admin form, surface, table, focus and dialog primitives; existing handlers unchanged"
+  },
+  {
+    "component": "Frontend/src/app/components/medical-knowledge/AutoMedicalKnowledgePanel.tsx",
+    "api_methods": [
+      "getAutoTierPresentation",
+      "updateAutoMedicalKnowledgeSettings"
+    ],
+    "redesign": "Inherits isolated Admin form, surface, table, focus and dialog primitives; existing handlers unchanged"
+  },
+  {
+    "component": "Frontend/src/app/components/medical-knowledge/MedicalDraftWorkspace.tsx",
+    "api_methods": [
+      "approveMedicalKnowledgeRevision",
+      "generateMedicalKnowledgeDraft",
+      "getMedicalKnowledgeDraftHistory",
+      "getMedicalKnowledgeRevision",
+      "publishMedicalKnowledgeRevision",
+      "updateMedicalKnowledgeDraft"
+    ],
+    "redesign": "Inherits isolated Admin form, surface, table, focus and dialog primitives; existing handlers unchanged"
+  },
+  {
+    "component": "Frontend/src/app/components/medical-knowledge/MedicalDraftReviewForm.tsx",
+    "api_methods": [
+      "publishing"
+    ],
+    "redesign": "Inherits isolated Admin form, surface, table, focus and dialog primitives; existing handlers unchanged"
+  },
+  {
+    "component": "Frontend/src/app/components/medical-knowledge/MedicalTopicSourceLibrary.tsx",
+    "api_methods": [],
+    "redesign": "Inherits isolated Admin form, surface, table, focus and dialog primitives; existing handlers unchanged"
+  },
+  {
+    "component": "Frontend/src/app/components/medical-knowledge/PubMedSearchForm.tsx",
+    "api_methods": [],
+    "redesign": "Inherits isolated Admin form, surface, table, focus and dialog primitives; existing handlers unchanged"
+  },
+  {
+    "component": "Frontend/src/app/components/medical-knowledge/WhoExactLookup.tsx",
+    "api_methods": [
+      "lookupMedicalEvidenceExact"
+    ],
+    "redesign": "Inherits isolated Admin form, surface, table, focus and dialog primitives; existing handlers unchanged"
+  }
+]

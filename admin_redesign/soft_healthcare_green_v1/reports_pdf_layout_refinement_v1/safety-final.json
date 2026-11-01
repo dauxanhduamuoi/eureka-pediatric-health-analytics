@@ -1,0 +1,12 @@
+{
+  "baseline_files_checked": 563,
+  "changed_files": [
+    "seasonal_disease_backend/app/services/report_export.py"
+  ],
+  "new_test": "seasonal_disease_backend/tests/test_reports_pdf_layout.py",
+  "git_index_unchanged": true,
+  "head_unchanged": true,
+  "original_pdf_unchanged": true,
+  "db_and_env_unchanged": true,
+  "models_checked": 221
+}

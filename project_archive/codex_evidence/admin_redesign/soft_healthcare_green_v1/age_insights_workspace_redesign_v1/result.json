@@ -1,0 +1,22 @@
+{
+  "status": "PASS_WITH_FINDINGS",
+  "baselineTests": { "passed": 19, "files": 3, "includesDiagnosticConfirmingBug": true },
+  "finalFrontendTests": { "passed": 102, "failed": 0, "files": 10 },
+  "ageWorkspaceTests": { "passed": 13, "failed": 0 },
+  "typecheck": "PASS",
+  "productionBuild": "PASS",
+  "gitDiffCheck": "PASS_WITH_EXISTING_LINE_ENDING_WARNINGS",
+  "browser": "BROWSER NOT VERIFIED",
+  "protectedFiles": { "inventory": 584, "unchanged": 580, "changedConsumers": 3, "removedBackedUpEntry": 1 },
+  "unexpectedProtectedChanges": 0,
+  "apiAndCacheContracts": "UNCHANGED",
+  "intentionalCorrections": ["Drop stale responses/errors and unmounted reads", "Release loading on invalid range", "Missing peak count is not zero"],
+  "realDatabaseAccessed": false,
+  "backendSourceChanged": false,
+  "backendTestsRun": false,
+  "serverRestartedOrKilled": false,
+  "dependenciesAdded": false,
+  "gitIndexChanged": false,
+  "gitMutationCommandsUsed": false,
+  "stoppedAtRequestedScope": true
+}

@@ -1,0 +1,12 @@
+﻿{
+    "action":  "safe_to_edit",
+    "pids_40364_33960_stopped":  true,
+    "uvicorn_processes":  [
+
+                          ],
+    "port_8000_listeners":  [
+
+                            ],
+    "checked_at":  "2026-10-30T14:27:22.2765601+07:00",
+    "server_started_stopped_restarted":  false
+}

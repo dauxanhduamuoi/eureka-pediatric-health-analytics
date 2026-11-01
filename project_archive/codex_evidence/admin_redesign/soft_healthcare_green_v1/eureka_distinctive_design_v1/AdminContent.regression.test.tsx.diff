@@ -1,0 +1,26 @@
+--- before/Frontend/src/app/components/admin/AdminContent.regression.test.tsx
++++ after/Frontend/src/app/components/admin/AdminContent.regression.test.tsx
+@@ -1,5 +1,5 @@
+ import type { ReactNode } from 'react';
+-import { fireEvent, render, screen, waitFor } from '@testing-library/react';
++import { fireEvent, render, screen, waitFor, within } from '@testing-library/react';
+ import { beforeEach, expect, it, vi } from 'vitest';
+ import { I18nProvider } from '@/lib/i18n';
+ import * as api from '@/lib/api';
+@@ -78,6 +78,16 @@
+   vi.mocked(api.getMonthlyStatistics).mockResolvedValue(frozen);
+   mount(<SeasonalAnalysis />);
+   await waitFor(() => expect(screen.getByRole('combobox', { name: 'Năm xu hướng' })).toHaveValue('2025'));
++  const context = screen.getByRole('complementary', { name: 'Bộ lọc và phạm vi mùa vụ' });
++  expect(within(context).getByRole('combobox', { name: 'Năm xu hướng' })).toHaveValue('2025');
++  expect(within(context).getByRole('region', { name: 'Phạm vi và tóm tắt mùa vụ' })).toBeVisible();
++  const navigation = screen.getByRole('navigation', { name: 'Nhìn rõ nhịp mùa, đọc đúng phạm vi · nội dung' });
++  for (const link of within(navigation).getAllByRole('link')) {
++    expect(document.querySelector(link.getAttribute('href')!)).not.toBeNull();
++  }
++  expect(document.querySelector('#analytics-season-trend')?.closest('.analytics-season-visuals')).not.toBeNull();
++  expect(document.querySelector('#analytics-season-distribution')?.closest('.analytics-season-visuals')).not.toBeNull();
++  expect(document.querySelector('#analytics-season-records')?.closest('.analytics-season-layout')).toBeNull();
+   expect(screen.getByText('Chưa đủ phạm vi so sánh')).toBeVisible();
+   expect(screen.queryByText('-100.0%')).not.toBeInTheDocument();
+   const chart = screen.getByTestId('line-chart');

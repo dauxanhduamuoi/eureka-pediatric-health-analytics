@@ -1,0 +1,18 @@
+{
+  "protected_files_checked": 566,
+  "changed_source_files": [
+    "Frontend/src/app/components/WeatherRisk.test.tsx",
+    "Frontend/src/app/components/WeatherRisk.tsx"
+  ],
+  "unexpected_changes": [],
+  "models_checked": 221,
+  "backend_unchanged": true,
+  "parent_and_shared_explanations_unchanged": true,
+  "api_and_cache_module_unchanged": true,
+  "git_index_unchanged": true,
+  "env_unchanged": true,
+  "real_db_access": "No real/file SQLite connection allowed by backend test guard. Only isolated in-memory SQLite.",
+  "network": "Weather provider mocked; external socket connections blocked. Windows asyncio uses local socketpair only.",
+  "server_operations": "No start, stop, kill or restart. No Python source edits.",
+  "browser": "NOT VERIFIED: browser access host unavailable; no browser screenshots or live E2E."
+}

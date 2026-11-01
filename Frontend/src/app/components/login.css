@@ -1,0 +1,69 @@
+/* Login presentation only; authentication remains in the existing context. */
+.login-page { display: grid; place-items: center; width: 100%; min-height: 100dvh; padding: 32px; background: var(--admin-bg); }
+.login-shell { display: grid; grid-template-columns: minmax(0, 1.22fr) minmax(0, 1fr); width: min(1320px, 100%); min-width: 0; border: 1px solid var(--admin-border); border-radius: 24px; background: var(--admin-surface); box-shadow: 0 18px 64px rgb(23 43 34 / 6%); overflow: hidden; }
+.login-shell > section { min-width: 0; }
+.login-brand { display: flex; align-items: center; gap: 12px; margin-bottom: 40px; }
+.login-brand .admin-brand-mark { width: 44px; height: 44px; background: var(--admin-mint); border: 1px solid var(--admin-border); }
+#root .eureka-admin .login-brand h1 { font-size: 18px; line-height: 1.45; letter-spacing: 0; max-width: 22ch; }
+.login-form-panel { display: flex; align-items: center; justify-content: center; padding: 56px 48px; }
+.login-form-content { width: 100%; max-width: 360px; }
+#root .eureka-admin .login-form-content > h2 { margin-bottom: 32px; font-size: 28px; font-weight: 700; }
+.login-form { display: grid; gap: 20px; }
+.login-field { display: grid; gap: 8px; }
+#root .eureka-admin .login-field > label { font-size: var(--admin-font-body); font-weight: 600; color: var(--admin-ink); }
+#root .eureka-admin .login-input { width: 100%; min-height: 46px; padding: 11px 14px; border-radius: 10px; transition: border-color .15s ease, box-shadow .15s ease; }
+.login-password-control { position: relative; min-width: 0; }
+#root .eureka-admin .login-password-control .login-input { display: block; padding-right: 52px; }
+#root .eureka-admin .login-password-toggle { position: absolute; top: 50%; right: 4px; transform: translateY(-50%); display: inline-flex; align-items: center; justify-content: center; width: var(--admin-control-height); height: var(--admin-control-height); padding: 0; border-radius: 7px; background: transparent; color: var(--admin-muted); transition: background-color .15s ease, color .15s ease; }
+#root .eureka-admin .login-password-toggle:hover { background: var(--admin-mint); color: var(--admin-accent-ink); }
+#root .eureka-admin .login-submit { display: flex; align-items: center; justify-content: center; gap: 10px; width: 100%; min-height: 46px; margin-top: 4px; padding: 11px 16px; border-radius: 10px; background: var(--admin-primary); color: #fff; font-size: var(--admin-font-body); transition: background-color .15s ease, box-shadow .15s ease; }
+#root .eureka-admin .login-submit:not(:disabled):hover { background: var(--admin-hover); }
+#root .eureka-admin .login-submit:not(:disabled):active { background: var(--admin-hover); box-shadow: inset 0 2px 4px rgb(23 43 34 / 16%); }
+.login-submit:disabled { opacity: .65; cursor: not-allowed; }
+.login-error { padding: 10px 12px; border: 1px solid #fecaca; border-radius: 9px; background: #fff1f2; color: #9f1239; font-size: var(--admin-font-label); line-height: 1.6; overflow-wrap: anywhere; }
+.login-parent-link { display: flex; align-items: center; gap: 10px; margin-top: 32px; border-top: 1px solid var(--admin-border); padding-top: 24px; font-size: var(--admin-font-label); color: var(--admin-muted); transition: color .15s ease; }
+.login-parent-link > span { flex: 1; }
+.login-parent-link > svg { flex-shrink: 0; }
+.login-parent-link:hover { color: var(--admin-accent-ink); }
+.login-parent-link:hover > span, .login-parent-link:focus-visible > span { text-decoration: underline; text-underline-offset: 3px; }
+
+/* The photo pane has its own stable box; slow/missing images never shift the form. */
+.login-carousel { position: relative; min-height: 660px; overflow: hidden; background: #deeee3; isolation: isolate; }
+.login-photo-slide, .login-carousel-fallback, .login-photo-shade { position: absolute; inset: 0; }
+.login-photo-slide { opacity: 0; transition: opacity 700ms ease; pointer-events: none; }
+.login-photo-slide[data-active='true'] { opacity: 1; }
+.login-photo-slide img { width: 100%; height: 100%; display: block; object-fit: cover; }
+.login-carousel-fallback { display: grid; place-items: center; padding: 32px; color: #315c46; font-size: 14px; text-align: center; }
+.login-photo-shade { z-index: 1; pointer-events: none; background: linear-gradient(180deg, rgb(9 37 24 / 0%) 36%, rgb(9 37 24 / 12%) 52%, rgb(9 37 24 / 55%) 72%, rgb(9 37 24 / 78%) 100%); }
+.login-photo-content { position: absolute; inset: auto 0 0; z-index: 2; padding: 36px; }
+#root .eureka-admin .login-photo-content h2 { font-size: clamp(26px, 2.5vw, 36px); line-height: 1.3; font-weight: 600; letter-spacing: -.02em; color: #fff; text-wrap: balance; }
+.login-carousel-footer { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px 20px; margin-top: 28px; }
+#root .eureka-admin .login-carousel-footer p { color: #e3eee6; font-size: 12px; }
+.login-carousel-controls, .login-carousel-dots { display: flex; align-items: center; gap: 4px; }
+#root .eureka-admin .login-carousel-controls button { display: inline-flex; align-items: center; justify-content: center; min-width: 36px; min-height: 40px; border-radius: 8px; color: #fff; }
+.login-carousel-dots button > span { display: block; width: 7px; height: 7px; border-radius: 50%; background: rgb(255 255 255 / 50%); transition: background-color .2s; }
+.login-carousel-dots button[aria-current='true'] > span { background: #fff; box-shadow: 0 0 0 3px rgb(255 255 255 / 18%); }
+.login-carousel-controls button:hover:not(:disabled) { background: rgb(255 255 255 / 12%); }
+.login-carousel-controls button:disabled { opacity: .35; }
+#root .eureka-admin .login-carousel-controls button:focus-visible { outline-color: #fff; outline-offset: 1px; }
+@media (max-width: 1100px) {
+  .login-shell { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
+  .login-form-panel { padding: 40px 28px; }
+  .login-photo-content { padding: 28px; }
+}
+@media (max-width: 900px) {
+  .login-page { padding: 24px; }
+  .login-shell { grid-template-columns: minmax(0, 1fr); max-width: 500px; }
+  .login-carousel { display: none; }
+  .login-form-panel { padding: 40px 32px; }
+}
+@media (max-width: 767px) {
+  .login-page { padding: 20px 16px; }
+  .login-shell { grid-template-columns: minmax(0, 1fr); max-width: 480px; border-radius: 18px; }
+  .login-form-panel { padding: 32px 24px; }
+  .login-brand { margin-bottom: 32px; }
+  #root .eureka-admin .login-form-content > h2 { font-size: 24px; margin-bottom: 24px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .login-photo-slide, .login-carousel-dots button > span, #root .eureka-admin :is(.login-input, .login-submit, .login-password-toggle), .login-parent-link { transition: none; }
+}

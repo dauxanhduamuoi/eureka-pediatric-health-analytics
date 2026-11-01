@@ -1,0 +1,146 @@
+{
+  "baseline": {
+    "sha256": "4709bb1da2385b5757a2a2c9e2cdccbaeee8265e91de145519e91adfd250da66",
+    "size": 189222912,
+    "mtime_utc": "2026-10-30T18:11:22.876145+00:00"
+  },
+  "observed": {
+    "sha256": "b29fb2c620b786a1d3437c677e9dd6cefcdf521b3bb8fcaa17404e3153e7ff47",
+    "size": 189222912,
+    "mtime_utc": "2026-10-30T18:19:22.886468+00:00"
+  },
+  "read_mode": "SQLite URI mode=ro&immutable=1, query_only; aggregate timestamps only, no patient or credential content",
+  "operational_tables": [
+    {
+      "table": "login_sessions",
+      "count": 150,
+      "latest_timestamps": {
+        "created_at": "2026-10-30 17:35:38.274643",
+        "last_seen_at": "2026-10-30 18:19:22.879952"
+      }
+    },
+    {
+      "table": "medical_knowledge_revisions",
+      "count": 16,
+      "latest_timestamps": {
+        "created_at": "2026-09-23 15:47:05.480193",
+        "updated_at": "2026-09-23 15:47:05.480193",
+        "reviewed_at": "2026-08-27 06:52:58.066338"
+      }
+    },
+    {
+      "table": "medical_evidence_sources",
+      "count": 199,
+      "latest_timestamps": {
+        "created_at": "2026-10-29 18:07:39.090211"
+      }
+    },
+    {
+      "table": "medical_revision_sources",
+      "count": 32,
+      "latest_timestamps": {}
+    },
+    {
+      "table": "medical_knowledge_publications",
+      "count": 4,
+      "latest_timestamps": {
+        "published_at": "2026-08-24 17:12:14.556824"
+      }
+    },
+    {
+      "table": "medical_knowledge_topic_sources",
+      "count": 40,
+      "latest_timestamps": {}
+    },
+    {
+      "table": "medical_knowledge_topics",
+      "count": 269,
+      "latest_timestamps": {
+        "created_at": "2026-10-29 18:06:24.405141",
+        "updated_at": "2026-10-29 18:06:24.405141"
+      }
+    },
+    {
+      "table": "auto_medical_knowledge_jobs",
+      "count": 311,
+      "latest_timestamps": {
+        "created_at": "2026-10-29 18:06:24.405141",
+        "started_at": "2026-10-29 18:08:43.401007",
+        "finished_at": "2026-10-29 18:08:45.648455"
+      }
+    },
+    {
+      "table": "auto_medical_knowledge_settings",
+      "count": 1,
+      "latest_timestamps": {
+        "updated_at": "2026-08-29 10:17:34.163616"
+      }
+    },
+    {
+      "table": "auto_medical_knowledge_revisions",
+      "count": 306,
+      "latest_timestamps": {
+        "created_at": "2026-10-29 18:08:45.648455"
+      }
+    },
+    {
+      "table": "auto_medical_knowledge_discoveries",
+      "count": 11497,
+      "latest_timestamps": {}
+    },
+    {
+      "table": "auto_medical_knowledge_topic_states",
+      "count": 262,
+      "latest_timestamps": {
+        "created_at": "2026-10-29 18:06:24.405141",
+        "updated_at": "2026-10-30 17:34:10.246909"
+      }
+    },
+    {
+      "table": "auto_medical_knowledge_revision_sources",
+      "count": 71,
+      "latest_timestamps": {}
+    },
+    {
+      "table": "auto_medical_knowledge_provider_cooldowns",
+      "count": 1,
+      "latest_timestamps": {
+        "updated_at": "2026-09-10 14:08:21.448508"
+      }
+    },
+    {
+      "table": "auto_medical_knowledge_numeric_claims",
+      "count": 0,
+      "latest_timestamps": {}
+    },
+    {
+      "table": "auto_medical_knowledge_visibility_audits",
+      "count": 0,
+      "latest_timestamps": {
+        "created_at": null
+      }
+    },
+    {
+      "table": "medical_evidence_provider_settings",
+      "count": 4,
+      "latest_timestamps": {
+        "updated_at": "2026-09-14 12:29:28.173834"
+      }
+    },
+    {
+      "table": "medical_evidence_provider_setting_audits",
+      "count": 8,
+      "latest_timestamps": {
+        "created_at": "2026-09-14 12:29:28.173834"
+      }
+    },
+    {
+      "table": "medical_evidence_contents",
+      "count": 193,
+      "latest_timestamps": {
+        "created_at": "2026-10-29 18:07:39.098716"
+      }
+    }
+  ],
+  "attribution": "NOT ESTABLISHED: no row-level baseline or writer trace; running backend and background work must be considered. No restoration performed."
+}

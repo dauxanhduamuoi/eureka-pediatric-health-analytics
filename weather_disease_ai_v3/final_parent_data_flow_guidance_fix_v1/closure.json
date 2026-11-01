@@ -1,0 +1,19 @@
+{
+  "changed_files": [
+    "Frontend\\src\\app\\components\\ParentPortal.test.tsx",
+    "Frontend\\src\\app\\components\\ParentPortal.tsx",
+    "Frontend\\src\\app\\components\\parent\\ParentDiseaseCard.tsx",
+    "Frontend\\src\\i18n\\locales\\en.ts",
+    "Frontend\\src\\i18n\\locales\\vi.ts",
+    "Frontend\\src\\lib\\disease.test.ts",
+    "Frontend\\src\\lib\\disease.ts",
+    "seasonal_disease_backend\\tests\\test_parent_weather_only_contract.py"
+  ],
+  "changed_tables_excluding_live_login_sessions": [
+    "area_provinces"
+  ],
+  "real_db_file_changed": true,
+  "index_unchanged": true,
+  "head_unchanged": true,
+  "read_only_total_changes": 0
+}

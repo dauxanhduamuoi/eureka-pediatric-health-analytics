@@ -1,0 +1,14 @@
+{
+  "files": {
+    "Frontend/src/app/AppPages.tsx": "75e2adbcaf5228bd0ccf9bb2a113a798cd693425f3e5bfa675e719551bc02c7f",
+    "Frontend/src/app/components/admin/AdminPages.regression.test.tsx": "07c21eb6f4d8c875839ba52595cd4922b741334aecc047d7024a94c2b2d278ce",
+    "Frontend/src/app/components/admin/ChartVisuals.test.tsx": "a78c926b9192dc01d775d81552c2bc8c6ab1adcd14738dbc0e8a1fa834df5486",
+    "Frontend/src/app/components/age-insights/AgeDataViews.tsx": "9e0a43efb91a35d2e3601913d8f3606abb82f8d04720fd7ab643a816ed4d0b8d",
+    "Frontend/src/app/components/age-insights/AgeFilterPanel.tsx": "6057e6ff76ca83804f3d66ee109f1bff953a9350dadb8904a9d52afa5d066b74",
+    "Frontend/src/app/components/age-insights/AgeInsights.css": "053191abf027ec7fa744e5146843034e4fc0f8046b4139fa4b1543492c8d4405",
+    "Frontend/src/app/components/age-insights/AgeInsightsWorkspace.test.tsx": "c997524be80891d6a2fd599b9e3e706bfa4cdea3c868b33acfb28e46916c0478",
+    "Frontend/src/app/components/age-insights/AgeInsightsWorkspace.tsx": "3e53421fbf69daa4053ddeb38388ebdbe90b1114ff612d23d30ad919e0262ca2",
+    "Frontend/src/app/components/age-insights/useAgeInsights.ts": "04380a0758a13454ce7596e8c0f2adcf4eb40089b3289894ecfebbf8969ace9b"
+  },
+  "trailingWhitespace": []
+}

@@ -1,0 +1,35 @@
+{
+  "pass": true,
+  "checks": {
+    "functionBodies": {
+      "loadUsers": true,
+      "handleCreateUser": true,
+      "selectedUser": true,
+      "togglePermission": true,
+      "saveSelectedUserPermissions": true,
+      "handleResetPassword": true,
+      "downloadCreatedAccounts": true,
+      "handleBulkCreate": true,
+      "updatePref": true,
+      "handleSave": true,
+      "handleReset": true,
+      "PermissionChecklist": true,
+      "RoleSelect": true,
+      "Input": true
+    },
+    "roleFilterAndPolicyExpressions": {
+      "isAdmin": true,
+      "canAdmin": true,
+      "visiblePermissionDefs": true,
+      "adminDefaultPermissions": true,
+      "defaultPermissionsForRole": true,
+      "roleLabels": true,
+      "filteredUsers": true,
+      "userTotalPages": true,
+      "pagedUsers": true
+    },
+    "hookInitializersAndEffects": true,
+    "apiCallExpressionsAndPayloads": true
+  },
+  "scope": "Static extraction parity; does not prove visual or live authentication behaviour"
+}

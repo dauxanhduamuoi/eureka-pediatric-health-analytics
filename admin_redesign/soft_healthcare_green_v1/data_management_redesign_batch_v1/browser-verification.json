@@ -1,0 +1,9 @@
+{
+  "status": "BROWSER NOT VERIFIED",
+  "nativeSkill": "computer-use:computer-use",
+  "nativeError": "Computer Use native pipe is unavailable: failed to connect native pipe: The system cannot find the file specified. (os error 2)",
+  "cuaInventory": {"apps": [], "browsers": [], "errors": ["Native apps: Computer Use native pipe is unavailable", "Browsers: The browser access host is unavailable"]},
+  "viewportsNotVisuallyVerified": [1440, 1280, 768, 390],
+  "realUploadsPerformed": false,
+  "screenshotsCreated": false
+}

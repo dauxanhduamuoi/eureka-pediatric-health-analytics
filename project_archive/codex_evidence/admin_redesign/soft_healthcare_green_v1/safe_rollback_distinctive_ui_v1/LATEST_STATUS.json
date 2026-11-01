@@ -1,0 +1,9 @@
+{
+  "status": "RESTORED",
+  "report": "restoration_approved_v1/REPORT.md",
+  "evidence": "restoration_approved_v1/restoration.json",
+  "prior_blocked_report_retained": "REPORT.md",
+  "source_files_match_pre_distinctive_baseline": true,
+  "tests": 139,
+  "browser": "NOT VERIFIED"
+}

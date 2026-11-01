@@ -1,0 +1,137 @@
+{
+  "baseline_commit": "1671172675963ac0f7633d4252c7f7e760669fdd",
+  "zip_name": "ThucTap-main.zip",
+  "comparison": "UTF-8 text, CRLF normalized, no whitespace or AST normalization",
+  "selected_files": [
+    {
+      "path": "Frontend/README.md",
+      "git_blob": "92f1e771ca46f2a2e185c22c6126beea9a571020",
+      "zip_present": true,
+      "zip_equals_earliest_git_text": true,
+      "current_equals_earliest_git_text": true,
+      "zip_datetime": [
+        2026,
+        5,
+        21,
+        5,
+        44,
+        26
+      ],
+      "zip_equals_primary_baseline_git_text": true
+    },
+    {
+      "path": "Frontend/package.json",
+      "git_blob": "dd1a11589d3f34eb5acd7ee6021ef12f46a98e02",
+      "zip_present": true,
+      "zip_equals_earliest_git_text": true,
+      "current_equals_earliest_git_text": false,
+      "zip_datetime": [
+        2026,
+        6,
+        1,
+        15,
+        18,
+        12
+      ],
+      "zip_equals_primary_baseline_git_text": true
+    },
+    {
+      "path": "Frontend/src/app/App.tsx",
+      "git_blob": "63574f9964f9c936e63c1a42d80e7eed7db82b1f",
+      "zip_present": true,
+      "zip_equals_earliest_git_text": false,
+      "current_equals_earliest_git_text": false,
+      "zip_datetime": [
+        2026,
+        6,
+        9,
+        11,
+        29,
+        14
+      ],
+      "zip_equals_primary_baseline_git_text": true
+    },
+    {
+      "path": "Frontend/src/app/navigation.ts",
+      "git_blob": "70ed5133201cd73b7228b02750a78f1a9945a3d5",
+      "zip_present": true,
+      "zip_equals_earliest_git_text": true,
+      "current_equals_earliest_git_text": false,
+      "zip_datetime": [
+        2026,
+        6,
+        1,
+        13,
+        40,
+        26
+      ],
+      "zip_equals_primary_baseline_git_text": true
+    },
+    {
+      "path": "Frontend/src/app/components/DashboardOverview.tsx",
+      "git_blob": "71c77a39ed03a0fff40193d5b698db1c290b6907",
+      "zip_present": true,
+      "zip_equals_earliest_git_text": false,
+      "current_equals_earliest_git_text": false,
+      "zip_datetime": [
+        2026,
+        6,
+        14,
+        23,
+        21,
+        18
+      ],
+      "zip_equals_primary_baseline_git_text": true
+    },
+    {
+      "path": "Frontend/src/app/components/SeasonalAnalysis.tsx",
+      "git_blob": "3c4a47dbefc279f9aa3252289e0d31d521f4032a",
+      "zip_present": true,
+      "zip_equals_earliest_git_text": false,
+      "current_equals_earliest_git_text": false,
+      "zip_datetime": [
+        2026,
+        6,
+        14,
+        23,
+        22,
+        20
+      ],
+      "zip_equals_primary_baseline_git_text": true
+    },
+    {
+      "path": "Frontend/src/styles/index.css",
+      "git_blob": "e70131ca7495b574d1fabec7e911cf2a8fa276eb",
+      "zip_present": true,
+      "zip_equals_earliest_git_text": false,
+      "current_equals_earliest_git_text": false,
+      "zip_datetime": [
+        2026,
+        6,
+        10,
+        23,
+        51,
+        54
+      ],
+      "zip_equals_primary_baseline_git_text": true
+    },
+    {
+      "path": "Frontend/src/styles/theme.css",
+      "git_blob": "b9fda97bdfd03ede21c72edb3d1d0c1c0a5da68a",
+      "zip_present": true,
+      "zip_equals_earliest_git_text": true,
+      "current_equals_earliest_git_text": true,
+      "zip_datetime": [
+        2026,
+        5,
+        21,
+        5,
+        44,
+        26
+      ],
+      "zip_equals_primary_baseline_git_text": true
+    }
+  ],
+  "claim_limit": "Local older source baseline; not proof of ownership/license or exact institutional internship handoff.",
+  "primary_baseline_commit": "2f2eec70db444ef177fbdc5d4d325a1e17db8855"
+}

@@ -1,0 +1,112 @@
+{
+  "checks": [
+    {
+      "check": "wrong password 401",
+      "status": "PASS"
+    },
+    {
+      "check": "inactive account 403",
+      "status": "PASS"
+    },
+    {
+      "check": "real bcrypt + isolated admin login 200",
+      "status": "PASS"
+    },
+    {
+      "check": "isolated staff login 200",
+      "status": "PASS"
+    },
+    {
+      "check": "admin me",
+      "status": "PASS"
+    },
+    {
+      "check": "unauthenticated 401 /api/dashboard/overview",
+      "status": "PASS"
+    },
+    {
+      "check": "unauthenticated 401 /api/forecast/results",
+      "status": "PASS"
+    },
+    {
+      "check": "unauthenticated 401 /api/import/job-status",
+      "status": "PASS"
+    },
+    {
+      "check": "staff dashboard allowed",
+      "status": "PASS"
+    },
+    {
+      "check": "staff forecast denied",
+      "status": "PASS"
+    },
+    {
+      "check": "staff import denied before file processing",
+      "status": "PASS"
+    },
+    {
+      "check": "dashboard excludes training rows",
+      "status": "PASS"
+    },
+    {
+      "check": "year coverage includes observed zero month",
+      "status": "PASS"
+    },
+    {
+      "check": "monthly preserves observed zero",
+      "status": "PASS"
+    },
+    {
+      "check": "top totals equal dashboard",
+      "status": "PASS"
+    },
+    {
+      "check": "age filter uses synthetic patients only",
+      "status": "PASS"
+    },
+    {
+      "check": "forecast defaults to next observed month, excludes stale period",
+      "status": "PASS"
+    },
+    {
+      "check": "forecast group total matches details",
+      "status": "PASS"
+    },
+    {
+      "check": "new observed period without matching forecast hides older predictions",
+      "status": "PASS"
+    },
+    {
+      "check": "explicit older forecast period remains available intentionally",
+      "status": "PASS"
+    },
+    {
+      "check": "import invalid extension rejected",
+      "status": "PASS"
+    },
+    {
+      "check": "import requires disease codes before parsing upload",
+      "status": "PASS"
+    },
+    {
+      "check": "invalid forecast horizon rejected before model",
+      "status": "PASS"
+    },
+    {
+      "check": "forecast runtime error surfaced 400",
+      "status": "PASS"
+    },
+    {
+      "check": "isolated session revocation succeeds",
+      "status": "PASS"
+    },
+    {
+      "check": "revoked token rejected",
+      "status": "PASS"
+    }
+  ],
+  "passed": 26,
+  "real_db": false,
+  "real_forecast_model_invocation": false,
+  "import_excel_parse": "NOT VERIFIED: tested authorization and validation before actual import"
+}

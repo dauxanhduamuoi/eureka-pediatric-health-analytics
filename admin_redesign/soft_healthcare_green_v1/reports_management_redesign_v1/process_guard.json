@@ -1,0 +1,27 @@
+﻿{
+    "backend_started_stopped_or_restarted":  false,
+    "source_changed":  false,
+    "listeners":  [
+                      {
+                          "LocalAddress":  "127.0.0.1",
+                          "LocalPort":  8000,
+                          "OwningProcess":  32864
+                      }
+                  ],
+    "real_db_accessed":  false,
+    "processes":  [
+                      {
+                          "ProcessId":  32864,
+                          "ParentProcessId":  20488,
+                          "Name":  "python.exe",
+                          "CommandLine":  "python  -m uvicorn app.main:app --reload --port 8000"
+                      },
+                      {
+                          "ProcessId":  45724,
+                          "ParentProcessId":  32864,
+                          "Name":  "python.exe",
+                          "CommandLine":  "\"D:\\Users\\LENOVO\\anaconda3\\envs\\seasonal_backend\\python.exe\" \"-c\" \"from multiprocessing.spawn import spawn_main; spawn_main(parent_pid=32864, pipe_handle=332)\" \"--multiprocessing-fork\""
+                      }
+                  ],
+    "status":  "BLOCKED_RELOAD_NO_SOURCE_PATCH"
+}

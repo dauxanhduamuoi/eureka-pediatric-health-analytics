@@ -1,0 +1,54 @@
+{
+  "checks": {
+    "no_anchor_overlap": true,
+    "train_h14_before_validation": true,
+    "validation_h14_before_test": true
+  },
+  "files": {
+    "test_queries": {
+      "path": "data/splits/test_query_ids.csv",
+      "sha256": "2c536a615db278f381c1d13ad3a8cb90e8a92286a5646806d5574e763d76d986"
+    },
+    "train_queries": {
+      "path": "data/splits/train_query_ids.csv",
+      "sha256": "181a8a84be64b2fc64ceab744adefddd4877433da390c487fa4674067b8c4443"
+    },
+    "validation_queries": {
+      "path": "data/splits/validation_query_ids.csv",
+      "sha256": "f09171ac42c6b68efc1cb7b2ce4069a80d4db35d29ecba1d561a3ddf2c0a8bd8"
+    }
+  },
+  "max_horizon_days": 14,
+  "method": "chronological_unique_anchor_dates_70_15_15_with_h14_purge",
+  "purge_gap_days": 13,
+  "purge_train_validation": {
+    "date_from": "2023-12-15",
+    "date_to": "2023-12-27",
+    "queries_excluded": 156,
+    "unique_anchor_dates": 13
+  },
+  "purge_validation_test": {
+    "date_from": "2024-08-13",
+    "date_to": "2024-08-25",
+    "queries_excluded": 156,
+    "unique_anchor_dates": 13
+  },
+  "test": {
+    "date_from": "2024-08-26",
+    "date_to": "2025-04-13",
+    "queries": 2772,
+    "unique_anchor_dates": 231
+  },
+  "train": {
+    "date_from": "2021-01-07",
+    "date_to": "2023-12-14",
+    "queries": 12864,
+    "unique_anchor_dates": 1072
+  },
+  "validation": {
+    "date_from": "2023-12-28",
+    "date_to": "2024-08-12",
+    "queries": 2748,
+    "unique_anchor_dates": 229
+  }
+}

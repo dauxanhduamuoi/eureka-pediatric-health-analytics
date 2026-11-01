@@ -1,0 +1,45 @@
+*** Begin Patch
+*** Update File: seasonal_disease_backend/app/services/weather_ai_explanations.py
+@@
+ import logging
++import math
+@@
+     def _summary(positive_factors: list[dict[str, Any]]) -> str:
+-        labels: list[str] = []
+-        for factor in positive_factors:
+-            label = str(factor["label_vi"])
+-            if label not in labels:
+-                labels.append(label)
+-            if len(labels) == 3:
+-                break
+-        if not labels:
+-            return "Không có feature dương đủ rõ để mô tả lý do điểm xếp hạng tăng trong context này."
+-        if len(labels) == 1:
+-            subject = labels[0]
+-        else:
+-            subject = ", ".join(labels[:-1]) + " và " + labels[-1]
+-        return f"{subject} đang góp phần làm nhóm bệnh này được model xếp hạng cao hơn."
++        # Compatibility summary only. Named features/groups are presented by
++        # the shared frontend helper, using complete display contributions.
++        if not positive_factors:
++            return "Không có đóng góp tăng điểm AI đáng kể trong lần giải thích này."
++        return "Các đặc trưng dương được chọn góp phần làm điểm AI của nhóm bệnh này tăng."
+@@
+         values, base_value, additivity_error = self.registry.local_contributions(
+             disease_id, encoded_features
+         )
++        if not all(math.isfinite(float(value)) for value in [*values, base_value, additivity_error]):
++            raise ValueError("SHAP explanation contains nonfinite values.")
+@@
+             "negative_factors": negative,
++            # Full significant set from the same SHAP call, in locked feature
++            # order. Preserve the legacy Top-5 lists used by Medical Knowledge.
++            "display_factors": factors,
+*** Update File: seasonal_disease_backend/app/weather_ai_schemas.py
+@@
+     negative_factors: list[Tier1FactorResponse]
++    display_factors: list[Tier1FactorResponse] | None = Field(
++        default=None, max_length=45,
++        description="Complete significant SHAP contributions for presentation; absent in legacy responses.",
++    )
+*** End Patch

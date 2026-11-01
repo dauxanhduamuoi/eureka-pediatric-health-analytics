@@ -1,0 +1,42 @@
+{
+  "baseline_head": "6a69d26e7b07188f7def6cd7bcf9481f8e2eb649",
+  "current_head": "6a69d26e7b07188f7def6cd7bcf9481f8e2eb649",
+  "index_unchanged": true,
+  "changed_files_since_task_start": [
+    "Frontend\\src\\app\\App.navigation.test.tsx",
+    "Frontend\\src\\app\\App.tsx",
+    "Frontend\\src\\app\\AppPages.tsx",
+    "Frontend\\src\\app\\components\\AdminMainNavigation.tsx",
+    "Frontend\\src\\app\\components\\ParentDiseaseVisibilityPage.tsx",
+    "Frontend\\src\\app\\components\\ParentDiseaseVisibilitySettings.test.tsx",
+    "Frontend\\src\\app\\components\\Settings.parentDiseaseVisibility.test.tsx",
+    "Frontend\\src\\app\\components\\Settings.tsx",
+    "Frontend\\src\\app\\navigation.ts",
+    "Frontend\\src\\app\\useAdminSectionNavigation.ts",
+    "Frontend\\src\\i18n\\locales\\en.ts",
+    "Frontend\\src\\i18n\\locales\\vi.ts"
+  ],
+  "changed_tables_excluding_live_login_sessions": [],
+  "real_db_whole_file_changed": true,
+  "baseline_real_db_sha256": "66f2ae81f9c77f56571305ffe7a58c9be0eb71b3deb6e7768592e72fa08a5398",
+  "current_real_db_sha256": "b7b0d1eaa866b9bd460d411d80ae56040407c3ddbad0dc2470286debeac7d2cd",
+  "baseline_read_only_total_changes": 0,
+  "current_read_only_total_changes": 0,
+  "table_count": 32,
+  "login_sessions_excluded": true,
+  "source_application_backend_unchanged": true,
+  "parent_source_unchanged": true,
+  "visibility_editor_source_unchanged": true,
+  "browser_desktop_mobile": "NOT VERIFIED: apps=[], browsers=[]",
+  "tests": {
+    "frontend": {
+      "files": 17,
+      "passed": 379
+    },
+    "targeted_navigation_passed": 30,
+    "backend_permission_ranking_visibility_passed": 23,
+    "typecheck": "PASS",
+    "build": "PASS",
+    "diff_check": "PASS"
+  }
+}
