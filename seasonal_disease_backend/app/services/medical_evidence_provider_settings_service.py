@@ -3,6 +3,7 @@ from __future__ import annotations
 from datetime import datetime
 
 from sqlalchemy import select
+from sqlalchemy.dialects.sqlite import insert as sqlite_insert
 from sqlalchemy.orm import Session
 
 from app.medical_evidence_provider_settings_schemas import (
@@ -53,15 +54,21 @@ class MedicalEvidenceProviderSettingsService:
                 key = (descriptor.provider_id, workflow)
                 if key in by_key:
                     continue
-                row = MedicalEvidenceProviderSetting(
+                # Two cold requests may both observe a missing row. Insert atomically
+                # without replacing defaults/choices committed by the other request.
+                self.db.execute(sqlite_insert(MedicalEvidenceProviderSetting).values(
                     provider_id=descriptor.provider_id,
                     workflow=workflow,
                     enabled=DEFAULT_PROVIDER_ENABLEMENT.get(key, False),
                     updated_at=now,
                     updated_by=None,
-                )
-                self.db.add(row)
-                by_key[key] = row
+                ).on_conflict_do_nothing(index_elements=['provider_id', 'workflow']))
+                by_key[key] = self.db.scalars(
+                    select(MedicalEvidenceProviderSetting).where(
+                        MedicalEvidenceProviderSetting.provider_id == descriptor.provider_id,
+                        MedicalEvidenceProviderSetting.workflow == workflow,
+                    )
+                ).one()
         self.db.flush()
         return by_key
 

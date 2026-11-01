@@ -1,6 +1,7 @@
 ﻿from fastapi import APIRouter, Depends, Query, HTTPException
 from sqlalchemy import func
 from sqlalchemy.orm import Session
+import logging
 
 from app.database import get_db
 from app.models import ForecastResult, MonthlyStatistic, User
@@ -8,6 +9,7 @@ from app.security import require_permission
 from app.services.forecast_service import run_forecast
 
 router = APIRouter(prefix="/api/forecast", tags=["Forecast"])
+logger = logging.getLogger(__name__)
 
 
 def _next_period_after_latest_predict_current(db: Session) -> str | None:
@@ -50,8 +52,14 @@ def run_ai_forecast(
             last_completed_period=last_completed_period,
             forecast_horizon=forecast_horizon,
         )
-    except Exception as e:
-        raise HTTPException(status_code=400, detail=str(e))
+    except (FileNotFoundError, ImportError) as exc:
+        logger.exception("Forecast dependency unavailable")
+        raise HTTPException(status_code=503, detail="Mô hình hoặc dữ liệu lịch sử dự báo chưa sẵn sàng.") from exc
+    except ValueError as exc:
+        raise HTTPException(status_code=400, detail="Chưa đủ dữ liệu hợp lệ để chạy dự báo. Vui lòng kiểm tra kỳ dữ liệu.") from exc
+    except Exception as exc:
+        logger.exception("Forecast execution failed")
+        raise HTTPException(status_code=500, detail="Không thể chạy dự báo lúc này. Vui lòng thử lại.") from exc
 
     return {
         "message": "Chạy dự báo thành công.",

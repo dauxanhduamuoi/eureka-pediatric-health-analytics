@@ -30,8 +30,9 @@ def weather_ai_options(current_user: User = Depends(require_permission("feature.
     """Lấy nhóm tuổi, giới tính và danh mục nhóm bệnh model đang hỗ trợ."""
     try:
         return get_weather_ai_options()
-    except Exception as e:
-        raise HTTPException(status_code=400, detail=str(e))
+    except Exception as exc:
+        logger.exception("Weather AI options unavailable")
+        raise HTTPException(status_code=503, detail="Mô hình AI thời tiết chưa sẵn sàng. Vui lòng thử lại.") from exc
 
 
 @router.post("/predict-risk", response_model=WeatherAIPredictResponse)
@@ -69,7 +70,7 @@ def predict_risk(
     except ValueError as exc:
         raise HTTPException(status_code=422, detail=str(exc)) from exc
     except ModelRuntimeError as exc:
-        raise HTTPException(status_code=503, detail=str(exc)) from exc
+        raise HTTPException(status_code=503, detail="Mô hình AI thời tiết chưa sẵn sàng. Vui lòng thử lại.") from exc
     except Exception as exc:
         logger.exception("Weather AI request failed")
         raise HTTPException(status_code=500, detail="Weather AI runtime error.") from exc

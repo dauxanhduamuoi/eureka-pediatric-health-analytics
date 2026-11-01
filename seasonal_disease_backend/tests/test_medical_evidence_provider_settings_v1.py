@@ -42,6 +42,42 @@ from app.services.who_evidence_provider import WHO_LICENSE_URL
 from migrations.v017_medical_evidence_provider_settings import upgrade
 
 
+def test_concurrent_first_reads_seed_once_without_overwriting_choices(tmp_path, registry):
+    from concurrent.futures import ThreadPoolExecutor
+    from threading import Barrier, local
+    from sqlalchemy import event
+
+    engine = create_engine(f"sqlite:///{(tmp_path / 'settings-race.sqlite').as_posix()}", connect_args={'check_same_thread': False})
+    Base.metadata.create_all(engine)
+    barrier, seen = Barrier(2), local()
+
+    def synchronize_initial_read(conn, cursor, statement, parameters, context, many):
+        if statement.lstrip().upper().startswith('SELECT') and 'medical_evidence_provider_settings' in statement and not getattr(seen, 'read', False):
+            seen.read = True
+            barrier.wait(timeout=10)
+
+    event.listen(engine, 'after_cursor_execute', synchronize_initial_read)
+    def read():
+        with Session(engine) as session:
+            result = MedicalEvidenceProviderSettingsService(session, registry).read()
+            session.commit()
+            return {(p.provider_id, p.workflow): p.enabled for p in result.providers}
+    try:
+        with ThreadPoolExecutor(max_workers=2) as executor:
+            results = list(executor.map(lambda _: read(), range(2)))
+        assert results[0] == results[1]
+    finally:
+        event.remove(engine, 'after_cursor_execute', synchronize_initial_read)
+    with Session(engine) as session:
+        assert session.scalar(select(func.count()).select_from(MedicalEvidenceProviderSetting)) == 4
+        service = MedicalEvidenceProviderSettingsService(session, registry)
+        setting = service.reconcile()[('PUBMED', 'AUTO')]
+        setting.enabled = False
+        session.commit()
+        assert not service.reconcile()[('PUBMED', 'AUTO')].enabled
+    engine.dispose()
+
+
 class FakeProvider:
     def __init__(self, provider_id: str):
         self.descriptor = MedicalEvidenceProviderDescriptor(
