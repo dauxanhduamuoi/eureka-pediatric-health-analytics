@@ -1,4 +1,4 @@
-import { Suspense, useMemo } from 'react';
+import { lazy, Suspense, useMemo } from 'react';
 import { Loader2 } from 'lucide-react';
 import AppPages, { ParentPortalPage } from './AppPages';
 import LoginPage from './components/LoginPage';
@@ -9,6 +9,9 @@ import { useUnreadNotifications } from './hooks/useUnreadNotifications';
 import { canAccessTab, getMainNavItems, type TabType } from './navigation';
 import { useAdminSectionNavigation } from './useAdminSectionNavigation';
 import { useT } from '@/lib/i18n';
+import { ParentVersionNavigation } from './components/parent-modern/ParentVersionNavigation';
+
+const ModernParentPortal = lazy(() => import('./components/parent-modern/ModernParentPortal'));
 
 function AppShell() {
   const { user, logout } = useAuth();
@@ -50,7 +53,10 @@ function AuthGate() {
 export default function App() {
   const publicPath = window.location.pathname.toLowerCase().replace(/\/+$/, '') || '/';
   if (publicPath === '/phu-huynh' || publicPath === '/parents') {
-    return <Suspense fallback={<LoadingFallback fullPage />}><ParentPortalPage /></Suspense>;
+    return <Suspense fallback={<LoadingFallback fullPage />}><ModernParentPortal /></Suspense>;
+  }
+  if (publicPath === '/phu-huynh-cu') {
+    return <Suspense fallback={<LoadingFallback fullPage />}><ParentVersionNavigation /><ParentPortalPage /></Suspense>;
   }
   return <AuthProvider><AuthGate /></AuthProvider>;
 }
