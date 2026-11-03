@@ -337,6 +337,8 @@ const vi: LocaleMessages = {
   'settings.theme.multicolorPalette.value': 'Màu {value}°',
   'settings.theme.multicolorPalette.reset': 'Mặc định',
   'settings.theme.developer': 'Tối giản',
+  'settings.chartMotion.off': 'Không hiệu ứng biểu đồ',
+  'settings.chartMotion.note': 'Tắt chuyển động trên biểu đồ. Lựa chọn được lưu trên trình duyệt; chủ đề Tối giản và chế độ giảm chuyển động của hệ điều hành luôn được ưu tiên.',
   'settings.theme.note': 'Chủ đề áp dụng ngay cho toàn bộ dashboard. "Theo hệ thống" tự đổi theo OS. "Đa sắc" dùng bảng màu tươi hơn. "Tối giản" dùng bố cục nghiêm túc, phẳng và tiết chế.',
   'settings.language.label': 'Ngôn ngữ',
   'settings.language.note': 'Ngôn ngữ được lưu cho trình duyệt này và áp dụng ngay cho các màn hình đã hỗ trợ dịch.',

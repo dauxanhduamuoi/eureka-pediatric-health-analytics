@@ -177,6 +177,13 @@ export default function Settings() {
           <p className="text-[11px] text-slate-400 mt-2">{t('settings.theme.note')}</p>
         </FieldGroup>
 
+        <ToggleRow
+          label={t('settings.chartMotion.off')}
+          description={t('settings.chartMotion.note')}
+          checked={!prefs.chartAnimations}
+          onChange={(value) => updatePref('chartAnimations', !value)}
+        />
+
         <FieldGroup label={t('settings.language.label')} icon={Languages}>
           <div className="flex flex-wrap gap-2">
             {languageOptions.map((option) => (

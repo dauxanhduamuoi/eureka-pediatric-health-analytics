@@ -4,7 +4,7 @@ import type { ParentWeatherController } from './useParentWeather';
 
 export function ParentResults({ state: s }: { state: ParentWeatherController }) {
   return <section id="ket-qua" className="modern-results" aria-label="Kết quả Weather AI" aria-busy={s.loading}>
-    <div className="modern-section-heading"><span className="modern-step">02</span><div><h2>{s.t('parent.results.title')}</h2><p>Nhóm bệnh được xếp hạng theo bối cảnh đã chọn.</p></div><span className="modern-model-label">Weather AI</span></div>
+    <div className="modern-section-heading"><div><h2>{s.t('parent.results.title')}</h2><p>Nhóm bệnh được xếp hạng theo bối cảnh đã chọn.</p></div><span className="modern-model-label">Weather AI</span></div>
     {!s.mainRisk ? <div className="modern-empty" role="status">
       {s.loading || s.initialLoading ? <Loader2 size={28} className="modern-spinner" aria-hidden /> : <ClipboardList size={32} strokeWidth={1.4} aria-hidden />}
       <h3>{s.loading || s.initialLoading ? s.t('parent.results.loading') : s.aiResult ? 'Chưa có nhóm bệnh để hiển thị' : s.t('parent.results.empty')}</h3>

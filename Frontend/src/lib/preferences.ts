@@ -9,6 +9,7 @@ import {
 export interface UserPreferences {
   theme: 'light' | 'dark' | 'system' | 'multicolor' | 'developer';
   multicolorHue: number;
+  chartAnimations: boolean;
   language: SupportedLanguage;
   notifyHighRisk: boolean;
   notifyImport: boolean;
@@ -20,6 +21,7 @@ const KEY = 'sd_preferences';
 export const defaultPreferences: UserPreferences = {
   theme: 'light',
   multicolorHue: 215,
+  chartAnimations: false,
   language: DEFAULT_LANGUAGE,
   notifyHighRisk: true,
   notifyImport: true,
@@ -44,7 +46,9 @@ export function loadPreferences(): UserPreferences {
       typeof parsed.multicolorHue === 'number' && Number.isFinite(parsed.multicolorHue)
         ? Math.max(0, Math.min(359, Math.round(parsed.multicolorHue)))
         : defaultPreferences.multicolorHue;
-    return { ...defaultPreferences, ...parsed, theme, multicolorHue, language };
+    const chartAnimations = typeof parsed.chartAnimations === 'boolean'
+      ? parsed.chartAnimations : defaultPreferences.chartAnimations;
+    return { ...defaultPreferences, ...parsed, theme, multicolorHue, language, chartAnimations };
   } catch {
     return { ...defaultPreferences };
   }
@@ -52,4 +56,5 @@ export function loadPreferences(): UserPreferences {
 
 export function savePreferences(prefs: UserPreferences) {
   localStorage.setItem(KEY, JSON.stringify(prefs));
+  window.dispatchEvent(new Event('sd-preferences-change'));
 }

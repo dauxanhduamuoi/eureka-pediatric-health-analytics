@@ -323,6 +323,8 @@ const en: LocaleMessages = {
   'settings.theme.multicolorPalette.value': 'Hue {value}°',
   'settings.theme.multicolorPalette.reset': 'Default',
   'settings.theme.developer': 'Minimal',
+  'settings.chartMotion.off': 'No chart animation',
+  'settings.chartMotion.note': 'Disable chart motion. This choice is saved in your browser; the Minimal theme and system reduced-motion setting always take priority.',
   'settings.theme.note': 'Theme is applied instantly to the whole dashboard. "System" follows the OS. "Multicolor" is brighter. "Minimal" is restrained, flat, and operations-focused.',
   'settings.language.label': 'Language',
   'settings.language.note': 'Language is saved for this browser and applied immediately to screens that support translation.',

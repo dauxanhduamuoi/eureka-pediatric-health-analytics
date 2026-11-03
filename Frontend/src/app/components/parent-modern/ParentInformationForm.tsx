@@ -7,7 +7,7 @@ import type { ParentWeatherController } from './useParentWeather';
 export function ParentInformationForm({ state: s }: { state: ParentWeatherController }) {
   const trigger = useRef<HTMLButtonElement>(null);
   return <section id="thong-tin" className="modern-input-panel" aria-label="Thông tin dự đoán">
-    <div className="modern-section-heading"><span className="modern-step">01</span><div><h2>Thông tin của trẻ</h2><p>Chọn thông tin phù hợp để xem kết quả.</p></div></div>
+    <div className="modern-section-heading"><div><h2>Thông tin của trẻ</h2><p>Chọn thông tin phù hợp để xem kết quả.</p></div></div>
     <form onSubmit={(e) => { e.preventDefault(); void s.run(); }}>
       <div className="modern-field-pair">
         <label><span>{s.t('parent.child.age')}</span><select aria-label={s.t('parent.child.age')} value={s.ageGroup} onChange={(e) => { s.clearResults(); s.setAgeGroup(e.target.value); }}>

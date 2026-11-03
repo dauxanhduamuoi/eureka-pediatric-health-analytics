@@ -1,8 +1,17 @@
 @import './fonts.css';
 @import './tailwind.css';
 @import './theme.css';
+
 /* Font trial only: remove this import to restore the previous typography. */
 @import './nunito.css';
+
+/* Recharts also animates tooltip positioning with CSS. Keep it in sync with
+   the persisted chart preference; data-series motion uses the shared hook. */
+html[data-chart-motion='off'] .eureka-admin .recharts-wrapper,
+html[data-chart-motion='off'] .eureka-admin .recharts-wrapper * {
+  animation: none !important;
+  transition: none !important;
+}
 
 /* =====================
  * Dark mode overrides

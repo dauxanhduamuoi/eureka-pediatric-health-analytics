@@ -51,4 +51,15 @@ export function applyTheme(theme: Theme, multicolorHue = defaultPreferences.mult
 export function initTheme() {
   const prefs = loadPreferences();
   applyTheme(prefs.theme, prefs.multicolorHue);
+  applyChartMotion();
+  window.addEventListener('sd-preferences-change', applyChartMotion);
+  window.addEventListener('storage', onChartMotionStorage);
+}
+
+function applyChartMotion() {
+  document.documentElement.dataset.chartMotion = loadPreferences().chartAnimations ? 'on' : 'off';
+}
+
+function onChartMotionStorage(event: StorageEvent) {
+  if (event.key === 'sd_preferences' || event.key === null) applyChartMotion();
 }
